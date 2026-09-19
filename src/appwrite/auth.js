@@ -71,6 +71,7 @@ async getCurrentUser(){
     }catch(err){
         console.error("getCurrentUser: ",err)
         // throw err
+        return null
     }
     
 }

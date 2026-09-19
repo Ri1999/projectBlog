@@ -34,7 +34,7 @@ export class storageService{
 
     async createPost({title, content, featuredImage,status,userId, slug}){
         try{
-            const blobPost = await this.databases.createDocument(
+            const blogPost = await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
 
@@ -51,8 +51,8 @@ export class storageService{
                 }
             )
 
-            if(blobPost){
-                return blobPost
+            if(blogPost){
+                return blogPost
             }
             return null
 
@@ -187,7 +187,6 @@ export class storageService{
             fileId,
         )
     }
-
 
 
 }
