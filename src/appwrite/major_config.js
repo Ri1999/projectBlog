@@ -2,6 +2,7 @@ import conf from "../conf/conf";
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
 // docs from database APi appwrite
+
 export class storageService{
 
     client = new Client()
@@ -16,12 +17,31 @@ export class storageService{
 
     }
 
-    async createPost({title, content, featuredImage,status,userId }){
+// for new codes like me : 
+// Purpose: Appwrite database --> Text/Metadata
+//          Appwrite bucket/file --> Images/Files
+
+// DATA FLOW :
+// 1. Media Upload: User select image -> uploadFile() -> Storage Bucket saves raw binary file -> Returns unique "fileId".
+// 2. Post Creation: UI passes post data + "fileId" (as featuredImage) -> createPost() -> Saves document in DB where "documentId" = "slug".
+// 3. Render/Display: UI fetches post -> calls getFilePreview(fileId) -> Appwrite constructs direct image URL -> Renders in <img /> tag.
+ 
+
+
+
+
+    // Database part : Post CRUD Operations
+
+    async createPost({title, content, featuredImage,status,userId, slug}){
         try{
             const blobPost = await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                ID.unique(), // treat documentId
+
+                // ID.unique(), // treat documentId
+                // dont gonna work with documentID
+// when user creates blog, url also generate example : myblog.com/post/react-js-guide. thats is slug if i use ID.unique() it generate random string(65f1a2b3...)
+                slug,
                 {
                     title,
                     content,
@@ -41,19 +61,20 @@ export class storageService{
         }
     }
 
-    async updatePost({title, content, featuredImage,status, }){
+    async updatePost( slug, {title, content, featuredImage,status, }){
         try{
             const updatePost = await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                ID.unique(),
+                // ID.unique(),
+// if i want to edit a post and create another quiqueID , it becomes one of major juju, so again pass slug                
+                slug,
                 {
                     title,
                     content,
                     featuredImage,
                     status,
                     
-
                 }
             )
             if(updatePost){
@@ -66,12 +87,14 @@ export class storageService{
         }
     }
 
-    async deletePost(){
+    async deletePost(slug){
         try{
             const deletePost = await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                ID.unique(),
+                // ID.unique() -- > same reason,
+                slug,
+
             )
             if(deletePost){
                 return true
@@ -83,12 +106,13 @@ export class storageService{
         }
     }
 
-    async getPost(){
+    async getPost(slug){
         try{
             const getPost = await this.databases.getDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                ID.unique()
+                // ID.unique() -- >same bug, same reason, same fix
+                slug,
             )
             if(getPost){
                 return getPost
@@ -119,7 +143,7 @@ export class storageService{
         }
     }
 
-    // file uploading services
+    // File Storage (Bucket) part: 
 
     async uploadFile(file){
         try{
@@ -134,6 +158,8 @@ export class storageService{
             console.error("createFile: ", err)
         }
     }
+
+    
     async deleteFile(fileID){
 
         try{
@@ -150,6 +176,16 @@ export class storageService{
             console.error("deleteFile: ", err)
         }
 
+    }
+    // file prefiew service need it because UI render that blog image, remember no async or await cause in getFilePreview method
+    // appwite give a fileId in response of uploadFile method
+
+
+    getFilePreview(fileId) {
+        return this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId,
+        )
     }
 
 
