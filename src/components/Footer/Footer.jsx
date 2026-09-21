@@ -3,15 +3,16 @@
 // import { Link } from 'react-router-dom'
 // import Logo from '../Logo'
 import "./footer.css"
+// import logoimage from "../../images/lavnatalia.png"
 
 function Footer() {
 
-  const color ={
+  // const color ={
 
-    background:" #e63947e0",
-    fontcolor:"#F8F9FA",
+  //   background:" #e63947e0",
+  //   fontcolor:"#F8F9FA",
 
-  }
+  // }
 
 
   return (
@@ -20,7 +21,7 @@ function Footer() {
       <div className="footer-container">
 
         <div className="brand-logo">
-          <h2 >DevUI</h2>
+          <h2 >[Blog site name]</h2>
           <p>Header section text / Short description goes here.</p>
         </div>
 

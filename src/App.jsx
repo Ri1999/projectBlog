@@ -9,6 +9,7 @@ import {useDispatch} from 'react-redux'
 import blogauthservice from './appwrite/auth'
 import { login, logout } from './store/authSlice';
 import { Header, Footer } from './components';
+import { Outlet } from 'react-router-dom';
 
 function App() {
 
@@ -61,7 +62,9 @@ function App() {
   return !loading ? (
     <>
     <div className='app_container flexy' >
+
       <Header/>
+      <Outlet/>
       <Footer/>
     </div>
     
