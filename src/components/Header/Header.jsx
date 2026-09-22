@@ -51,7 +51,7 @@ const Header = () => {
 
           <div className="logo-pic">
             <img width={90} src={logoimage} alt="" />
-            <h2 >Blog</h2>
+            <h2 className="brand-title" >Charukavya</h2>
           </div>
 
           <ul className="nav-list ">
