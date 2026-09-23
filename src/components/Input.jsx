@@ -49,7 +49,7 @@ const Input = React.forwardRef(
         return (
             <div>
 
-            {/* if label passed then render  */}
+            {/* if label passed then render label and input */}
 
             {label &&  <label htmlFor={id}>{label}</label> }
             <input type={type} className={className}  ref={ref}

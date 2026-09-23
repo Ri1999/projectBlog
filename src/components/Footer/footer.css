@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 ul{
     list-style: none;
 }
 .company-links a, .support-links a, .legal-links a{
     color: whitesmoke;
     text-decoration: none;
+}
+.company-links, .support-links, .legal-links {
+
+    /* font-family: 'Merriweather', sans-serif; */
+    font-family: "Sansation", sans-serif;
 }
 a:hover {
     color: #A3B18A;
@@ -25,13 +31,7 @@ a:hover {
     
 }
 .footer-bottom{
-    /* background-color: #FDFBF7;
-    text-align: right;
-    color: #1C3123; */
-    /* max-width: 1100px; */
-  /* margin: 30px auto 0; */
-  /* padding-top: 20px; */
-  /* border-top: 1px dashed rgba(28, 49, 35, 0.15); */
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,7 +62,7 @@ a:hover {
 }
 @media screen and (max-width: 768px){
     .footer-container{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 3fr 1fr ;
     }
     .footer-bottom {
     flex-direction: column;

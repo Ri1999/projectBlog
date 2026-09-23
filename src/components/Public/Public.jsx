@@ -44,26 +44,26 @@ const Public = () => {
 
         <div className="grid-card">
           <div className="card-icon"><PenTool className="card-icon" size={32} /></div>
-          <h3>Write Freely</h3>
-          <p>Express yourself, tech logs, or personal experiences on AD-free environment.</p>
+          <h3>Your Quiet Canvas</h3>
+          <p>Write without noise. A quiet Ad-free canvas designed for your deepest thoughts, personal essays, and poetry.</p>
         </div>
 
         <div className="grid-card">
 
           <div className="card-icon"><BookOpen color="Maroon" className="card-icon" size={32} /></div>
-          <h3>Built-in Resonance</h3>
-          <p>An inclusive feed that champions new writers. Get discovered, and build your audience organically.</p>
+          <h3>Kindred Voices</h3>
+          <p>A thoughtful feed built to champion hidden voices. Share your art, reach kindred minds, and grow your reader circle naturally.</p>
         </div>
 
         <div className="grid-card">
           <div className="card-icon"><Sparkles color="DarkGoldenRod" className="card-icon" size={32} /></div>
-          <h3>Beautiful Story Formatting</h3>
-          <p>Frame your words with cover art, rich formatting, and a seamless mode crafted for late-night readers.</p>
+          <h3>Artisan Typography</h3>
+          <p>Frame your prose with vintage cover artwork, rich typography, and a warm midnight theme crafted for late-night readers.</p>
         </div>
 
         <div className="grid-card">
           <div className="card-icon"><Trophy color="Silver" className="card-icon" size={32} /></div>
-          <h3>Write. Compete. Get Featured.</h3>
+          <h3>The Inkwell Gatherings</h3>
           <p>Participate in our weekly community-judged writing challenges. Craft your best story and claim your spot in the <b>The Inkwell</b>.</p>
         </div>
 

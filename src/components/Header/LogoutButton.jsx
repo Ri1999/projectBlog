@@ -10,19 +10,21 @@ const LogoutButton = () => {
 
     const logoutButtonStyle ={
 //   background: "transparent",
-  backgroundColor: "white",
-  color:isHovered?"green": "black", 
+  backgroundColor: "black",
+  color: "white", 
   fontSize: "1.2rem",
-  fontWeight: 500,
+  fontWeight: 600,
   cursor: "pointer",
   // transition: "color 0.2s ease",
-  padding: "4px 14px",
-  fontFamily: "Fondamento, cursive",
-  borderRadius: "18px",
-  border: "2px solid #1C3123",
-  borderColor:isHovered? "green":"",
+  padding:"4px 14px",
+
+  // fontFamily: "Fondamento, cursive",
+  fontFamily: "Sansation, sans-serif",
+  borderRadius: "18px" ,
+  border: "1px solid #1C3123",
+  // borderColor:isHovered? "gold":"black",
   // transform: isHovered ?"translateY(-2px)":"none",
-  transition: isHovered? "transform 0.2s ease":"none",
+  transition: isHovered? "transform 1s ease":"none",
     }
 
     const dispatch = useDispatch()
