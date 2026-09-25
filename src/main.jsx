@@ -7,6 +7,7 @@ import {Provider} from 'react-redux'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 import Home from './components/Home/Home.jsx'
+import PostCard from './components/PostCard.jsx'
 
 const route = createBrowserRouter([
   {
@@ -17,6 +18,13 @@ const route = createBrowserRouter([
         path:"/",
         element: <Home/>,
       },
+
+      // testing for css POstCard.jsx
+      {
+        path:"/postcard",
+        element:<PostCard/>
+      },
+
       {
         path:"/login",
         element: <div>Login Screen</div>,

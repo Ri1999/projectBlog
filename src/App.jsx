@@ -61,10 +61,14 @@ function App() {
 
   return !loading ? (
     <>
-    <div className='app_container flexy' >
+    <div className='app_container' >
 
       <Header/>
-      <Outlet/>
+
+      <main className="main-content" >
+        <Outlet/>
+      </main>
+      
       <Footer/>
     </div>
     

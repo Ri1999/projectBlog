@@ -22,6 +22,18 @@ const Header = () => {
       slug: "/",       // this slug name meant to be same as router in main.jsx
       active: true,
     },
+
+    // testing to write css for Postcard.jsx
+
+    {
+      name:"PostCard",
+      slug:"/postcard",
+      active: !authStatus,
+    },
+
+
+
+
     {
       name: "Login",
       slug: "/login", // this slug name meant to be same as router in main.jsx
