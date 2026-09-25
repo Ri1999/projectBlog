@@ -1,0 +1,123 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 520px;
+    justify-content: center;
+    margin: auto;
+    height: auto;
+    gap: 30px;
+    margin-top: 20px;
+    padding: 32px 24px;
+    background-color: #f5f4f3;
+    
+    border: 1px solid rgb(228, 210, 112);
+    
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(22, 60, 35, 0.06);
+    gap: 20px;
+}
+.login-container h2{
+    text-align: center;
+    font-family: 'Fondamento', cursive;
+    font-size: 1.8rem;
+    color: #1C3123;
+    margin: 0;
+
+}
+.error-text {
+    color: #C84B31;
+    background-color: #FDF2F0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-align: center;
+    border: 1px solid #F8D7DA;
+    margin: 0;
+}
+.login-content{
+    gap: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.login-container p, .login-container{
+    text-align: center;
+}
+input {
+   /* font-family: 'Sansation', sans-serif;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.8rem;
+    border-radius: 8px; */
+    /* border: 2px solid green; */
+    /* color: #1C3123; */
+    /* background-color: #FFFFFF;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease; */
+
+    font-family: 'Sansation', sans-serif;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    border: 2px solid rgba(28, 49, 35, 0.25);
+    background-color: #FFFFFF;
+    color: #1C3123;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+input:focus {
+    border-color: #1C3123;
+    box-shadow: 0 0 0 2px rgba(28, 49, 35, 0.1);
+}
+.login-content button {
+    width: 100%;
+    padding: 14px;
+    font-family: 'Sansation', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 8px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #283618;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    
+}
+.login-content button:hover {
+    background-color: black;
+    
+}
+.login-content button:disabled {
+    background-color: #a4ac86;
+    cursor: not-allowed;
+}
+.signup-link-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #2A3C30;
+    margin: 0;
+    font-family: 'Sansation', sans-serif;
+}
+.signup-link-text a {
+    color: #283618;
+    font-weight: 700;
+    text-decoration: underline;
+}
+.reset-password-text{
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(1, 69, 1);
+    margin: 0;
+    font-family: 'Sansation', sans-serif;
+}
+.reset-password-text:hover{
+    color: black;
+    text-decoration: underline;
+}

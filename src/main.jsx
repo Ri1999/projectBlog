@@ -8,6 +8,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 import Home from './components/Home/Home.jsx'
 import PostCard from './components/PostCard.jsx'
+import Login from './components/Login/Login.jsx'
 
 const route = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const route = createBrowserRouter([
 
       {
         path:"/login",
-        element: <div>Login Screen</div>,
+        element: <Login/>,
 
       },
       {

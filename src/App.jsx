@@ -36,6 +36,7 @@ function App() {
         console.log("test : ", userData)
         if(userData){
           dispatch(login({userData})) // 
+          
           // Send object with 'userData' key to match authSlice pattern
 
         }else{
