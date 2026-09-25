@@ -20,10 +20,12 @@ const route = createBrowserRouter([
       },
 
       // testing for css POstCard.jsx
-      {
-        path:"/postcard",
-        element:<PostCard/>
-      },
+      // {
+      //   path:"/postcard",
+      //   element:<PostCard/>
+      // },
+
+
 
       {
         path:"/login",

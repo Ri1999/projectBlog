@@ -25,13 +25,13 @@ const Header = () => {
 
     // testing to write css for Postcard.jsx
 
-    {
-      name:"PostCard",
-      slug:"/postcard",
-      active: !authStatus,
-    },
-
-
+    // {
+    //   name:"PostCard",
+    //   slug:"/postcard",
+    //   active: !authStatus,
+    // }
+    
+  
 
 
     {

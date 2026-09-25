@@ -3,6 +3,9 @@ import "./home.css"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import Public from "../Public/Public"
+
+
+
 const Home = () => {
 
     const authStatus = useSelector((state)=> state.auth.status)

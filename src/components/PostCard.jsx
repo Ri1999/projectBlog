@@ -20,15 +20,18 @@ const PostCard = ({
             <div className="postcard-content">
 
                 {/* testing purpose off */}
-                {/* <img src={storageService.getFilePreview(featuredImage)} alt={title} /> */}
-                <img src="https://images.pexels.com/photos/39417700/pexels-photo-39417700.jpeg" alt="" />
+
+                <img src={storageService.getFilePreview(featuredImage)} alt={title} />
+
+                {/* <img src="https://images.pexels.com/photos/39417700/pexels-photo-39417700.jpeg" alt="" /> */}
 
 
             </div>
             {/* testing purpose off */}
 
-            {/* <h2>{title}</h2> */}
-            <h2>Title</h2>
+            <h2>{title}</h2>
+
+            {/* <h2>Title</h2> */}
 
         </div>
 
