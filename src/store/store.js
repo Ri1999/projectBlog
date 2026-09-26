@@ -6,6 +6,7 @@ import authReducer from "./authSlice";
 // when export default , you choose whatever name you want too, but import location must be correct, so authSlice === authReducer
 
 const store = configureStore({
+    
     reducer: {
         auth: authReducer,
     }

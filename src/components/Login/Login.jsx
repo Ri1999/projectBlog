@@ -7,6 +7,8 @@ import blogauthservice from "../../appwrite/auth"
 import Input from "../Input"
 import { useForm} from "react-hook-form"
 import { useState } from "react"
+import { MdRemoveRedEye } from "react-icons/md";
+import { IoEyeOffSharp } from "react-icons/io5";
 
 const Login = () => {
 
@@ -17,9 +19,14 @@ const Login = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {register, handleSubmit} = useForm()
+
+    const {register, handleSubmit, formState: { errors }} = useForm()
+
     const [error, setError] = useState("") // why set empty string i dont know, but i used to set it as boolean : false
     const [loading, setLoading] = useState(false)
+
+    const [showPassword, setShowPassword] = useState(false)
+
 
     const loginHandle = async (data)=>{
         setError("")
@@ -52,26 +59,40 @@ const Login = () => {
     <div className= "login-container" >
         <h2>Welcome</h2>
         {error && <p className="error-text" >{error}</p> }
-        <form className="login-content" >
+        <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 
             <Input type="email"
             placeholder="Enter your email"
-            {...register("email",{required: true})}
+            error={errors.email?.message}
+            {...register("email",{required: "Email is required"})}
             
             />
 
-            <Input type="password"
+            <div style={{ position: "relative" }} >
+            <Input type={showPassword? "text":"password"}
             placeholder="Enter your password"
-            {...register("password", {required: true})}
+            error={errors.password?.message}
+            {...register("password", {required: "Password is required"})}
     
             />
+
+            <button
+            style={{position: "absolute", right:"14px", top:"-6px", cursor:"pointer", width:"1px", backgroundColor:"white",height:"1px" }}
+            onClick={()=> setShowPassword((prev)=> !prev)}
+            type="button">{showPassword ? < MdRemoveRedEye color="red" /> : <IoEyeOffSharp color="green" /> }</button>
+            
+            </div>
+
+
+
+
 
             <button type="submit"
             disabled={loading}>{loading? "Logging In...":"Login"}</button>
             
         </form>
-        <p className="signup-link-text" > Don't have an account? <Link to="/signup">Login</Link></p>
-        <Link className="reset-password-text" >Reset Password</Link>
+        <p className="signup-link-text" > Don't have an account? <Link to="/signup">Signup</Link></p>
+        <Link to="/forget-password" className="reset-password-text" >Forget Password?</Link>
 
     </div>
   )

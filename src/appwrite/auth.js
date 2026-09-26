@@ -87,13 +87,14 @@ async logout(){
 async passwordRecovery({email,url}){
     try{
         const recovery = await this.account.createRecovery(email,url)
-        if(recovery){
-            return this.confirmRecovery({email})
-        }
-        return null
+        // if(recovery){
+        //     return this.confirmRecovery({email})
+        // }
+        // return null
+        return recovery;
         
     }catch(err){
-        console.error("passwordRecovery: ",err)
+        console.error("passwordRecovery Error: ",err)
     }
     
 }
