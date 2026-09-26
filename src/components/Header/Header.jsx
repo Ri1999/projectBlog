@@ -25,11 +25,11 @@ const Header = () => {
 
     // testing to write css for Postcard.jsx
 
-    {
-      name:"test",
-      slug:"/reset-password",
-      active: !authStatus,
-    },
+    // {
+    //   name:"test",
+    //   slug:"/reset-password",
+    //   active: !authStatus,
+    // },
     
   
 
