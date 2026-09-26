@@ -59,6 +59,32 @@ async login({email, password}){
     }
 }
 
+// Oauth login read from appwrite docs
+
+async loginWithOAuth(provider="google"){
+    try{
+        // no await 
+        return this.account.createOAuth2Session(provider,
+            `${window.location.origin}/`, // successful url
+            `${window.location.origin}/login` // failed url
+        )
+    }catch(err){
+        console.error("loginWithOAuth Error: ", err)
+        throw err
+    }
+}
+
+// Send Email Verification
+
+async sendEmailVerification(url){
+    try{
+        return await this.account.createVerification(url);
+    }catch(err){
+        console.error("sendEmailVerification error: ", err);
+        throw err;
+    }
+}
+
 async getCurrentUser(){
     try{
 
