@@ -9,6 +9,7 @@ import blogauthservice from "../../appwrite/auth"
 import {toast} from "react-toastify"
 import "./forgetpassword.css"
 
+
 const ForgotPassword = () => {
 
     // check state
@@ -43,11 +44,12 @@ const ForgotPassword = () => {
   return (
 
     <div className="forgetpass-container" >
-        <h2>Forget Pawword</h2>
+        <h2>Get Help Log In</h2>
         <form onSubmit={handleSubmit(handleForgetPassword)} className="forgetpass-content" >
             <Input
             type="email"
             placeholder="Enter registered email"
+            className="error-text"
             error= {errors.email?.message}
             {...register("email", {required: "Email is required"})}
             

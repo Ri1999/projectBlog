@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 // import { logout } from "../../store/authSlice"
 import "./header.css"
 import logoimage from "../../images/lavnatalia.png"
+// import { useState } from "react"
 
 
 const Header = () => {
@@ -25,11 +26,11 @@ const Header = () => {
 
     // testing to write css for Postcard.jsx
 
-    // {
-    //   name:"test",
-    //   slug:"/reset-password",
-    //   active: !authStatus,
-    // },
+    {
+      name:"test",
+      slug:"/reset-password",
+      active: !authStatus,
+    },
     
   
 
@@ -56,6 +57,8 @@ const Header = () => {
     }
   ]
 
+  
+
   return (
     <header className="header" >
       <Container>
@@ -70,7 +73,12 @@ const Header = () => {
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
-                  <button className="nav-button" onClick={() => navigate(item.slug)}>
+
+                  {/* () => navigate(item.slug) */}
+                  <button className="nav-button" onClick={()=>{
+                    navigate(item.slug);
+                    
+                  }}  >
                     {item.name}
                   </button>
                 </li>

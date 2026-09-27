@@ -19,14 +19,17 @@
     margin-bottom: 20px;
 }
 .login-container h2{
-    text-align: center;
-    font-family: 'Fondamento', cursive;
+    text-align: left;
+    /* font-family: 'Fondamento', cursive; */
+    font-family: 'Sansation', sans-serif;
     font-size: 1.8rem;
     color: #1C3123;
     margin: 0;
+    /* align-self: center; */
 
 }
 /* .error-text { */
+
     /* color: #C84B31;
     background-color: #FDF2F0;
     padding: 8px 12px;
@@ -35,7 +38,13 @@
     text-align: center;
     border: 1px solid #F8D7DA;
     margin: 0; */
+    
 /* } */
+.error-text{
+    font-family: 'Sansation', sans-serif;
+    color: red;
+    text-align: center;
+}
 
 .login-content{
     gap: 10px;

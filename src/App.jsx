@@ -33,7 +33,7 @@ function App() {
 
         const userData = await blogauthservice.getCurrentUser()
 
-        console.log("test : ", userData)
+        // console.log("test : ", userData)
         if(userData){
           dispatch(login({userData})) // 
           

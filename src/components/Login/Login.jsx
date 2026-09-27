@@ -11,6 +11,10 @@ import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaApple } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
+// import { FcReadingEbook } from "react-icons/fc";
+import { FcReading } from "react-icons/fc";
+import {toast} from "react-toastify"
 
 const Login = () => {
 
@@ -24,14 +28,17 @@ const Login = () => {
 
     const {register, handleSubmit, formState: { errors }} = useForm()
 
-    const [error, setError] = useState("") // why set empty string i dont know, but i used to set it as boolean : false
+    // const [error, setError] = useState("") // why set empty string i dont know, 
+    // but i used to set it as boolean : false
     const [loading, setLoading] = useState(false)
 
     const [showPassword, setShowPassword] = useState(false)
 
+    // const [isHovered, setIsHovered] = useState(false)
+
 
     const loginHandle = async (data)=>{
-        setError("")
+        // setError("")
         setLoading(true)
         try{
             const session = await blogauthservice.login(data)
@@ -50,20 +57,22 @@ const Login = () => {
             }
 
         }catch(err){
-            setError(err.message || "Failed to login. Check credentials.")
+            // setError(err.message || "Failed to login. Check credentials.")
+            toast.error(err.message || "Failed to login. Check credentials.")
         }finally{
             setLoading(false)
         }
     }
 
     const handleAuthLogin = async(provider)=>{
-        setError("")
+        // setError("")
         setLoading(true)
         try{
             await blogauthservice.loginWithOAuth(provider)
             
         }catch(err){
-            setError(err.message || `${provider} login failed` )
+            // setError(err.message || `${provider} login failed` )
+            toast.error(err.message || `${provider} login failed`)
         }finally{
             setLoading(false)
         }
@@ -72,8 +81,8 @@ const Login = () => {
 
   return (
     <div className= "login-container" >
-        <h2>Welcome</h2>
-        {error && <p className="error-text" >{error}</p> }
+        <h2><FcReading size={50} />Welcome</h2>
+        {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 
             <Input type="email"
@@ -92,10 +101,12 @@ const Login = () => {
             />
 
             <button
-            style={{position: "absolute", top:"15%", cursor:"pointer", backgroundColor:"transparent",height:"1px",border:"none", borderRadius:"50px",
-                transform:"traslateY(-50%)",
+            style={{position: "absolute", top:"35%", cursor:"pointer", backgroundColor:"transparent",height:"1px",border:"none", borderRadius:"50px",
+                transform:"translateY(-50%)",
                 display: "flex", alignItems: "center",
                 justifyContent:"flex-end",
+                width:"auto",
+                right:"5px",
              }}
             onClick={()=> setShowPassword((prev)=> !prev)}
             type="button">{showPassword ? < MdRemoveRedEye color="red" /> : <IoEyeOffSharp color="green" /> }</button>
@@ -114,7 +125,7 @@ const Login = () => {
                 {/* google */}
             <button disabled={loading} onClick={function(){
                 handleAuthLogin("google")
-            }} style={{backgroundColor:"transparent", border:"2px solid #9fd5bb", padding:"4px"  }} type="button"><FcGoogle size={35} /></button>
+            }} style={{backgroundColor:"transparent", border:"2px solid grey", padding:"4px"  }} type="button"><FcGoogle size={35} /></button>
 
             {/* github */}
             <button 
@@ -122,7 +133,7 @@ const Login = () => {
         onClick={function(){
             handleAuthLogin("github")
         }}
-        style={{ background: "transparent", border: "2px solid #a1adb8", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
+        style={{ background: "transparent", border: "2px solid grey", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
     >
         <FaGithub size={32} color="#24292E" />
     </button>
@@ -133,10 +144,24 @@ const Login = () => {
         onClick={function(){
             handleAuthLogin("apple")
         }}
-        style={{ background: "transparent", border: "2px solid #a6a6a6", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
+        style={{ background: "transparent", border: "2px solid grey", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
     >
         <FaApple size={35} color="#000" />
     </button>
+
+    {/* linkedin */}
+
+    <button 
+        type="button" 
+        onClick={function(){
+            handleAuthLogin("linkedin")
+        }}
+        style={{ background: "transparent", border: "2px solid grey", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
+    >
+        <FaLinkedin color="#1040aff7" size={35} />
+    </button>
+
+
 
 
 

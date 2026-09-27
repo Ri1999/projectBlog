@@ -12,6 +12,7 @@ import { useState } from "react"
 import "./resetpassword.css"
 import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOffSharp } from "react-icons/io5";
+import { FcExpired } from "react-icons/fc";
 
 const ResetPassword = () => {
      // check state
@@ -21,6 +22,7 @@ const ResetPassword = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    
     // how to use searchparams? --> it uses to read valuse from browser URL
     // since appwrite send reset email link as http://localhost:5173/reset-password?userId=65a123&secret=abc987
 
@@ -36,15 +38,17 @@ const ResetPassword = () => {
         return <div style={{
             display:"flex",
             justifyContent:"center",
+            flexDirection:"column",
+            gap:"10px",
             width:"100%",
             minWidth:"520px",
             height:"400px",
             alignItems:"center",
             fontSize:"1.2rem",
             fontFamily: "Sansation, sans-serif",
-            color:"#8b1010",
+            color:"#f10f0f",
 
-        }} >Invalid or expired password reset link.</div>
+        }} >Invalid or expired password reset link <FcExpired size={50} /> </div>
     }
 
 
@@ -52,7 +56,7 @@ const ResetPassword = () => {
         setLoading(true)
         try{
             await blogauthservice.confirmRecovery(userId, secret, data.password, data.confirmPassword)
-            toast.success("Password updated! Please login.")
+            toast.success("Password updated! Sending you to login...")
             navigate('/login');
         }catch(err){
             toast.error(err.message || "Failed to reset password")
@@ -66,7 +70,7 @@ const ResetPassword = () => {
 
   return (
     <div className="resetpassword-container" >
-        <h2>Reset Password</h2>
+        <h2>Reset Your Password</h2>
         <form onSubmit={handleSubmit(handleResetPassword)} className="resetpassword-content">
 
             <div style={{ position: "relative" }} >
@@ -103,7 +107,7 @@ const ResetPassword = () => {
             error={errors.confirmPassword?.message}
             {...register("confirmPassword",{
                 required: "Please confirm your password",
-                validate: (value)=> value=== getValues("password") || "Passwords do not match!"
+                validate: (value)=> value === getValues("password") || "Passwords do not match!"
             })}
 
             />
