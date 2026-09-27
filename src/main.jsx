@@ -13,7 +13,9 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResetPassword from './components/ResetPassword/ResetPassword.jsx'
-
+import AboutUs from './components/Footer/Info/AboutUs.jsx'
+import ContactUs from './components/Footer/Info/ContactUs.jsx'
+import Faqs from './components/Footer/Info/Faqs.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -30,6 +32,21 @@ const route = createBrowserRouter([
       //   element:<PostCard/>
       // },
 
+      // --- footer items starts ---
+      {
+        path:"/about-us",
+        element:<AboutUs/>
+
+      },
+      {
+        path:"/contact-us",
+        element:<ContactUs/>
+      },
+      {
+        path:"/faqs",
+        element: <Faqs/>
+      },
+      // --- footer items ends ---
       {
         path:"/login",
         element: <Login/>,

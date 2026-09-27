@@ -1,6 +1,6 @@
 // import React from 'react'
 
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import Logo from '../Logo'
 import "./footer.css"
 // import logoimage from "../../images/lavnatalia.png"
@@ -31,8 +31,8 @@ function Footer() {
 
           <h3 >Company</h3>
           <ul className="company-links" >
-            <li><a href="">Stories</a></li>
-            <li><a href="">About Us</a></li>
+            <li><Link to="/stories">Stories</Link></li>
+            <li><Link to="/about-us">About Us</Link></li>
 
             {/* <li><a href="">Affiliate Program</a></li>
             <li><a href="">Press Kit</a></li> */}
@@ -46,9 +46,9 @@ function Footer() {
           <h3 >Support</h3>
           <ul className="support-links" >
             {/* <li><a href="">Account</a></li> */}
-            <li><a href="">Contact Us</a></li>
-            <li><a href="">Share Feedback</a></li>
-            <li><a href="">FAQs</a></li>
+            <li><Link to="/contact-us">Contact Us</Link></li>
+            <li><Link to="/feedback">Share Feedback</Link></li>
+            <li><Link to="/faqs">FAQs</Link></li>
           </ul>
           
         </div>
@@ -57,8 +57,8 @@ function Footer() {
 
           <h3 >Legals</h3>
           <ul className="legal-links" >
-            <li><a href="">Terms & Conditions</a></li>
-            <li><a href="">Privacy Policy</a></li>
+            <li><Link to="/terms">Terms & Conditions</Link></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
 
             {/* <li><a href="">Licensing</a></li> */}
 
