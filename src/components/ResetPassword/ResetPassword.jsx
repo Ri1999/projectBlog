@@ -48,7 +48,7 @@ const ResetPassword = () => {
             fontFamily: "Sansation, sans-serif",
             color:"#f10f0f",
 
-        }} >Invalid or expired password reset link <FcExpired size={50} /> </div>
+        }} >Password reset links don't last forever. This one is either expired or has already been used. Head back and request a fresh link. <FcExpired size={50} /> </div>
     }
 
 
@@ -59,7 +59,7 @@ const ResetPassword = () => {
             toast.success("Password updated! Sending you to login...")
             navigate('/login');
         }catch(err){
-            toast.error(err.message || "Failed to reset password")
+            toast.error(err.message || "Failed to set password")
         }finally{
             setLoading(false)
         }
@@ -70,13 +70,14 @@ const ResetPassword = () => {
 
   return (
     <div className="resetpassword-container" >
-        <h2>Reset Your Password</h2>
+        <h2>Forge a new Password</h2>
+        <p>Make it strong, make it memorable, and keep it safe this time.</p>
         <form onSubmit={handleSubmit(handleResetPassword)} className="resetpassword-content">
 
             <div style={{ position: "relative" }} >
             <Input
             type={showPassword ? "text" : "password"}
-            placeholder="Enter new password"
+            placeholder="New Password"
             error={errors.password?.message}
             {...register("password", {required: "New password is required",
                 minLength:{
@@ -85,7 +86,7 @@ const ResetPassword = () => {
                 },
                 pattern:{
                     value:passwordRegex,
-                    message:"Password must contain at least 8 characters, 1 uppercase letter, 1 number, and 1 special character (@$!%*?&)"
+                    message:" Give us a masterpiece: at least 8 characters, 1 uppercase letter, 1 number, and 1 special character (@$!%*?&)"
                 }
 
             })}/>
@@ -103,11 +104,11 @@ const ResetPassword = () => {
             <div style={{ position: "relative" }} >
             <Input
             type={showPassword ? "text" : "password"}
-            placeholder="Confirm new password"
+            placeholder="Repeat it once more"
             error={errors.confirmPassword?.message}
             {...register("confirmPassword",{
                 required: "Please confirm your password",
-                validate: (value)=> value === getValues("password") || "Passwords do not match!"
+                validate: (value)=> value === getValues("password") || "Nice try, but those two passwords don't match!"
             })}
 
             />

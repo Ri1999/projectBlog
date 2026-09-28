@@ -8,6 +8,7 @@ const SelectComponent = ({
 
     options,
     label,
+    error,
     className="",
     ...otherAttr
 
@@ -17,6 +18,8 @@ const SelectComponent = ({
 
   return (
     <div className="outer-container" >
+        
+
         {label &&  
         <label htmlFor={id} className="label-style" ></label> }
         <select className={` select-style  ${className}`} ref={ref} {...otherAttr} id={id} >
@@ -28,6 +31,7 @@ const SelectComponent = ({
                     {option_data}
                 </option>
             ))}
+            {error && <p className="error-text" style={{ color: 'red', fontSize: '18px', marginTop: '4px' }}>{error}</p>}
             
 
         </select>

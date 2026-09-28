@@ -17,22 +17,22 @@ const ContactUs = () => {
 
     const copyToClip = ()=>{
         navigator.clipboard.writeText(adminEmail)
-        toast.success("Email copied to clipboard")
+        toast.success("Email copied to clipboard ")
     }
 
     
 
   return (
     <div className="container" >
-        <h1>Get in Touch</h1>
+        <h1>Don't be a Ghost Reader </h1>
         <div className="content">
-            <p>Have questions, business inquiries, or need assistance? Reach out to us directly via email.</p>
-            <p>{adminEmail}<button onClick={copyToClip} 
+            <p>Have questions, business inquiries, or need assistance? Reach out to us directly via email just click to copy below.</p>
+            <button onClick={copyToClip} 
 
-            style={{backgroundColor:"transparent", border:"none"}}
+            style={{backgroundColor:"transparent", border:"none", width:"100%", height:"6px"}}
             
             
-            type="button"><FaCopy color="green" size={25} /></button> </p>
+            type="button"><FaCopy color="green" size={25} /></button>
         </div>
     </div>
   )

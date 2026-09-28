@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { IoChevronDownSharp } from "react-icons/io5";
 import "./info.css"
+import { FcFaq } from "react-icons/fc";
 const Faqs = () => {
 
     const [openIndex, setOpenIndex] = useState(null);
@@ -22,7 +23,7 @@ const Faqs = () => {
         },
         {
             question:"How do micro-donations work? Can I tip my favorite writer?",
-            answer:"If you love a creator's work, you can directly tip them between ₹20 and ₹200 using our integrated UPI gateway. 100% of the tip goes directly to the creator's linked account."
+            answer:"If you love a creator's work, you can directly tip them from ₹20 to ₹max using our integrated UPI gateway. 100% of the tip goes directly to the creator's linked account."
         },
         {
             question:"How does Charukavya ensure the stories on the platform maintain high quality?",
@@ -44,19 +45,20 @@ const Faqs = () => {
 
     ]
 
-    const togglefaq =(numberOfFaq)=>{
-
-        // logic:
+    // logic:
         
         // at first all facq is closed right? so null
         // and user click same index which is open so it default to null otherwise different index got shown
-        setOpenIndex( openIndex=== numberOfFaq? null: numberOfFaq )
+
+    const togglefaq =(number)=>{
+
+        setOpenIndex( openIndex === number? null: number )
     }
 
 
   return (
     <div className="container" >
-        <h1>Frequently Asked Questions</h1>
+        <h1>You ask, We answer<FcFaq size={50} /></h1>
         <div className="content">
             {faqList.map((faq, index)=> {
 

@@ -81,7 +81,7 @@ const Login = () => {
 
   return (
     <div className= "login-container" >
-        <h2><FcReading size={50} />Welcome</h2>
+        <h2><FcReading size={50} /></h2>
         {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 
@@ -120,7 +120,7 @@ const Login = () => {
             <button type="submit"
             disabled={loading}>{loading? "Logging In...":"Login"}</button>
 
-            <p>OR</p>
+            <p>Or choose alternative paths</p>
             <div className="oauth-content" >
                 {/* google */}
             <button disabled={loading} onClick={function(){

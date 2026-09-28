@@ -29,9 +29,9 @@ function Footer() {
 
         <div className="company">
 
-          <h3 >Company</h3>
+          <h3 >The Studio</h3>
           <ul className="company-links" >
-            <li><Link to="/stories">Stories</Link></li>
+            <li><Link to="/inkwall">The Inkwell</Link></li>
             <li><Link to="/about-us">About Us</Link></li>
 
             {/* <li><a href="">Affiliate Program</a></li>
@@ -43,7 +43,7 @@ function Footer() {
 
         <div className="support">
 
-          <h3 >Support</h3>
+          <h3 >Assistance</h3>
           <ul className="support-links" >
             {/* <li><a href="">Account</a></li> */}
             <li><Link to="/contact-us">Contact Us</Link></li>
@@ -55,7 +55,7 @@ function Footer() {
 
         <div className="legals">
 
-          <h3 >Legals</h3>
+          <h3 >Governance</h3>
           <ul className="legal-links" >
             <li><Link to="/terms">Terms & Conditions</Link></li>
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>

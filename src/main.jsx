@@ -16,6 +16,9 @@ import ResetPassword from './components/ResetPassword/ResetPassword.jsx'
 import AboutUs from './components/Footer/Info/AboutUs.jsx'
 import ContactUs from './components/Footer/Info/ContactUs.jsx'
 import Faqs from './components/Footer/Info/Faqs.jsx'
+import ShareFeedback from './components/Footer/Info/ShareFeedback.jsx'
+import TermsAndConditions from './components/Footer/Info/TermsAndConditions.jsx'
+import PrivacyPolicy from './components/Footer/Info/PrivacyPolicy.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -46,6 +49,23 @@ const route = createBrowserRouter([
         path:"/faqs",
         element: <Faqs/>
       },
+
+      {
+        path:"/feedback",
+        element: <ShareFeedback/>
+      },
+      {
+        path:"/terms",
+        element:<TermsAndConditions/>
+      },
+      {
+        path:"/privacy-policy",
+        element:<PrivacyPolicy/>
+      },
+
+
+
+
       // --- footer items ends ---
       {
         path:"/login",

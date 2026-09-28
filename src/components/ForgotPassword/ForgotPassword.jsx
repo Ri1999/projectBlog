@@ -44,11 +44,11 @@ const ForgotPassword = () => {
   return (
 
     <div className="forgetpass-container" >
-        <h2>Get Help Log In</h2>
+        <h2>Forgot your way back?</h2>
         <form onSubmit={handleSubmit(handleForgetPassword)} className="forgetpass-content" >
             <Input
             type="email"
-            placeholder="Enter registered email"
+            placeholder="Drop your registered email here"
             className="error-text"
             error= {errors.email?.message}
             {...register("email", {required: "Email is required"})}
@@ -56,7 +56,7 @@ const ForgotPassword = () => {
             
             />
             <button type="submit" disabled={loading} >
-                {loading? "Sending":"Send Reset Link"}
+                {loading? "Sending":"Send Recovery Link"}
             </button>
 
         </form>
