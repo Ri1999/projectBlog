@@ -36,6 +36,8 @@ const Login = () => {
 
     // const [isHovered, setIsHovered] = useState(false)
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
 
     const loginHandle = async (data)=>{
         // setError("")
@@ -49,8 +51,16 @@ const Login = () => {
 
                 const userData = await blogauthservice.getCurrentUser()
                 if(userData){
+
+                    // extra guard again using appwrite
+                    if(!userData.emailVerification){
+                        toast.error("Please verify your email before logging in! Check your inbox")
+                        await blogauthservice.logout()
+                        return
+                    }
+
                     dispatch(authLoginSlice({userData}))
-                    // after change state
+                    // after change state , after sucesssful login send user to his dashboard
                     navigate("/")
                 }
 
@@ -81,14 +91,19 @@ const Login = () => {
 
   return (
     <div className= "login-container" >
-        <h2><FcReading size={50} /></h2>
+        <h2><FcReading size={50} />Login</h2>
         {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 
             <Input type="email"
             placeholder="Enter your email"
             error={errors.email?.message}
-            {...register("email",{required: "Email is required"})}
+            {...register("email",{required: "Email is required",
+                pattern:{
+                    value: emailRegex,
+                    message: "Please enter a valid email address"
+                }
+            })}
             
             />
 

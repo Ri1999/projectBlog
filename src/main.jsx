@@ -19,6 +19,9 @@ import Faqs from './components/Footer/Info/Faqs.jsx'
 import ShareFeedback from './components/Footer/Info/ShareFeedback.jsx'
 import TermsAndConditions from './components/Footer/Info/TermsAndConditions.jsx'
 import PrivacyPolicy from './components/Footer/Info/PrivacyPolicy.jsx'
+// import SignUp from './components/Login/Signup/SignUp.jsx'
+import Signup from './components/Signup/Signup.jsx'
+import AuthLayout from './components/AuthLayout.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -69,9 +72,16 @@ const route = createBrowserRouter([
       // --- footer items ends ---
       {
         path:"/login",
-        element: <Login/>,
+        element: (
+        <AuthLayout authentication={false} >
+          <Login/>
+        </AuthLayout>),
 
       },
+      // {
+      //   path:"/singup",
+      //   element:
+      // },
       {
         path:"/forget-password",
         element: <ForgotPassword/>
@@ -83,17 +93,27 @@ const route = createBrowserRouter([
       },
       {
         path:"/signup",
-        element: <div>Signup Screen</div>,
+        element: (
+          <AuthLayout authentication={false} >
+            <Signup/>
+          </AuthLayout>
+        ),
 
       },
       {
         path: "/all-posts",
-        element: <div>All Posts Screen</div>,
+        element: (
+        <AuthLayout authentication={true} >
+          <div>All Posts Screen</div>
+        </AuthLayout>),
 
       },
       {
         path: "/add-post",
-        element: <div>Add Post Screen</div>,
+        element: (
+        <AuthLayout>
+          <div>Add Post Screen</div>
+        </AuthLayout>),
 
       },
     ]
