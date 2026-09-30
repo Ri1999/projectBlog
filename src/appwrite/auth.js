@@ -49,6 +49,11 @@ export class blogAuthService {
 
 }
 
+// after creating verification of new singup email
+
+
+
+
 async login({email, password}){
     try{
         const mylogin = await this.account.createEmailPasswordSession(email,password)

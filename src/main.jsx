@@ -29,7 +29,7 @@ const route = createBrowserRouter([
     children:[
       {
         path:"/",
-        element: <Home/>,
+        element: <Home/>, // home have <Public/> component 
       },
 
       // testing for css POstCard.jsx

@@ -15,6 +15,9 @@ import { FaGithub, FaApple } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import {toast} from "react-toastify"
 
+// for disposable email 
+import disposableDomains from 'disposable-email-domains'; 
+
 const Signup = () => {
 
     // const dispatch = useDispatch()
@@ -56,6 +59,54 @@ const Signup = () => {
 
     const signupEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // what about the tempmail services? where is that guard?
+    // Blocked disposable email domains list
+    const disposableSet = new Set(disposableDomains);
+    // also need customs array
+    const tempemail = [
+        "bitproy.com",
+        "olipii.com",
+        "ozsip.com",
+        "yzcalo.com",
+        "Inovic.com",
+        "ruutukf.com",
+        "gmeenramy.com",
+        "olipii.com",
+        "ooynib.com",
+        // 
+        "guerrillamail.com",
+  "guerrillamail.net",
+  "guerrillamail.org",
+  "guerrillamail.biz",
+  "guerrillamail.de",
+  "guerrillamail.info",
+  "guerrillamailblock.com",
+  "sharklasers.com",
+  "grr.la",
+  "pokemail.net",
+  "spam4.me",
+  // Mailinator
+  "mailinator.com",
+  // YOPmail
+  "yopmail.com",
+  "yopmail.fr",
+  "yopmail.net",
+
+  // TrashMail
+  "trashmail.com",
+  "trashmail.de",
+  "trash-mail.com",
+
+  // Other disposable services
+  "throwawaymail.com",
+  "getnada.com",
+  "dispostable.com",
+  "fakeinbox.com"
+
+    ]
+
+
 
     const handleAuthSignup = async(provider)=>{
         // setError("")
@@ -119,7 +170,7 @@ const Signup = () => {
     </button>
 
             </div>
-            <p style={{textAlign:"center"}} >Alternatively the manual way</p>
+            <p style={{textAlign:"center", fontWeight:"600"}} >- Alternatively create an account via -</p>
             {/* name */}
 
             <Input
@@ -142,6 +193,7 @@ const Signup = () => {
             />
 
             {/* signup email */}
+
             <Input type="email"
             placeholder="Type your email"
             error={errors.email?.message}
@@ -149,7 +201,28 @@ const Signup = () => {
                 pattern:{
                     value: signupEmailRegex,
                     message: "We need a valid email address"
+                },
+                validate:{
+                    notempEmail:(email)=>{
+
+                        // logic:
+                        // emaill means "rittik@tempmail.com"
+                        // .split("@") means ["rittik", "tempmail.com"] while @ is treat invisible
+                        // [1]? means [0] index has "rittik" and [1] index has "tempmail.com" 
+
+                        // has () use for Hash Table Lookup (0(1))
+                        // includes use Linear Search (0(N))
+
+                        // since disposable-email-domains library have 3,000+ domains, so better uses .has() while my custom tempemail is small array so better use .includes()
+
+                        const domain = email.split("@")[1]?.toLowerCase();
+                        if(disposableSet.has(domain) || tempemail.includes(domain) ){
+                            return "Disposable/Temporary emails are not allowed buddy"
+                        }
+                        return true
+                    }
                 }
+                
             })}
             
             />

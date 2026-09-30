@@ -135,7 +135,7 @@ const Login = () => {
             <button type="submit"
             disabled={loading}>{loading? "Logging In...":"Login"}</button>
 
-            <p>Or choose alternative paths</p>
+            <p style={{fontWeight:"600"}} >- Or choose alternative path -</p>
             <div className="oauth-content" >
                 {/* google */}
             <button disabled={loading} onClick={function(){
