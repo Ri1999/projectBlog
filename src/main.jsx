@@ -22,6 +22,7 @@ import PrivacyPolicy from './components/Footer/Info/PrivacyPolicy.jsx'
 // import SignUp from './components/Login/Signup/SignUp.jsx'
 import Signup from './components/Signup/Signup.jsx'
 import AuthLayout from './components/AuthLayout.jsx'
+import VerifyEmail from './components/VerifyEmail/VerifyEmail.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -33,10 +34,12 @@ const route = createBrowserRouter([
       },
 
       // testing for css POstCard.jsx
-      // {
-      //   path:"/postcard",
-      //   element:<PostCard/>
-      // },
+
+      {
+        path:"/verify-email",
+        element:<VerifyEmail/>
+      },
+
 
       // --- footer items starts ---
       {

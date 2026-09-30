@@ -35,10 +35,20 @@ export class blogAuthService {
 
         // call another method -> if userAccount exist then login right?
 
-        return this.login({email,password});
+        await this.login({email,password});
+
+        // send her to verification component
+        // const redirectLink= `${window.location.origin}/verify-email`
+
+        // send her verification method
+        // await this.signupConfirmVerification(redirectLink)
+
+        return userAccount
+
 
     }else{
-        return userAccount
+        // return userAccount
+        return null
     }
 
    }catch(err){
@@ -49,7 +59,17 @@ export class blogAuthService {
 
 }
 
-// after creating verification of new singup email
+// after new singup email, verfiy confirm?
+
+async signupConfirmVerification({userId, secret}){
+    try{
+        return await this.account.updateVerification(userId, secret);
+    }catch(err){
+        console.error("signupConfirmVerification: ", err)
+        throw err;
+    }
+}
+
 
 
 

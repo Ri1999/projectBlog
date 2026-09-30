@@ -28,7 +28,8 @@ const Signup = () => {
 
     // sign up flow
 
-    // hit signup --> ask to verify --> cleanup all sessions --> send user to /login
+// signup.jsx mai blogauthservice.createAccount(data) ->blogauthservice.sendEmailVerification(`${window.location.origin}/verify-email`)->blogauthservice.signupConfirmVerification({userId, secret}) in my verifyemail.jsx ->"/login"
+
 
 
     const createNewUser= async (data)=>{
