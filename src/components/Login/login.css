@@ -120,7 +120,7 @@ input:focus {
 .signup-link-text a {
     color: #283618;
     font-weight: 700;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .reset-password-text{
     text-align: center;

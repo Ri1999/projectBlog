@@ -17,6 +17,7 @@ import {toast} from "react-toastify"
 
 // for disposable email 
 import disposableDomains from 'disposable-email-domains'; 
+import { Link } from "react-router-dom";
 
 const Signup = () => {
 
@@ -262,6 +263,14 @@ const Signup = () => {
 
 
         </form>
+
+        <p className="signup-text" >Already a member? <Link to="/login" >Login</Link></p>
+        <p className="signup-text" >By creating an account, you agree to the <Link to="/privacy-policy" >Privacy Policy</Link> and <Link to="/terms" >Terms & Conditions</Link></p>
+
+        
+
+
+
     </div>
   )
 }

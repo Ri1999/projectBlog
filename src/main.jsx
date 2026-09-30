@@ -33,11 +33,15 @@ const route = createBrowserRouter([
         element: <Home/>, // home have <Public/> component 
       },
 
-      // testing for css POstCard.jsx
+      // once testing for css POstCard.jsx
 
       {
         path:"/verify-email",
-        element:<VerifyEmail/>
+        element:(
+          <AuthLayout authentication={false} >
+            <VerifyEmail/>
+          </AuthLayout>
+        )
       },
 
 
