@@ -33,6 +33,9 @@ export class storageService{
     // Database part : Post CRUD Operations
 
     async createPost({title, content, featuredImage,status,userId, slug}){
+
+        const documentId = slug ? slug.substring(0, 36) : ID.unique();
+
         try{
             const blogPost = await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -41,7 +44,7 @@ export class storageService{
                 // ID.unique(), // treat documentId
                 // dont gonna work with documentID
 // when user creates blog, url also generate example : myblog.com/post/react-js-guide. thats is slug if i use ID.unique() it generate random string(65f1a2b3...)
-                slug,
+                documentId,
                 {
                     title,
                     content,
@@ -58,6 +61,7 @@ export class storageService{
 
         }catch(err){
             console.error("createPost: ", err)
+            throw err; 
         }
     }
 
@@ -67,7 +71,7 @@ export class storageService{
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 // ID.unique(),
-// if i want to edit a post and create another quiqueID , it becomes one of major juju, so again pass slug                
+// if i want to edit a post and create another quiqueID , it becomes one of major juju, so again i write slug, not use ID.unique                
                 slug,
                 {
                     title,
@@ -163,13 +167,16 @@ export class storageService{
     async deleteFile(fileID){
 
         try{
-            const deleteFile  = await this.bucket.deleteFile(
+            await this.bucket.deleteFile(
                 conf.appwriteBucketId,
                 fileID
             )
-            if(deleteFile){
-                return deleteFile
-            }
+            return true
+
+    // after deleted this Appwrite method returns nothing so need to return boolean positive        
+            // if(deleteFile){
+            //     return deleteFile
+            // }
             return false
 
         }catch(err){

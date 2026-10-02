@@ -24,13 +24,13 @@ const Header = () => {
       active: true,
     },
 
-    // testing to write css for Postcard.jsx
+    // testing to write css for Postcard.jsx and many others
 
-    // {
-    //   name:"test",
-    //   slug:"/verify-email",
-    //   active: !authStatus,
-    // },
+    {
+      name:"testRTE",
+      slug:"/rte",
+      active: !authStatus,
+    },
     
   
 

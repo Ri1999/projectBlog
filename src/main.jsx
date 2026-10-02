@@ -23,6 +23,8 @@ import PrivacyPolicy from './components/Footer/Info/PrivacyPolicy.jsx'
 import Signup from './components/Signup/Signup.jsx'
 import AuthLayout from './components/AuthLayout.jsx'
 import VerifyEmail from './components/VerifyEmail/VerifyEmail.jsx'
+// test
+import RTE from './components/RTE/RTE.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -85,10 +87,15 @@ const route = createBrowserRouter([
         </AuthLayout>),
 
       },
-      // {
-      //   path:"/singup",
-      //   element:
-      // },
+
+      // test component 
+
+      {
+        path:"/rte",
+        element:<RTE/>
+      },
+
+
       {
         path:"/forget-password",
         element: <ForgotPassword/>
