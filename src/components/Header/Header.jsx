@@ -27,8 +27,8 @@ const Header = () => {
     // testing to write css for Postcard.jsx and many others
 
     {
-      name:"testRTE",
-      slug:"/rte",
+      name:"form",
+      slug:"/postForm",
       active: !authStatus,
     },
     

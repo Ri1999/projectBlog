@@ -25,6 +25,7 @@ import AuthLayout from './components/AuthLayout.jsx'
 import VerifyEmail from './components/VerifyEmail/VerifyEmail.jsx'
 // test
 import RTE from './components/RTE/RTE.jsx'
+import PostForm from './components/PostForm.jsx/PostForm.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -91,8 +92,8 @@ const route = createBrowserRouter([
       // test component 
 
       {
-        path:"/rte",
-        element:<RTE/>
+        path:"/postForm",
+        element:<PostForm/>
       },
 
 

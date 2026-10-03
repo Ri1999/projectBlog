@@ -4,7 +4,7 @@ import Input from "../Input"
 import SelectComponent from "../SelectComponent"
 import RTE from "../RTE/RTE"                  
 import blogauthservice from "../../appwrite/auth"   // auth related
-import services from "../../appwrite/major_config" // datase related
+import services from "../../appwrite/major_config" // database related
 import { useNavigate } from "react-router-dom" // after posting redirect her
 import { useSelector } from "react-redux" // identify who creates post
 import { useCallback, useEffect } from "react"
@@ -17,6 +17,7 @@ const PostForm = ({postDataFromAppwrite}) => {
     // ans: i fetch userData from direct appwrite and pass via props, so i need this.
 
     const userData = useSelector((state)=> state.auth.userData) // naming is same as i did in authslice.js
+
     const navigate = useNavigate()
 
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
@@ -49,7 +50,13 @@ const PostForm = ({postDataFromAppwrite}) => {
     const newslugTransform = useCallback((value)=>{
 
         if(value && typeof value === "string"){
-            return value.trim().toLowerCase().replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "-")
+
+            // want my personal brand name here
+            const slug = value.trim().toLowerCase().replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "-")
+// TODO Future Enhancements:
+// - Appwrite Slug Collision Handler: Add unique suffix (`-at-charukavya`) on post creation.
+            return `${slug}`
+
         }
         return ""
 
@@ -58,14 +65,21 @@ const PostForm = ({postDataFromAppwrite}) => {
     // real time watching work bind watch+newslugTransform inside useEffect, so that set slug according to the title
 
     useEffect(()=>{
-        const subs = watch((value,{name})=>{
+
+        const subs = watch((formData,{name})=>{
             // value,{name} --> means name destrucutre
+
+            // watch(param1, param2) --> entire form currentState data, and specific filed naming : explain like
+// array.forEach((item, index) => { ... })  
+// // formData  --> Form ke saare fields ka LIVE data (Title, Slug, Content, Status)
+// { name }  --> Metadata se destructure kiya gaya specific field jisme change hua               
             if(name==="title"){
 
                 // setValue(fieldName,newValue, [options])
-                // iska mtlb newslugTransform(value.title) function run hokr jo value milega usse slug mai daal doh
 
-                setValue("slug", newslugTransform(value.title), 
+                // iska mtlb newslugTransform(value.title) function run hokr jo value milega usse slug mai daal doh
+                // fieldName is wrtitten here as string , 
+                setValue("slug", newslugTransform(formData.title), 
                 {shouldValidate: true}) // validate the whole operation
             }
         })
@@ -135,7 +149,18 @@ const PostForm = ({postDataFromAppwrite}) => {
 
 
   return (
-    <div>PostForm</div>
+    <div>
+        {/* testing */}
+        
+        PostForm
+        <form style={{display:"flex", width:"100%"}} >
+            <RTE
+            name="content" control={control} label="Story Content:"/>
+        </form>
+
+
+
+    </div>
   )
 }
 
