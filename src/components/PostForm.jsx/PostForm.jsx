@@ -181,7 +181,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
 
                 />
-                <p>max file size: <b>3MB</b>| supported formats: <b>jpg,png,jpeg</b></p>
+                <p>(max file size: <b>3MB</b> | supported formats: <b>jpg,png,jpeg</b>)</p>
 
                 <SelectComponent
                 label="Status"

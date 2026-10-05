@@ -82,9 +82,12 @@ label{
 }
 @media screen and (max-width:768px) {
     .postform-upload-area{
-        grid-template-columns: 2fr 3fr;
+        grid-template-columns: 1fr;
     }
     .test, .left-content button{
-        width: 100%;
+        width: 40%;
+    }
+    .right-content{
+        justify-content: center;
     }
 }
