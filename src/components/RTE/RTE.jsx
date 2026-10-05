@@ -20,18 +20,33 @@ if (!control) {
     return <div>Error: </div>;
 }
 
-const [isDarkMode, setIsDarkMode] = useState(false)
-const editorRef = useRef(null)
+const [isDarkMode, setIsDarkMode] = useState(true)
+const editorReference = useRef(null)
+
+
+// the one of big juju :
+// RTE create <iframe> isolate html in background
+// i use first time userRef --> it remember old component even after useState rerendered, i secret vault type.
+// It hold reference pointer of any DOM node : <iframe>, <input>, <button>
+
+// how it works:
+// inside useRef there is a object which has one property {current: null}
 
 const toogleMode =()=>{
     const nextmode = !isDarkMode
     setIsDarkMode(nextmode)
-    if(editorRef.current){
-    const body = editorRef.current.getBody();
-    if(body){
-        const bgcolor = nextmode? "#0C0A09":"#d0d0ce"
-        const textcolor = nextmode? "#e3e3e3":"#1A1A1A"
 
+
+// it checks is TinyMCE editor load or not, .current return object with property
+    if(editorReference.current){
+    const body = editorReference.current.getBody(); // target <iframe> body
+
+    if(body){
+        // set conditions
+        const bgcolor = nextmode? "#181b1d":"#FAF7F2"
+        const textcolor = nextmode? "whitesmoke":"#172a05"
+
+        // force all <iframe> css and set my stylings
         body.style.setProperty('background-color', bgcolor, 'important');
         body.style.setProperty('color', textcolor, 'important');
     }
@@ -51,12 +66,12 @@ console.log("mode: ", isDarkMode)
         <button 
         
         style={{
-            backgroundColor:isDarkMode?"Black":"#bde0fe",
+            backgroundColor:isDarkMode?"#120b0d":"#e5e5e5",
             color:isDarkMode?"whitesmoke":""
         }}
         
         
-        onClick={toogleMode} type="button">{isDarkMode? "Dark🌙":"Light☀️"}</button>
+        onClick={toogleMode} type="button">{isDarkMode? "🌙":"☀️"}</button>
         <Controller
         // it need 3 primary props
         name={name}
@@ -70,7 +85,9 @@ console.log("mode: ", isDarkMode)
             // here render <Editor/>
 
             <Editor
-            onInit={(evt, editor) => (editorRef.current = editor)}
+
+            // tinyMCe built in props, that means when it fires, Editor go inside current:{.....} of my useRef
+            onInit={(eventObject, JSinstanceofEditor) => (editorReference.current = JSinstanceofEditor)}
 
             // api key
             tinymceScriptSrc="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js" // Free CDN Bypass
@@ -78,11 +95,28 @@ console.log("mode: ", isDarkMode)
             init={{
                 height:500,
                 width: '100%',
-                menubar: true,
+                menubar: false,
+
+                // there are brading names on it which look aweful and Ui bad so
+                branding:false,
+                elementpath: false,
+                statusbar: false,
+                autofocus: true,
+                resize:false,
+                toolbar_sticky: true,
+                selector: "textarea",
+
+// TODO: later if app runs well
+                // content_language: 'en',
+
+                // content_langs:[
+                //     { title: 'English', code: 'en' },
+                //     {title: 'Bengali', code: 'bn-IN'},
+                // ],
                 plugins:[
                     'image', 'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'code', 'wordcount'
                 ],
-                toolbar: "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat |",
+                toolbar: "undo redo | paste | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat |",
                 // i want to style this seperate how
                 font_css: 'https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
 

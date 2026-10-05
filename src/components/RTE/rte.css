@@ -1,27 +1,28 @@
 .rte-container{
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 100%;
     justify-content: center;
     margin: auto;
     height: auto;
     gap: 30px;
     margin-top: 20px;
-    padding: 32px 24px;
-    background-color: #f5f4f3;
+    padding: 20px 10px;
+    background-color: #ebf2ec;
     
-    border: 1px solid rgb(228, 210, 112);
+    /* border: 1px solid rgb(233, 217, 4); */
+    /* border: 2px solid rgb(8, 126, 139); */
     
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(22, 60, 35, 0.06);
-    gap: 20px;
+    gap: 5px;
     margin-bottom: 20px;
     font-family: 'Sansation', sans-serif;
 }
 
 .rte-container button{
-    width: 8%;
+    width: 6%;
     align-self: flex-end;
     padding: 8px;
     font-family: 'Sansation', sans-serif;
@@ -32,8 +33,26 @@
     font-weight: 700;
 
 }
+.tox.tox-tinymce {
+    /* border: 1px solid #e36d05 !important;  */
+    
+    /* Deep stone-900 hairline frame */
+    /* background-color: #c5490a !important;  */
+     /* Deep midnight ink tone backdrop */
+    /* border-radius: 12px !important; */
+}
+
+.tox .tox-menubar, .tox .tox-toolbar, .tox .tox-toolbar__overflow, .tox .tox-toolbar__primary {
+    background-color: #087e8b !important;
+    color: #edf2f4 !important; 
+    /* border-bottom: 1px solid #1C1917 !important; */
+}
 @media screen and (max-width:768px) {
     .rte-container{
-        max-width: 520px;
+        max-width: 700px;
+    }
+    .rte-container button{
+        width: 8%;
+        border-radius: 8px;
     }
 }

@@ -8,6 +8,7 @@ import services from "../../appwrite/major_config" // database related
 import { useNavigate } from "react-router-dom" // after posting redirect her
 import { useSelector } from "react-redux" // identify who creates post
 import { useCallback, useEffect } from "react"
+import "./postform.css"
 
 
 
@@ -132,6 +133,10 @@ const PostForm = ({postDataFromAppwrite}) => {
         // she choose either attach photo or left it null
         const newPhoto = data.image[0] ? await services.uploadFile(data.image[0]) : null
 
+        if(newPhoto){
+            const fileId = newPhoto.$id
+            data.featuredImage = fileId
+        }
         // after photo upload create her a new post at database
 
         const dbNewPost = await services.createPost({
@@ -149,13 +154,84 @@ const PostForm = ({postDataFromAppwrite}) => {
 
 
   return (
-    <div>
+    <div className='postform-container' >
         {/* testing */}
-        
-        PostForm
-        <form style={{display:"flex", width:"100%"}} >
-            <RTE
-            name="content" control={control} label="Story Content:"/>
+        <form className='postform-content' >
+
+            <div className="postform-upload-area">
+
+                <div className="left-content">
+
+                <Input
+                className="test"
+                type="file"
+                accept="image/png, image/jpg, image/jpeg, image/webp "
+                {...register("image",{ required: !postDataFromAppwrite?"required":false,
+
+                    validate:{
+                        lessThan3MB:(files)=>
+                            !files[0] || files[0]?.size <=3* 1024*1024 ||"Max file size allowed is 3MB!",
+                        acceptedFormats:(files)=>
+                            !files[0] || ["image/jpeg", "image/png", "image/webp"].includes(files[0]?.type) || "Only JPG, PNG, and WEBP files are allowed!"
+                    }
+                 }
+                )}
+
+
+
+
+                />
+                <p>max file size: <b>3MB</b>| supported formats: <b>jpg,png,jpeg</b></p>
+
+                <SelectComponent
+                label="Status"
+                className="test"
+                options={["active","inactive"]}
+                
+                {...register("status", {required: true})}
+                
+                />
+                <button type="submit">{postDataFromAppwrite ? "Update Post" : "Submit Post"}</button>
+
+                </div>
+
+                <div className="right-content">
+
+                <Input
+                label="Title"
+                placeholder="Enter post title"
+                {...register("title",{ required: true })}
+                />
+                <Input
+                label="Slug"
+                placeholder="Auto-generated slug"
+                {...register("slug",{ required: true })}
+                onInput={(e)=>{
+                    setValue("slug", newslugTransform(e.currentTarget.value),
+                    { shouldValidate: true }
+                
+                )
+                }}
+                
+                />
+                </div>
+
+            </div>
+
+            <div className="postform-written-area">
+
+                <RTE
+                className="writepad"
+                name="content" 
+                control={control} 
+                label="Writing Pad"
+                defaultValue={getValues("content")}
+                
+                />
+
+
+            </div>
+            
         </form>
 
 
