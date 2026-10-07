@@ -49,7 +49,7 @@ const VerifyEmail = () => {
         }
 
         // TODO: 1
-        // VerifyEmail()
+        VerifyEmail()
 
 
 

@@ -160,6 +160,34 @@ async confirmRecovery({userId, secret, password, passwordAgain}){
     }
 }
 
+// user dashboard methods
+async updateName(name){
+    try{
+        return await this.account.updateName(name)
+    }catch(err){
+        console.error("updateName error: ",err)
+        throw err
+    }
+}
+
+async updateUserPhonenumber(phone, password){
+    try{
+        return await this.account.updatePhone(phone,password)
+    }catch(err){
+        console.error("updateUserPhonenumber: ",err)
+        throw err
+    }
+}
+
+async updateUserPassword(newPassword, oldPassword){
+    try{
+        return await this.account.updatePassword(newPassword, oldPassword)
+    }catch(err){
+        console.error("updateUserPassword: ",err)
+        throw err
+    }
+}
+
 
 
 }

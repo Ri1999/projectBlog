@@ -19,7 +19,7 @@ const Home = () => {
     <main className="home-container">
       {authStatus ? (
         <div>
-          <h1 style={{textAlign:"center"}} >Feed Content</h1>
+          <h1 style={{textAlign:"center"}} >Stories Posted by others</h1>
         </div>
       ) : (
         <Public />

@@ -7,15 +7,15 @@
     margin: auto;
     height: auto;
     gap: 30px;
-    margin-top: 20px;
-    padding: 20px 10px;
-    background-color: #ebf2ec;
+    margin-top: 10px;
+    padding: 6px;
+    background-color: #c9cba3;
     
     /* border: 1px solid rgb(233, 217, 4); */
     /* border: 2px solid rgb(8, 126, 139); */
     
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(22, 60, 35, 0.06);
+    box-shadow: 0 8px 24px rgba(216, 174, 6, 0.06);
     gap: 5px;
     margin-bottom: 2px;
     font-family: 'Sansation', sans-serif;

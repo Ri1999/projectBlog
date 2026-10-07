@@ -239,7 +239,7 @@ const Signup = () => {
                     message:"your must be at least 8 characters"
                 },
                 pattern:{
-                    value:passwordRegex,
+                    value:!passwordRegex,
                     message:"Give us a masterpiece: at least 8 characters, 1 uppercase letter, 1 number, and 1 special character (@$!%*?&)"
                 }
             })}

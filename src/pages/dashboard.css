@@ -9,7 +9,7 @@
     gap: 30px;
     margin-top: 20px;
     padding: 20px 10px;
-    background-color: #ebf2ec;
+    background-color: #c1aab1;
     
     /* border: 1px solid rgb(233, 217, 4); */
     /* border: 2px solid rgb(8, 126, 139); */
@@ -19,4 +19,49 @@
     gap: 5px;
     margin-bottom: 2px;
     font-family: 'Sansation', sans-serif;
+}
+.dashboard-container h1{
+    text-align: center;
+    font-family: 'Fondamento', cursive;
+}
+.dashboard-container p{
+    font-family: 'Fondamento', cursive;
+}
+.dashboard-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.officail-left-side h2, .inkwall-metrics-right-side h2{
+    text-align: center;
+}
+.officail-left-side{
+    background-color: whitesmoke;
+    border-radius: 8px;
+    padding: 10px;
+}
+.inkwall-metrics-right-side{
+    background-color: #e36d05;
+    border-radius: 8px;
+    padding: 10px;
+
+}
+.officail-left-side button{
+    text-align: left;
+    width: 50%;
+    padding: 14px;
+    font-family: 'Sansation', sans-serif;
+    font-size: 1rem;
+    margin-top: 8px;
+    font-weight: 700;
+    color: #000000;
+    background-color: #c9cba3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.officail-left-side button:hover{
+    background-color: #000000;
+    color: white;
 }
