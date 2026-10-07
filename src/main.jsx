@@ -138,7 +138,7 @@ const route = createBrowserRouter([
       {
         path: "/dashboard",
         element:(
-          <AuthLayout>
+          <AuthLayout authentication={true} >
             <Dashboard/>
           </AuthLayout>
         )
