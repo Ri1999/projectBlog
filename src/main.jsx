@@ -24,8 +24,10 @@ import Signup from './components/Signup/Signup.jsx'
 import AuthLayout from './components/AuthLayout.jsx'
 import VerifyEmail from './components/VerifyEmail/VerifyEmail.jsx'
 // test
-import RTE from './components/RTE/RTE.jsx'
+// import RTE from './components/RTE/RTE.jsx'
 import PostForm from './components/PostForm.jsx/PostForm.jsx'
+import AddPost from './pages/AddPost.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -91,10 +93,10 @@ const route = createBrowserRouter([
 
       // test component 
 
-      {
-        path:"/postForm",
-        element:<PostForm/>
-      },
+      // {
+      //   path:"/postForm",
+      //   element:<PostForm/>
+      // },
 
 
       {
@@ -126,10 +128,20 @@ const route = createBrowserRouter([
       {
         path: "/add-post",
         element: (
-        <AuthLayout>
-          <div>Add Post Screen</div>
+                    //  original : authentication={true}
+        <AuthLayout authentication={true} >
+
+          <AddPost/>
         </AuthLayout>),
 
+      },
+      {
+        path: "/dashboard",
+        element:(
+          <AuthLayout>
+            <Dashboard/>
+          </AuthLayout>
+        )
       },
     ]
   }

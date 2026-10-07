@@ -147,6 +147,23 @@ export class storageService{
         }
     }
 
+    // dashboard view
+    
+    async getUserPosts(userId){
+        try{
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                [
+                    Query.equal("userId", userId)
+                ]
+            )
+        }catch(err){
+            console.error("getUserPosts error: ", err)
+            return false
+        }
+    }
+
     // File Storage (Bucket) part: 
 
     async uploadFile(file){

@@ -169,10 +169,10 @@ const PostForm = ({postDataFromAppwrite}) => {
                 {...register("image",{ required: !postDataFromAppwrite?"required":false,
 
                     validate:{
-                        lessThan3MB:(files)=>
-                            !files[0] || files[0]?.size <=3* 1024*1024 ||"Max file size allowed is 3MB!",
+                        lessThan2MB:(files)=>
+                            !files[0] || files[0]?.size <=2* 1024*1024 ||"Max file size allowed is 2MB!",
                         acceptedFormats:(files)=>
-                            !files[0] || ["image/jpeg", "image/png", "image/webp"].includes(files[0]?.type) || "Only JPG, PNG, and WEBP files are allowed!"
+                            !files[0] || ["image/jpg","image/jpeg", "image/png", "image/webp"].includes(files[0]?.type) || "Only JPG, PNG, and WEBP files are allowed!"
                     }
                  }
                 )}
@@ -181,17 +181,18 @@ const PostForm = ({postDataFromAppwrite}) => {
 
 
                 />
-                <p>(max file size: <b>3MB</b> | supported formats: <b>jpg,png,jpeg</b>)</p>
+                <p>(max file size: <b>2MB</b> | supported formats: <b>jpg,png,jpeg, webp</b>)</p>
 
                 <SelectComponent
                 label="Status"
                 className="test"
-                options={["active","inactive"]}
+                options={["Active","Inactive"]}
                 
-                {...register("status", {required: true})}
+                {...register("Status", {required: true})}
                 
                 />
-                <button type="submit">{postDataFromAppwrite ? "Update Post" : "Submit Post"}</button>
+                <p>(Status| <b>active:Publish | inactive:Draft</b>)</p>
+                <button onSubmit={handleSubmit(postSubmit)} type="submit">{postDataFromAppwrite ? "Update Post" : "Submit Post"}</button>
 
                 </div>
 
@@ -219,6 +220,7 @@ const PostForm = ({postDataFromAppwrite}) => {
             </div>
 
             <div className="postform-written-area">
+
 
                 <RTE
                 className="writepad"

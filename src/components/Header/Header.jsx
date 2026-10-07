@@ -26,11 +26,11 @@ const Header = () => {
 
     // testing to write css for Postcard.jsx and many others
 
-    {
-      name:"form/testing",
-      slug:"/postForm",
-      active: !authStatus,
-    },
+    // {
+    //   name:"form/testing",
+    //   slug:"/postForm",
+    //   active: !authStatus,
+    // },
     
   
 
@@ -53,8 +53,13 @@ const Header = () => {
     {
       name: "Add Post",
       slug: "/add-post", // this slug name meant to be same as router in main.jsx
+      active: authStatus, // after tesing need to be set authStatus not !authStatus
+    },
+    {
+      name:"Dashboard",
+      slug:"/dashboard",
       active: authStatus,
-    }
+    },
   ]
 
   

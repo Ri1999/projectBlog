@@ -3,6 +3,7 @@ import "./home.css"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import Public from "../Public/Public"
+import Dashboard from "../../pages/Dashboard"
 
 
 
@@ -17,7 +18,9 @@ const Home = () => {
 
     <main className="home-container">
       {authStatus ? (
-        <div></div>
+        <div>
+          <h1 style={{textAlign:"center"}} >Feed Content</h1>
+        </div>
       ) : (
         <Public />
       )}
