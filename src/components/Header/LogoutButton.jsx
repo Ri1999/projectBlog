@@ -10,18 +10,18 @@ const LogoutButton = () => {
 
     const logoutButtonStyle ={
 //   background: "transparent",
-  backgroundColor: "black",
+  backgroundColor: "#4b5f51",
   color: "white", 
   fontSize: "1.2rem",
   fontWeight: 600,
   cursor: "pointer",
   // transition: "color 0.2s ease",
-  padding:"4px 14px",
+  padding:"4px 12px",
 
   // fontFamily: "Fondamento, cursive",
   fontFamily: "Sansation, sans-serif",
-  borderRadius: "18px" ,
-  border: "1px solid #1C3123",
+  borderRadius: "12px" ,
+  border: "none",
   // borderColor:isHovered? "gold":"black",
   // transform: isHovered ?"translateY(-2px)":"none",
   transition: isHovered? "transform 1s ease":"none",
@@ -50,7 +50,7 @@ const LogoutButton = () => {
     onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
 
-     style={logoutButtonStyle} onClick={handleLogout} type="button">Logout</button>
+     style={logoutButtonStyle} onClick={handleLogout} type="button">Unink</button>
   )
 }
 

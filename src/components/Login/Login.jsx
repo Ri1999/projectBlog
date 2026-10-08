@@ -91,7 +91,7 @@ const Login = () => {
 
   return (
     <div className= "login-container" >
-        <h2><FcReading size={50} />Login</h2>
+        <h2>Login to Your Desk</h2>
         {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 

@@ -9,7 +9,8 @@
     gap: 30px;
     margin-top: 10px;
     padding: 6px;
-    background-color: #c9cba3;
+    background-color: #4b5f51;
+    color: whitesmoke;
     
     /* border: 1px solid rgb(233, 217, 4); */
     /* border: 2px solid rgb(8, 126, 139); */
@@ -34,7 +35,9 @@
 
 }
 .tox.tox-tinymce {
-    /* border: 1px solid #e36d05 !important;  */
+    border: 2px solid #4b5f51;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* border: 1px solid goldenrod !important;  */
     
     /* Deep stone-900 hairline frame */
     /* background-color: #c5490a !important;  */
@@ -43,9 +46,20 @@
 }
 
 .tox .tox-menubar, .tox .tox-toolbar, .tox .tox-toolbar__overflow, .tox .tox-toolbar__primary {
-    background-color: #087e8b !important;
-    color: #edf2f4 !important; 
+    background-color: whitesmoke !important;
+    /* color: red !important;  */
     /* border-bottom: 1px solid #1C1917 !important; */
+}
+
+.tox .tox-tbtn:hover{
+    background-color: #D4A373 !important;
+    color: #ffffff !important;
+    font-weight: 700;
+}
+.tox .tox-tbtn--enabled, 
+.tox .tox-tbtn--enabled:hover {
+     background-color: #C89B3C !important;
+     color: #ffffff !important; 
 }
 @media screen and (max-width:768px) {
     .rte-container{

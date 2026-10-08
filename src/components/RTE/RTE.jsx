@@ -66,7 +66,7 @@ console.log("mode: ", isDarkMode)
         <button 
         
         style={{
-            backgroundColor:isDarkMode?"#120b0d":"#e5e5e5",
+            backgroundColor:isDarkMode?"#16241b":"#818b84",
             color:isDarkMode?"whitesmoke":""
         }}
         
@@ -116,7 +116,7 @@ console.log("mode: ", isDarkMode)
                 plugins:[
                     'image', 'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'code', 'wordcount'
                 ],
-                toolbar: "undo redo | paste | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat |",
+                toolbar: "undo redo | paste | blocks | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat |",
                 // i want to style this seperate how
                 font_css: 'https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
 

@@ -192,7 +192,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                 
                 />
                 <p>(Status| <b>active:Publish | inactive:Draft</b>)</p>
-                <button onSubmit={handleSubmit(postSubmit)} type="submit">{postDataFromAppwrite ? "Update Post" : "Submit Post"}</button>
+                <button onSubmit={handleSubmit(postSubmit)} type="submit">{postDataFromAppwrite ? "Update Post" : "Publish"}</button>
 
                 </div>
 

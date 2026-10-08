@@ -19,7 +19,7 @@ const Header = () => {
 
   const navItems = [
     {
-      name: "Home",
+      name: authStatus? "Library":"The Atrium",
       slug: "/",       // this slug name meant to be same as router in main.jsx
       active: true,
     },
@@ -51,13 +51,13 @@ const Header = () => {
       active: authStatus,
     },
     {
-      name: "Add Post",
-      slug: "/add-post", // this slug name meant to be same as router in main.jsx
+      name: "Spill Ink",  // --> add post naming change to Spill Ink
+      slug: "/spill-ink", // this slug name meant to be same as router in main.jsx
       active: authStatus, // after tesing need to be set authStatus not !authStatus
     },
     {
-      name:"Dashboard",
-      slug:"/dashboard",
+      name:"Inkwell",      // --> dashboard naming change to inkwall
+      slug:"/inkwell",
       active: authStatus,
     },
   ]

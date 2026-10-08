@@ -43,7 +43,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container" >
-        <h1>{userData?.name}</h1>
+        <h1>Welcome, {userData?.name}</h1>
         <p>Email: <b>{userData?.email}</b></p>
         
         <div className="dashboard-content">

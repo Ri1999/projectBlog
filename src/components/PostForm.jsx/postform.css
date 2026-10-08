@@ -16,7 +16,8 @@
   grid-template-columns: 2fr 4fr;
   gap: 1.5rem;
   font-family: 'Sansation', sans-serif;
-  background-color: #c1aab1;
+  border-bottom: 5px solid rgba(28, 49, 35, 0.15);
+  background-color: whitesmoke;
   /* backdrop-filter: blur(12px); */
   padding: 1.25rem;
   border-radius: 12px;
@@ -53,14 +54,14 @@
     margin-top: 8px;
     font-weight: 700;
     color: #FFFFFF;
-    background-color: #e36d05;
+    background-color:  #4b5f51;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 .left-content button:hover{
-    background-color: black;
+    background-color: #1C3123;;
 }
 .test{
     width: 50%;
@@ -70,7 +71,8 @@
     margin-top: 8px;
     font-weight: 700;
     color: #FFFFFF;
-    background-color: #1C1917;
+    /* background-color: #1C1917; */
+    background-color: #1C3123;
     border: none;
     border-radius: 8px;
     cursor: pointer;

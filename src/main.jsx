@@ -126,7 +126,7 @@ const route = createBrowserRouter([
 
       },
       {
-        path: "/add-post",
+        path: "/spill-ink",
         element: (
                     //  original : authentication={true}
         <AuthLayout authentication={true} >
@@ -136,7 +136,7 @@ const route = createBrowserRouter([
 
       },
       {
-        path: "/dashboard",
+        path: "/inkwell",
         element:(
           <AuthLayout authentication={true} >
             <Dashboard/>

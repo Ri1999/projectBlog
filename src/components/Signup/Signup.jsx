@@ -127,7 +127,7 @@ const Signup = () => {
 
   return (
     <div className="signup-container" >
-        <h2><FcHome size={50} />Signup</h2>
+        <h2>Signup & Spill Ink</h2>
         <form onSubmit={handleSubmit(createNewUser)} className="signup-content" >
             
             {/* oauth methods */}
@@ -239,7 +239,7 @@ const Signup = () => {
                     message:"your must be at least 8 characters"
                 },
                 pattern:{
-                    value:!passwordRegex,
+                    value:!passwordRegex, // i still not sure here // 
                     message:"Give us a masterpiece: at least 8 characters, 1 uppercase letter, 1 number, and 1 special character (@$!%*?&)"
                 }
             })}
