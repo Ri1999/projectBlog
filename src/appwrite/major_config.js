@@ -34,30 +34,27 @@ export class storageService{
 
     async createPost({title, content, featuredImage,status,userId, slug}){
 
-        const documentId = slug ? slug.substring(0, 36) : ID.unique();
-
+        // i seperately create slug individual column
         try{
             const blogPost = await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
+                ID.unique(),
 
-                // ID.unique(), // treat documentId
-                // dont gonna work with documentID
-// when user creates blog, url also generate example : myblog.com/post/react-js-guide. thats is slug if i use ID.unique() it generate random string(65f1a2b3...)
-                documentId,
                 {
                     title,
                     content,
                     featuredImage,
                     status,
-                    userId
-                }
-            )
+                    userId,
+                    slug,
 
+                }
+            
+            )
             if(blogPost){
                 return blogPost
             }
-            return null
 
         }catch(err){
             console.error("createPost: ", err)
@@ -88,6 +85,7 @@ export class storageService{
 
         }catch(err){
             console.error("updatePost: ", err)
+            return false
         }
     }
 
@@ -110,21 +108,26 @@ export class storageService{
         }
     }
 
+    // along all post when i click particual one it helps that render
     async getPost(slug){
+
         try{
             const getPost = await this.databases.getDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 // ID.unique() -- >same bug, same reason, same fix
-                slug,
+                [
+                    Query.equal("slug", slug) // my custom attribute
+                ]
             )
-            if(getPost){
-                return getPost
+            if(getPost.documents.length > 0){
+                return getPost.documents[0]
             }
             return null
 
         }catch(err){
             console.error("getPost: ", err)
+            return null
         }
     }
 

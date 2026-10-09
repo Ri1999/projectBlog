@@ -51,7 +51,7 @@ const Dashboard = () => {
                 <h2>Identity</h2>
                 <button type="button">Change Dispaly name</button>
                 {isOAuthUser? (
-                    <div style={{textAlign:"left", margin:"5px"}} >You signed in with OAuth, password management is handled directly by your provider.</div>
+                    <div style={{textAlign:"left", color:"whitesmoke"}} >(You signed in with OAuth, password management is handled directly by your provider.)</div>
                 ):(
                     <>
                     </>
