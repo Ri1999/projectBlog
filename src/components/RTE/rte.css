@@ -9,17 +9,20 @@
     gap: 30px;
     margin-top: 10px;
     padding: 6px;
-    background-color: #4b5f51;
+    /* background-color: #4b5f51; */
+    background-color: #2C3E50;
+
     color: whitesmoke;
     
     /* border: 1px solid rgb(233, 217, 4); */
     /* border: 2px solid rgb(8, 126, 139); */
     
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(216, 174, 6, 0.06);
+    /* box-shadow: 0 8px 24px rgba(216, 174, 6, 0.06); */
     gap: 5px;
     margin-bottom: 2px;
     font-family: 'Sansation', sans-serif;
+    box-shadow: 0 12px 35px -8px rgb(107, 130, 146);
 }
 
 .rte-container button{
@@ -34,6 +37,7 @@
     font-weight: 700;
 
 }
+
 .tox.tox-tinymce {
     border: 2px solid #4b5f51;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);

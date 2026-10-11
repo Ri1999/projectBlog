@@ -28,6 +28,7 @@ import VerifyEmail from './components/VerifyEmail/VerifyEmail.jsx'
 import PostForm from './components/PostForm.jsx/PostForm.jsx'
 import AddPost from './pages/AddPost.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import AllPosts from './components/allposts/AllPosts.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -121,7 +122,7 @@ const route = createBrowserRouter([
         path: "/all-posts",
         element: (
         <AuthLayout authentication={true} >
-          <div>All Posts Screen</div>
+          <AllPosts/>
         </AuthLayout>),
 
       },

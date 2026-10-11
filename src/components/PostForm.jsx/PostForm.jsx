@@ -139,14 +139,8 @@ const PostForm = ({postDataFromAppwrite}) => {
 
         const newPhoto = data.image[0] ? await services.uploadFile(data.image[0]) : null
 
-        if(newPhoto){
-
     // why: newPhoto.$id --> refernce number or serial number on the photo, for foreign key link at database, so this serial-number have to save inside data.featureImage, so finally it look like this featuredImage: "6ac8ee7e003106cee3fa" 
-
-            const fileId = newPhoto.$id
-            data.featuredImage = fileId
-        }
-
+    
     // after photo upload starts database creation servides
 
         const dbNewPost = await services.createPost({
@@ -174,6 +168,7 @@ const PostForm = ({postDataFromAppwrite}) => {
             <div className="postform-upload-area">
 
                 <div className="left-content">
+                    <h2>Your Publishing Desk</h2>
 
                 <Input
                 className="test"
@@ -217,14 +212,14 @@ const PostForm = ({postDataFromAppwrite}) => {
                 error={errors.title?.message}
                 label="Title"
                 placeholder="Enter post title"
-                {...register("title",{ required: "Drop your story name" })}
+                {...register("title",{ required: "Drop your post name" })}
                 />
                 <Input
                 type="text"
-                label="Slug"
+                label="The Ink Trail"
                 error={errors.slug?.message}
-                placeholder="Auto-generated slug"
-                {...register("slug",{ required: "Slug is mandatory" })}
+                placeholder="Auto-generated-url-here"
+                {...register("slug",{ required: "URL is mandatory" })}
                 onInput={(e)=>{
                     setValue("slug", newslugTransform(e.currentTarget.value),
                     { shouldValidate: true }
@@ -244,7 +239,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                 className="writepad"
                 name="content" 
                 control={control} 
-                label="Writing Pad"
+                label=""
                 defaultValue={getValues("content")}
                 
                 />

@@ -132,7 +132,9 @@ export class storageService{
     }
 
     // if status active then show all post
-    async allPost( queries = [Query.equal("status","active")]){
+    async allPost( queries = [Query.equal("userId","LoggedInUserId"),
+        Query.orderDesc("$createdAt")
+    ]){
         try{
             const allPost = await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
@@ -150,7 +152,7 @@ export class storageService{
         }
     }
 
-    // dashboard view
+    // feed view: library
     
     async getUserPosts(userId){
         try{
