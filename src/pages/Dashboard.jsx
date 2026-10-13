@@ -38,7 +38,7 @@ const Dashboard = () => {
 
     },[userData])
 
-    console.log("userdata: ", userData)
+    // console.log("userdata: ", userData)
 
 
   return (

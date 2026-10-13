@@ -210,11 +210,13 @@ export class storageService{
     // appwite give a fileId in response of uploadFile method
 
 
-    getFilePreview(fileId) {
-        return this.bucket.getFilePreview(
+    getFileView(fileId,width = 400, height = 300) {
+        const response = this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId,
+            // output:"webp",
         )
+        return `${response}&width=${width}&height=${height}&quality=60`
     }
 
 

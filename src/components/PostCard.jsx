@@ -8,9 +8,15 @@ const PostCard = ({
     // this is Individual Story Card in Feed, clickable, beautiful Ui
 
     // $id is apwrite syntax
-    $id, title,featuredImage 
+    $id, title,featuredImage, 
+$createdAt,
 
 }) => {
+
+    // console.log("test001: ", featuredImage)
+    // console.log(storageService.getFileView(featuredImage))
+
+
   return (
 
     //  to={`/post/${$id}`
@@ -21,7 +27,9 @@ const PostCard = ({
 
                 {/* testing purpose off */}
 
-                <img src={storageService.getFilePreview(featuredImage)} alt={title} />
+                <img src={storageService.getFileView(featuredImage)} alt="post_image" />
+
+                {/* {$createdAt} */}
 
                 {/* <img src="https://images.pexels.com/photos/39417700/pexels-photo-39417700.jpeg" alt="" /> */}
 
@@ -30,8 +38,6 @@ const PostCard = ({
             {/* testing purpose off */}
 
             <h2>{title}</h2>
-
-            {/* <h2>Title</h2> */}
 
         </div>
 

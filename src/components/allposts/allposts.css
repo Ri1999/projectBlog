@@ -1,0 +1,36 @@
+.story-outer-container {
+  width: 100%;
+  max-width: 98%;
+  margin: 10px auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Sansation', sans-serif;
+  
+  /* backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px); 
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 49, 35, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.85); */
+  
+
+}
+.story-outer-container h1 {
+  font-family: 'Sansation', sans-serif;
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0b581e;
+  /* text-shadow: 0 0 10px #bee011; */
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr; 
+  }
+}

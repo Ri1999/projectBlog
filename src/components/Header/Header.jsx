@@ -46,8 +46,8 @@ const Header = () => {
       active: !authStatus,
     },
     {
-      name: "All Posts",
-      slug: "/all-posts", // this slug name meant to be same as router in main.jsx
+      name: "My Ink", // --> all posts naming change to My Ink
+      slug: "/your-ink", // this slug name meant to be same as router in main.jsx
       active: authStatus,
     },
     {

@@ -7,12 +7,12 @@
 }
 
 .postcard-container {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-left: 5px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   background-color: #a4ac86; 
   /* border: 1px solid #E5D9CC; */
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 12px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 
@@ -20,7 +20,7 @@
   /* min-height: 60vh; */ 
   height: 100%;
 
-  cursor: pointer;
+  /* cursor: pointer; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
