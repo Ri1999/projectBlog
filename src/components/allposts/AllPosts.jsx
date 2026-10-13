@@ -18,13 +18,16 @@ const AllPosts = () => {
     // console.log("test: ", LoggeduserId)
     // console.log("alldata: ", createdAt )
     const userData = useSelector((state)=> state.auth.userData)
-    console.log("user info: ", userData)
+    // console.log("user info: ", userData)
 
     // time of creation
 
     function timeOfCreation(apidatatime){
 
         const storydate = new Date(apidatatime)
+
+        // console.log("what: ", storydate)
+
         const currentdate = new Date()
 
         // find difference
@@ -67,7 +70,7 @@ const AllPosts = () => {
                 ])
                 toast.success("api call okey")
                 if(response){
-                    console.log("apidata: ", response.documents)
+                    // console.log("apidata: ", response.documents)
                     setPosts(response.documents) // not [0] we need all 
                 }
                 
@@ -84,7 +87,7 @@ const AllPosts = () => {
 console.log("is correct: ", posts)
   return (
     <div className="story-outer-container" >
-        <h1>Your Stories</h1>
+        <h1>Stories...</h1>
         {/* grid container */}
         <div className="grid-container" >
             {posts.map((post)=>(
@@ -94,6 +97,7 @@ console.log("is correct: ", posts)
                 </div>
             ))}
         </div>
+
     </div>
   )
 }

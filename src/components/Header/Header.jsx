@@ -7,12 +7,20 @@ import { useNavigate } from "react-router-dom"
 import "./header.css"
 import logoimage from "../../images/lavnatalia.png"
 // import { useState } from "react"
-
+import { useLocation } from "react-router-dom";
+import { useState } from "react"
 
 const Header = () => {
   
   // check status
   const authStatus = useSelector((state) => state.auth.status)
+
+  // const isReadingMode = location.pathname.includes(`/your-ink/`);
+  const [shouldHide, setShouldHide] = useState(false)
+  const location = useLocation();
+
+
+
 
   
   const navigate = useNavigate()

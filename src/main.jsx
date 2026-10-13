@@ -29,6 +29,7 @@ import PostForm from './components/PostForm.jsx/PostForm.jsx'
 import AddPost from './pages/AddPost.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import AllPosts from './components/allposts/AllPosts.jsx'
+import ReadPost from './components/readpost/ReadPost.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -126,6 +127,17 @@ const route = createBrowserRouter([
         </AuthLayout>),
 
       },
+
+      {
+        path:"/your-ink/:slug",
+        element:(
+          <AuthLayout>
+            {/* <div>reading post</div> */}
+            <ReadPost/>
+          </AuthLayout>
+        )
+      },
+
       {
         path: "/spill-ink",
         element: (

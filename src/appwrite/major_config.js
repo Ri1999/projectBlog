@@ -112,7 +112,7 @@ export class storageService{
     async getPost(slug){
 
         try{
-            const getPost = await this.databases.getDocument(
+            const getPost = await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 // ID.unique() -- >same bug, same reason, same fix
@@ -120,6 +120,9 @@ export class storageService{
                     Query.equal("slug", slug) // my custom attribute
                 ]
             )
+
+            // console.log("Appwrite Query Response:", getPost);
+
             if(getPost.documents.length > 0){
                 return getPost.documents[0]
             }
@@ -132,6 +135,7 @@ export class storageService{
     }
 
     // if status active then show all post
+    
     async allPost( queries = [Query.equal("userId","LoggedInUserId"),
         Query.orderDesc("$createdAt")
     ]){

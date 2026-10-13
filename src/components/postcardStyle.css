@@ -10,7 +10,10 @@
   /* margin-top: 10px; */
   margin-left: 5px;
   /* margin-bottom: 10px; */
-  background-color: #a4ac86; 
+  /* background-color: #a4ac86;  */
+  /* border: 3px solid rgb(147, 173, 147); */
+  /* border-inline: 1px solid rgb(70, 106, 58); */
+  box-shadow: 0 10px 20px #a3b18a;
   /* border: 1px solid #E5D9CC; */
   border-radius: 8px;
   padding: 12px;
@@ -38,6 +41,7 @@
   border-radius: 8px;
   overflow: hidden;
   background-color: #EFE5D8;
+  border: 1px solid rgb(92, 102, 3);
 }
 .postcard-content img {
   width: 100%;
