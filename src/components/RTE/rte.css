@@ -22,7 +22,8 @@
     gap: 5px;
     margin-bottom: 2px;
     font-family: 'Sansation', sans-serif;
-    box-shadow: 0 12px 35px -8px rgb(107, 130, 146);
+    /* box-shadow: 0 12px 35px -8px #6b8292; */
+    box-shadow: 0 10px 10px #011e32;
 }
 
 .rte-container button{
@@ -41,6 +42,7 @@
 .tox.tox-tinymce {
     border: 2px solid #4b5f51;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
     /* border: 1px solid goldenrod !important;  */
     
     /* Deep stone-900 hairline frame */
