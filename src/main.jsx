@@ -120,7 +120,7 @@ const route = createBrowserRouter([
 
       },
       {
-        path: "/your-ink",
+        path: "/my-ink",
         element: (
         <AuthLayout authentication={true} >
           <AllPosts/>

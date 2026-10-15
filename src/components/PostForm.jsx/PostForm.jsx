@@ -168,7 +168,7 @@ const PostForm = ({postDataFromAppwrite}) => {
             <div className="postform-upload-area">
 
                 <div className="left-content">
-                    <h2>Your Publishing Desk</h2>
+                    <h2>My Publishing Desk</h2>
 
                 <Input
                 className="test"

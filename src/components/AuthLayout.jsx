@@ -20,18 +20,18 @@ const AuthLayout = ({children, authentication=true}) => {
        
         // since if block need inside values both true to run, Since i configure default authStatus is false i can run it inside if block so i make it !false or in this case !authStatus.
 
-        // context : i add authentication=true to all paths --> "/add-post","dashboard","/settings","/delete-post","/etc"
+        const ProtectRoute = authentication
+        const GuestRoute = !authentication
 
-        //case: user without login try access 
-        // authentication=true, !authStatus=true --> send to login
+        // if a user notlogin and still try to access /your-ink, and /inkwell, those protected routes she fall back into /login
 
-        if(authentication  && !authStatus)
+        if(ProtectRoute  && !authStatus)
             navigate("/login")
 
-        // context : i add authentication=false to path --> "/"
-        
-        // so for making both true to run condition need !authentication=true and a loggin user authStatus always true, so both true condition run
-        else if(!authentication && authStatus){
+        // if a already logged user try to access non protected routes like /singup, /login she fall back into home
+
+
+        else if(GuestRoute && authStatus){
             navigate("/")
         }
 

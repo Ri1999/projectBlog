@@ -55,7 +55,7 @@ const Header = () => {
     },
     {
       name: "My Ink", // --> all posts naming change to My Ink
-      slug: "/your-ink", // this slug name meant to be same as router in main.jsx
+      slug: "/my-ink", // this slug name meant to be same as router in main.jsx
       active: authStatus,
     },
     {
@@ -70,10 +70,13 @@ const Header = () => {
     },
   ]
 
+  // http://localhost:5173/your-ink/test-story-004
+  const isStoryPage = window.location.pathname.includes("/your-ink/");
+
   
 
   return (
-    <header className="header" >
+    <header style={{ display: isStoryPage ? "none" : '' }} className="my-header" >
       <Container>
         <nav className="main-nav" >
 

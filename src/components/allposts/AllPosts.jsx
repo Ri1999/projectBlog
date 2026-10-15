@@ -1,23 +1,25 @@
 // import React from 'react'
 import services from "../../appwrite/major_config"
-import parse from "html-react-parser" // TinyCME render 
+// import parse from "html-react-parser" // TinyCME render 
 import {toast} from "react-toastify"
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Query } from "appwrite"
 import PostCard from "../PostCard"
 import "./allposts.css"
+import { FcSynchronize } from "react-icons/fc";
+import { useNavigate } from "react-router-dom"
 const AllPosts = () => {
 
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
-    const [readindPost, setReadindPost] = useState(null)
+    // const [readindPost, setReadindPost] = useState(null)
 
-    const LoggeduserId = useSelector((state)=> state.auth.userData.$id)
+    const LoggeduserId = useSelector((state)=> state.auth.userData?.$id)
     // const createdAt = useSelector((state)=> state.auth.userData.$createdAt)
     // console.log("test: ", LoggeduserId)
     // console.log("alldata: ", createdAt )
-    const userData = useSelector((state)=> state.auth.userData)
+    // const userData = useSelector((state)=> state.auth.userData)
     // console.log("user info: ", userData)
 
     // time of creation
@@ -57,6 +59,11 @@ const AllPosts = () => {
 
     }
     
+    const userData = useSelector((state) => state.auth.userData);
+    const navigate = useNavigate()
+    if(!userData){
+        navigate("/login")
+    }
 
 
 
@@ -68,7 +75,7 @@ const AllPosts = () => {
                 const response = await services.allPost([Query.equal("userId", LoggeduserId),
                     Query.orderDesc("$createdAt")
                 ])
-                toast.success("api call okey")
+                toast.success("Fetched successfully!")
                 if(response){
                     // console.log("apidata: ", response.documents)
                     setPosts(response.documents) // not [0] we need all 
@@ -85,9 +92,26 @@ const AllPosts = () => {
     },[LoggeduserId])
 
 console.log("is correct: ", posts)
+    
+    if(loading){
+        return (
+            <div style={{
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"center",
+                height:"60vh",
+                flexDirection:"column"
+            }} ><h1>Just a moment...</h1><span><FcSynchronize color="green" size={40}/></span></div>
+        )
+    }
+
+
+
+
+
   return (
     <div className="story-outer-container" >
-        <h1>Stories...</h1>
+        <h1>My Publications</h1>
         {/* grid container */}
         <div className="grid-container" >
             {posts.map((post)=>(
