@@ -30,6 +30,7 @@ import AddPost from './pages/AddPost.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import AllPosts from './components/allposts/AllPosts.jsx'
 import ReadPost from './components/readpost/ReadPost.jsx'
+import EditPost from './pages/EditPost.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -147,6 +148,14 @@ const route = createBrowserRouter([
           <AddPost/>
         </AuthLayout>),
 
+      },
+      {
+        path:"/spill-ink/:slug",
+        element:(
+          <AuthLayout authentication={true} >
+            <EditPost />
+          </AuthLayout>
+        )
       },
       {
         path: "/inkwell",

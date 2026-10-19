@@ -17,6 +17,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
     // why need this props? what purpose?
     // ans: i fetch userData from direct appwrite and pass via props, so i need this.
+    console.log("props: ", postDataFromAppwrite)
 
     const userData = useSelector((state)=> state.auth.userData) // naming is same as i did in authslice.js
 
@@ -31,7 +32,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
         defaultValues:{
             title: postDataFromAppwrite?.title || "",
-            slug: postDataFromAppwrite?.$id || "",
+            slug: postDataFromAppwrite?.slug || "",
             content: postDataFromAppwrite?.content || "",
             status: postDataFromAppwrite?.status || "active",
         }

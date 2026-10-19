@@ -38,7 +38,7 @@ const PostCard = ({
             </div>
             {/* testing purpose off */}
 
-            <h2 style={{color:"white", backgroundColor:"#2c4a36", padding:"5px", width:"50%", borderRadius:"4px"}} >{title}</h2>
+            <h2 style={{color:"white", backgroundColor:"#2c4a36", padding:"5px", width:"70%", borderRadius:"4px", }} >{title}</h2>
 
         </div>
 

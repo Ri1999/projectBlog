@@ -38,6 +38,9 @@
 .postcard-content {
   width: 100%;
   height: 250px;
+  max-height: 250px;
+  min-height: 250px;
+  flex-shrink: 0;
   border-radius: 8px;
   overflow: hidden;
   background-color: #EFE5D8;
@@ -65,4 +68,5 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: black;
+  min-height: 2.8rem;
 }

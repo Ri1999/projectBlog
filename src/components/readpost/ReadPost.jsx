@@ -12,9 +12,16 @@ import { FcSynchronize } from "react-icons/fc";
 import { useNavigate } from "react-router-dom"
 // import { FcPrevious } from "react-icons/fc";
 import { IoIosArrowBack } from "react-icons/io";
+import { ImBin } from "react-icons/im";
+import { FaPen } from "react-icons/fa6";
+// import { FcLike } from "react-icons/fc";
+import { AiOutlineLike } from "react-icons/ai";
+import { BiSolidDislike } from "react-icons/bi";
+import { FcApproval } from "react-icons/fc";
 const ReadPost = () => {
 
     const {slug} = useParams()
+    // const {status} = useParams()
     // const {featuredImage} = useParams()
     // const {documentId} = useParams()
     const navigate = useNavigate()
@@ -28,8 +35,8 @@ const ReadPost = () => {
     const [openPost, setOpenPost] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    console.log("Post ID from URL:", slug);
-    console.log("details:", user);
+    // console.log("Post ID from URL:", slug);
+    // console.log("details:", user);
     // console.log("docid:", documentId);
 
     useEffect(()=>{
@@ -39,7 +46,7 @@ const ReadPost = () => {
                 const fetchData = await services.getPost(slug)
                 if(fetchData){
                     // toast.success("api successful")
-                    console.log("api data: ", fetchData)
+                    // console.log("api data: ", fetchData)
                     setOpenPost(fetchData)
                 }else{
                     toast.error("Story not found");
@@ -80,6 +87,34 @@ const ReadPost = () => {
         </div>
     }
 
+    const owner = LoggeduserId === openPost.userId
+    const fileID = openPost.$id 
+    const greentick = user.emailVerification
+
+    // console.log("works: ", owner)
+    // console.log("works for fireld: ", fileID)
+    // console.log("tick: ", greentick)
+
+    const deleteStory = async()=>{
+        setLoading(true)
+        try{
+            await services.deletePost(fileID)
+            // it returns a empty object 
+            toast.success("Story deleted successfully!")
+            navigate("/my-ink")
+            
+        }catch(err){
+            toast.error(err.message ||"Failed to delete story!")
+        }finally{
+            setLoading(false)
+        }
+    }
+
+    const handleEdit = () => {
+    navigate(`/spill-ink/${openPost.slug}`)
+    // /spill-ink/:slug
+}
+
 
 
   return (
@@ -90,10 +125,17 @@ const ReadPost = () => {
 
         <div className="story-banner-overlay">
             <h1>{openPost.title}</h1>
-            <p>By: {user.name}</p>
+            <p>By: {user.name}{greentick && <FcApproval/>}</p>
 
             <div className="story-banner-details" >
                 <span>{calculateReadTime(openPost.content)}</span>
+
+            {owner && <button onClick={()=>deleteStory()} type="button"><ImBin size={25} /></button>}
+
+            {/* <button type="button"><FaPen size={20} /></button> */}
+
+            {owner && <button onClick={()=>handleEdit()} type="button"><FaPen size={20} /></button>}
+
                 <button onClick={()=>backTopost()} type="button"><IoIosArrowBack size={35} /></button>
             
             </div>
@@ -107,7 +149,7 @@ const ReadPost = () => {
     <div className="story-body" >
         {/* <button type="button">back</button> */}
         <article>
-            <p>{parse(openPost.content)}</p>
+            {parse(openPost.content)}
         </article>
 
     </div>

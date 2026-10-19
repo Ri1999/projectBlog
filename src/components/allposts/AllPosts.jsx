@@ -91,7 +91,7 @@ const AllPosts = () => {
 
     },[LoggeduserId])
 
-console.log("is correct: ", posts)
+// console.log("is correct: ", posts)
     
     if(loading){
         return (

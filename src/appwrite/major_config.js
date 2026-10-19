@@ -89,13 +89,13 @@ export class storageService{
         }
     }
 
-    async deletePost(slug){
+    async deletePost(fireID){
         try{
             const deletePost = await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 // ID.unique() -- > same reason,
-                slug,
+                fireID,
 
             )
             if(deletePost){
