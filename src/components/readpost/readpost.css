@@ -74,6 +74,9 @@
     font-size: 1.1rem;
     color: #f8f2ee;
 }
+.story-banner-details span{
+    font-family: 'Sansation', sans-serif;
+}
 .story-banner-overlay h1{
     font-family: 'Fondamento', cursive;
     font-size: 3.3rem;

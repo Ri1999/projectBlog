@@ -43,7 +43,7 @@ const toogleMode =()=>{
 
     if(body){
         // set conditions
-        const bgcolor = nextmode? "#181b1d":"#FAF7F2"
+        const bgcolor = nextmode? "#181b1d":"#d4d1cc"
         const textcolor = nextmode? "whitesmoke":"#172a05"
 
         // force all <iframe> css and set my stylings

@@ -51,7 +51,7 @@
 .left-content h2{
   /* font-family: 'Fondamento', cursive; */
 }
-.left-content p{
+.left-content p, .right-content p{
     font-size: 0.95rem;
     color: white;
 }
@@ -59,8 +59,15 @@
   flex: 2 1 400px;
   display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
+  justify-content:center;
   gap: 1rem;
+}
+.right-content p{
+  /* justify-self: flex-start;
+   */
+   align-self: flex-start;
+   /* justify-self: flex-end; */
+   /* height: auto; */
 }
 .postform-written-area {
   width: 100% ;

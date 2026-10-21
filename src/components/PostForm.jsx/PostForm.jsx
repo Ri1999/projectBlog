@@ -51,16 +51,18 @@ const PostForm = ({postDataFromAppwrite}) => {
 //------------------------------------------------------------------------------    
 
     const newslugTransform = useCallback((value)=>{
+       
 
         if(value && typeof value === "string"){
 
             // want my personal brand name here
-            const slug = value.trim().toLowerCase().replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "-")
+            const slug = value.trim().toLowerCase().replace(/[^a-zA-Z0-9\s-]/g, "").replace(/\s+/g, "-")
 // TODO Future Enhancements:
 // - Appwrite Slug Collision Handler: Add unique suffix (`-at-charukavya`) on post creation.
             return `${slug}`
 
         }
+
         return ""
 
     },[])
@@ -202,7 +204,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                 
                 />
                 <p>(Status| <b>active:Publish | inactive:Draft</b>)</p>
-                <button  type="submit">{postDataFromAppwrite ? "Update Post" : "Publish"}</button>
+                <button  type="submit">{postDataFromAppwrite ? "Update Story" : "Publish"}</button>
 
                 </div>
 
@@ -212,15 +214,26 @@ const PostForm = ({postDataFromAppwrite}) => {
                 type="text"
                 error={errors.title?.message}
                 label="Title"
-                placeholder="Enter post title"
-                {...register("title",{ required: "Drop your post name" })}
+                placeholder="Enter story title"
+                {...register("title",{ required: "Drop your story name",
+                    maxLength:{
+                        value:55,
+                        message:"Title cannot be longer than 55 characters"
+                    },
+                    pattern:{
+                        value:/^[^\s]+(\s+[^\s]+)*$/,
+                        message:"Title cannot start or end with blank spaces"
+                    }
+                 })}
                 />
+
+                
                 <Input
                 type="text"
                 label="The Ink Trail"
                 error={errors.slug?.message}
                 placeholder="Auto-generated-url-here"
-                {...register("slug",{ required: "URL is mandatory" })}
+                {...register("slug",{ required: "URL is mandatory", })}
                 onInput={(e)=>{
                     setValue("slug", newslugTransform(e.currentTarget.value),
                     { shouldValidate: true }
@@ -229,6 +242,8 @@ const PostForm = ({postDataFromAppwrite}) => {
                 }}
                 
                 />
+                <p>(pls add hyphen between <b>Example: </b>test-the-slug)</p>
+                
                 </div>
 
             </div>

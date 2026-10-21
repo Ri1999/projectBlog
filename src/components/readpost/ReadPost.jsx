@@ -22,6 +22,7 @@ const ReadPost = () => {
 
     const {slug} = useParams()
     // const {status} = useParams()
+    // const {status} = useParams()
     // const {featuredImage} = useParams()
     // const {documentId} = useParams()
     const navigate = useNavigate()
@@ -37,7 +38,7 @@ const ReadPost = () => {
 
     // console.log("Post ID from URL:", slug);
     // console.log("details:", user);
-    // console.log("docid:", documentId);
+    // console.log("docid:", status);
 
     useEffect(()=>{
         const readPost = async()=>{
@@ -46,7 +47,7 @@ const ReadPost = () => {
                 const fetchData = await services.getPost(slug)
                 if(fetchData){
                     // toast.success("api successful")
-                    // console.log("api data: ", fetchData)
+                    console.log("api data: ", fetchData)
                     setOpenPost(fetchData)
                 }else{
                     toast.error("Story not found");
@@ -64,6 +65,15 @@ const ReadPost = () => {
 
 
     },[slug])
+    
+    const checkStatus =(value)=>{
+        if(value==="active"){
+            return true
+        }else{
+            return false
+        }
+    }
+    
 
     const calculateReadTime = (tinyMCEhtml)=>{
         
@@ -94,6 +104,8 @@ const ReadPost = () => {
     // console.log("works: ", owner)
     // console.log("works for fireld: ", fileID)
     // console.log("tick: ", greentick)
+    const statusOfStory = checkStatus(openPost.status)
+    // console.log("my prog: ", statusOfStory)
 
     const deleteStory = async()=>{
         setLoading(true)
@@ -125,10 +137,10 @@ const ReadPost = () => {
 
         <div className="story-banner-overlay">
             <h1>{openPost.title}</h1>
-            <p>By: {user.name}{greentick && <FcApproval/>}</p>
+            <p>Written by: {user.name}{greentick && <FcApproval/>}</p>
 
             <div className="story-banner-details" >
-                <span>{calculateReadTime(openPost.content)}</span>
+                <span>{calculateReadTime(openPost.content)} <b>{statusOfStory? "Published":"Draft"}</b></span>
 
             {owner && <button onClick={()=>deleteStory()} type="button"><ImBin size={25} /></button>}
 

@@ -2,6 +2,11 @@
 import storageService from "../appwrite/major_config"
 import { Link } from 'react-router-dom'
 import "../components/postcardStyle.css"
+// import { MdOutlinePushPin } from "react-icons/md";
+// import { GoPin } from "react-icons/go";
+// import { TbPinFilled } from "react-icons/tb";
+import { MdPublishedWithChanges } from "react-icons/md";
+import { MdUnpublished } from "react-icons/md";
 
 const PostCard = ({
 
@@ -9,25 +14,38 @@ const PostCard = ({
 
     // $id is apwrite syntax
     $id, title,featuredImage, 
-    slug
+    slug,status
 
 
 }) => {
 
-    // console.log("test001: ", featuredImage)
+    // console.log("test001: ", status)
     // console.log(storageService.getFileView(featuredImage))
+    const checkStatus = (status)=>{
+        if(status==="inactive"){
+            return false
+        }else{
+            return true
+        }
+    }
+    const result = checkStatus(status)
+    
+
 
 
   return (
 
     //  to={`/post/${$id}`
 
-    <Link className="link-dom" to={`/your-ink/${slug}`}  >
+    <Link className="link-dom" to={`/my-ink/${slug}`}  >
         <div className="postcard-container">
+            {/* <TbPinFilled color="black" size={20} /> */}
+            {/* {checkStatus(status)} */}
+            {result? <MdPublishedWithChanges size={20} />:<MdUnpublished size={20} />}
             <div className="postcard-content">
 
                 {/* testing purpose off */}
-
+                
                 <img src={storageService.getFileView(featuredImage)} alt="post_image" />
 
                 {/* {$createdAt} */}

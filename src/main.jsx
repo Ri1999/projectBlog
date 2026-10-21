@@ -130,7 +130,7 @@ const route = createBrowserRouter([
       },
 
       {
-        path:"/your-ink/:slug",
+        path:"/my-ink/:slug",
         element:(
           <AuthLayout>
             {/* <div>reading post</div> */}
