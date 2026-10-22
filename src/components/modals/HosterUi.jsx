@@ -10,7 +10,7 @@ import { useSelector } from "react-redux"
 // import { useState } from "react"
 const HosterUi = () => {
 
-    const { open, triggerDelete , openModal, closeModal } = useContext(hostStation)
+    const { open, triggerDelete , openModal, closeModal, manualClose } = useContext(hostStation)
     const user = useSelector((state)=> state.auth.userData)
     // console.log("datas: ", user.name)
 
@@ -35,14 +35,15 @@ const HosterUi = () => {
         zIndex: 9999 
     }
     const messageBox={
-        backgroundColor: "#fff",
-        padding: "24px",
+        backgroundColor: "#f5f4f3",
+        padding: "34px",
         borderRadius: "12px",
         width: "90%",
         maxWidth: "400px",
         // boxShadow: "0 10px 25px rgba(166, 97, 97, 0.2)",
         boxShadow: "0 5px 10px #283618",
-        textAlign: "center"
+        textAlign: "center",
+        border:"1px solid rgb(228, 210, 112)",
     }
 
     const cancelButton={
@@ -86,7 +87,7 @@ const HosterUi = () => {
             <p style={{fontSize:"1.4rem"}} >{`${user.name} are you sure you want to delete this ?`}</p>
 
             <div style={{display:"flex", gap:"15px", justifyContent:"space-between", marginTop:"20px"}} >
-                <button onClick={closeModal} style={cancelButton} type="button">Nevermind</button>
+                <button onClick={manualClose} style={cancelButton} type="button">Nevermind</button>
                 <button onClick={()=>{
                     // closeModal()
                     // findMe()
