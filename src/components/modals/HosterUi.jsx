@@ -5,13 +5,22 @@ import { hostStation } from "./host"
 // import Hoster from "./Hoster"
 import { useContext } from "react"
 import { useSelector } from "react-redux"
+// import { useSearchParams } from "react-router-dom"
+// import services from "../../appwrite/major_config"
+// import { useState } from "react"
 const HosterUi = () => {
 
-    const { open, modalConfig, openModal, closeModal } = useContext(hostStation)
+    const { open, triggerDelete , openModal, closeModal } = useContext(hostStation)
     const user = useSelector((state)=> state.auth.userData)
     // console.log("datas: ", user.name)
 
     // console.log("what: ",open,modalConfig)
+    // const [searchParams, setSearchParams] = useSearchParams();
+    // const StoryPage = window.location.pathname.includes("/my-ink/");
+
+    // const [loading, setLoading] = useState(false)
+
+
 
     const overlayBox ={
         position: "fixed",
@@ -39,11 +48,13 @@ const HosterUi = () => {
     const cancelButton={
         padding: "10px 16px",
         borderRadius: "6px",
-        border: "1px solid #ccc",
+        border: "1px solid #283618",
         backgroundColor: "#283618",
         cursor: "pointer",
         fontWeight: "500",
         color:"white",
+        fontFamily:"Sansation, sans-serif",
+        fontSize:"1rem",
     }
     const confirmButton={
         padding: "8px 16px",
@@ -52,28 +63,39 @@ const HosterUi = () => {
         backgroundColor: "#780000",
         color: "#fff",
         cursor: "pointer",
-        fontWeight: "500"
+        fontWeight: "500",
+        fontFamily:"Sansation, sans-serif",
+        fontSize:"1rem",
     }
+    const stopBubble =(e)=>{
+        e.stopPropagation(); 
+    }
+
+    // const findMe =()=>{
+    //     console.log("i am clicked!")
+    // }
+
     if (!open) return null;
 
   return (
 
-    <div style={overlayBox} >
-        <div style={messageBox} >
+    <div onClick={closeModal} style={overlayBox} >
+        <div onClick={stopBubble} style={messageBox} >
             {/* HosterUi */}
-            <h3 style={{fontFamily:"Sansation, sans-serif", fontSize:"1.5rem"}} >{modalConfig.title ||"Delete" }</h3>
-            <p style={{fontSize:"1.2rem"}} >{modalConfig.message || `${user.name} are you sure you want to delete this ?`}</p>
+            <h3 style={{fontFamily:"Sansation, sans-serif", fontSize:"1.5rem"}} ></h3>
+            <p style={{fontSize:"1.4rem"}} >{`${user.name} are you sure you want to delete this ?`}</p>
 
             <div style={{display:"flex", gap:"15px", justifyContent:"space-between", marginTop:"20px"}} >
                 <button onClick={closeModal} style={cancelButton} type="button">Nevermind</button>
-                <button
-                onClick={()=>{
-                    if(modalConfig.onConfirm){
-                        modalConfig.onConfirm()
-                        closeModal();
+                <button onClick={()=>{
+                    // closeModal()
+                    // findMe()
+                    if(triggerDelete){
+                        triggerDelete()
                     }
+                    closeModal();
+
                 }}
-                
                 style={confirmButton} type="button">Yes, delete it</button>
 
             </div>

@@ -24,7 +24,7 @@ const ReadPost = () => {
 
     const {openModal} = useContext(hostStation)
 
-console.log("test props: ", openModal)
+// console.log("test props: ", openModal)
 
     const {slug} = useParams()
     // const {status} = useParams()
@@ -118,11 +118,11 @@ console.log("test props: ", openModal)
         try{
             await services.deletePost(fileID)
             // it returns a empty object 
-            toast.success("Story deleted successfully!")
+            toast.success("Deleted successfully!")
             navigate("/my-ink")
             
         }catch(err){
-            toast.error(err.message ||"Failed to delete story!")
+            toast.error(err.message ||"Failed to delete!")
         }finally{
             setLoading(false)
         }
@@ -151,7 +151,10 @@ console.log("test props: ", openModal)
                 <span>{calculateReadTime(openPost.content)} <b>{statusOfStory? "Published":"Draft"}</b></span>
 
 {/* onClick={()=>deleteStory()} */}
-            {owner && <button onClick={openModal} type="button"><ImBin size={25} /></button>}
+            {owner && <button onClick={()=>{
+                openModal(deleteStory)
+                
+            }} type="button"><ImBin size={25} /></button>}
 
             {/* <button type="button"><FaPen size={20} /></button> */}
 

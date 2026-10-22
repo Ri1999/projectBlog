@@ -9,28 +9,26 @@ const Hoster = ({children}) => {
 
     const [open, setOpen] = useState(false)
 
-    const [modalConfig, setModalConfig] = useState({
-        title: "",
-        message: "",
-        onConfirm: null
-    })
+    const [triggerDelete, setTriggerDelete] = useState(null)
 
-    const openModal=({ title, message, onConfirm })=>{
-        setModalConfig({ title, message, onConfirm })
+    const openModal=(deleteFunction)=>{
+        // setModalConfig(true)
+        setTriggerDelete(()=> deleteFunction) // deleteStory fucntion as param
         setOpen(true)
     } 
-    const closeModal=({ title, message, onConfirm })=>{
+    const closeModal=()=>{
         // setModalConfig()
         setOpen(false)
         // after close reset configs
-        setModalConfig({ title:"", message:"", onConfirm:null })
+        // setModalConfig(false)
+        setTriggerDelete(null)
     }
 
 
   return (
     // <div>Hoster</div>
     <>
-    <hostStation.Provider value={{open, modalConfig, openModal, closeModal}} >
+    <hostStation.Provider value={{open, triggerDelete , openModal, closeModal}} >
         {children}
         <HosterUi/>
     </hostStation.Provider>
