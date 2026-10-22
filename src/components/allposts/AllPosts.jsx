@@ -111,7 +111,7 @@ const AllPosts = () => {
 
   return (
     <div className="story-outer-container" >
-        <h1>My Publications</h1>
+        <h1>Publications</h1>
         {/* grid container */}
         <div className="grid-container" >
             {posts.map((post)=>(

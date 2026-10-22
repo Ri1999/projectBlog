@@ -1,5 +1,5 @@
 // import React from 'react'
-import { FcDocument } from "react-icons/fc";
+// import { FcDocument } from "react-icons/fc";
 import "./info.css"
 const TermsAndConditions = () => {
 
@@ -12,7 +12,7 @@ const TermsAndConditions = () => {
 
   return (
     <div className='container' >
-        <h1>The Rulebook <FcDocument size={40} /></h1>
+        <h1>The Rulebook</h1>
         <p>Last Updated: September 2026</p>
         <div className="content">
             <section>

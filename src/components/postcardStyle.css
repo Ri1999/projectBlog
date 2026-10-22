@@ -7,6 +7,9 @@
     color: black;
 
 }
+.link-dom:hover{
+  color: #2c4a36;
+}
 
 .postcard-container {
   /* margin-top: 10px; */

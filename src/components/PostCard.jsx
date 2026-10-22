@@ -41,7 +41,7 @@ const PostCard = ({
         <div className="postcard-container">
             {/* <TbPinFilled color="black" size={20} /> */}
             {/* {checkStatus(status)} */}
-            {result? <MdPublishedWithChanges size={20} />:<MdUnpublished size={20} />}
+            {result? <MdPublishedWithChanges color="#386641" size={20} />:<MdUnpublished color="#a3b18a" size={20} />}
             <div className="postcard-content">
 
                 {/* testing purpose off */}
@@ -56,7 +56,7 @@ const PostCard = ({
             </div>
             {/* testing purpose off */}
 
-            <h2 style={{color:"white", backgroundColor:"#2c4a36", padding:"5px", width:"70%", borderRadius:"4px", }} >{title}</h2>
+            <h2 style={{color:"white", backgroundColor:"#2c4a36", padding:"5px", width:"70%", borderRadius:"3px", }} >{title}</h2>
 
         </div>
 

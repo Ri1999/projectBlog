@@ -15,10 +15,16 @@ import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
 import { FaPen } from "react-icons/fa6";
 // import { FcLike } from "react-icons/fc";
-import { AiOutlineLike } from "react-icons/ai";
-import { BiSolidDislike } from "react-icons/bi";
+// import { AiOutlineLike } from "react-icons/ai";
+// import { BiSolidDislike } from "react-icons/bi";
 import { FcApproval } from "react-icons/fc";
+import { hostStation } from "../modals/host"
+import { useContext } from "react"
 const ReadPost = () => {
+
+    const {openModal} = useContext(hostStation)
+
+console.log("test props: ", openModal)
 
     const {slug} = useParams()
     // const {status} = useParams()
@@ -129,6 +135,8 @@ const ReadPost = () => {
 
 
 
+
+
   return (
     <div className="story-page-wrapper" >
     {/* <img src= alt="" /> */}
@@ -142,7 +150,8 @@ const ReadPost = () => {
             <div className="story-banner-details" >
                 <span>{calculateReadTime(openPost.content)} <b>{statusOfStory? "Published":"Draft"}</b></span>
 
-            {owner && <button onClick={()=>deleteStory()} type="button"><ImBin size={25} /></button>}
+{/* onClick={()=>deleteStory()} */}
+            {owner && <button onClick={openModal} type="button"><ImBin size={25} /></button>}
 
             {/* <button type="button"><FaPen size={20} /></button> */}
 

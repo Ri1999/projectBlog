@@ -31,6 +31,8 @@ import Dashboard from './pages/Dashboard.jsx'
 import AllPosts from './components/allposts/AllPosts.jsx'
 import ReadPost from './components/readpost/ReadPost.jsx'
 import EditPost from './pages/EditPost.jsx'
+import HosterUi from './components/modals/HosterUi.jsx'
+import Hoster from './components/modals/Hoster.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -134,10 +136,21 @@ const route = createBrowserRouter([
         element:(
           <AuthLayout>
             {/* <div>reading post</div> */}
+            {/* <Hoster> */}
             <ReadPost/>
+            {/* </Hoster> */}
           </AuthLayout>
         )
       },
+
+      // test 
+      // {
+      //   path:"/hoster",
+      //   element:<Hoster>
+      //     <HosterUi/>
+      //   </Hoster>
+      // },
+
 
       {
         path: "/spill-ink",
@@ -176,8 +189,10 @@ createRoot(document.getElementById('root')).render(
     <Provider store={store} >
       {/* <App />
        */}
+       <Hoster>
       <RouterProvider router={route} /> 
       <ToastContainer position="top-right" autoClose={3000} />
+      </Hoster>
     </Provider>
   </StrictMode>,
 )

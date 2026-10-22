@@ -1,6 +1,7 @@
 // import React from 'react'
 import "./info.css"
-import { FcPrivacy } from "react-icons/fc";
+// import { FcPrivacy } from "react-icons/fc";
+// import { PiFingerprintSimple } from "react-icons/pi";
 const PrivacyPolicy = () => {
 
     const privacyStyle={
@@ -11,7 +12,7 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="container" >
-        <h1>Your Footprints <FcPrivacy size={39} /></h1>
+        <h1>Your Footprints</h1>
         <p>Last Updated: September 2026</p>
         <div className="content" >
             <section>
