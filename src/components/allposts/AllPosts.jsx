@@ -9,6 +9,7 @@ import PostCard from "../PostCard"
 import "./allposts.css"
 import { FcSynchronize } from "react-icons/fc";
 import { useNavigate } from "react-router-dom"
+import { FiLoader } from "react-icons/fi";
 const AllPosts = () => {
 
     const [posts, setPosts] = useState([])
@@ -101,7 +102,7 @@ const AllPosts = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column"
-            }} ><h1>Just a moment...</h1><span><FcSynchronize color="green" size={40}/></span></div>
+            }} ><h1>Just a moment...</h1><span className="spinning-animation" ><FiLoader color="green" size={40}/></span></div>
         )
     }
 

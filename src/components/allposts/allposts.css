@@ -33,6 +33,13 @@
   gap: 1rem;
   align-items: stretch;
 }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.spinning-animation{
+  animation: spin 2s linear infinite;
+}
 @media screen and (max-width: 768px) {
   .grid-container {
     grid-template-columns: 1fr 1fr; 

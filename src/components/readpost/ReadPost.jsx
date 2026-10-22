@@ -20,6 +20,7 @@ import { FaPen } from "react-icons/fa6";
 import { FcApproval } from "react-icons/fc";
 import { hostStation } from "../modals/host"
 import { useContext } from "react"
+import { FiLoader } from "react-icons/fi";
 const ReadPost = () => {
 
     const {openModal} = useContext(hostStation)
@@ -98,8 +99,8 @@ const ReadPost = () => {
 
     if (loading) {
         return <div className="readpost-loading">
-            <h1>Opening...</h1>
-            <span><FcSynchronize color="green" size={40}/></span>
+            <h1></h1>
+            <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
         </div>
     }
 

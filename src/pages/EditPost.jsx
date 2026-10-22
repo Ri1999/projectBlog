@@ -6,7 +6,9 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import Container from '../components/container/Container'
-import { FcSynchronize } from "react-icons/fc";
+// import { FcSynchronize } from "react-icons/fc";
+import { FiLoader } from "react-icons/fi";
+
 const EditPost = () => {
 
     const [data, setData] = useState(null)
@@ -21,7 +23,12 @@ const EditPost = () => {
         const fetchPostDetails = async()=>{
             setLoading(true)
             try{
-                const fetchData = await services.getPost(slug)
+
+                const [fetchData] = await Promise.all([services.getPost(slug),
+
+                    new Promise((resolve)=> setTimeout(resolve,1000))
+                ])
+
                 if(fetchData){
                     setData(fetchData)
                 }else{
@@ -41,6 +48,10 @@ const EditPost = () => {
 
     },[slug, navigate])
 
+    const loadingAnimation ={
+        animation: "spin 1s linear infinite"
+    }
+
     if(loading){
         return (
             <div style={{
@@ -49,7 +60,7 @@ const EditPost = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column"
-            }} ><h1>Loading story details...</h1><span><FcSynchronize color="green" size={40}/></span></div>
+            }} ><h1>Loading story details...</h1><span style={loadingAnimation} ><FiLoader color="green" size={40}/></span></div>
         )
     }
 
