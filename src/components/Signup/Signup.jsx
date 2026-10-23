@@ -161,7 +161,7 @@ const Signup = () => {
 
     {/* linkedin */}
 
-    <button 
+    {/* <button 
         type="button" 
         onClick={function(){
             handleAuthSignup("linkedin")
@@ -169,7 +169,7 @@ const Signup = () => {
         style={{ background: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
     >
         <FaLinkedin color="#1040aff7" size={35} />
-    </button>
+    </button> */}
 
             </div>
             <p style={{textAlign:"center", fontWeight:"600"}} >- Alternatively create an account via -</p>

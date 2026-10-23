@@ -3,12 +3,13 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 import services from "../../appwrite/major_config"
-import { Query } from "appwrite"
+// import { Query } from "appwrite"
 import { toast } from "react-toastify"
 import parse from "html-react-parser" // TinyCME render 
 import "./readpost.css"
 // import { FcClock } from "react-icons/fc";
-import { FcSynchronize } from "react-icons/fc";
+// import { FcSynchronize } from "react-icons/fc";
+// import { TbLoaderQuarter } from "react-icons/tb";
 import { useNavigate } from "react-router-dom"
 // import { FcPrevious } from "react-icons/fc";
 import { IoIosArrowBack } from "react-icons/io";
@@ -21,9 +22,21 @@ import { FcApproval } from "react-icons/fc";
 import { hostStation } from "../modals/host"
 import { useContext } from "react"
 import { FiLoader } from "react-icons/fi";
+import { FaBookOpen } from "react-icons/fa";
+// import { VscColorMode } from "react-icons/vsc";
+// import { TiWeatherPartlySunny } from "react-icons/ti";
+// import { MdWbSunny } from "react-icons/md";
+// import { BsMoonStars } from "react-icons/bs";
 const ReadPost = () => {
 
     const {openModal} = useContext(hostStation)
+    const [theme, setTheme] = useState(false)
+
+    const toogleTheme=()=>{
+        setTheme(!theme)
+    }
+
+    // console.log("what is theme: ", theme)
 
 // console.log("test props: ", openModal)
 
@@ -97,9 +110,9 @@ const ReadPost = () => {
         return `${time} min read`
     }
 
-    if (loading) {
+    if (loading || !openPost) {
         return <div className="readpost-loading">
-            <h1></h1>
+            <h1>Opening</h1>
             <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
         </div>
     }
@@ -138,6 +151,8 @@ const ReadPost = () => {
 
 
 
+
+
   return (
     <div className="story-page-wrapper" >
     {/* <img src= alt="" /> */}
@@ -171,9 +186,10 @@ const ReadPost = () => {
 
     </div>
 
-    <div className="story-body" >
+    <div style={{backgroundColor:theme?"#cbcac8":"#F8F9FA"}} className="story-body" >
+        <button onClick={()=>toogleTheme()} type="button"><FaBookOpen color="#344e41" size={20} /> {theme?"MODE":"MODE"}</button>
         {/* <button type="button">back</button> */}
-        <article>
+        <article style={{fontFamily:"inherit !important", fontSize:"inherit !important", color:theme?"#2d2216":"#34404b"}} >
             {parse(openPost.content)}
         </article>
 

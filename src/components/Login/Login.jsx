@@ -13,7 +13,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaApple } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 // import { FcReadingEbook } from "react-icons/fc";
-import { FcReading } from "react-icons/fc";
+// import { FcReading } from "react-icons/fc";
 import {toast} from "react-toastify"
 
 const Login = () => {
@@ -166,7 +166,7 @@ const Login = () => {
 
     {/* linkedin */}
 
-    <button 
+    {/* <button 
         type="button" 
         onClick={function(){
             handleAuthLogin("linkedin")
@@ -174,7 +174,7 @@ const Login = () => {
         style={{ background: "transparent", border: "2px solid grey", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
     >
         <FaLinkedin color="#1040aff7" size={35} />
-    </button>
+    </button> */}
 
 
 

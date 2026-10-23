@@ -116,7 +116,7 @@ const toogleMode =()=>{
                 plugins:[
                     'image', 'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'code', 'wordcount'
                 ],
-                toolbar: "undo redo | paste | blocks | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat |",
+                toolbar: "undo redo | fontsize | paste | blocks | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat |",
                 // i want to style this seperate how
                 font_css: 'https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap',
 
@@ -124,7 +124,7 @@ const toogleMode =()=>{
                 @import url('https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
                 body{
                 font-family: 'Fondamento', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-                font-size: 1.2rem !important;
+                font-size: 1.4rem !important;
                 line-height: 1.6 !important;
                 background-color: ${isDarkMode ? '#0C0A09' : '#d0d0ce'} !important;
                 color: ${isDarkMode ? '#e3e3e3' : '#1A1A1A'} !important;
