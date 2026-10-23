@@ -8,58 +8,74 @@ import { useEffect } from "react"
 import "./dashboard.css"
 import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
+import { FcApproval } from "react-icons/fc";
+// import { Query } from "appwrite"
+import { FiLoader } from "react-icons/fi";
 const Dashboard = () => {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
     const userData = useSelector((state)=> state.auth.userData)
+    // const userData = useSelector((state)=> state.auth.userData)
+    const LoggeduserId = useSelector((state)=> state.auth.userData?.$id)
     const dispatch = useDispatch()
 // user
     const [userName, setUserName] = useState("")
-    const isOAuthUser = userData?.emailVerification && !userData?.passwordUpdate;
-
+    const isverified = userData?.emailVerification
+    // console.log("userdata: ", userData)
+    // console.log("usersdetails: ", userData, "|", LoggeduserId)
 
     useEffect(()=>{
-        const userDashboard = async ()=>{
+
+        const UserInsights = async()=>{
             setLoading(true)
             try{
-                if(userData?.$id){
-                    const post =  await services.getUserPosts(userData.$id)
-                    if(post){
-                        setPosts(post)
-                    }
+                const response = await services.getUserPosts(LoggeduserId)
+                console.log("api okey: ", response)
+                toast.success("UserInsights fetdced!")
+                if(response){
+                    setPosts(response)
                 }
+            
+
             }catch(err){
-                console.error("userDashboard: ", err)
+                toast.error(err.message || "Failed to fetch UserInsights!")
             }finally{
                 setLoading(false)
             }
         }
-        userDashboard()
+        if(userData){
+            UserInsights()
+        }
 
-    },[userData])
+    },[LoggeduserId])
 
-    // console.log("userdata: ", userData)
+    if (loading || !posts) {
+        return <div className="readpost-loading">
+            <h1><i>Gathering your thoughts...</i></h1>
+            <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
+        </div>
+    }
+
+    console.log("docs: ", posts.documents)
+
+
 
 
   return (
     <div className="dashboard-container" >
-        <h1>Welcome, {userData?.name}</h1>
+        <h1>Welcome, {userData?.name}{isverified && <FcApproval/>}</h1>
         <p>Email: <b>{userData?.email}</b></p>
         
         <div className="dashboard-content">
-            <div className="officail-left-side">
-                <h2>Identity</h2>
-                <button type="button">Change Dispaly name</button>
-                {isOAuthUser? (
-                    <div style={{textAlign:"left", color:"whitesmoke"}} >(You signed in with OAuth, password management is handled directly by your provider.)</div>
-                ):(
-                    <>
-                    </>
-                )}
-
-            </div>
-            <div className="inkwall-metrics-right-side">
-                <h2>Ink Metrics</h2>
+            <div className="left-side">
+                <h3>My Ink Footprint</h3>
+                <p><b>{posts.total}</b> Creation Inked</p>
+                {posts.documents?.map((data)=>(
+                    <div style={{listStyle:"none", fontSize:"1.3rem",}}  >
+                       
+                        <li><b>{data.title}</b></li>
+                    </div>
+                )) }
             </div>
         </div>
 

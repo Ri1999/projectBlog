@@ -64,8 +64,8 @@ const Header = () => {
       active: authStatus, // after tesing need to be set authStatus not !authStatus
     },
     {
-      name:"Inkwell",      // --> dashboard naming change to inkwall
-      slug:"/inkwell",
+      name:"InkStation",      // --> dashboard naming change to inkStation
+      slug:"/inkStation",
       active: authStatus,
     },
     // {

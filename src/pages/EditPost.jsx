@@ -60,7 +60,7 @@ const EditPost = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column"
-            }} ><h1>Loading story details...</h1><span style={loadingAnimation} ><FiLoader color="green" size={40}/></span></div>
+            }} ><h1><i>Loading story details...</i></h1><span style={loadingAnimation} ><FiLoader color="green" size={40}/></span></div>
         )
     }
 

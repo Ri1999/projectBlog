@@ -112,7 +112,7 @@ const ReadPost = () => {
 
     if (loading || !openPost) {
         return <div className="readpost-loading">
-            <h1>Opening</h1>
+            <h1><i>Gathering the words...</i></h1>
             <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
         </div>
     }
@@ -132,7 +132,7 @@ const ReadPost = () => {
         try{
             await services.deletePost(fileID)
             // it returns a empty object 
-            toast.success("Deleted successfully!")
+            toast.success("Removed from Inkflow!")
             navigate("/my-ink")
             
         }catch(err){

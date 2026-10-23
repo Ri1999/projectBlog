@@ -76,7 +76,7 @@ const AllPosts = () => {
                 const response = await services.allPost([Query.equal("userId", LoggeduserId),
                     Query.orderDesc("$createdAt")
                 ])
-                toast.success("Fetched successfully!")
+                toast.success("Inkflow synced")
                 if(response){
                     // console.log("apidata: ", response.documents)
                     setPosts(response.documents) // not [0] we need all 
@@ -101,8 +101,8 @@ const AllPosts = () => {
                 alignItems:"center",
                 justifyContent:"center",
                 height:"60vh",
-                flexDirection:"column"
-            }} ><h1>Just a moment...</h1><span className="spinning-animation" ><FiLoader color="green" size={40}/></span></div>
+                flexDirection:"column",
+            }} ><h1><i>Loading Inkflow...</i></h1><span className="spinning-animation" ><FiLoader color="green" size={40}/></span></div>
         )
     }
 
@@ -112,7 +112,7 @@ const AllPosts = () => {
 
   return (
     <div className="story-outer-container" >
-        <h1>Publications</h1>
+        <h1>My Inkflows</h1>
         {/* grid container */}
         <div className="grid-container" >
             {posts.map((post)=>(

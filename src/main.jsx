@@ -171,7 +171,7 @@ const route = createBrowserRouter([
         )
       },
       {
-        path: "/inkwell",
+        path: "/inkStation",
         element:(
           <AuthLayout authentication={true} >
             <Dashboard/>

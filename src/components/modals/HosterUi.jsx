@@ -37,7 +37,7 @@ const HosterUi = () => {
     const messageBox={
         backgroundColor: "#f5f4f3",
         padding: "34px",
-        borderRadius: "12px",
+        borderRadius: "10px",
         width: "90%",
         maxWidth: "400px",
         // boxShadow: "0 10px 25px rgba(166, 97, 97, 0.2)",
@@ -84,7 +84,7 @@ const HosterUi = () => {
         <div onClick={stopBubble} style={messageBox} >
             {/* HosterUi */}
             <h3 style={{fontFamily:"Sansation, sans-serif", fontSize:"1.5rem"}} ></h3>
-            <p style={{fontSize:"1.4rem"}} >{`${user.name} are you sure you want to delete this ?`}</p>
+            <p style={{fontSize:"1.4rem"}} >{`${user.name}, do you want to erase these words?`}</p>
 
             <div style={{display:"flex", gap:"15px", justifyContent:"space-between", marginTop:"20px"}} >
                 <button onClick={manualClose} style={cancelButton} type="button">Nevermind</button>
@@ -97,9 +97,14 @@ const HosterUi = () => {
                     closeModal();
 
                 }}
-                style={confirmButton} type="button">Yes, delete it</button>
+                style={confirmButton} type="button">Yes, erase it</button>
 
             </div>
+            <p style={{
+                marginTop:"20px",
+                fontSize:"1.1rem",
+
+            }} ><span><b>Warning: </b></span>Once erased, these words fades into the ether forever.</p>
 
         </div>
 
