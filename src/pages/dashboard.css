@@ -34,7 +34,7 @@
 .dashboard-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 20px;
     
    
     
@@ -50,16 +50,71 @@
     padding: 20px 30px;
     box-shadow: 0 1px 12px #181300;
     border-radius: 16px;
-    background-color: 111d13;
+    background-color: #FAFAFA;
+    color: #012a35;
 
+
+}
+.right-side-Ink-pressions{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 1px solid rgb(57, 67, 3); */
+    padding: 20px 30px;
+    box-shadow: 0 1px 12px #2b4f01;
+    border-radius: 16px;
+    background-color: #FAFAFA;
+    color: #012a35;
+}
+.right-side-Ink-pressions p{
+    font-family: 'Sansation', sans-serif;
 }
 .left-side p, h3{
     font-family: 'Sansation', sans-serif;
+    
 }
+
 .dashboard-slug{
-    color: #31572c;
+    /* color: #ee9b00; */
+    color: #012a35;
     text-decoration: none;
 
+}
+.dashboard-slug:hover{
+    color: #da9005;
+}
+.display-inkfootPrint{
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+
+    /* border: 1px solid red; */
+    /* background-color: aliceblue; */
+    padding: 4px 8px ;
+}
+.display-inkfootPrint li button{
+    border: none;
+    background: transparent;
+    /* font-size: 1.1rem; */
+    cursor: pointer;
+}
+.no-written{
+    color: #da9005;
+    text-decoration: none;
+    /* text-align: center; */
+    font-size: 1.2rem;
+}
+.encourage h4{
+    font-size: 1.5rem;
+}
+.encourage{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 @keyframes spin{
     0% { transform: rotate(0deg); }

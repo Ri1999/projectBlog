@@ -14,7 +14,22 @@ import { FiLoader } from "react-icons/fi";
 import { MdPublishedWithChanges } from "react-icons/md";
 import { MdUnpublished } from "react-icons/md";
 import { Link } from "react-router-dom"
-import { PiPathLight } from "react-icons/pi";
+// import { PiPathLight } from "react-icons/pi";
+// import { FcOpenedFolder } from "react-icons/fc";
+import { FcTreeStructure } from "react-icons/fc";
+// import { FcCableRelease } from "react-icons/fc";
+// import { FcSerialTasks } from "react-icons/fc";
+import { GoFileSymlinkFile } from "react-icons/go";
+import { VscEditSparkle } from "react-icons/vsc";
+import { PiPlantLight } from "react-icons/pi";
+import { PiFlowerTulipLight } from "react-icons/pi";
+// import { PiFlowerLotusThin } from "react-icons/pi";
+import { PiFlowerLotusLight } from "react-icons/pi";
+import { PiFlowerLotusFill } from "react-icons/pi";
+import { GiLotus } from "react-icons/gi";
+import { GiLotusFlower } from "react-icons/gi";
+
+
 const Dashboard = () => {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
@@ -35,7 +50,7 @@ const Dashboard = () => {
             try{
                 const response = await services.getUserPosts(LoggeduserId)
                 console.log("api okey: ", response)
-                toast.success("UserInsights fetdced!")
+                toast.success("Insights fetdced!")
                 if(response){
                     setPosts(response)
                 }
@@ -61,6 +76,46 @@ const Dashboard = () => {
     }
 
     console.log("docs: ", posts.documents)
+
+    const publishedCount = posts.documents?.filter(post => post.status === "active").length || 0;
+
+    // console.log("did i get it: ", publishedCount)
+
+    const getRank=(Count)=>{
+
+        if(Count === 0){
+            // return "Scoutinker" PiPlantLight
+            return {title:"Scoutinker",icon:<PiPlantLight color="#0e740c" size={30} />,}
+
+        }
+        if(Count >=1 && Count <=4){
+            return {title:"Inkitiater",icon:<PiFlowerTulipLight color="green" size={30} />,}
+        }
+        if(Count >= 5 && Count <= 12){
+            // return "Novinker"
+            return {title:"Novinker",icon:<PiFlowerLotusLight color="green" size={30} />,}
+
+        }
+        if(Count >=13 && Count <=24){
+            // return "Inkeliter"
+            return {title:"Inkeliter",icon:<PiFlowerLotusFill color="green" size={30} />,}
+
+        }
+        if(Count >= 25 && Count <=50){
+
+            // return "Vetrinker"
+            return {title:"Vetrinker",icon:<GiLotus color="green" size={25} />,}
+        }
+        if(Count >=50){
+            // return "Masterinker"
+            return {title:"Masterinker",icon:<GiLotusFlower color="#e9285f" size={25} />,}
+        }
+    }
+
+    const rank = (getRank(publishedCount))
+
+    console.log("what: ", rank.title)
+
 
     const calculateWords = (tinyMCEhtml)=>{
         
@@ -95,17 +150,37 @@ const Dashboard = () => {
         
         <div className="dashboard-content">
             <div className="left-side">
-                <h3 style={{textAlign:"center", fontSize:"2.1rem"}} >My Ink Footprint</h3>
-                <p><b>{posts.total}</b> Creation Inked</p>
-                {posts.documents?.map((data)=>(
-                    <div style={{listStyle:"none", fontSize:"1.3rem",}}  >
+                <h3 style={{textAlign:"center", fontSize:"2.1rem"}} >Ink-sights</h3>
+                <p><b>{posts.total}</b> creation</p>
+
+                {posts.documents?.length === 0 ? (
+                    <div className="encourage"  >
+                        <h4>No ink spilled yet</h4>
+                        <p>Your writer's workspace is all set up. Draft a quick thought or publish your first piece now.</p>
+                        <Link className="no-written" to="/spill-ink">spill Ink... <VscEditSparkle color="#da9005" size={26} /></Link>
+                    </div>
+                ):(
+                    <>
+                    {posts.documents?.map((data)=>(
+                    <div key={data.$id} className="display-inkfootPrint" style={{listStyle:"none", fontSize:"1.3rem",}}  >
                        
                         <li><b>{data.title}</b></li>
-                        <li>State<b>{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
-                        <li><b>{calculateWords(data.content)}</b> Words Spilled</li>
-                        <li ><Link className="dashboard-slug" to={`/my-ink/${data.slug}`} >Inkpath<PiPathLight/></Link></li>
+                        <li><b>state{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
+                        <li><b>{calculateWords(data.content)}</b> words spilled</li>
+                        <li ><Link className="dashboard-slug" to={`/my-ink/${data.slug}`} ><GoFileSymlinkFile color="#da9005" size={25} />/inkPath</Link></li>
+                        <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FcTreeStructure size={25} /></button></li>
                     </div>
                 )) }
+                    </>
+                )}
+
+                
+
+            </div>
+            <div className="right-side-Ink-pressions">
+                <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions</h3>
+                <p>You are a <b>{rank?.title}</b>{rank?.icon}</p>
+
             </div>
         </div>
 
