@@ -11,6 +11,10 @@ import { toast } from "react-toastify"
 import { FcApproval } from "react-icons/fc";
 // import { Query } from "appwrite"
 import { FiLoader } from "react-icons/fi";
+import { MdPublishedWithChanges } from "react-icons/md";
+import { MdUnpublished } from "react-icons/md";
+import { Link } from "react-router-dom"
+import { PiPathLight } from "react-icons/pi";
 const Dashboard = () => {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
@@ -58,6 +62,29 @@ const Dashboard = () => {
 
     console.log("docs: ", posts.documents)
 
+    const calculateWords = (tinyMCEhtml)=>{
+        
+        if(!tinyMCEhtml){
+            return "10"
+        }
+        const cleanText = tinyMCEhtml.replace(/<[^>]*>?/gm, '')
+        const wordCount = cleanText.trim().split(/\s+/).length;
+        // const time = Math.ceil(wordCount / 80);
+        // console.log("timeout: ", time)
+        // if(time>1){
+        //     return `${time} mins read`
+        // }
+        // return `${time} min read`
+        return wordCount
+    }
+
+    const handleShareStory=(slug)=>{
+        const shareUrl =`${window.location.origin}/my-ink/${slug}`
+        navigator.clipboard.writeText(shareUrl);
+        toast.success("Story link secured. Ready to share!")
+
+    }
+
 
 
 
@@ -68,12 +95,15 @@ const Dashboard = () => {
         
         <div className="dashboard-content">
             <div className="left-side">
-                <h3>My Ink Footprint</h3>
+                <h3 style={{textAlign:"center", fontSize:"2.1rem"}} >My Ink Footprint</h3>
                 <p><b>{posts.total}</b> Creation Inked</p>
                 {posts.documents?.map((data)=>(
                     <div style={{listStyle:"none", fontSize:"1.3rem",}}  >
                        
                         <li><b>{data.title}</b></li>
+                        <li>State<b>{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
+                        <li><b>{calculateWords(data.content)}</b> Words Spilled</li>
+                        <li ><Link className="dashboard-slug" to={`/my-ink/${data.slug}`} >Inkpath<PiPathLight/></Link></li>
                     </div>
                 )) }
             </div>
