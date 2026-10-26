@@ -28,6 +28,10 @@ import { PiFlowerLotusLight } from "react-icons/pi";
 import { PiFlowerLotusFill } from "react-icons/pi";
 import { GiLotus } from "react-icons/gi";
 import { GiLotusFlower } from "react-icons/gi";
+// import { FcDataSheet } from "react-icons/fc";
+import { FcBullish } from "react-icons/fc";
+import { FcLike } from "react-icons/fc";
+import { VscReport } from "react-icons/vsc";
 
 
 const Dashboard = () => {
@@ -81,6 +85,27 @@ const Dashboard = () => {
 
     // console.log("did i get it: ", publishedCount)
 
+    const likeData = posts.documents?.reduce((total, number)=>{
+        return total + (number.like ?? 0)
+    },0)
+    const reportData = posts.documents?.reduce((total, number)=>{
+        return total + (number.report ?? 0)
+    },0)
+
+    // const postLikes = likeData
+    // console.log("testing: ", likeData)
+
+    const getReportrank = (Count)=>{
+        if( Count === 0){
+            return {title:"Flawless", reportMessage:"Readers trust your voice—keep the ink flowing cleanly"}
+        }
+        if( Count >=1 ){
+            return {title:"Flags Addressed", reportMessage:"Every drop of ink deserves a fair trial. If you believe these reports are misguided or unfair, you can challenge the stance. Once verified with proper proof, the flags will be completely wiped from your desk."}
+        }
+    }
+
+    const reportRank = getReportrank(reportData)
+
     const getRank=(Count)=>{
 
         if(Count === 0){
@@ -114,7 +139,7 @@ const Dashboard = () => {
 
     const rank = (getRank(publishedCount))
 
-    console.log("what: ", rank.title)
+    // console.log("what: ", rank.title)
 
 
     const calculateWords = (tinyMCEhtml)=>{
@@ -178,8 +203,12 @@ const Dashboard = () => {
 
             </div>
             <div className="right-side-Ink-pressions">
-                <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions</h3>
+                <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions <FcBullish/></h3>
                 <p>You are a <b>{rank?.title}</b>{rank?.icon}</p>
+                <h2>{likeData} <FcLike size={35} /> </h2>
+                <h2>{reportData} <VscReport color="#fb8500" size={35} /></h2>
+                <h3>Ink Integrity: {reportRank?.title}</h3>
+                <p>{reportRank?.reportMessage}</p>
 
             </div>
         </div>

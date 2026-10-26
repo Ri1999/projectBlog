@@ -11,10 +11,12 @@ import "./readpost.css"
 // import { FcSynchronize } from "react-icons/fc";
 // import { TbLoaderQuarter } from "react-icons/tb";
 import { useNavigate } from "react-router-dom"
+import { BsEyeglasses } from "react-icons/bs";
 // import { FcPrevious } from "react-icons/fc";
 import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
 import { FaPen } from "react-icons/fa6";
+import { VscReport } from "react-icons/vsc";
 // import { FcLike } from "react-icons/fc";
 // import { AiOutlineLike } from "react-icons/ai";
 // import { BiSolidDislike } from "react-icons/bi";
@@ -22,7 +24,9 @@ import { FcApproval } from "react-icons/fc";
 import { hostStation } from "../modals/host"
 import { useContext } from "react"
 import { FiLoader } from "react-icons/fi";
-import { FaBookOpen } from "react-icons/fa";
+// import { FaBookOpen } from "react-icons/fa";
+import { BiLike } from "react-icons/bi";
+import { BiDislike } from "react-icons/bi";
 // import { VscColorMode } from "react-icons/vsc";
 // import { TiWeatherPartlySunny } from "react-icons/ti";
 // import { MdWbSunny } from "react-icons/md";
@@ -176,7 +180,21 @@ const ReadPost = () => {
 
             {owner && <button onClick={()=>handleEdit()} type="button"><FaPen size={20} /></button>}
 
+            {/* like button */}
+
+            <button onClick={()=>handleEdit()} type="button">< BiLike size={30}/></button>
+
+            {/* dislike */}
+
+            <button onClick={()=>handleEdit()} type="button">< BiDislike size={30} /></button>
+
+            {/* report  - condition is !owner*/}
+
+            <button onClick={()=>handleEdit()} type="button">< VscReport size={30} color="#fb8500" /></button>
+
+
                 <button onClick={()=>backTopost()} type="button"><IoIosArrowBack size={35} /></button>
+
             
             </div>
             
@@ -187,7 +205,12 @@ const ReadPost = () => {
     </div>
 
     <div style={{backgroundColor:theme?"#cbcac8":"#F8F9FA"}} className="story-body" >
-        <button onClick={()=>toogleTheme()} type="button"><FaBookOpen color="#344e41" size={20} /> {theme?"MODE":"MODE"}</button>
+        <p>Likes {openPost?.like ?? 0} Dislikes {openPost?.dislike ?? 0}
+
+            <span><button onClick={()=>toogleTheme()} type="button"><BsEyeglasses size={20} /> {theme?"MODE":"MODE"}</button></span>
+        </p>
+    
+        
         {/* <button type="button">back</button> */}
         <article style={{fontFamily:"inherit !important", fontSize:"inherit !important", color:theme?"#2d2216":"#34404b"}} >
             {parse(openPost.content)}

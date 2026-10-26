@@ -78,7 +78,7 @@ const AllPosts = () => {
                 ])
                 toast.success("Inkflow synced")
                 if(response){
-                    // console.log("apidata: ", response.documents)
+                    console.log("apidata: ", response.documents)
                     setPosts(response.documents) // not [0] we need all 
                 }
                 
@@ -115,7 +115,7 @@ const AllPosts = () => {
         <h1>My Inkflows</h1>
         {/* grid container */}
         <div className="grid-container" >
-            {posts.map((post)=>(
+            {posts?.map((post)=>(
                 <div key={post.$id} className="story-card-wrapper" >
                     <PostCard {...post} />
                     <p>created: {timeOfCreation(post.$createdAt)}</p>

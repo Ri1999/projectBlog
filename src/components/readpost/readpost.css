@@ -103,10 +103,13 @@
     font-family: 'Sansation', sans-serif;
   border: none;
   background: transparent;
-  padding: 8px 16px; 
+  padding: 8px 8px; 
+  margin-left: 5px;
+  /* padding-top: 8px; */
+  /* padding-bottom: 8px; */
   border-radius: 6px;
-  font-size: 1rem; 
-  color: #780000; 
+  font-size: 1.2rem; 
+  color: #026a7e; 
   /* box-shadow: 0 0 0 2px #022f1f; */
   margin-bottom: 5px;
   align-self: flex-end;
@@ -114,13 +117,15 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   font-weight: 500;
+  /* text-decoration: underline; */
   
     
 }
+
 .story-body button:hover {
   /* background-color: #022f1f;  */
-  background-color: #a3b18a;
-  color: #022f1f; 
+  background-color: #023047;
+  color: #ffffff; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .story-body button:active {
