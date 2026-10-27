@@ -11,13 +11,15 @@ import "./readpost.css"
 // import { FcSynchronize } from "react-icons/fc";
 // import { TbLoaderQuarter } from "react-icons/tb";
 import { useNavigate } from "react-router-dom"
-import { BsEyeglasses } from "react-icons/bs";
+// import { BsEyeglasses } from "react-icons/bs";
+// import { RxBlendingMode } from "react-icons/rx";
+import { FiBookOpen } from "react-icons/fi";
 // import { FcPrevious } from "react-icons/fc";
 import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
 import { FaPen } from "react-icons/fa6";
 import { VscReport } from "react-icons/vsc";
-import { IoPartlySunnyOutline } from "react-icons/io5";
+// import { IoPartlySunnyOutline } from "react-icons/io5";
 // import { FcLike } from "react-icons/fc";
 // import { AiOutlineLike } from "react-icons/ai";
 // import { BiSolidDislike } from "react-icons/bi";
@@ -36,6 +38,7 @@ import { FcDislike } from "react-icons/fc";
 // import { TiWeatherPartlySunny } from "react-icons/ti";
 // import { MdWbSunny } from "react-icons/md";
 // import { BsMoonStars } from "react-icons/bs";
+import { FiCoffee } from "react-icons/fi";
 const ReadPost = () => {
 
     const {openModal} = useContext(hostStation)
@@ -167,11 +170,12 @@ const handleLike = async()=>{
 
 // console.log("test like : ", likefromApi)
 
+
+    // true false data
     const isUserLike = likefromApi.includes(LoggeduserId)
     const isUserDislike = disLikefromApi.includes(LoggeduserId)
 
-    // let updateLike = [...likeby]
-    // let updateDislike = [...dislikeby]
+ 
     let updateLikeArray = [...likefromApi]
     let updateDislikeArray = [...disLikefromApi]
 
@@ -182,8 +186,10 @@ const handleLike = async()=>{
     }else{
         // new so push her id
         updateLikeArray.push(LoggeduserId)
+        // she like that so she cant be dislike 
         if(isUserDislike){
 
+            
             updateDislikeArray = updateDislikeArray.filter((id)=> id!== LoggeduserId)
         }
     }
@@ -196,6 +202,8 @@ const handleLike = async()=>{
         dislike: updateDislikeArray.length,
     }
     setOpenPost(newUpdatePostState)
+
+    // now backend update
     setLoading(true)
     try{
         const response = await services.updatePostStats(openPost.$id,{
@@ -218,12 +226,76 @@ const handleLike = async()=>{
 
 }
 
-const like = openPost.like
-console.log("my likes: ", like)
+// const like = openPost.like
+// console.log("my likes: ", like)
 
 // const handleLike =()=>{
 
-// }
+    
+    const handleDislike = async ()=>{
+
+        // take array data for both
+        const apiDislike = openPost?.dislikedBy ?? []
+        const apiLike = openPost?.likedBy ?? []
+
+        // check both dislike and like bu user
+        // const isDisliked = openPost.dislikedBy.includes(LoggeduserId)
+        // const isliked = openPost.likedBy.includes(LoggeduserId)
+
+        // safety purposes
+
+        const isDisliked = apiDislike.includes(LoggeduserId)
+        const isliked = apiLike.includes(LoggeduserId)
+
+        let updateDislikeArray = [...apiDislike] 
+        let updateLikeArray = [...apiLike]
+
+        if(isDisliked){
+            // if alredy dislike, then click gonna remove dislike
+            updateDislikeArray = updateDislikeArray.filter((id)=> id!== LoggeduserId)
+            
+
+        }else{
+            // fresh dislike so simply push
+            updateDislikeArray.push(LoggeduserId)
+            // she cant dislike like same time of remove her from like too, if she like
+            if(isliked){
+                updateLikeArray = updateLikeArray.filter((id)=> id!== LoggeduserId)
+            }
+        }
+
+        // at first quick ui update
+        const newUpdatePostState = {
+            ...openPost,
+            dislike: updateDislikeArray.length,
+            dislikedBy: updateDislikeArray,
+            like: updateLikeArray.length,
+            likedBy: updateLikeArray,
+        }
+        setOpenPost(newUpdatePostState)
+        // now the backend update
+        setLoading(true)
+        try{
+            const response = await services.updatePostStats(openPost.$id,{
+                dislike: updateDislikeArray.length,
+            dislikedBy: updateDislikeArray,
+            like: updateLikeArray.length,
+            likedBy: updateLikeArray,
+            })
+            // if(response){
+            //     toast.success("dislike api ok!")
+            // }
+
+        }catch(err){
+            toast.error(err.message || "failed to update reaction!")
+        }finally{
+            setLoading(false)
+        }
+
+    }
+
+    // const userDislikePost = openPost?.dislikedBy.includes(LoggeduserId)
+    // const userLikePost = openPost?.likedBy.includes(LoggeduserId)
 
 
 
@@ -255,11 +327,12 @@ console.log("my likes: ", like)
 
             {/* like button */}
 
-            <button onClick={handleLike} type="button">< BiSolidLike size={30} color={openPost.like>=1?"#e63946":""} /></button>
+            <button onClick={handleLike} type="button">< BiSolidLike size={30}  /></button>
 
             {/* dislike */}
 
-            <button onClick={()=>handleEdit()} type="button">< BiDislike size={30} /></button>
+            <button onClick={handleDislike} type="button">< BiDislike size={30}
+            /></button>
 
             {/* report  - condition is !owner*/}
 
@@ -280,7 +353,7 @@ console.log("my likes: ", like)
     <div style={{backgroundColor:theme?"#cbcac8":"#F8F9FA"}} className="story-body" >
         <p><FcLike size={18} /> {openPost?.like ?? 0} <FcDislike size={18} /> {openPost?.dislike ?? 0}
 
-            <span><button onClick={()=>toogleTheme()} type="button">{theme?"MODE":"MODE"}</button></span>
+            <span><button onClick={()=>toogleTheme()} type="button">mode {theme?<FiBookOpen color="#6b0504" size={28} />:<FiCoffee color="#6b0504" size={28} />}</button></span>
         </p>
     
         

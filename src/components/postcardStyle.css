@@ -77,6 +77,8 @@
   /* color: black; */
   color: #010101;
   background-color: rgb(227, 177, 177);
+  border-radius: 12px;
+  text-align: center;
   min-height: 2.8rem;
 }
 .postcard-container p{

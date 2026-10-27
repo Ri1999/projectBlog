@@ -65,7 +65,7 @@ const PostCard = ({
             </div>
             {/* testing purpose off */}
             <p style={{color:"#c1121f"}} >{like ?? 0} <FcLike  size={18} /></p>
-            <h2 style={{padding:"5px", width:"70%", borderRadius:"3px", }} >{title}</h2>
+            <h2 style={{padding:"5px", width:"70%", }} >{title}</h2>
 
         </div>
 
