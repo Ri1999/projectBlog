@@ -2,11 +2,11 @@
 import { useSelector } from "react-redux"
 import services from "../appwrite/major_config"
 // import Container from "../components/container/Container"
-import blogauthservice from "../appwrite/auth"
+// import blogauthservice from "../appwrite/auth"
 import { useState } from "react"
 import { useEffect } from "react"
 import "./dashboard.css"
-import { useDispatch } from "react-redux"
+// import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
 import { FcApproval } from "react-icons/fc";
 // import { Query } from "appwrite"
@@ -40,9 +40,9 @@ const Dashboard = () => {
     const userData = useSelector((state)=> state.auth.userData)
     // const userData = useSelector((state)=> state.auth.userData)
     const LoggeduserId = useSelector((state)=> state.auth.userData?.$id)
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 // user
-    const [userName, setUserName] = useState("")
+    // const [userName, setUserName] = useState("")
     const isverified = userData?.emailVerification
     // console.log("userdata: ", userData)
     // console.log("usersdetails: ", userData, "|", LoggeduserId)
@@ -53,7 +53,7 @@ const Dashboard = () => {
             setLoading(true)
             try{
                 const response = await services.getUserPosts(LoggeduserId)
-                console.log("api okey: ", response)
+                // console.log("api okey: ", response)
                 toast.success("Insights fetdced!")
                 if(response){
                     setPosts(response)
@@ -185,7 +185,7 @@ const Dashboard = () => {
                         <Link className="no-written" to="/spill-ink">spill Ink... <VscEditSparkle color="#da9005" size={26} /></Link>
                     </div>
                 ):(
-                    <>
+                    <div className="inksight-details" >
                     {posts.documents?.map((data)=>(
                     <div key={data.$id} className="display-inkfootPrint" style={{listStyle:"none", fontSize:"1.3rem",}}  >
                        
@@ -196,7 +196,7 @@ const Dashboard = () => {
                         <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FcTreeStructure size={25} /></button></li>
                     </div>
                 )) }
-                    </>
+                    </div>
                 )}
 
                 

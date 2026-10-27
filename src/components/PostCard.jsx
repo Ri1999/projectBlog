@@ -7,6 +7,8 @@ import "../components/postcardStyle.css"
 // import { TbPinFilled } from "react-icons/tb";
 import { MdPublishedWithChanges } from "react-icons/md";
 import { MdUnpublished } from "react-icons/md";
+// import { FcLikePlaceholder } from "react-icons/fc";
+import { FcLike } from "react-icons/fc";
 // import { SlLike } from "react-icons/sl";
 // import { BiLike } from "react-icons/bi";
 // import { BiDislike } from "react-icons/bi";
@@ -33,9 +35,9 @@ const PostCard = ({
     }
     const result = checkStatus(status)
 
-    console.log("likes: ", like)
-    console.log("dislikes: ", dislike)
-    console.log("reports: ", report)
+    // console.log("likes: ", like)
+    // console.log("dislikes: ", dislike)
+    // console.log("reports: ", report)
     
 
 
@@ -62,8 +64,8 @@ const PostCard = ({
 
             </div>
             {/* testing purpose off */}
-            <p style={{fontSize:"1.1rem", color:"#780000"}} >{like ?? 0} Likes</p>
-            <h2 style={{color:"white", backgroundColor:"#2c4a36", padding:"5px", width:"70%", borderRadius:"3px", }} >{title}</h2>
+            <p style={{color:"#c1121f"}} >{like ?? 0} <FcLike  size={18} /></p>
+            <h2 style={{padding:"5px", width:"70%", borderRadius:"3px", }} >{title}</h2>
 
         </div>
 

@@ -17,6 +17,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
 import { FaPen } from "react-icons/fa6";
 import { VscReport } from "react-icons/vsc";
+import { IoPartlySunnyOutline } from "react-icons/io5";
 // import { FcLike } from "react-icons/fc";
 // import { AiOutlineLike } from "react-icons/ai";
 // import { BiSolidDislike } from "react-icons/bi";
@@ -25,8 +26,12 @@ import { hostStation } from "../modals/host"
 import { useContext } from "react"
 import { FiLoader } from "react-icons/fi";
 // import { FaBookOpen } from "react-icons/fa";
-import { BiLike } from "react-icons/bi";
+// import { BiLike } from "react-icons/bi";
+import { BiSolidLike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
+import { FcLike } from "react-icons/fc";
+import { FcDislike } from "react-icons/fc";
+
 // import { VscColorMode } from "react-icons/vsc";
 // import { TiWeatherPartlySunny } from "react-icons/ti";
 // import { MdWbSunny } from "react-icons/md";
@@ -71,7 +76,7 @@ const ReadPost = () => {
                 const fetchData = await services.getPost(slug)
                 if(fetchData){
                     // toast.success("api successful")
-                    console.log("api data: ", fetchData)
+                    console.log("apidata@readpost: ", fetchData)
                     setOpenPost(fetchData)
                 }else{
                     toast.error("Story not found");
@@ -151,6 +156,74 @@ const ReadPost = () => {
     // /spill-ink/:slug
 }
 
+//  like and dislike logic writes
+
+const handleLike = async()=>{
+
+    const disLikefromApi = openPost.dislikedBy ?? []
+    const likefromApi = openPost.likedBy ?? []
+
+// console.log("test dislike : ", disLikefromApi)
+
+// console.log("test like : ", likefromApi)
+
+    const isUserLike = likefromApi.includes(LoggeduserId)
+    const isUserDislike = disLikefromApi.includes(LoggeduserId)
+
+    // let updateLike = [...likeby]
+    // let updateDislike = [...dislikeby]
+    let updateLikeArray = [...likefromApi]
+    let updateDislikeArray = [...disLikefromApi]
+
+    if(isUserLike){
+        // save data where loggeduserId not present
+        updateLikeArray = updateLikeArray.filter((id)=> id!== LoggeduserId)
+
+    }else{
+        // new so push her id
+        updateLikeArray.push(LoggeduserId)
+        if(isUserDislike){
+
+            updateDislikeArray = updateDislikeArray.filter((id)=> id!== LoggeduserId)
+        }
+    }
+    // quick ui update firstly via data
+    const newUpdatePostState ={
+        ...openPost,
+        likedBy: updateLikeArray,
+        dislikeBy: updateDislikeArray,
+        like: updateLikeArray.length,
+        dislike: updateDislikeArray.length,
+    }
+    setOpenPost(newUpdatePostState)
+    setLoading(true)
+    try{
+        const response = await services.updatePostStats(openPost.$id,{
+            // ...openPost,
+            likedBy: updateLikeArray,
+        dislikedBy: updateDislikeArray,
+        like: updateLikeArray.length,
+        dislike: updateDislikeArray.length,
+
+        })
+        if(response){
+            // toast.success("Reaction successfully!")
+        }
+
+    }catch(err){
+        toast.error(err.message || "failed to update reaction!")
+    }finally{
+        setLoading(false)
+    }
+
+}
+
+const like = openPost.like
+console.log("my likes: ", like)
+
+// const handleLike =()=>{
+
+// }
 
 
 
@@ -182,7 +255,7 @@ const ReadPost = () => {
 
             {/* like button */}
 
-            <button onClick={()=>handleEdit()} type="button">< BiLike size={30}/></button>
+            <button onClick={handleLike} type="button">< BiSolidLike size={30} color={openPost.like>=1?"#e63946":""} /></button>
 
             {/* dislike */}
 
@@ -205,9 +278,9 @@ const ReadPost = () => {
     </div>
 
     <div style={{backgroundColor:theme?"#cbcac8":"#F8F9FA"}} className="story-body" >
-        <p>Likes {openPost?.like ?? 0} Dislikes {openPost?.dislike ?? 0}
+        <p><FcLike size={18} /> {openPost?.like ?? 0} <FcDislike size={18} /> {openPost?.dislike ?? 0}
 
-            <span><button onClick={()=>toogleTheme()} type="button"><BsEyeglasses size={20} /> {theme?"MODE":"MODE"}</button></span>
+            <span><button onClick={()=>toogleTheme()} type="button">{theme?"MODE":"MODE"}</button></span>
         </p>
     
         

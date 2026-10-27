@@ -74,6 +74,12 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  color: black;
+  /* color: black; */
+  color: #010101;
+  background-color: rgb(227, 177, 177);
   min-height: 2.8rem;
+}
+.postcard-container p{
+  font-family: "Fondamento", cursive;
+  font-size: 1.2rem;
 }

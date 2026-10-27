@@ -62,14 +62,15 @@ export class storageService{
         }
     }
 
-    async updatePost( slug, {title, content, featuredImage,status, }){
+    //  never touch it
+    async updatePost( documentId, {title, content, featuredImage,status, }){
         try{
             const updatePost = await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 // ID.unique(),
 // if i want to edit a post and create another quiqueID , it becomes one of major juju, so again i write slug, not use ID.unique                
-                slug,
+                documentId,
                 {
                     title,
                     content,
@@ -85,6 +86,26 @@ export class storageService{
 
         }catch(err){
             console.error("updatePost: ", err)
+            return false
+        }
+    }
+
+    // update postState
+
+    async updatePostStats(documentId, statsData){
+        try{
+            const response = await this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                documentId,
+                statsData,
+            )
+            if(response){
+                return response
+            }
+            return null
+        }catch(err){
+            console.error("updatePostStats error: ", err)
             return false
         }
     }

@@ -78,7 +78,7 @@ const AllPosts = () => {
                 ])
                 toast.success("Inkflow synced")
                 if(response){
-                    console.log("apidata: ", response.documents)
+                    console.log("apidata@allpost: ", response.documents)
                     setPosts(response.documents) // not [0] we need all 
                 }
                 
