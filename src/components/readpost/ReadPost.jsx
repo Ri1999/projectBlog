@@ -311,6 +311,34 @@ const handleLike = async()=>{
 
 
 
+    // handle report
+
+    const handleReport = async()=>{
+        const reportArrayfromApi = openPost?.reportBy ?? []
+
+        const isReported = reportArrayfromApi.includes(LoggeduserId)
+
+        let updateReportArray = [...reportArrayfromApi]
+
+        // if reported then we gonna remove it
+        if(isReported){
+            updateReportArray = updateReportArray.filter((id)=> id!== LoggeduserId)
+        }else{
+            updateReportArray.push(LoggeduserId)
+        }
+        try{
+            const reportResponse = await services.updatePostStats(openPost.$id,{
+                report: updateReportArray.length,
+                reportBy: updateReportArray,
+            })
+            if(reportResponse){
+                setOpenPost(reportResponse)
+                toast.success("report reaction ok!")
+            }
+        }catch(err){
+            toast.error(err.message || "failed to update report")
+        }
+    }
 
 
 
