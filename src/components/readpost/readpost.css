@@ -131,6 +131,13 @@
 .story-body button:active {
   transform: scale(0.98);
 }
+
+.like-button:hover, .dislike-button:hover {
+  transform: scale(1.095);
+  color: #ff99ac;
+  
+}
+
 .story-body{
   display: flex;
   flex-direction: column;

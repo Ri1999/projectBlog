@@ -32,7 +32,10 @@ import { GiLotusFlower } from "react-icons/gi";
 import { FcBullish } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
 import { VscReport } from "react-icons/vsc";
-
+// import { PiSkull } from "react-icons/pi";
+import { CgDanger } from "react-icons/cg";
+// import { AiTwotoneSafetyCertificate } from "react-icons/ai";
+import { AiOutlineSafety } from "react-icons/ai";
 
 const Dashboard = () => {
     const [posts, setPosts] = useState([])
@@ -54,7 +57,7 @@ const Dashboard = () => {
             try{
                 const response = await services.getUserPosts(LoggeduserId)
                 // console.log("api okey: ", response)
-                toast.success("Insights fetdced!")
+                toast.success("Insights fetched!")
                 if(response){
                     setPosts(response)
                 }
@@ -97,10 +100,10 @@ const Dashboard = () => {
 
     const getReportrank = (Count)=>{
         if( Count === 0){
-            return {title:"Flawless", reportMessage:"Readers trust your voice—keep the ink flowing cleanly"}
+            return {title:"Flawless",icon:<AiOutlineSafety color="#00b4d8" size={28} /> ,reportMessage:"Readers trust your voice—keep the ink flowing cleanly."}
         }
         if( Count >=1 ){
-            return {title:"Flags Addressed", reportMessage:"Every drop of ink deserves a fair trial. If you believe these reports are misguided or unfair, you can challenge the stance. Once verified with proper proof, the flags will be completely wiped from your desk."}
+            return {title:"Flags Addressed", icon:<CgDanger color="red" size={28} /> ,reportMessage:"Every drop of ink deserves a fair trial. If you believe these reports are misguided or unfair, you can challenge the stance. Once verified with proper proof, the flags will be completely wiped from your desk."}
         }
     }
 
@@ -207,7 +210,7 @@ const Dashboard = () => {
                 <p>You are a <b>{rank?.title}</b>{rank?.icon}</p>
                 <h2>{likeData} <FcLike size={35} /> </h2>
                 <h2>{reportData} <VscReport color="#fb8500" size={35} /></h2>
-                <h3>Ink Integrity: {reportRank?.title}</h3>
+                <h3>Ink Integrity: {reportRank?.title} {reportRank?.icon}</h3>
                 <p>{reportRank?.reportMessage}</p>
 
             </div>

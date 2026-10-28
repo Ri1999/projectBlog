@@ -193,18 +193,18 @@ const handleLike = async()=>{
             updateDislikeArray = updateDislikeArray.filter((id)=> id!== LoggeduserId)
         }
     }
-    // quick ui update firstly via data
-    const newUpdatePostState ={
-        ...openPost,
-        likedBy: updateLikeArray,
-        dislikeBy: updateDislikeArray,
-        like: updateLikeArray.length,
-        dislike: updateDislikeArray.length,
-    }
-    setOpenPost(newUpdatePostState)
+    // quick ui update firstly via data --> notce anomaly
+    // const newUpdatePostState ={
+    //     ...openPost,
+    //     likedBy: updateLikeArray,
+    //     dislikeBy: updateDislikeArray,
+    //     like: updateLikeArray.length,
+    //     dislike: updateDislikeArray.length,
+    // }
+    // setOpenPost(newUpdatePostState)
 
     // now backend update
-    setLoading(true)
+    // setLoading(true)
     try{
         const response = await services.updatePostStats(openPost.$id,{
             // ...openPost,
@@ -214,14 +214,16 @@ const handleLike = async()=>{
         dislike: updateDislikeArray.length,
 
         })
+        // go fot the Pessimistic approach --> no anomaly
         if(response){
+            setOpenPost(response)
             // toast.success("Reaction successfully!")
         }
 
     }catch(err){
         toast.error(err.message || "failed to update reaction!")
     }finally{
-        setLoading(false)
+        // setLoading(false)
     }
 
 }
@@ -264,17 +266,19 @@ const handleLike = async()=>{
             }
         }
 
-        // at first quick ui update
-        const newUpdatePostState = {
-            ...openPost,
-            dislike: updateDislikeArray.length,
-            dislikedBy: updateDislikeArray,
-            like: updateLikeArray.length,
-            likedBy: updateLikeArray,
-        }
-        setOpenPost(newUpdatePostState)
+        // at first quick ui update --> test 1 : notice anomaly
+        // const newUpdatePostState = {
+        //     ...openPost,
+        //     dislike: updateDislikeArray.length,
+        //     dislikedBy: updateDislikeArray,
+        //     like: updateLikeArray.length,
+        //     likedBy: updateLikeArray,
+        // }
+        // setOpenPost(newUpdatePostState)
+
+
         // now the backend update
-        setLoading(true)
+        // setLoading(true)
         try{
             const response = await services.updatePostStats(openPost.$id,{
                 dislike: updateDislikeArray.length,
@@ -282,14 +286,22 @@ const handleLike = async()=>{
             like: updateLikeArray.length,
             likedBy: updateLikeArray,
             })
+
+            // what happend if i save after backend , // go fot the Pessimistic approach --> no anomaly
+
             // if(response){
             //     toast.success("dislike api ok!")
             // }
+            if(response){
+
+                setOpenPost(response)
+                // toast.success("dislike api ok!")
+            }
 
         }catch(err){
             toast.error(err.message || "failed to update reaction!")
         }finally{
-            setLoading(false)
+            // setLoading(false)
         }
 
     }
@@ -327,11 +339,11 @@ const handleLike = async()=>{
 
             {/* like button */}
 
-            <button onClick={handleLike} type="button">< BiSolidLike size={30}  /></button>
+            <button className="like-button" disabled={loading} onClick={handleLike} type="button">< BiSolidLike size={30}  /></button>
 
             {/* dislike */}
 
-            <button onClick={handleDislike} type="button">< BiDislike size={30}
+            <button className="dislike-button" disabled={loading} onClick={handleDislike} type="button">< BiDislike size={30}
             /></button>
 
             {/* report  - condition is !owner*/}
