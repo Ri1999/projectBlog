@@ -68,11 +68,12 @@ const Header = () => {
       slug:"/inkStation",
       active: authStatus,
     },
-    // {
-    //   name:"testModal",
-    //   slug:"/hoster",
-    //   active:authStatus,
-    // },
+
+    {
+      name:"/testReport",
+      slug:"/testReport",
+      active:authStatus,
+    },
   ]
 
   // http://localhost:5173/your-ink/test-story-004

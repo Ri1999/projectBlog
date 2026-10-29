@@ -34,7 +34,6 @@ const ShareFeedback = () => {
     <div className='container' >
         <h1>Tell us where we messed up</h1>
         <p>Found a layout bug, hate a feature, or got a wild idea? Pick a category, spill the ink, and help us make <span style={{fontWeight:"600", fontFamily:"Fondamento, cursive"}} >Charukavya</span> better.</p>
-
         <form onSubmit={handleSubmit(onSubmit)}  className='content' >
 
             <SelectComponent

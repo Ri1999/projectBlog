@@ -31,8 +31,9 @@ import Dashboard from './pages/Dashboard.jsx'
 import AllPosts from './components/allposts/AllPosts.jsx'
 import ReadPost from './components/readpost/ReadPost.jsx'
 import EditPost from './pages/EditPost.jsx'
-import HosterUi from './components/modals/HosterUi.jsx'
+// import HosterUi from './components/modals/HosterUi.jsx'
 import Hoster from './components/modals/Hoster.jsx'
+import ReportModal from './components/modals/ReportModal.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -150,6 +151,13 @@ const route = createBrowserRouter([
       //     <HosterUi/>
       //   </Hoster>
       // },
+
+      {
+        path:"/testReport",
+        element:<ReportModal/>
+
+      },
+      
 
 
       {
