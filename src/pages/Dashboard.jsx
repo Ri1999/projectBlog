@@ -86,6 +86,20 @@ const Dashboard = () => {
 
     const publishedCount = posts.documents?.filter(post => post.status === "active").length || 0;
 
+    const reportPostTitle = posts.documents?.reduce((acc, post)=>{
+        if(post.report !==0){
+            // acc.push(post.title)
+            // console.log("what reduce: ", post.title, "|", typeof(post.title))
+            // acc.push(post.title)
+            acc.push(post.title)
+            
+        }
+        // console.log("what is acc now: ", acc)
+        return acc
+    },[])
+
+    console.log("test report titles: ", reportPostTitle)
+
     // console.log("did i get it: ", publishedCount)
 
     const likeData = posts.documents?.reduce((total, number)=>{

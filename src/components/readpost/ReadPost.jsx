@@ -18,11 +18,13 @@ import { FiBookOpen } from "react-icons/fi";
 import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
 import { FaPen } from "react-icons/fa6";
-import { VscReport } from "react-icons/vsc";
+// import { VscReport } from "react-icons/vsc";
+import { LuFlagTriangleRight } from "react-icons/lu";
 // import { IoPartlySunnyOutline } from "react-icons/io5";
 // import { FcLike } from "react-icons/fc";
 // import { AiOutlineLike } from "react-icons/ai";
 // import { BiSolidDislike } from "react-icons/bi";
+import { FiAlertTriangle } from "react-icons/fi";
 import { FcApproval } from "react-icons/fc";
 import { hostStation } from "../modals/host"
 import { useContext } from "react"
@@ -356,30 +358,30 @@ const handleLike = async()=>{
                 <span>{calculateReadTime(openPost.content)} <b>{statusOfStory? "Published":"Draft"}</b></span>
 
 {/* onClick={()=>deleteStory()} */}
-            {owner && <button onClick={()=>{
+            {owner && <button className="delete-button" onClick={()=>{
                 openModal(deleteStory)
-                
-            }} type="button"><ImBin size={25} /></button>}
+                // size={25} 
+            }} type="button"><ImBin className="delete-icon" /></button>}
 
             {/* <button type="button"><FaPen size={20} /></button> */}
 
-            {owner && <button onClick={()=>handleEdit()} type="button"><FaPen size={20} /></button>}
+            {owner && <button onClick={()=>handleEdit()} type="button"><FaPen className="edit-icon" /></button>}
 
             {/* like button */}
 
-            <button className="like-button" disabled={loading} onClick={handleLike} type="button">< BiSolidLike size={30}  /></button>
+            <button className="like-button" disabled={loading} onClick={handleLike} type="button">< BiSolidLike className="like-icon"  /></button>
 
             {/* dislike */}
 
-            <button className="dislike-button" disabled={loading} onClick={handleDislike} type="button">< BiDislike size={30}
+            <button className="dislike-button" disabled={loading} onClick={handleDislike} type="button">< BiDislike className="dislike-icon"
             /></button>
 
             {/* report  - condition is !owner*/}
 
-            <button onClick={()=>handleEdit()} type="button">< VscReport size={30} color="#fb8500" /></button>
+            <button className="report-button" onClick={handleReport} type="button"><FiAlertTriangle className="report-icon" /></button>
 
 
-                <button onClick={()=>backTopost()} type="button"><IoIosArrowBack size={35} /></button>
+                <button onClick={()=>backTopost()} type="button"><IoIosArrowBack className="back-arrow-icon" /></button>
 
             
             </div>
@@ -391,10 +393,13 @@ const handleLike = async()=>{
     </div>
 
     <div style={{backgroundColor:theme?"#cbcac8":"#F8F9FA"}} className="story-body" >
-        <p><FcLike size={18} /> {openPost?.like ?? 0} <FcDislike size={18} /> {openPost?.dislike ?? 0}
+        <p><FcLike size={18} /> {openPost?.like ?? 0} <FcDislike size={18} /> {openPost?.dislike ?? 0} 
 
             <span><button onClick={()=>toogleTheme()} type="button">mode {theme?<FiBookOpen color="#6b0504" size={28} />:<FiCoffee color="#6b0504" size={28} />}</button></span>
+            <>
+            <FiAlertTriangle size={18} color="#da9005" /> {openPost?.report ?? 0}</>
         </p>
+        {/* <p></p> */}
     
         
         {/* <button type="button">back</button> */}
