@@ -19,7 +19,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
 import { FaPen } from "react-icons/fa6";
 // import { VscReport } from "react-icons/vsc";
-import { LuFlagTriangleRight } from "react-icons/lu";
+// import { LuFlagTriangleRight } from "react-icons/lu";
 // import { IoPartlySunnyOutline } from "react-icons/io5";
 // import { FcLike } from "react-icons/fc";
 // import { AiOutlineLike } from "react-icons/ai";
@@ -41,11 +41,18 @@ import { FcDislike } from "react-icons/fc";
 // import { MdWbSunny } from "react-icons/md";
 // import { BsMoonStars } from "react-icons/bs";
 // report :
-import SelectComponent from "../SelectComponent"
+// import SelectComponent from "../SelectComponent"
+
+import { universalHostStation } from "../modals/host"
+import ReportModal from "../modals/ReportModal"
 
 import { FiCoffee } from "react-icons/fi";
 const ReadPost = () => {
 
+    // report modal : universal
+    const { openUniveModal } = useContext(universalHostStation);
+
+    // for delete modal
     const {openModal} = useContext(hostStation)
     const [theme, setTheme] = useState(false)
 
@@ -345,6 +352,51 @@ const handleLike = async()=>{
         }
     }
 
+    const handleOpenReportModal=()=>{
+        openUniveModal(ReportModal,{
+            postId: openPost.$id,
+            onSumbitReport: async(formData)=>{
+                await handleReportSubmitToBackend(openPost.$id, formData)
+            }
+        })
+    }
+
+    const handleReportSubmitToBackend = async (postId, formdata)=>{
+
+        const reportArrayfromApi = openPost?.reportBy ?? []
+        const isReported = reportArrayfromApi.includes(LoggeduserId)
+        const reasonsArrayFromApi = openPost?.reportReasons ?? [];
+        let updateReportArray = [...reportArrayfromApi]
+
+        let updateReportReasonArray=[...reasonsArrayFromApi,
+            `${LoggeduserId}|${formdata.reportcategory}|${formdata.reportText}`
+        ]
+
+
+        if(isReported){
+            toast.info("You have already reported this story. Our team is reviewing it!")
+            return
+        }else{
+            updateReportArray.push(LoggeduserId)
+        }
+
+        try{
+            const response = await services.updatePostStats(postId,{
+                report: updateReportArray.length,
+                reportBy: updateReportArray,
+                reportReasons: updateReportReasonArray,
+            })
+            if(response){
+                toast.success("Story reported successfully. Our team will review it shortly!")
+            }
+        }catch(err){
+            toast.error(err.message || "Failed to submit report. Please try again later!")
+        }
+
+
+
+    } 
+
 
 
   return (
@@ -381,7 +433,7 @@ const handleLike = async()=>{
 
             {/* report  - condition is !owner*/}
 
-            <button className="report-button" onClick={handleReport} type="button"><FiAlertTriangle className="report-icon" /></button>
+            <button className="report-button" onClick={handleOpenReportModal} type="button"><FiAlertTriangle className="report-icon" /></button>
 
 
                 <button onClick={()=>backTopost()} type="button"><IoIosArrowBack className="back-arrow-icon" /></button>

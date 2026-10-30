@@ -24,10 +24,10 @@ const BaseModal = ({children}) => {
 
     const messageBox={
         backgroundColor: "#f5f4f3",
-        padding: "34px",
+        padding: "24px",
         borderRadius: "10px",
         width: "90%",
-        maxWidth: "400px",
+        maxWidth: "500px",
         // boxShadow: "0 10px 25px rgba(166, 97, 97, 0.2)",
         boxShadow: "0 5px 10px #283618",
         textAlign: "center",

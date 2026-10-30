@@ -33,7 +33,7 @@ const reportSubmit = (data)=>{
         <h3 style={{textAlign:"center", }} >Report Story for Review</h3>
         <p style={{textAlign:"center", marginBottom:"10px"}} >Help us understand what's wrong with this story</p>
         <>
-        <form onSubmit={handleSubmit(reportSubmit)} style={{marginTop:"30px",display:"flex", flexDirection:"column", width:"60%", alignItems:"center", justifyContent:"center", gap:"10px", margin:"auto"}} >
+        <form onSubmit={handleSubmit(reportSubmit)} style={{marginTop:"30px",display:"flex", flexDirection:"column", width:"90%", alignItems:"center", justifyContent:"center", gap:"10px", margin:"auto"}} >
             <SelectComponent
             label="reportcategory"
             error={errors.reportcategory?.message}
@@ -45,9 +45,10 @@ const reportSubmit = (data)=>{
                 fontSize:"1.1rem",
                 borderRadius:"2px",
                 padding:"4px",
-                backgroundColor:"#1C3123",
+                backgroundColor:"#283618",
                 color:"whitesmoke",
                 fontFamily: "Sansation, sans-serif",
+                width:"100%"
                 
             }}
             
@@ -78,7 +79,7 @@ const reportSubmit = (data)=>{
             )}
             {/* <button type="submit">Submit</button> */}
 
-            <button style={{width:"40%", padding:"10px 20px", borderRadius:"4px", border:"none", background:"transparent", backgroundColor:"#1C3123", color:"whitesmoke", fontSize:"1rem",fontFamily: "Sansation, sans-serif", cursor:"pointer" }} type="submit">Sumbit</button>
+            <button style={{width:"40%", padding:"10px 20px", borderRadius:"4px", border:"none", background:"transparent", backgroundColor:"#780000", color:"whitesmoke", fontSize:"1rem",fontFamily: "Sansation, sans-serif", cursor:"pointer" }} type="submit">Sumbit</button>
         </form>
         </>
         

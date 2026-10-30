@@ -34,6 +34,7 @@ import EditPost from './pages/EditPost.jsx'
 // import HosterUi from './components/modals/HosterUi.jsx'
 import Hoster from './components/modals/Hoster.jsx'
 import ReportModal from './components/modals/ReportModal.jsx'
+import UniveHoster from './components/modals/UniveHoster.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -197,10 +198,20 @@ createRoot(document.getElementById('root')).render(
     <Provider store={store} >
       {/* <App />
        */}
+
+       {/* old context api:modal */}
        <Hoster>
+
+       {/* new generic context api:modal */}
+        <UniveHoster>
+
       <RouterProvider router={route} /> 
       <ToastContainer position="top-right" autoClose={3000} />
+
+      </UniveHoster>
+
       </Hoster>
+
     </Provider>
   </StrictMode>,
 )
