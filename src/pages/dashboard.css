@@ -67,6 +67,8 @@
     border-radius: 16px;
     background-color: #FAFAFA;
     color: #012a35;
+    /* height: 250px; */
+    overflow: auto;
 }
 .right-side-Ink-pressions p{
     font-family: 'Sansation', sans-serif;
@@ -106,6 +108,10 @@
 }
 .inksight-details{
     height: 250px;
+    overflow: auto;
+}
+.ink-pression-report-ui{
+    height: 130px;
     overflow: auto;
 }
 .no-written{

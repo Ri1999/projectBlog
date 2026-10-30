@@ -31,7 +31,8 @@ import { GiLotusFlower } from "react-icons/gi";
 // import { FcDataSheet } from "react-icons/fc";
 import { FcBullish } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
-import { VscReport } from "react-icons/vsc";
+// import { VscReport } from "react-icons/vsc";
+import { FiAlertTriangle } from "react-icons/fi";
 // import { PiSkull } from "react-icons/pi";
 import { CgDanger } from "react-icons/cg";
 // import { AiTwotoneSafetyCertificate } from "react-icons/ai";
@@ -86,19 +87,23 @@ const Dashboard = () => {
 
     const publishedCount = posts.documents?.filter(post => post.status === "active").length || 0;
 
-    const reportPostTitle = posts.documents?.reduce((acc, post)=>{
+    const reportPostData = posts.documents?.reduce((acc, post)=>{
         if(post.report !==0){
             // acc.push(post.title)
             // console.log("what reduce: ", post.title, "|", typeof(post.title))
             // acc.push(post.title)
-            acc.push(post.title)
+            
+            acc.push({
+                title:post.title,
+                reasons: post.reportReasons[0],
+            })
             
         }
         // console.log("what is acc now: ", acc)
         return acc
     },[])
 
-    console.log("test report titles: ", reportPostTitle)
+    console.log("test report titles: ", reportPostData)
 
     // console.log("did i get it: ", publishedCount)
 
@@ -222,10 +227,32 @@ const Dashboard = () => {
             <div className="right-side-Ink-pressions">
                 <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions <FcBullish/></h3>
                 <p>You are a <b>{rank?.title}</b>{rank?.icon}</p>
-                <h2>{likeData} <FcLike size={35} /> </h2>
-                <h2>{reportData} <VscReport color="#fb8500" size={35} /></h2>
+                <h2>{likeData} <FcLike size={25} /> </h2>
+                <h2>{reportData} <FiAlertTriangle color="#d90429" size={25} /></h2>
+                <div className="ink-pression-report-ui" >
                 <h3>Ink Integrity: {reportRank?.title} {reportRank?.icon}</h3>
                 <p>{reportRank?.reportMessage}</p>
+                {reportPostData && reportPostData.length > 0 && (
+        <div style={{ marginTop: "20px", textAlign: "left", width: "100%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #ffb703" }}>
+            <h4 style={{ color: "#d90429", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
+                <FiAlertTriangle /> Flagged Stories Review:
+            </h4>
+            {reportPostData.map((item, index) => {
+                // Agar multiple reports hain ek story par, toh loop chala sakte hain
+                return (
+                    <div key={index} style={{ marginBottom: "12px", borderBottom: "1px solid #eee", paddingBottom: "8px" }}>
+                        <p style={{ fontWeight: "bold", fontSize: "1rem", color: "#2b2b2b" }}>Reported Story: {item.title}.</p>
+                        <p
+                        style={{ fontWeight: "bold", fontSize: "1rem", color: "#2b2b2b" }}
+                        >{item.reasons}.</p>
+                        
+                    </div>
+                );
+            })}
+        </div>
+    )}
+                
+                </div>
 
             </div>
         </div>

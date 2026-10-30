@@ -4,24 +4,41 @@ import SelectComponent from "../SelectComponent"
 
 import { useForm } from 'react-hook-form'
 
-const ReportModal = () => {
+const ReportModal = ({closeUniveModal, reportSubmitFunction }) => {
 
     const {register, handleSubmit, reset, formState:{errors} } = useForm()
     
     const REPORT_REASONS = [
-  "Harassment, Bullying, or Hate Speech",
-  "Sexually Explicit or Adult Content",
-  "Violence, Self-Harm, or Dangerous Behavior",
-  "Plagiarism or Intellectual Property Violation",
-  "Misinformation, Spam, or Scam",
-  "Plagiarized or Low-Quality AI-Generated Content",
-  "Other / Hurts Community Guidelines"
+        "Plagiarized Story (Copied from author/platform)",
+        "AI-Generated Dump",
+        "Copyrighted Material",
+        "Religiously Insulting, or Disrespect to Faiths",
+        "Adult Sexual Content without Warning",
+        "Self-Harm Encouragement",
+        "Hate Speech in Story",
+        "Targeted Bullying in Story",
+        "Misleading in Story",
+        "Spam, Promotional Link Dump",
+        "Violates Inksight Community Guidelines",
+        "Other"
+
+
+
+
+
+
 ];
 
-const reportSubmit = (data)=>{
+const reportSubmit = async (formData)=>{
     // testing 
-    console.log("report Data:", data);
+    // console.log("report Data:", data);
+
+    // reportSubmitFunction written inside handleSubmit
+    if(reportSubmitFunction){
+        await reportSubmitFunction(formData)
+    }
     reset()
+    closeUniveModal();
 
 }
 

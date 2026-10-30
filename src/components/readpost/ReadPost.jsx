@@ -299,11 +299,7 @@ const handleLike = async()=>{
             likedBy: updateLikeArray,
             })
 
-            // what happend if i save after backend , // go fot the Pessimistic approach --> no anomaly
-
-            // if(response){
-            //     toast.success("dislike api ok!")
-            // }
+            
             if(response){
 
                 setOpenPost(response)
@@ -318,85 +314,51 @@ const handleLike = async()=>{
 
     }
 
-    // const userDislikePost = openPost?.dislikedBy.includes(LoggeduserId)
-    // const userLikePost = openPost?.likedBy.includes(LoggeduserId)
-
-
-
-    // handle report
-
-    const handleReport = async()=>{
-        const reportArrayfromApi = openPost?.reportBy ?? []
-
-        const isReported = reportArrayfromApi.includes(LoggeduserId)
-
-        let updateReportArray = [...reportArrayfromApi]
-
-        // if reported then we gonna remove it
-        if(isReported){
-            updateReportArray = updateReportArray.filter((id)=> id!== LoggeduserId)
-        }else{
-            updateReportArray.push(LoggeduserId)
-        }
-        try{
-            const reportResponse = await services.updatePostStats(openPost.$id,{
-                report: updateReportArray.length,
-                reportBy: updateReportArray,
-            })
-            if(reportResponse){
-                setOpenPost(reportResponse)
-                toast.success("report reaction ok!")
-            }
-        }catch(err){
-            toast.error(err.message || "failed to update report")
-        }
-    }
-
-    const handleOpenReportModal=()=>{
+    const handleReport =()=>{
         openUniveModal(ReportModal,{
-            postId: openPost.$id,
-            onSumbitReport: async(formData)=>{
-                await handleReportSubmitToBackend(openPost.$id, formData)
+            postid: openPost.$id,
+            postTitle: openPost.title,
+
+            // this will go in ReportModal.jsx as props
+            reportSubmitFunction: async (formData)=>{
+                const reportbyArray = openPost?.reportBy ?? []
+                const isReported = reportbyArray.includes(LoggeduserId)
+                const reasonsArrayFromApi = openPost?.reportReasons ?? [];
+
+                let updateReportByArray =[...reportbyArray]
+                let updateReasonsArray;
+                if(isReported){
+                    toast.info("You have already reported this story. Our team is reviewing it!")
+                    return
+                }else{
+                    updateReportByArray.push(LoggeduserId)
+                    updateReasonsArray = [...reasonsArrayFromApi, 
+                        
+                        `Category: ${formData.reportcategory} (Details: ${formData.reportText})`
+                    ]
+                }
+                // backend update
+                try{
+                    const response = await services.updatePostStats(openPost.$id,{
+                        report: updateReportByArray.length,
+                        reportBy: updateReportByArray,
+                        reportReasons: updateReasonsArray 
+                    })
+                    if(response){
+                        toast.success("Story reported successfully. Our team will review it shortly!")
+                    }
+                }catch(err){
+                    toast.error(err.message || "Failed to submit report. Please try again later!")
+                }
+
             }
+
         })
     }
 
-    const handleReportSubmitToBackend = async (postId, formdata)=>{
+    
 
-        const reportArrayfromApi = openPost?.reportBy ?? []
-        const isReported = reportArrayfromApi.includes(LoggeduserId)
-        const reasonsArrayFromApi = openPost?.reportReasons ?? [];
-        let updateReportArray = [...reportArrayfromApi]
-
-        let updateReportReasonArray=[...reasonsArrayFromApi,
-            `${LoggeduserId}|${formdata.reportcategory}|${formdata.reportText}`
-        ]
-
-
-        if(isReported){
-            toast.info("You have already reported this story. Our team is reviewing it!")
-            return
-        }else{
-            updateReportArray.push(LoggeduserId)
-        }
-
-        try{
-            const response = await services.updatePostStats(postId,{
-                report: updateReportArray.length,
-                reportBy: updateReportArray,
-                reportReasons: updateReportReasonArray,
-            })
-            if(response){
-                toast.success("Story reported successfully. Our team will review it shortly!")
-            }
-        }catch(err){
-            toast.error(err.message || "Failed to submit report. Please try again later!")
-        }
-
-
-
-    } 
-
+    
 
 
   return (
@@ -433,7 +395,7 @@ const handleLike = async()=>{
 
             {/* report  - condition is !owner*/}
 
-            <button className="report-button" onClick={handleOpenReportModal} type="button"><FiAlertTriangle className="report-icon" /></button>
+            <button disabled={loading} onClick={handleReport} className="report-button" type="button"><FiAlertTriangle className="report-icon" /></button>
 
 
                 <button onClick={()=>backTopost()} type="button"><IoIosArrowBack className="back-arrow-icon" /></button>
