@@ -15,7 +15,8 @@
 
 }
 .story-outer-container h1 {
-  font-family: 'Sansation', sans-serif;
+  /* font-family: 'Sansation', sans-serif; */
+  font-family: 'Fondamento', cursive;
   text-align: center;
   font-size: 2.2rem;
   color: #081c15;

@@ -62,16 +62,17 @@ const toogleMode =()=>{
   return (
     <div className="rte-container" >
         {/* condition that if label used then render it */}
-        {label && <label>{label}</label>}
+        {label && <label style={{fontSize:"1.5rem", marginLeft:"10px", marginTop:"10px", fontWeight:"650"}} >{label}</label>}
         <button 
         
         style={{
-            backgroundColor:isDarkMode?"#16241b":"#818b84",
-            color:isDarkMode?"whitesmoke":""
+            backgroundColor:isDarkMode?"#687b86":"#101820",
+            color:isDarkMode?"whitesmoke":"whitesmoke",
+            marginBottom:"8px",
         }}
         
         
-        onClick={toogleMode} type="button">{isDarkMode? "🌙":"☀️"}</button>
+        onClick={toogleMode} type="button">{isDarkMode? "Midnight Ink":"Solar Flare"}</button>
         <Controller
         // it need 3 primary props
         name={name}
@@ -128,7 +129,7 @@ const toogleMode =()=>{
                 line-height: 1.6 !important;
                 background-color: ${isDarkMode ? '#0C0A09' : '#d0d0ce'} !important;
                 color: ${isDarkMode ? '#e3e3e3' : '#1A1A1A'} !important;
-                padding: 12px;
+                padding: 1px;
                 
                 
                 }

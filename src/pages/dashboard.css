@@ -48,7 +48,7 @@
     gap: 10px;
     /* border: 1px solid rgb(57, 67, 3); */
     padding: 20px 30px;
-    box-shadow: 0 1px 12px #181300;
+    box-shadow: 0 2px 14px #263031;
     border-radius: 16px;
     background-color: #FAFAFA;
     color: #012a35;
@@ -63,7 +63,7 @@
     gap: 15px;
     /* border: 1px solid rgb(57, 67, 3); */
     padding: 20px 30px;
-    box-shadow: 0 1px 12px #2b4f01;
+    box-shadow: 0 2px 14px #2C3E50;
     border-radius: 16px;
     background-color: #FAFAFA;
     color: #012a35;
@@ -134,4 +134,15 @@
 }
 .editLoad-animation{
     animation: spin 0.5s liner infinite;
+}
+@media screen and (max-width:768px) {
+    .dashboard-content{
+        grid-template-columns: 1fr;
+    }
+    .dashboard-container p{
+        text-align: center;
+    }
+    .ink-pression-report-ui p{
+        text-align: left;
+    }
 }

@@ -78,7 +78,7 @@ const Dashboard = () => {
 
     if (loading || !posts) {
         return <div className="readpost-loading">
-            <h1><i>Gathering your thoughts...</i></h1>
+            <h1><i>Gathering your stats & insights...</i></h1>
             <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
         </div>
     }
@@ -88,14 +88,16 @@ const Dashboard = () => {
     const publishedCount = posts.documents?.filter(post => post.status === "active").length || 0;
 
     const reportPostData = posts.documents?.reduce((acc, post)=>{
-        if(post.report !==0){
+
+        // before it was post.report !== 0
+        if(post.report !== 0 && post.reportReasons && post.reportReasons.length > 0){
             // acc.push(post.title)
             // console.log("what reduce: ", post.title, "|", typeof(post.title))
             // acc.push(post.title)
             
             acc.push({
                 title:post.title,
-                reasons: post.reportReasons[0],
+                reasons: post.reportReasons,
             })
             
         }
@@ -122,7 +124,7 @@ const Dashboard = () => {
             return {title:"Flawless",icon:<AiOutlineSafety color="#00b4d8" size={28} /> ,reportMessage:"Readers trust your voice—keep the ink flowing cleanly."}
         }
         if( Count >=1 ){
-            return {title:"Flags Addressed", icon:<CgDanger color="red" size={28} /> ,reportMessage:"Every drop of ink deserves a fair trial. If you believe these reports are misguided or unfair, you can challenge the stance. Once verified with proper proof, the flags will be completely wiped from your desk."}
+            return {title:"Report Addressed", icon:<CgDanger color="red" size={28} /> ,reportMessage:"Every drop of ink deserves a fair trial. If you believe these reports are misguided or unfair, you can challenge the stance. Once verified with proper proof, the flags will be completely wiped from your desk."}
         }
     }
 
@@ -132,30 +134,30 @@ const Dashboard = () => {
 
         if(Count === 0){
             // return "Scoutinker" PiPlantLight
-            return {title:"Scoutinker",icon:<PiPlantLight color="#0e740c" size={30} />,}
+            return {title:"Ink Scout",icon:<PiPlantLight color="#0e740c" size={30} />,}
 
         }
         if(Count >=1 && Count <=4){
-            return {title:"Inkitiater",icon:<PiFlowerTulipLight color="green" size={30} />,}
+            return {title:"Ink Initiate",icon:<PiFlowerTulipLight color="green" size={30} />,}
         }
         if(Count >= 5 && Count <= 12){
             // return "Novinker"
-            return {title:"Novinker",icon:<PiFlowerLotusLight color="green" size={30} />,}
+            return {title:"Ink Novice",icon:<PiFlowerLotusLight color="green" size={30} />,}
 
         }
         if(Count >=13 && Count <=24){
             // return "Inkeliter"
-            return {title:"Inkeliter",icon:<PiFlowerLotusFill color="green" size={30} />,}
+            return {title:"Ink Artisan",icon:<PiFlowerLotusFill color="green" size={30} />,}
 
         }
         if(Count >= 25 && Count <=50){
 
             // return "Vetrinker"
-            return {title:"Vetrinker",icon:<GiLotus color="green" size={25} />,}
+            return {title:"Ink Veteran",icon:<GiLotus color="green" size={25} />,}
         }
         if(Count >=50){
             // return "Masterinker"
-            return {title:"Masterinker",icon:<GiLotusFlower color="#e9285f" size={25} />,}
+            return {title:"Ink Master",icon:<GiLotusFlower color="#e9285f" size={25} />,}
         }
     }
 
@@ -235,7 +237,7 @@ const Dashboard = () => {
                 {reportPostData && reportPostData.length > 0 && (
         <div style={{ marginTop: "20px", textAlign: "left", width: "100%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #ffb703" }}>
             <h4 style={{ color: "#d90429", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
-                <FiAlertTriangle /> Flagged Stories Review:
+                <FiAlertTriangle />Stories Review:
             </h4>
             {reportPostData.map((item, index) => {
                 // Agar multiple reports hain ek story par, toh loop chala sakte hain

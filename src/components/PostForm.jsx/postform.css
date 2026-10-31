@@ -5,6 +5,11 @@
   padding: 1.5rem;
   /* align-items: stretch; */
 }
+.postform-container h1{
+  font-family: 'Fondamento', cursive;
+  margin-bottom: 20px;
+  text-align: center;
+}
 .postform-content{
   display: flex;
   flex-direction: column;
@@ -18,7 +23,10 @@
   font-family: 'Sansation', sans-serif;
 
   /* background-color: #F8F4EE; */
-  background-color: #081c15;
+  /* last used */
+  /* background-color: #081c15; */
+
+  background-color: #2c3233;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   padding: 1.25rem;
@@ -81,14 +89,17 @@
     font-family: 'Sansation', sans-serif;
     font-size: 1rem;
     margin-top: 8px;
-    font-weight: 700;
+    font-weight: 550;
 
-    color: black;
+    /* color: black; */
     /* background-color: #2F4236; */
     /* background-color: #f9ad9f; */
     /* background: rgb(241, 231, 193); */
     border: none;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    background-color: #eb5e28;
+    color: whitesmoke;
+
     border-radius: 8px;
     cursor: pointer;
 
@@ -101,9 +112,12 @@
 .left-content button:hover{
   /* transform: translateY(-1px); */
   /* box-shadow: 0 8px 25px -4px rgba(28, 49, 35, 0.35); */
-  background-color: #2d6a4f;
-  color: whitesmoke;
-  /* border: none; */
+  /* background-color: #252422; */
+  /* color: whitesmoke; */
+  border: none;
+  /* color: #fffcf2; */
+  color: black;
+
 }
 .test{
     width: 50%;
@@ -129,7 +143,7 @@
 }
 .test:hover{
   /* background-color: #2D4434; */
-  background-color: #8da483;
+  background-color: #0a0908;
   color: whitesmoke;
   border-color: rgba(28, 49, 35, 0.35);
   /* transform: translateY(-1px); */

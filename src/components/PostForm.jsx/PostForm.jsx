@@ -17,7 +17,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
     // why need this props? what purpose?
     // ans: i fetch userData from direct appwrite and pass via props, so i need this.
-    console.log("props: ", postDataFromAppwrite)
+    // console.log("props: ", postDataFromAppwrite)
 
     const userData = useSelector((state)=> state.auth.userData) // naming is same as i did in authslice.js
 
@@ -165,13 +165,14 @@ const PostForm = ({postDataFromAppwrite}) => {
 
   return (
     <div className='postform-container' >
+        <h1>Drop the Ink</h1>
         {/* testing */}
         <form onSubmit={handleSubmit(postSubmit)} className='postform-content' >
 
             <div className="postform-upload-area">
 
                 <div className="left-content">
-                    <h2>My Ink Desk</h2>
+                    <h2>Ink Desk</h2>
 
                 <Input
                 className="test"
@@ -203,8 +204,8 @@ const PostForm = ({postDataFromAppwrite}) => {
                 {...register("status", {required: true})}
                 
                 />
-                <p>(Status| <b>active:Publish | inactive:Draft</b>)</p>
-                <button  type="submit">{postDataFromAppwrite ? "Update Story" : "Publish"}</button>
+                <p>(Status| <b>active: Publish | inactive: Draft</b>)</p>
+                <button  type="submit">{postDataFromAppwrite ? "Refine Ink" : "Spill Ink"}</button>
 
                 </div>
 
@@ -242,7 +243,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                 }}
                 
                 />
-                <p>(pls add hyphen between <b>Example: </b>test-the-slug)</p>
+                <p>For custom slug: Use hyphens instead of spaces (e.g. my-first-story)</p>
                 
                 </div>
 
@@ -255,7 +256,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                 className="writepad"
                 name="content" 
                 control={control} 
-                label=""
+                label="Ink Canvas"
                 defaultValue={getValues("content")}
                 
                 />

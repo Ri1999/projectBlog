@@ -25,7 +25,7 @@ import AuthLayout from './components/AuthLayout.jsx'
 import VerifyEmail from './components/VerifyEmail/VerifyEmail.jsx'
 // test
 // import RTE from './components/RTE/RTE.jsx'
-import PostForm from './components/PostForm.jsx/PostForm.jsx'
+// import PostForm from './components/PostForm.jsx/PostForm.jsx'
 import AddPost from './pages/AddPost.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import AllPosts from './components/allposts/AllPosts.jsx'
@@ -33,7 +33,7 @@ import ReadPost from './components/readpost/ReadPost.jsx'
 import EditPost from './pages/EditPost.jsx'
 // import HosterUi from './components/modals/HosterUi.jsx'
 import Hoster from './components/modals/Hoster.jsx'
-import ReportModal from './components/modals/ReportModal.jsx'
+// import ReportModal from './components/modals/ReportModal.jsx'
 import UniveHoster from './components/modals/UniveHoster.jsx'
 const route = createBrowserRouter([
   {
@@ -153,11 +153,11 @@ const route = createBrowserRouter([
       //   </Hoster>
       // },
 
-      {
-        path:"/testReport",
-        element:<ReportModal/>
+      // {
+      //   path:"/testReport",
+      //   element:<ReportModal/>
 
-      },
+      // },
       
 
 

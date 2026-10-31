@@ -69,11 +69,13 @@ const Header = () => {
       active: authStatus,
     },
 
-    {
-      name:"/testReport",
-      slug:"/testReport",
-      active:authStatus,
-    },
+    // {
+    //   name:"/testReport",
+    //   slug:"/testReport",
+    //   active:authStatus,
+    // },
+
+
   ]
 
   // http://localhost:5173/your-ink/test-story-004
