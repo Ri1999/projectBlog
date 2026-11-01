@@ -27,7 +27,7 @@ const Faqs = () => {
         },
         {
             question:"How does Charukavya ensure the stories on the platform maintain high quality?",
-            answer:"We trust our community. Our built-in Upvote/Downvote dynamic system naturally pushes well-crafted, original stories to the top, while keeping low-effort or automated spam text hidden from the main feed."
+            answer:"We trust our community. Our built-in Like/DisLike and Report dynamic system naturally pushes well-crafted, original stories to the top, while keeping low-effort or automated spam text hidden from the main feed."
         },
         {
             question:"Will I lose my writing if my browser suddenly crashes?",
@@ -35,12 +35,12 @@ const Faqs = () => {
         },
         {
             question:"What are the size limitations for canvas or story cover images?",
-            answer:"We fully support vector formats (SVGs) along with clean PNGs and JPEGs up to 5MB. Your images are automatically optimized for crisp delivery across all screens."
+            answer:"We fully support vector formats (SVGs) along with clean JPG, PNG, JPEG and WEBP files are allowed up to 2MB. Your images are automatically optimized for crisp delivery across all screens."
         },
         //  doubt it work or not
         {
             question:"Can two creators work together on the same story line?",
-            answer:"Of course, buddy using our integrated Collab Mode, you can invite any fellow Rachayita to co-author chapters with you. Each author maintains secure control over their unique written sections."
+            answer:"Of course buddy, in our next upcomming feature using our integrated Collab Mode, you can invite any fellow writters to co-author chapters with you. Each author maintains secure control over their unique written sections."
         },
 
     ]

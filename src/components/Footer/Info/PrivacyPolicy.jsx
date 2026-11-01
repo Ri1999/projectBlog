@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="container" >
-        <h1>Your Footprints</h1>
+        <h1>Privacy Policy</h1>
         <p>Last Updated: September 2026</p>
         <div className="content" >
             <section>

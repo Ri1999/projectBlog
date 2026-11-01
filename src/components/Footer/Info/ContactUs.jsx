@@ -5,7 +5,8 @@ import {toast} from "react-toastify"
 // import Input from "../../Input"
 // import { Link } from "react-router-dom"
 // import { FcSurvey } from "react-icons/fc";
-import { FaCopy } from "react-icons/fa";
+// import { FaCopy } from "react-icons/fa";
+import { RxClipboardCopy } from "react-icons/rx";
 import "./info.css"
 
 const ContactUs = () => {
@@ -32,7 +33,7 @@ const ContactUs = () => {
             style={{backgroundColor:"transparent", border:"none", width:"100%", height:"6px"}}
             
             
-            type="button"><FaCopy color="green" size={25} /></button>
+            type="button"><RxClipboardCopy color="green" size={35} /></button>
         </div>
     </div>
   )

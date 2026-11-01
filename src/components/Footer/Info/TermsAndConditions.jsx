@@ -12,7 +12,7 @@ const TermsAndConditions = () => {
 
   return (
     <div className='container' >
-        <h1>The Rulebook</h1>
+        <h1>Terms and Conditions</h1>
         <p>Last Updated: September 2026</p>
         <div className="content">
             <section>
