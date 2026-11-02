@@ -42,11 +42,15 @@ import { FcDislike } from "react-icons/fc";
 // import { BsMoonStars } from "react-icons/bs";
 // report :
 // import SelectComponent from "../SelectComponent"
+import { Link } from "react-router-dom"
 
 import { universalHostStation } from "../modals/host"
 import ReportModal from "../modals/ReportModal"
+import { CiPen } from "react-icons/ci";
+import { LiaBarsSolid } from "react-icons/lia";
 
-import { FiCoffee } from "react-icons/fi";
+// import { FiCoffee } from "react-icons/fi";
+// import { TbTransactionRupee } from "react-icons/tb";
 const ReadPost = () => {
 
     // report modal : universal
@@ -412,9 +416,15 @@ const handleLike = async()=>{
     <div style={{backgroundColor:theme?"#cbcac8":"#F8F9FA"}} className="story-body" >
         <p><FcLike size={18} /> {openPost?.like ?? 0} <FcDislike size={18} /> {openPost?.dislike ?? 0} 
 
-            <span><button onClick={()=>toogleTheme()} type="button">mode {theme?<FiBookOpen color="#6b0504" size={28} />:<FiCoffee color="#6b0504" size={28} />}</button></span>
+            <span><button onClick={()=>toogleTheme()} type="button">{theme?"change mode":"change mode"}</button>
+            
+            </span>
             <>
             <FiAlertTriangle size={18} color="#da9005" /> {openPost?.report ?? 0}</>
+            {/* <span></span> */}
+            {/* <Link>The Pen Behind</Link> */}
+
+            
         </p>
         {/* <p></p> */}
     
@@ -423,6 +433,14 @@ const handleLike = async()=>{
         <article style={{fontFamily:"inherit !important", fontSize:"inherit !important", color:theme?"#2d2216":"#34404b"}} >
             {parse(openPost.content)}
         </article>
+
+        {/* author CTA area */}
+
+        <div className="author-cta-area" >
+            <p>👋 <Link className="author-info" >{user.name}</Link></p>
+            {/* <Link className="author-info" >Loved this? </Link> */}
+            <p>Loved this? <Link className="author-tip" >ink a Story</Link></p>
+        </div>
 
     </div>
     
