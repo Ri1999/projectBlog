@@ -32,7 +32,7 @@ export class storageService{
 
     // Database part : Post CRUD Operations
 
-    async createPost({title, content, featuredImage,status,userId, slug}){
+    async createPost({title, content, featuredImage,status,userId, slug, userName}){
 
         // i seperately create slug individual column
         try{
@@ -48,6 +48,8 @@ export class storageService{
                     status,
                     userId,
                     slug,
+                    // testing it
+                    userName,
 
                 }
             

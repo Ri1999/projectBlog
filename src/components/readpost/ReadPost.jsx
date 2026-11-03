@@ -13,7 +13,7 @@ import "./readpost.css"
 import { useNavigate } from "react-router-dom"
 // import { BsEyeglasses } from "react-icons/bs";
 // import { RxBlendingMode } from "react-icons/rx";
-import { FiBookOpen } from "react-icons/fi";
+// import { FiBookOpen } from "react-icons/fi";
 // import { FcPrevious } from "react-icons/fc";
 import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
@@ -46,8 +46,8 @@ import { Link } from "react-router-dom"
 
 import { universalHostStation } from "../modals/host"
 import ReportModal from "../modals/ReportModal"
-import { CiPen } from "react-icons/ci";
-import { LiaBarsSolid } from "react-icons/lia";
+// import { CiPen } from "react-icons/ci";
+// import { LiaBarsSolid } from "react-icons/lia";
 
 // import { FiCoffee } from "react-icons/fi";
 // import { TbTransactionRupee } from "react-icons/tb";
@@ -69,6 +69,7 @@ const ReadPost = () => {
 // console.log("test props: ", openModal)
 
     const {slug} = useParams()
+    
     // const {status} = useParams()
     // const {status} = useParams()
     // const {featuredImage} = useParams()
@@ -360,6 +361,12 @@ const handleLike = async()=>{
         })
     }
 
+    const authorName = openPost?.userName || "Anonymous Author"
+
+    console.log("@readpost: ", authorName)
+
+
+
     
 
     
@@ -373,7 +380,7 @@ const handleLike = async()=>{
 
         <div className="story-banner-overlay">
             <h1>{openPost.title}</h1>
-            <p>Written by: {user.name}{greentick && <FcApproval/>}</p>
+            <p>Written by: {authorName}{greentick && <FcApproval/>}</p>
 
             <div className="story-banner-details" >
                 <span>{calculateReadTime(openPost.content)} <b>{statusOfStory? "Published":"Draft"}</b></span>
@@ -437,7 +444,10 @@ const handleLike = async()=>{
         {/* author CTA area */}
 
         <div className="author-cta-area" >
-            <p>👋 <Link className="author-info" >{user.name}</Link></p>
+
+            {/* it startight goes into AuthorProfile.jsx */}
+
+            <p>👋 <Link className="author-info" to={`/author/${openPost.userId}`} >{authorName}</Link></p>
             {/* <Link className="author-info" >Loved this? </Link> */}
             <p>Loved this? <Link className="author-tip" >ink a Story</Link></p>
         </div>

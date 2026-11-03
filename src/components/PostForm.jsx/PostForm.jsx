@@ -151,7 +151,8 @@ const PostForm = ({postDataFromAppwrite}) => {
                 // if new photo then, give that photo.$id  
                 featuredImage: newPhoto? newPhoto.$id : undefined ,
                 // and userId is her userData.$id from authSlice 
-                userId: userData.$id
+                userId: userData.$id,
+                userName: userData.name,
         })
         toast.success("Ink spilled, story released!")
             // after databse update navigate her that post location

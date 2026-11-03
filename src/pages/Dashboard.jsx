@@ -49,7 +49,7 @@ const Dashboard = () => {
     // const [userName, setUserName] = useState("")
     const isverified = userData?.emailVerification
     // console.log("userdata: ", userData)
-    // console.log("usersdetails: ", userData, "|", LoggeduserId)
+    // console.log("dashboard check: ", LoggeduserId) --> okey
 
     useEffect(()=>{
 
@@ -83,7 +83,7 @@ const Dashboard = () => {
         </div>
     }
 
-    console.log("docs: ", posts.documents)
+    console.log("docs: ", posts)
 
     const publishedCount = posts.documents?.filter(post => post.status === "active").length || 0;
 

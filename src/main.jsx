@@ -35,6 +35,7 @@ import EditPost from './pages/EditPost.jsx'
 import Hoster from './components/modals/Hoster.jsx'
 // import ReportModal from './components/modals/ReportModal.jsx'
 import UniveHoster from './components/modals/UniveHoster.jsx'
+import AuthorProflie from './components/author/AuthorProflie.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -158,6 +159,19 @@ const route = createBrowserRouter([
       //   element:<ReportModal/>
 
       // },
+
+
+       {
+        path:"/author/:userId",
+        element:(
+          <AuthLayout>
+            {/* <div>reading post</div> */}
+            {/* <Hoster> */}
+            <AuthorProflie/>
+            {/* </Hoster> */}
+          </AuthLayout>
+        )
+      },
       
 
 
