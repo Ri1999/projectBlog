@@ -24,6 +24,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* background-color: #e5eee7; */
+    padding: 8px 16px;
+    border-radius: 8px;
+    /* box-shadow: 1px 0 10px 1px #eae6e6; */
 }
 .total-stats p{
     font-family: 'Fondamento', cursive;
@@ -32,4 +36,25 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+.author-story{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* align-items: self-end; */
+    gap: 15px;
+    background-color: aliceblue;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+.story-card{
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    grid-template-columns: 1fr 1fr
+}
+.story-card li{
+    list-style: none;
 }

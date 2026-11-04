@@ -29,7 +29,7 @@ import { PiFlowerLotusFill } from "react-icons/pi";
 import { GiLotus } from "react-icons/gi";
 import { GiLotusFlower } from "react-icons/gi";
 // import { FcDataSheet } from "react-icons/fc";
-import { FcBullish } from "react-icons/fc";
+// import { FcBullish } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
 // import { VscReport } from "react-icons/vsc";
 import { FiAlertTriangle } from "react-icons/fi";
@@ -227,7 +227,7 @@ const Dashboard = () => {
 
             </div>
             <div className="right-side-Ink-pressions">
-                <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions <FcBullish/></h3>
+                <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions</h3>
                 <p style={{fontFamily: "Fondamento, cursive"}} >You are a <b>{rank?.title}</b>{rank?.icon}</p>
                 <h2>{likeData} <FcLike size={25} /> </h2>
                 <h2>{reportData} <FiAlertTriangle color="#d90429" size={25} /></h2>

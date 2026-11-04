@@ -17,6 +17,8 @@ import { GiLotus } from "react-icons/gi";
 import { GiLotusFlower } from "react-icons/gi";
 import { RiPenNibLine } from "react-icons/ri";
 import { FcLike } from "react-icons/fc";
+import { GoFileSymlinkFile } from "react-icons/go";
+import { FcTreeStructure } from "react-icons/fc";
 
 const AuthorProflie = () => {
 
@@ -159,7 +161,27 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
             <p>{likeData} Likes <FcLike size={25}  /></p>
         </div>
         <div className="author-content" >
-            <div className="author-story-panel">story</div>
+            <div className="author-story-panel">
+                {authorPosts.documents?.length === 0 ? (
+                                    <div className="encourage"  >
+                                        <h4>No ink spilled yet</h4>
+                    
+                                    </div>
+                                ):(
+                                    <div className="author-story" >
+                                        {authorPosts?.documents
+    ?.filter((post) => post.status === "active")
+    ?.map((post) => (
+        <div key={post.$id} className="story-card">
+            <h3>{post.title}</h3>
+            {/* <h3>test</h3> */}
+            <li ><Link className="dashboard-slug" to={`/my-ink/${post.slug}`} ><GoFileSymlinkFile color="#da9005" size={25} />/Open</Link></li>
+           
+        </div>
+    ))}
+                                    </div>
+                                )}
+            </div>
             <div className="author-stats-panel">stats</div>
         </div>
     </div>

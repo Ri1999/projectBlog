@@ -34,7 +34,7 @@
 .dashboard-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 25px;
     
    
     
@@ -48,9 +48,10 @@
     gap: 10px;
     /* border: 1px solid rgb(57, 67, 3); */
     padding: 20px 30px;
-    box-shadow: 0 2px 14px #263031;
+    /* box-shadow: 0 2px 14px #263031; */
+    box-shadow: 0 2px 14px #044118;
     border-radius: 16px;
-    background-color: #FAFAFA;
+    background-color: #e8e8e4;
     color: #012a35;
     font-family: 'Fondamento', cursive;
    
@@ -64,9 +65,10 @@
     gap: 15px;
     /* border: 1px solid rgb(57, 67, 3); */
     padding: 20px 30px;
-    box-shadow: 0 2px 14px #2C3E50;
+    /* box-shadow: 0 2px 14px #2C3E50; */
+    box-shadow: 0 2px 14px #669bbc;
     border-radius: 16px;
-    background-color: #FAFAFA;
+    background-color: #eff3f4;
     color: #012a35;
     /* height: 250px; */
     overflow: auto;
@@ -113,10 +115,15 @@
 .inksight-details{
     height: 250px;
     overflow: auto;
+    scrollbar-color: #264403 #d6edbc;
+    scrollbar-width: thin;
+    /* border-radius: 40px; */
 }
 .ink-pression-report-ui{
     height: 130px;
     overflow: auto;
+    scrollbar-color: #003049 #bfdff0;
+    scrollbar-width: thin;
 }
 .no-written{
     color: #da9005;
