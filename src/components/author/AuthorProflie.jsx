@@ -6,8 +6,17 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { FiLoader } from "react-icons/fi";
+import { SiWikibooks } from "react-icons/si";
 import { toast } from "react-toastify"
 import "./authprofile.css"
+import { PiPlantLight } from "react-icons/pi";
+import { PiFlowerTulipLight } from "react-icons/pi";
+import { PiFlowerLotusLight } from "react-icons/pi";
+import { PiFlowerLotusFill } from "react-icons/pi";
+import { GiLotus } from "react-icons/gi";
+import { GiLotusFlower } from "react-icons/gi";
+import { RiPenNibLine } from "react-icons/ri";
+import { FcLike } from "react-icons/fc";
 
 const AuthorProflie = () => {
 
@@ -86,9 +95,74 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
 
     console.log("author name: ", authorName)
 
+    const publishedCount = authorPosts.documents?.filter(post => post.status === "active").length || 0;
+
+    const getRank=(Count)=>{
+    
+            if(Count === 0){
+                // return "Scoutinker" PiPlantLight
+                return {title:"Ink Scout",icon:<PiPlantLight color="#0e740c" size={30} />,}
+    
+            }
+            if(Count >=1 && Count <=4){
+                return {title:"Ink Initiate",icon:<PiFlowerTulipLight color="green" size={30} />,}
+            }
+            if(Count >= 5 && Count <= 12){
+                // return "Novinker"
+                return {title:"Ink Novice",icon:<PiFlowerLotusLight color="green" size={30} />,}
+    
+            }
+            if(Count >=13 && Count <=24){
+                // return "Inkeliter"
+                return {title:"Ink Artisan",icon:<PiFlowerLotusFill color="green" size={30} />,}
+    
+            }
+            if(Count >= 25 && Count <=50){
+    
+                // return "Vetrinker"
+                return {title:"Ink Veteran",icon:<GiLotus color="green" size={25} />,}
+            }
+            if(Count >=50){
+                // return "Masterinker"
+                return {title:"Ink Master",icon:<GiLotusFlower color="#e9285f" size={25} />,}
+            }
+        }
+
+        const authorRankName = getRank(publishedCount)
+
+        const totalContent = authorPosts.documents?.reduce((total, post)=>{
+            if(post.status==="active"){
+                const cleanText = post.content.replace(/<[^>]*>?/gm, '')
+                const wordCount = cleanText.trim().split(/\s+/).length;
+
+                return total+wordCount
+                
+            }
+            return total
+
+        },0)
+
+        console.log("testing: ", totalContent)
+        const likeData = authorPosts.documents?.reduce((total, number)=>{
+        return total + (number.like ?? 0)
+    },0)
+
+
 
   return (
-    <div className="author-container" ></div>
+    <div className="author-container" >
+        <h1>{authorName} <span style={{fontSize:"1.2rem"}} >({authorRankName.title})</span></h1>
+        {/* <p>{publishedCount} Stories <SiWikibooks color="green" /></p> */}
+        <div className="total-stats">
+            <p>{publishedCount} Stories <SiWikibooks size={28} color="green" /></p>
+            <p>{totalContent} Words <RiPenNibLine size={28} color="#0882a4" /></p>
+            <p>{likeData} Likes <FcLike size={25}  /></p>
+        </div>
+        <div className="author-content" >
+            <div className="author-story-panel">story</div>
+            <div className="author-stats-panel">stats</div>
+        </div>
+    </div>
   )
 }
 

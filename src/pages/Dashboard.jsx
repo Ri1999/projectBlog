@@ -228,7 +228,7 @@ const Dashboard = () => {
             </div>
             <div className="right-side-Ink-pressions">
                 <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions <FcBullish/></h3>
-                <p>You are a <b>{rank?.title}</b>{rank?.icon}</p>
+                <p style={{fontFamily: "Fondamento, cursive"}} >You are a <b>{rank?.title}</b>{rank?.icon}</p>
                 <h2>{likeData} <FcLike size={25} /> </h2>
                 <h2>{reportData} <FiAlertTriangle color="#d90429" size={25} /></h2>
                 <div className="ink-pression-report-ui" >

@@ -15,3 +15,21 @@
     margin-bottom: 20px;
     font-family: 'Sansation', sans-serif;
 }
+.author-container h1{
+    text-align: center;
+    font-family: 'Fondamento', cursive;
+    color: #012a35;
+}
+.total-stats{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.total-stats p{
+    font-family: 'Fondamento', cursive;
+}
+.author-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
