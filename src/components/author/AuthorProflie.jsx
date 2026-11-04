@@ -6,8 +6,12 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { FiLoader } from "react-icons/fi";
+import { RxReader } from "react-icons/rx";
+import { SiReadthedocs } from "react-icons/si";
+import { PiReadCvLogoThin } from "react-icons/pi";
 import { SiWikibooks } from "react-icons/si";
 import { toast } from "react-toastify"
+import { AiOutlineRollback } from "react-icons/ai";
 import "./authprofile.css"
 import { PiPlantLight } from "react-icons/pi";
 import { PiFlowerTulipLight } from "react-icons/pi";
@@ -17,8 +21,9 @@ import { GiLotus } from "react-icons/gi";
 import { GiLotusFlower } from "react-icons/gi";
 import { RiPenNibLine } from "react-icons/ri";
 import { FcLike } from "react-icons/fc";
-import { GoFileSymlinkFile } from "react-icons/go";
-import { FcTreeStructure } from "react-icons/fc";
+// import { GoFileSymlinkFile } from "react-icons/go";
+// import { FcTreeStructure } from "react-icons/fc";
+// import { useNavigate } from "react-router-dom"
 
 const AuthorProflie = () => {
 
@@ -149,6 +154,10 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
         return total + (number.like ?? 0)
     },0)
 
+    const returnToStudy =()=>{
+        navigate(-1)
+    }
+
 
 
   return (
@@ -156,10 +165,11 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
         <h1>{authorName} <span style={{fontSize:"1.2rem"}} >({authorRankName.title})</span></h1>
         {/* <p>{publishedCount} Stories <SiWikibooks color="green" /></p> */}
         <div className="total-stats">
-            <p>{publishedCount} Stories <SiWikibooks size={28} color="green" /></p>
-            <p>{totalContent} Words <RiPenNibLine size={28} color="#0882a4" /></p>
-            <p>{likeData} Likes <FcLike size={25}  /></p>
+            <p><b>{publishedCount}</b> Stories <SiWikibooks size={28} color="green" /></p>
+            <p><b>{totalContent}</b> Words <RiPenNibLine size={28} color="#0882a4" /></p>
+            <p><b>{likeData}</b> Likes <FcLike size={25}  /></p>
         </div>
+        {/* <hr /> */}
         <div className="author-content" >
             <div className="author-story-panel">
                 {authorPosts.documents?.length === 0 ? (
@@ -175,14 +185,17 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
         <div key={post.$id} className="story-card">
             <h3>{post.title}</h3>
             {/* <h3>test</h3> */}
-            <li ><Link className="dashboard-slug" to={`/my-ink/${post.slug}`} ><GoFileSymlinkFile color="#da9005" size={25} />/Open</Link></li>
+            <li ><Link className="author-slug" to={`/my-ink/${post.slug}`} ><RxReader color="green" size={25} />/Start Reading</Link></li>
            
         </div>
     ))}
                                     </div>
                                 )}
             </div>
-            <div className="author-stats-panel">stats</div>
+            <div className="author-stats-panel">
+                
+                <button onClick={returnToStudy} type="button"><AiOutlineRollback size={28} />Back to Story</button>
+            </div>
         </div>
     </div>
   )
