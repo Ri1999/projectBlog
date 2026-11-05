@@ -2,6 +2,7 @@
 import storageService from "../appwrite/major_config"
 import { Link } from 'react-router-dom'
 import "../components/postcardStyle.css"
+import { TbRating18Plus } from "react-icons/tb";
 // import { MdOutlinePushPin } from "react-icons/md";
 // import { GoPin } from "react-icons/go";
 // import { TbPinFilled } from "react-icons/tb";
@@ -20,6 +21,7 @@ const PostCard = ({
     // $id is apwrite syntax
     $id, title,featuredImage, 
     slug,status,like,dislike,report,
+    contentRating
 
 
 }) => {
@@ -46,14 +48,17 @@ const PostCard = ({
 
     //  to={`/post/${$id}`
 
-    <Link className="link-dom" to={`/my-ink/${slug}`}  >
+    <Link className="link-dom" to={`/ink-creations/${slug}`}  >
         <div className="postcard-container">
             {/* <TbPinFilled color="black" size={20} /> */}
             {/* {checkStatus(status)} */}
-            {result? <MdPublishedWithChanges color="#386641" size={20} />:<MdUnpublished color="#a3b18a" size={20} />}
+            {result? <MdPublishedWithChanges color="#386641" size={20} />:<MdUnpublished color="#a3b18a" size={20} />
+            }
+            <span></span>
             <div className="postcard-content">
 
                 {/* testing purpose off */}
+
                 
                 <img src={storageService.getFileView(featuredImage)} alt="post_image" />
 
@@ -64,7 +69,11 @@ const PostCard = ({
 
             </div>
             {/* testing purpose off */}
-            <p style={{color:"#c1121f"}} >{like ?? 0} <FcLike  size={18} /></p>
+            <p style={{color:"#c1121f"}} >{like ?? 0}<FcLike  size={18} />
+            <span>{contentRating==="nsfw"?"18+":""}</span>
+            </p>
+            {/* <p>test</p> */}
+
             <h2 style={{padding:"5px", width:"70%", }} >{title}</h2>
 
         </div>

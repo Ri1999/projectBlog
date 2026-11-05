@@ -76,7 +76,7 @@ const ReadPost = () => {
     // const {documentId} = useParams()
     const navigate = useNavigate()
     const backTopost = ()=>{
-        navigate("/my-ink")
+        navigate("/ink-creations")
     }
     
     const LoggeduserId = useSelector((state)=> state.auth.userData.$id)
@@ -161,8 +161,8 @@ const ReadPost = () => {
         try{
             await services.deletePost(fileID)
             // it returns a empty object 
-            toast.success("Removed from Inkflow!")
-            navigate("/my-ink")
+            toast.success("Removed from Ink Creations!")
+            navigate("/ink-creations")
             
         }catch(err){
             toast.error(err.message ||"Failed to delete!")

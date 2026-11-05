@@ -98,12 +98,27 @@
     font-size: 1.1rem;
     transition: 0.2s ease-in-out;
     font-weight: 520;
+    font-family: 'Sansation', sans-serif;
     
     
 }
 .author-stats-panel button:hover{
     color: #780000;
     transform: scaleX(1.1);
+}
+.authprofile-loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+@keyframes spin{
+    0% { transform: rotate(0deg); }
+    100% {transform: rotate(360deg);}
+}
+.authprofile-spin-animate{
+    animation: spin 2s linear infinite;
 }
 
 
@@ -114,7 +129,9 @@
         align-items: center;
         justify-content: center;
     }
-    .author-stats-panel{
-        /* justify-content: flex-start; */
-    }
+
+    /* .author-stats-panel{
+        
+    } */
+
 }

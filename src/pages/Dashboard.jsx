@@ -216,7 +216,7 @@ const Dashboard = () => {
                         <li><b>{data.title}</b></li>
                         <li><b>state{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
                         <li><b>{calculateWords(data.content)}</b> words spilled</li>
-                        <li ><Link className="dashboard-slug" to={`/my-ink/${data.slug}`} ><GoFileSymlinkFile color="#da9005" size={25} />/inkPath</Link></li>
+                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#da9005" size={25} />/inkPath</Link></li>
                         <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FcTreeStructure size={25} /></button></li>
                     </div>
                 )) }

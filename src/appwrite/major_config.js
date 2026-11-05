@@ -32,7 +32,7 @@ export class storageService{
 
     // Database part : Post CRUD Operations
 
-    async createPost({title, content, featuredImage,status,userId, slug, userName}){
+    async createPost({title, content, featuredImage,status,userId, slug, userName, tags, contentRating}){
 
         // i seperately create slug individual column
         try{
@@ -50,6 +50,9 @@ export class storageService{
                     slug,
                     // testing it
                     userName,
+                    // later added
+                    tags,
+                    contentRating,
 
                 }
             
@@ -65,7 +68,7 @@ export class storageService{
     }
 
     //  never touch it
-    async updatePost( documentId, {title, content, featuredImage,status, }){
+    async updatePost( documentId, {title, content, featuredImage,status, tags, contentRating }){
         try{
             const updatePost = await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
@@ -78,6 +81,8 @@ export class storageService{
                     content,
                     featuredImage,
                     status,
+                    tags,
+                    contentRating,
                     
                 }
             )

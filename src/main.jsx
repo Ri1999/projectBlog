@@ -126,7 +126,7 @@ const route = createBrowserRouter([
 
       },
       {
-        path: "/my-ink",
+        path: "/ink-creations",
         element: (
         <AuthLayout authentication={true} >
           <AllPosts/>
@@ -135,7 +135,7 @@ const route = createBrowserRouter([
       },
 
       {
-        path:"/my-ink/:slug",
+        path:"/ink-creations/:slug",
         element:(
           <AuthLayout>
             {/* <div>reading post</div> */}

@@ -53,6 +53,7 @@
   flex: 1 1 300px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   
 }
@@ -67,7 +68,7 @@
   flex: 2 1 400px;
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content:space-around;
   gap: 1rem;
 }
 .right-content p{
@@ -175,4 +176,11 @@
     .left-content h2{
       text-align: center;
     }
+
+    /* .left-content{
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    } */
+
+
 }

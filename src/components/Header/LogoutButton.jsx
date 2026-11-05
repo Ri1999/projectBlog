@@ -3,20 +3,22 @@ import blogauthservice from "../../appwrite/auth"
 import { logout } from "../../store/authSlice"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
+// import { GiPowerButton } from "react-icons/gi";
+import { SiInkdrop } from "react-icons/si";
 
 const LogoutButton = () => {
 
     const [isHovered, setIsHovered] = useState(false)
 
     const logoutButtonStyle ={
-//   background: "transparent",
-  backgroundColor: "#4b5f51",
-  color: "white", 
+  background: "transparent",
+  // backgroundColor: "#4b5f51",
+  color: isHovered?"#100f0f":"green", 
   fontSize: "1.2rem",
   fontWeight: 600,
   cursor: "pointer",
   // transition: "color 0.2s ease",
-  padding:"4px 12px",
+  // padding:"4px 12px",
 
   // fontFamily: "Fondamento, cursive",
   fontFamily: "Sansation, sans-serif",
@@ -25,6 +27,12 @@ const LogoutButton = () => {
   // borderColor:isHovered? "gold":"black",
   // transform: isHovered ?"translateY(-2px)":"none",
   transition: isHovered? "transform 1s ease":"none",
+  paddingRight:"15px",
+
+  // dispaly:"flex",
+  // alignItems:"center",
+  // justifyContent:"center",
+  // color:"green",
     }
 
     const dispatch = useDispatch()
@@ -50,7 +58,7 @@ const LogoutButton = () => {
     onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
 
-     style={logoutButtonStyle} onClick={handleLogout} type="button">Unink</button>
+     style={logoutButtonStyle} onClick={handleLogout} type="button">Unl<SiInkdrop size={18} color="#a3b18a" />nk</button>
   )
 }
 

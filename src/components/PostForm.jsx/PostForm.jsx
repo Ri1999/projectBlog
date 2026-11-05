@@ -35,6 +35,10 @@ const PostForm = ({postDataFromAppwrite}) => {
             slug: postDataFromAppwrite?.slug || "",
             content: postDataFromAppwrite?.content || "",
             status: postDataFromAppwrite?.status || "active",
+
+            // later added
+            contentRating: postDataFromAppwrite?.contentRating || "sfw",
+            tags: postDataFromAppwrite?.tags || "",
         }
     })
 
@@ -153,8 +157,10 @@ const PostForm = ({postDataFromAppwrite}) => {
                 // and userId is her userData.$id from authSlice 
                 userId: userData.$id,
                 userName: userData.name,
+                tags: data.tags || "",
+                contentRating: data.contentRating,
         })
-        toast.success("Ink spilled, story released!")
+        toast.success("Ink spilled!")
             // after databse update navigate her that post location
         if(dbNewPost){
             navigate(`/`) // temporary
@@ -166,7 +172,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
   return (
     <div className='postform-container' >
-        <h1>Drop the Ink</h1>
+        <h1>Ink your imagination</h1>
         {/* testing */}
         <form onSubmit={handleSubmit(postSubmit)} className='postform-content' >
 
@@ -200,12 +206,28 @@ const PostForm = ({postDataFromAppwrite}) => {
                 <SelectComponent
                 label="Status"
                 className="test"
+                error={errors.status?.message}
                 options={["active","inactive"]}
                 
                 {...register("status", {required: true})}
                 
                 />
                 <p>(Status| <b>active: Publish | inactive: Draft</b>)</p>
+                {/* newly added */}
+                <SelectComponent
+                label="Content Rating"
+                className="test"
+                options={["sfw","nsfw"]}
+                {...register("contentRating", {required: true})}
+
+
+                
+                
+                />
+                <p>(Content Rating| <b>sfw: General | nsfw: Adult or Sensitive Content</b>)</p>
+
+
+                
                 <button  type="submit">{postDataFromAppwrite ? "Refine Ink" : "Spill Ink"}</button>
 
                 </div>
@@ -244,9 +266,23 @@ const PostForm = ({postDataFromAppwrite}) => {
                 }}
                 
                 />
-                <p>For custom slug: Use hyphens instead of spaces (e.g. my-first-story)</p>
+                {/* <p>For custom slug: Use hyphens instead of spaces (e.g. my-first-story)</p> */}
+
+                {/* tags input area */}
+
+                <Input
+                label="Tags"
+                error={errors.tags?.message}
+                placeholder="e.g. fantasy, horror, tech (comma separated)"
+                {...register("tags", { required: false })}
+                
+                />
                 
                 </div>
+
+
+
+
 
             </div>
 

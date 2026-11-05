@@ -84,4 +84,10 @@
 .postcard-container p{
   font-family: "Fondamento", cursive;
   font-size: 1.2rem;
+  position: relative;
+}
+.postcard-container span{
+  /* align-self: flex-end; */
+  position: absolute;
+  right: 0px;
 }
