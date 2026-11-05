@@ -251,6 +251,29 @@ export class storageService{
         return `${response}&width=${width}&height=${height}&quality=60`
     }
 
+    // upi id 
+    async updateUserUpi(upiId){
+        try{
+            const response = await this.account.updatePrefs({ upiId: upiId });
+            return response;
+        }catch(err){
+            console.error("updateUserUpi error: ", err);
+            throw err;
+        }
+    }
+
+    async getuserUpi(userId){
+        try{
+            const userAccount = await this.account.get();
+            return userAccount.prefs?.upiId || null;
+        }catch(err){
+            console.error("getUserUpi error: ", err);
+            return null;
+        }
+    }
+
+
+
 
 }
 

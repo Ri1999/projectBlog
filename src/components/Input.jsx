@@ -56,7 +56,7 @@ const Input = React.forwardRef(
             <input type={type} className={className}  ref={ref}
             {...otherAttributes} id={id}
             />
-            {error && <p className="error-text" style={{ color: 'red', fontSize: '18px', marginTop: '4px' }}>{error}</p>}
+            {error && <p className="error-text" style={{ color: 'red', fontSize: '18px', marginTop: '4px', }}>{error}</p>}
 
             </div>
         )

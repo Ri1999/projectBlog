@@ -27,7 +27,7 @@
     font-family: 'Fondamento', cursive;
     color: #012a35;
 }
-.dashboard-container p{
+.dashboard-email-display{
     font-family: 'Fondamento', cursive;
     color: #012a35;
 }
@@ -95,11 +95,11 @@
 }
 .display-inkfootPrint{
     display: grid;
-    gap: 10px;
+    gap: 1px;
     align-items: center;
     justify-content: center;
     width: 100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 0.5fr;
 
     /* border: 1px solid red; */
     /* background-color: aliceblue; */
@@ -146,6 +146,70 @@
 .editLoad-animation{
     animation: spin 0.5s liner infinite;
 }
+.dashboard-monetization{
+    margin-top: 35px;
+    /* max-width: 600px; */
+    max-width: 90vw;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #386641;
+    /* box-shadow: 0 2px 14px rgb(171, 233, 181); */
+    /* background: #1c3144; */
+}
+.monetize-subtitle{
+    text-align: center;
+    /* color: ; */
+    /* color: whitesmoke; */
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-family: 'Fondamento', cursive;
+    
+}
+.monetize-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+.monetize-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.upi-input{
+    max-width: 500px;
+
+   
+}
+.upi-input label{
+    color: #012a35;
+    font-weight: 510;
+    font-size: 1.1rem;
+    /* gap: 10px; */
+    /* margin-bottom: 5px; */
+}
+.upi-input input{
+    margin-top: 15px;
+
+    
+}
+
+
+
+.monetize-save-btn{
+    background-color: #22c55e;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'Sansation', sans-serif;
+    font-size: 1.1rem;
+    max-width: 500px;
+}
 @media screen and (max-width:768px) {
     .dashboard-content{
         grid-template-columns: 1fr;
@@ -155,5 +219,8 @@
     }
     .ink-pression-report-ui p{
         text-align: left;
+    }
+    .upi-input, .monetize-save-btn{
+        max-width: 100%;
     }
 }

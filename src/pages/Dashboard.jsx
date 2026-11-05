@@ -1,6 +1,7 @@
 // import React from 'react'
 import { useSelector } from "react-redux"
 import services from "../appwrite/major_config"
+
 // import Container from "../components/container/Container"
 // import blogauthservice from "../appwrite/auth"
 import { useState } from "react"
@@ -24,6 +25,8 @@ import { VscEditSparkle } from "react-icons/vsc";
 import { PiPlantLight } from "react-icons/pi";
 import { PiFlowerTulipLight } from "react-icons/pi";
 // import { PiFlowerLotusThin } from "react-icons/pi";
+// import { FaGooglePay } from "react-icons/fa";
+// import { FcGoogle } from "react-icons/fc";
 import { PiFlowerLotusLight } from "react-icons/pi";
 import { PiFlowerLotusFill } from "react-icons/pi";
 import { GiLotus } from "react-icons/gi";
@@ -37,6 +40,9 @@ import { FiAlertTriangle } from "react-icons/fi";
 import { CgDanger } from "react-icons/cg";
 // import { AiTwotoneSafetyCertificate } from "react-icons/ai";
 import { AiOutlineSafety } from "react-icons/ai";
+import { SiWikibooks } from "react-icons/si";
+import Input from "../components/Input"
+import { useForm } from 'react-hook-form';
 
 const Dashboard = () => {
     const [posts, setPosts] = useState([])
@@ -50,6 +56,32 @@ const Dashboard = () => {
     const isverified = userData?.emailVerification
     // console.log("userdata: ", userData)
     // console.log("dashboard check: ", LoggeduserId) --> okey
+
+
+    // upi input setup
+
+    const [upiId, setUpiId] = useState(userData?.upiId || "");
+
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+        defaultValues:{
+            upiId: userData?.prefs?.upiId || ""
+        }
+    })
+
+    const handleSaveUpi = async (data)=>{
+        setLoading(true)
+        try{
+            const response = await services.updateUserUpi(data.upiId);
+            if(response){
+                setUpiId(response.upiId || data.upiId)
+            }
+            toast.success("Monetization updated successfully! 💸");
+        }catch(err){
+            toast.error(err.message || "Failed to update Monetization")
+        }finally{
+            setLoading(false)
+        }
+    }
 
     useEffect(()=>{
 
@@ -195,12 +227,12 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container" >
         <h1>Welcome, {userData?.name}{isverified && <FcApproval/>}</h1>
-        <p>Email: <b>{userData?.email}</b></p>
+        <p className="dashboard-email-display" >Email: <b>{userData?.email}</b></p>
         
         <div className="dashboard-content">
             <div className="left-side">
                 <h3 style={{textAlign:"center", fontSize:"2.1rem"}} >Ink-sights</h3>
-                <p><b>{posts.total}</b> creation</p>
+                <p><b>{posts.total}</b> creation <SiWikibooks color="green" /></p>
 
                 {posts.documents?.length === 0 ? (
                     <div className="encourage"  >
@@ -216,8 +248,8 @@ const Dashboard = () => {
                         <li><b>{data.title}</b></li>
                         <li><b>state{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
                         <li><b>{calculateWords(data.content)}</b> words spilled</li>
-                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#da9005" size={25} />/inkPath</Link></li>
-                        <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FcTreeStructure size={25} /></button></li>
+                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#da9005" size={20} />/inkPath</Link></li>
+                        <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FcTreeStructure size={20} /></button></li>
                     </div>
                 )) }
                     </div>
@@ -257,6 +289,42 @@ const Dashboard = () => {
                 </div>
 
             </div>
+        </div>
+
+
+        <div className="dashboard-monetization">
+            <h3 style={{textAlign:"center", fontSize:"2.1rem", color:"#012a35"}} >InkFlow Monetization</h3>
+            <p className="monetize-subtitle" >Turn readers into supporters. Zero platform fee, 100% yours.</p>
+            <div className="monetize-content">
+                <form onSubmit={handleSubmit(handleSaveUpi)} className="monetize-form" >
+                    <div className="upi-input">
+                        
+
+                        <Input
+                        label="GPay / UPI ID or registered Phone Number"
+                        placeholder="e.g. 9876543210@paytm or username@okaxis"
+                        error={errors.upiId?.message}
+                        {...register("upiId", {
+                            required:"UPI ID is required to receive reader support directly into your account",
+                            pattern:{
+                                value: /^[\w.-]+@[\w.-]+$|^[6-9]\d{9}$/,
+                                message: "Please enter a valid payment ID (e.g., user@okaxis) or 10-digit mobile number"
+
+                            }
+                        })}
+                        />
+
+                    </div>
+                    <button className="monetize-save-btn" disabled={loading} type="submit">{isSubmitting ? "Saving..." : "Save"}</button>
+                </form>
+                {upiId && (
+                    <div className="monetize-preview">
+                        {/* <h4>Preview:</h4> */}
+                        <p className="preview-text">Readers will be able to scan and pay directly to: <strong>{upiId}</strong></p>
+                    </div>
+                )}
+            </div>
+            
         </div>
 
     </div>
