@@ -43,6 +43,7 @@ import { FcDislike } from "react-icons/fc";
 // report :
 // import SelectComponent from "../SelectComponent"
 import { Link } from "react-router-dom"
+// import { FcInfo } from "react-icons/fc";
 
 import { universalHostStation } from "../modals/host"
 import ReportModal from "../modals/ReportModal"
@@ -420,14 +421,14 @@ const handleLike = async()=>{
 
     </div>
 
-    <div style={{backgroundColor:theme?"#cbcac8":"#F8F9FA"}} className="story-body" >
+    <div style={{backgroundColor:theme?"#54452a80":"#F8F9FA"}} className="story-body" >
         <p><FcLike size={18} /> {openPost?.like ?? 0} <FcDislike size={18} /> {openPost?.dislike ?? 0} 
 
-            <span><button onClick={()=>toogleTheme()} type="button">{theme?"change mode":"change mode"}</button>
+            <span>
             
             </span>
-            <>
-            <FiAlertTriangle size={18} color="#da9005" /> {openPost?.report ?? 0}</>
+            <span style={{marginLeft:"7px"}} >
+            <FiAlertTriangle size={18} color="#da9005" /> {openPost?.report ?? 0}</span>
             {/* <span></span> */}
             {/* <Link>The Pen Behind</Link> */}
 
@@ -437,7 +438,10 @@ const handleLike = async()=>{
     
         
         {/* <button type="button">back</button> */}
-        <article style={{fontFamily:"inherit !important", fontSize:"inherit !important", color:theme?"#2d2216":"#34404b"}} >
+        <button onClick={()=>toogleTheme()} type="button">{theme?"lunar 🌙":"solar ☀️"}</button>
+
+
+        <article style={{fontFamily:"inherit !important", fontSize:"inherit !important", color:theme?"#061321":"#34404b"}} >
             {parse(openPost.content)}
         </article>
 
@@ -447,9 +451,9 @@ const handleLike = async()=>{
 
             {/* it startight goes into AuthorProfile.jsx */}
 
-            <p>👋 <Link className="author-info" to={`/author/${openPost.userId}`} >{authorName}</Link></p>
+            <p><Link className="author-info" to={`/author/${openPost.userId}`} >Author's Profile</Link></p>
             {/* <Link className="author-info" >Loved this? </Link> */}
-            <p>Loved this? <Link className="author-tip" >ink a Story</Link></p>
+            <p><Link className="author-tip" >Send Tip ₹</Link></p>
         </div>
 
     </div>

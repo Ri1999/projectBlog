@@ -166,7 +166,8 @@
     
 }
 .monetize-content{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     flex-direction: column;
     gap: 1.5rem;
 
@@ -195,12 +196,11 @@
     
 }
 
-
-
 .monetize-save-btn{
-    background-color: #22c55e;
-    color: white;
-    font-weight: 600;
+    /* background-color: #1C3123; */
+    background-color: #008000;
+    color: whitesmoke;
+    font-weight: 500;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 6px;
@@ -210,6 +210,23 @@
     font-size: 1.1rem;
     max-width: 500px;
 }
+.monetize-help{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.monetize-help p{
+    /* align-self: flex-start; */
+    text-align: justify;
+    /* align-self: flex-end; */
+    /* justify-self: flex-end; */
+
+    font-size: 1.1rem;
+}
+
 @media screen and (max-width:768px) {
     .dashboard-content{
         grid-template-columns: 1fr;
@@ -222,5 +239,11 @@
     }
     .upi-input, .monetize-save-btn{
         max-width: 100%;
+    }
+    .monetize-content{
+        grid-template-columns: 1fr;
+    }
+    .monetize-help p{
+        text-align: justify;
     }
 }

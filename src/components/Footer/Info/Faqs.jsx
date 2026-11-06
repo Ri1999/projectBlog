@@ -22,8 +22,8 @@ const Faqs = () => {
             answer:"Our platform provides a completely distraction-free workspace. No popup ads, no cluttered layouts. Just pure art and text."
         },
         {
-            question:"How do micro-donations work? Can I tip my favorite writer?",
-            answer:"If you love a creator's work, you can directly tip them from ₹20 to ₹max using our integrated UPI gateway. 100% of the tip goes directly to the creator's linked account."
+            question:"How do monetization work? Can I tip my favorite writer?",
+            answer:"If you love a creator's work, you can directly tip them from QRcode which is generated via single click. 100% of the tip goes directly to the creator's linked account."
         },
         {
             question:"How does Charukavya ensure the stories on the platform maintain high quality?",
@@ -31,7 +31,7 @@ const Faqs = () => {
         },
         {
             question:"Will I lose my writing if my browser suddenly crashes?",
-            answer:"Not at all. Our text editor is equipped with a real-time cloud Auto-Save mechanism. Every sentence you compose is automatically synced instantly to our servers so you never lose your progress."
+            answer:"We are currently wordking on auto safe feature. So writing a long-form story? We recommend to save your story as draft in webapp, also keeping a backup in a notes app is always a smart writer's habit!"
         },
         {
             question:"What are the size limitations for canvas or story cover images?",
