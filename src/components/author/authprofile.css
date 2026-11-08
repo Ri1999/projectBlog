@@ -104,7 +104,7 @@
 }
 .author-stats-panel button:hover{
     color: #780000;
-    transform: scaleX(1.1);
+    transform: scale(1.1);
 }
 .authprofile-loading{
     display: flex;

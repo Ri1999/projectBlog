@@ -1,0 +1,16 @@
+.feed-container{
+  width: 100%;
+  max-width: 98%;
+  margin: 5px auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Sansation', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+}
+.feed-grid-view{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}

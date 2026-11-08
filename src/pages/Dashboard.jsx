@@ -91,7 +91,7 @@ const Dashboard = () => {
             try{
                 const response = await services.getUserPosts(LoggeduserId)
                 // console.log("api okey: ", response)
-                toast.success("Insights fetched!")
+                // toast.success("Insights fetched!")
                 if(response){
                     setPosts(response)
                 }
@@ -107,7 +107,7 @@ const Dashboard = () => {
             UserInsights()
         }
 
-    },[LoggeduserId])
+    },[LoggeduserId, userData])
 
     if (loading || !posts) {
         return <div className="readpost-loading">
@@ -216,7 +216,7 @@ const Dashboard = () => {
     }
 
     const handleShareStory=(slug)=>{
-        const shareUrl =`${window.location.origin}/my-ink/${slug}`
+        const shareUrl =`${window.location.origin}/ink-creations/${slug}`
         navigator.clipboard.writeText(shareUrl);
         toast.success("Story link secured. Ready to share!")
 
@@ -306,7 +306,7 @@ const Dashboard = () => {
                         placeholder="username@okaxis or 9876543210@ybl"
                         error={errors.upiId?.message}
                         {...register("upiId", {
-                            required:"GPay / UPI ID is required to receive reader support directly into your account",
+                            required:"GPay / UPI ID is required to receive reader's support directly into your account",
                             pattern:{
                                 value: /^[\w.-]+@[\w.-]+$|^[6-9]\d{9}$/,
                                 message: "Please enter a valid payment ID (e.g., user@okaxis) or 10-digit mobile number"

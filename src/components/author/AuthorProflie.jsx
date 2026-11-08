@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 import { FiLoader } from "react-icons/fi";
 import { RxReader } from "react-icons/rx";
 // import { SiReadthedocs } from "react-icons/si";
-import { IoReturnUpBackSharp } from "react-icons/io5";
+// import { IoReturnUpBackSharp } from "react-icons/io5";
 // import { PiReadCvLogoThin } from "react-icons/pi";
 import { SiWikibooks } from "react-icons/si";
 import { toast } from "react-toastify"
@@ -22,6 +22,7 @@ import { GiLotus } from "react-icons/gi";
 import { GiLotusFlower } from "react-icons/gi";
 import { RiPenNibLine } from "react-icons/ri";
 import { FcLike } from "react-icons/fc";
+import { FiArrowLeftCircle } from "react-icons/fi";
 // import { GoFileSymlinkFile } from "react-icons/go";
 // import { FcTreeStructure } from "react-icons/fc";
 // import { useNavigate } from "react-router-dom"
@@ -37,7 +38,7 @@ const AuthorProflie = () => {
 
     const [authorPosts, setAuthorPosts] = useState([]);
 
-    console.log("author id: ", authorId, "|", "loggedid: ", loggedInUserId)
+    // console.log("author id: ", authorId, "|", "loggedid: ", loggedInUserId)
 
     const selfProfile = loggedInUserId === authorId
     console.log("self profile: ", selfProfile)
@@ -61,7 +62,7 @@ const AuthorProflie = () => {
             try{
                 const response = await services.getUserPosts(authorId)
                 if(response){
-                    console.log("its working...")
+                    // console.log("its working...")
                     setAuthorPosts(response)
                 }
             }catch(err){
@@ -79,13 +80,13 @@ const AuthorProflie = () => {
 
     if(loading || !authorPosts){
         return <div className="authprofile-loading" >
-            <h1><i>Connecting you with the writer...</i></h1>
+            <h1><i>Connecting you with the author...</i></h1>
             <span className="authprofile-spin-animate" ><FiLoader  color="green" size={40}/></span>
         </div>
     }
     
 
-    console.log("author api data: ",authorPosts)
+    // console.log("author api data: ",authorPosts)
     // const authorName = authorPosts.documents[0]?.userName || "Anonymous Author";
 
     // const authorName = authorPosts.documents.filter((data)=> data.userName !==null)
@@ -104,7 +105,7 @@ const AuthorProflie = () => {
 
 const authorName = authorPosts.documents?.find(post => post.userName)?.userName || "Anonymous Author"
 
-    console.log("author name: ", authorName)
+    // console.log("author name: ", authorName)
 
     const publishedCount = authorPosts.documents?.filter(post => post.status === "active").length || 0;
 
@@ -153,7 +154,7 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
 
         },0)
 
-        console.log("testing: ", totalContent)
+        // console.log("testing: ", totalContent)
         const likeData = authorPosts.documents?.reduce((total, number)=>{
         return total + (number.like ?? 0)
     },0)
@@ -169,9 +170,9 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
         <h1>{authorName} <span style={{fontSize:"1.2rem"}} >({authorRankName.title})</span></h1>
         {/* <p>{publishedCount} Stories <SiWikibooks color="green" /></p> */}
         <div className="total-stats">
-            <p>Written <b>{publishedCount}</b> Stories <SiWikibooks size={28} color="green" /></p>
+            <p>Written <b>{publishedCount}</b> {publishedCount === 1 ? "Story" : "Stories"} <SiWikibooks size={28} color="green" /></p>
             <p><b>{totalContent}</b> Words <RiPenNibLine size={28} color="#0882a4" /></p>
-            <p><b>{likeData}</b> Likes <FcLike size={25}  /></p>
+            <p><b>{likeData}</b> {likeData === 1?"Like":"Likes"} <FcLike size={25}  /></p>
         </div>
         {/* <hr /> */}
         <div className="author-content" >
@@ -198,7 +199,7 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
             </div>
             <div className="author-stats-panel">
                 
-                <button onClick={returnToStudy} type="button"><IoReturnUpBackSharp size={28} color="#344e41" /></button>
+                <button onClick={returnToStudy} type="button"><FiArrowLeftCircle size={28} color="#344e41" /></button>
             </div>
         </div>
     </div>

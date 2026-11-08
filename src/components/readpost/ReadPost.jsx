@@ -43,6 +43,7 @@ import { FcDislike } from "react-icons/fc";
 // report :
 // import SelectComponent from "../SelectComponent"
 import { Link } from "react-router-dom"
+import { FaHandHoldingHeart } from "react-icons/fa";
 // import { FcInfo } from "react-icons/fc";
 
 import { universalHostStation } from "../modals/host"
@@ -97,7 +98,7 @@ const ReadPost = () => {
                 const fetchData = await services.getPost(slug)
                 if(fetchData){
                     // toast.success("api successful")
-                    console.log("apidata@readpost: ", fetchData)
+                    // console.log("apidata@readpost: ", fetchData)
                     setOpenPost(fetchData)
                 }else{
                     toast.error("Story not found");
@@ -364,7 +365,7 @@ const handleLike = async()=>{
 
     const authorName = openPost?.userName || "Anonymous Author"
 
-    console.log("@readpost: ", authorName)
+    // console.log("@readpost: ", authorName)
 
 
 
@@ -451,9 +452,9 @@ const handleLike = async()=>{
 
             {/* it startight goes into AuthorProfile.jsx */}
 
-            <p><Link className="author-info" to={`/author/${openPost.userId}`} >Author's Profile</Link></p>
+            <p><Link className="author-info" to={`/author/${openPost.userId}`} >Behind the Ink</Link></p>
             {/* <Link className="author-info" >Loved this? </Link> */}
-            <p><Link className="author-tip" >Send Tip ₹</Link></p>
+            <p><Link className="author-tip" >Send <FaHandHoldingHeart color="#ed7d7d" size={20} /></Link></p>
         </div>
 
     </div>
