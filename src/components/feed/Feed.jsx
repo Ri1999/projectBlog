@@ -9,6 +9,7 @@ import { FiLoader } from "react-icons/fi";
 import { toast } from "react-toastify"
 import { useSelector } from "react-redux"
 import PostCard from "../PostCard"
+import FeedCard from "../feedCard/FeedCard"
 import "./feed.css"
 
 const Feed = () => {
@@ -46,7 +47,7 @@ const Feed = () => {
 
     },[userData])
 
-    if(loading || !feedData || !userData){
+    if(loading|| !userData){
         return (
             <div style={{
                 display:"flex",
@@ -57,6 +58,20 @@ const Feed = () => {
             }} ><h1><i>Setting up the library...</i></h1><span className="spinning-animation" ><FiLoader color="green" size={40}/></span></div>
         )
     }
+
+    // if(feedData.total==0){
+    //     return <div
+    //     style={{
+    //             display:"flex",
+    //             alignItems:"center",
+    //             justifyContent:"center",
+    //             height:"60vh",
+    //             flexDirection:"column",}}
+    //     >
+    //         <h1>Charukavya is freshly set and ready for its very first tale. Be the pioneer writer to drop the first ink here!</h1>
+    //         <p>Write the First Story ✨</p>
+    //     </div>
+    // }
 
     const filterFeedData = feedData?.filter((post)=>{
         const query = searchTerm.toLowerCase();
@@ -74,11 +89,12 @@ const Feed = () => {
 
   return (
     <div className="feed-container" >
+        <h1 style={{fontFamily: "Fondamento, cursive", textAlign:"center"}} >Explore the Ink Library</h1>
         <div className="search-feed-content">
-            <form >
+            <form className="feed-search-bar" onSubmit={(e) => e.preventDefault()} >
                 <Input
                 // label="test"
-                placeholder="Search stories, authors, or tag (sfw, nsfw)"
+                placeholder="Type to search stories, authors, or tag ( sfw, nsfw )"
                 error={errors.feedSearch?.message}
                 {...register("feedSearch",{
                     pattern:{
@@ -98,13 +114,28 @@ const Feed = () => {
 
         </div>
         <div className="display-feed-content">
-            {filterFeedData?.length === 0 ? (
-                <p style={{textAlign:"center", padding: "10%", color:"#012a35", fontFamily:"Fondamento, cursive", fontWeight:"600", fontSize:"1.4rem" }} >We couldn't find any stories matching that 😞</p>
-            ): <div className="feed-grid-view" >
-                {filterFeedData?.map((post)=>(
-                    <PostCard key={post.$id} {...post} />
-                ))}
-            </div> }
+            {feedData?.length === 0 ? (
+        // Case 1: Database me ek bhi post nahi hai (Pioneer State)
+        <div style={{ textAlign: "center", padding: "10%", color: "#344e41", }}>
+            <h1 style={{ fontWeight: "600", fontSize: "1.4rem", marginBottom: "1rem" , fontFamily: "Fondamento, cursive",}}>
+                Charukavya is freshly set and ready for its very first tale. Be the pioneer writer to drop the first ink here!
+            </h1>
+            <p style={{ fontSize: "1.1rem",fontFamily: "Fondamento, cursive", }}>Be the one who writes the first story. ✨</p>
+        </div>
+    ) : filterFeedData?.length === 0 ? (
+        // Case 2: Database me posts hain, par search match nahi hua
+        <p style={{ textAlign: "center", padding: "10%", color: "#344e41", fontFamily: "Fondamento, cursive", fontWeight: "600", fontSize: "1.4rem" }}>
+            We couldn't find any stories matching that 😞
+        </p>
+    ) : (
+        // Case 3: Normal feed or search results grid
+        <div className="feed-grid-view">
+            {filterFeedData?.map((post) => (
+                <FeedCard key={post.$id} {...post} />
+            ))}
+        </div>
+    )}
+            
         </div>
 
     </div>

@@ -2,7 +2,7 @@
 import storageService from "../appwrite/major_config"
 import { Link } from 'react-router-dom'
 import "../components/postcardStyle.css"
-import { TbRating18Plus } from "react-icons/tb";
+// import { TbRating18Plus } from "react-icons/tb";
 // import { MdOutlinePushPin } from "react-icons/md";
 // import { GoPin } from "react-icons/go";
 // import { TbPinFilled } from "react-icons/tb";
@@ -21,7 +21,8 @@ const PostCard = ({
     // $id is apwrite syntax
     $id, title,featuredImage, 
     slug,status,like,dislike,report,
-    contentRating
+    contentRating,
+    
 
 
 }) => {

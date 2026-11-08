@@ -1,0 +1,66 @@
+.feedcard-container{
+    margin-left: 5px;
+    box-shadow: 0 5px 12px #000f1c;
+    border-radius: 8px;
+  padding: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  height: 420px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+  /* background-color: #e8e8e4; */
+}
+.feedcard-container:hover {
+  transform: translateY(2px);
+  box-shadow: 0 10px 10px #386641;
+  border-color: #283618;
+}
+.feedcard-content{
+    width: 100%;
+  height: 290px;
+  max-height: 290px;
+  min-height: 290px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #EFE5D8;
+  /* background-color: red; */
+  /* border: 2px solid red; */
+  box-shadow: 0 1px 2px #013e2a;
+}
+.feedcard-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.feedcard-content img:hover{
+    transform: scale(1.04);
+}
+.feed-link{
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+.feed-name{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    gap: 2px;
+        
+    width: 70%;
+}
+.feed-story-name{
+    color: #015101;
+    font-weight: 600;
+    font-family: "Fondamento", cursive;
+}
+.feed-author{
+    font-family: "Fondamento", cursive;
+    color: #000d00;
+    font-weight: 690;
+   
+    
+}

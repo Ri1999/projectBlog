@@ -14,3 +14,13 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
+.feed-search-bar input::placeholder{
+    color: #283618;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px){
+    .feed-grid-view{
+        grid-template-columns: 1fr 1fr;
+    }
+}

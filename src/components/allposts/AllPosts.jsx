@@ -114,14 +114,31 @@ const AllPosts = () => {
     <div className="story-outer-container" >
         <h1>Ink Creations</h1>
         {/* grid container */}
-        <div className="grid-container" >
+        {posts?.length === 0 ? 
+        <div style={{display:"flex", flexDirection:"column", gap:"30px", color: "#344e41"}} >
+            {/* <span>✒️</span> */}
+            <h2 style={{textAlign:"center",fontFamily: "Fondamento, cursive",}} >Your Ink Creation is Empty</h2>
+            <h3 style={{textAlign:"center",fontFamily: "Fondamento, cursive",}} >You haven’t published or drafted any stories yet. Pour your thoughts onto the <span style={{color:"#b85b3c"}} >Spill Ink</span> and share your first story with us!</h3>
+            <p style={{textAlign:"center",fontFamily: "Fondamento, cursive", fontSize:"1.1rem"}} ><span>✨</span> Write Your First Story</p>
+
+        </div>
+        :<div className="grid-container" >
             {posts?.map((post)=>(
                 <div key={post.$id} className="story-card-wrapper" >
                     <PostCard {...post} />
                     <p>created: {timeOfCreation(post.$createdAt)}</p>
                 </div>
             ))}
-        </div>
+        </div> }
+
+        {/* <div className="grid-container" >
+            {posts?.map((post)=>(
+                <div key={post.$id} className="story-card-wrapper" >
+                    <PostCard {...post} />
+                    <p>created: {timeOfCreation(post.$createdAt)}</p>
+                </div>
+            ))}
+        </div> */}
 
     </div>
   )
