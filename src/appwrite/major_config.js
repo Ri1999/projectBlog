@@ -252,15 +252,16 @@ export class storageService{
     }
 
     // upi id 
-    async updateUserUpi(upiId){
-        try{
-            const response = await this.account.updatePrefs({ upiId: upiId });
-            return response;
-        }catch(err){
-            console.error("updateUserUpi error: ", err);
-            throw err;
-        }
-    }
+    // async updateUserUpi(upiId){
+    //     try{
+    //         const response = await this.account.updatePrefs({ upiId: upiId });
+    //         return response;
+    //     }catch(err){
+    //         console.error("updateUserUpi error: ", err);
+    //         console.log("error upi") // test 
+    //         throw err;
+    //     }
+    // }
 
     async getuserUpi(userId){
         try{

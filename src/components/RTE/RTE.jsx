@@ -125,7 +125,7 @@ const toogleMode =()=>{
                 @import url('https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
                 body{
                 font-family: 'Fondamento', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-                font-size: 1.4rem !important;
+                font-size: 1.4rem;
                 line-height: 1.6 !important;
                 background-color: ${isDarkMode ? '#0C0A09' : '#d0d0ce'} !important;
                 color: ${isDarkMode ? '#e3e3e3' : '#1A1A1A'} !important;

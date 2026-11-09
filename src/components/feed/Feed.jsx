@@ -8,7 +8,8 @@ import services from "../../appwrite/major_config"
 import { FiLoader } from "react-icons/fi";
 import { toast } from "react-toastify"
 import { useSelector } from "react-redux"
-import PostCard from "../PostCard"
+// import PostCard from "../PostCard"
+import { FcLibrary } from "react-icons/fc";
 import FeedCard from "../feedCard/FeedCard"
 import "./feed.css"
 
@@ -89,12 +90,13 @@ const Feed = () => {
 
   return (
     <div className="feed-container" >
-        <h1 style={{fontFamily: "Fondamento, cursive", textAlign:"center"}} >Explore the Ink Library</h1>
+        {/* <h1 style={{fontFamily: "Fondamento, cursive", textAlign:"right"}} >The ink library</h1> */}
         <div className="search-feed-content">
+             <span><FcLibrary size={42} /></span>
             <form className="feed-search-bar" onSubmit={(e) => e.preventDefault()} >
                 <Input
                 // label="test"
-                placeholder="Type to search stories, authors, or tag ( sfw, nsfw )"
+                placeholder="Type to search stories, authors (e.g., horror, fantasy, sfw, nsfw )"
                 error={errors.feedSearch?.message}
                 {...register("feedSearch",{
                     pattern:{

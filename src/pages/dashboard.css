@@ -168,7 +168,7 @@
 .monetize-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1.5rem;
 
 }

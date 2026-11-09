@@ -18,9 +18,31 @@
     color: #283618;
     text-align: center;
 }
-
+.feed-search-bar input{
+    border-color: #107902;
+}
+.search-feed-content{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* justify-content: space-between; */
+    width: 100%;
+    align-items: center;
+    /* justify-content: space-around; */
+    /* gap: 20px; */
+    justify-content: center;
+}
+.search-feed-content h1{
+    justify-self: flex-start;
+}
 @media screen and (max-width: 768px){
     .feed-grid-view{
         grid-template-columns: 1fr 1fr;
+    }
+    .search-feed-content{
+        grid-template-columns: 1fr 3fr;
+    }
+    .feed-search-bar input::placeholder{
+        text-align: left;
+        font-size: 1.09rem;
     }
 }

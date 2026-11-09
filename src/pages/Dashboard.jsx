@@ -1,6 +1,7 @@
 // import React from 'react'
 import { useSelector } from "react-redux"
 import services from "../appwrite/major_config"
+import blogauthservice from "../appwrite/auth"
 
 // import Container from "../components/container/Container"
 // import blogauthservice from "../appwrite/auth"
@@ -61,28 +62,45 @@ const Dashboard = () => {
 
     // upi input setup
 
-    const [upiId, setUpiId] = useState(userData?.upiId || "");
+    // const [upiId, setUpiId] = useState(userData?.upiId || "");
+    const [CurrentupiId, setCurrentUpiId] = useState(userData?.upiId || "");
 
-    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
-        defaultValues:{
-            upiId: userData?.prefs?.upiId || ""
-        }
-    })
+    const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm(
+        
+        // {
+        // defaultValues:{
+        //     upiId: userData?.prefs?.upiId || ""
+        // }
+    )
 
     const handleSaveUpi = async (data)=>{
         setLoading(true)
         try{
-            const response = await services.updateUserUpi(data.upiId);
+            const response = await blogauthservice.updateUserUpi(data.upiId);
             if(response){
-                setUpiId(response.upiId || data.upiId)
+                setCurrentUpiId(response.upiId || data.upiId)
             }
             toast.success("Monetization updated successfully! 💸");
+            reset()
         }catch(err){
             toast.error(err.message || "Failed to update Monetization")
         }finally{
             setLoading(false)
         }
+        
     }
+
+    // const getMyUpi = async(LoggeduserId)=>{
+    //     try{
+    //         const response = await blogauthservice.getuserUpi(LoggeduserId)
+    //         console.log("moni info: ", response)
+    //         if(response){
+    //             setCurrentUpiId(response)
+    //         }
+    //     }catch(err){
+    //         toast.error(err.message || "Failed to fetch monetization info")
+    //     }
+    // }
 
     useEffect(()=>{
 
@@ -103,8 +121,21 @@ const Dashboard = () => {
                 setLoading(false)
             }
         }
+        const getMyUpi = async(LoggeduserId)=>{
+        try{
+            const response = await blogauthservice.getuserUpi(LoggeduserId)
+            console.log("moni info: ", response)
+            if(response){
+                setCurrentUpiId(response)
+            }
+        }catch(err){
+            toast.error(err.message || "Failed to fetch monetization info")
+        }
+    }
         if(userData){
             UserInsights()
+            // getMyUpi()
+            setCurrentUpiId(userData?.prefs?.upiId || "")
         }
 
     },[LoggeduserId, userData])
@@ -318,12 +349,7 @@ const Dashboard = () => {
                     </div>
                     <button className="monetize-save-btn" disabled={loading} type="submit">{isSubmitting ? "Saving..." : "Save"}</button>
                 </form>
-                {upiId && (
-                    <div className="monetize-preview">
-                        {/* <h4>Preview:</h4> */}
-                        <p className="preview-text">Readers will be able to scan and pay directly to: <strong>{upiId}</strong></p>
-                    </div>
-                )}
+                
                 <div className="monetize-help">
                     {/* <p>test</p> */}
                     <h3>Direct Peer-to-Peer Payouts <VscWorkspaceTrusted size={18} color="green" /></h3>
@@ -331,6 +357,16 @@ const Dashboard = () => {
                     <p className="monetize-help-support" >Got questions about monetization or setting up your UPI? Drop us a direct mail at <b>support@yourdomain.com</b></p>
                 </div>
             </div>
+            {/* shift here */}
+            {CurrentupiId && (
+                    <div className="monetize-preview">
+                        {/* <h4>Preview:</h4> */}
+                        <p className="preview-text">Readers will be able to scan and pay directly to: <strong>{CurrentupiId}</strong></p>
+                    </div>
+                )}
+
+                {/* <button onClick={()=> getMyUpi()} type="button">test button</button> */}
+
             
         </div>
 

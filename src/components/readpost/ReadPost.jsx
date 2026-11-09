@@ -25,7 +25,7 @@ import { FaPen } from "react-icons/fa6";
 // import { AiOutlineLike } from "react-icons/ai";
 // import { BiSolidDislike } from "react-icons/bi";
 import { FiAlertTriangle } from "react-icons/fi";
-import { FcApproval } from "react-icons/fc";
+// import { FcApproval } from "react-icons/fc";
 import { hostStation } from "../modals/host"
 import { useContext } from "react"
 import { FiLoader } from "react-icons/fi";
@@ -36,24 +36,36 @@ import { BiDislike } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
 import { FcDislike } from "react-icons/fc";
 
+
 // import { VscColorMode } from "react-icons/vsc";
 // import { TiWeatherPartlySunny } from "react-icons/ti";
 // import { MdWbSunny } from "react-icons/md";
 // import { BsMoonStars } from "react-icons/bs";
 // report :
 // import SelectComponent from "../SelectComponent"
+// import { RiFontSize } from "react-icons/ri";
+// import blogauthservice from "../../appwrite/auth"
 import { Link } from "react-router-dom"
 import { FaHandHoldingHeart } from "react-icons/fa";
 // import { FcInfo } from "react-icons/fc";
 
 import { universalHostStation } from "../modals/host"
 import ReportModal from "../modals/ReportModal"
+import SendSupport from "../modals/SendSupport"
 // import { CiPen } from "react-icons/ci";
 // import { LiaBarsSolid } from "react-icons/lia";
 
 // import { FiCoffee } from "react-icons/fi";
 // import { TbTransactionRupee } from "react-icons/tb";
 const ReadPost = () => {
+
+    const [font, setFontSize] = useState(20)
+
+    const increaseFont = () => setFontSize((prev) => prev + 2);
+
+    const decreaseFont = () => setFontSize((prev) => (prev > 10 ? prev - 2 : prev));
+
+
 
     // report modal : universal
     const { openUniveModal } = useContext(universalHostStation);
@@ -81,8 +93,10 @@ const ReadPost = () => {
         navigate("/ink-creations")
     }
     
-    const LoggeduserId = useSelector((state)=> state.auth.userData.$id)
+    const LoggeduserId = useSelector((state)=> state.auth.userData?.$id)
     const user = useSelector((state)=> state.auth.userData)
+
+    
 
     const [openPost, setOpenPost] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -141,7 +155,7 @@ const ReadPost = () => {
         return `${time} min read`
     }
 
-    if (loading || !openPost) {
+    if (loading || !openPost || !LoggeduserId) {
         return <div className="readpost-loading">
             <h1><i>Gathering the words...</i></h1>
             <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
@@ -150,13 +164,13 @@ const ReadPost = () => {
 
     const owner = LoggeduserId === openPost.userId
     const fileID = openPost.$id 
-    const greentick = user.emailVerification
+    // const greentick = user.emailVerification
 
     // console.log("works: ", owner)
     // console.log("works for fireld: ", fileID)
     // console.log("tick: ", greentick)
-    const statusOfStory = checkStatus(openPost.status)
-    // console.log("my prog: ", statusOfStory)
+    const statusOfStory = checkStatus(openPost)
+    // const AuthorId =  openPost?.userId
 
     const deleteStory = async()=>{
         setLoading(true)
@@ -363,6 +377,19 @@ const handleLike = async()=>{
         })
     }
 
+    const handleSendSupport=()=>{
+        // console.log("Full Post Object:", openPost);
+
+        openUniveModal(SendSupport,
+            // openPost?.userId
+            
+            {
+
+                authorId: openPost?.userId,
+                authorName: openPost?.userName,
+        })
+    }
+
     const authorName = openPost?.userName || "Anonymous Author"
 
     // console.log("@readpost: ", authorName)
@@ -382,7 +409,7 @@ const handleLike = async()=>{
 
         <div className="story-banner-overlay">
             <h1>{openPost.title}</h1>
-            <p>Written by: {authorName}{greentick && <FcApproval/>}</p>
+            <p>Written by: {authorName}</p>
 
             <div className="story-banner-details" >
                 <span>{calculateReadTime(openPost.content)} <b>{statusOfStory? "Published":"Draft"}</b></span>
@@ -439,10 +466,19 @@ const handleLike = async()=>{
     
         
         {/* <button type="button">back</button> */}
-        <button onClick={()=>toogleTheme()} type="button">{theme?"lunar 🌙":"solar ☀️"}</button>
+        
 
+        <div className="font-up-down" >
+            <button onClick={()=>toogleTheme()} type="button">{theme?"lunar 🌙":"solar ☀️"}</button>
+            <span>
+            <button onClick={increaseFont} type="button">Aa+</button>
+        <button onClick={decreaseFont} type="button">Aa-</button>
+            </span>
+        
 
-        <article style={{fontFamily:"inherit !important", fontSize:"inherit !important", color:theme?"#061321":"#34404b"}} >
+        </div>
+
+        <article style={{ color:theme?"#061321":"#34404b", fontSize: `${font}px`}} >
             {parse(openPost.content)}
         </article>
 
@@ -452,9 +488,9 @@ const handleLike = async()=>{
 
             {/* it startight goes into AuthorProfile.jsx */}
 
-            <p><Link className="author-info" to={`/author/${openPost.userId}`} >Behind the Ink</Link></p>
+            <p><Link className="author-info" to={`/author/${openPost?.userId}`} >Behind the Ink</Link></p>
             {/* <Link className="author-info" >Loved this? </Link> */}
-            <p><Link className="author-tip" >Send <FaHandHoldingHeart color="#ed7d7d" size={20} /></Link></p>
+            <button className="author-tip" onClick={()=>handleSendSupport()}  type="button">Send <FaHandHoldingHeart color="#ed7d7d" size={20} /></button> 
         </div>
 
     </div>
