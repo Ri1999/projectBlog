@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { useState, useEffect } from 'react'
 import services from '../appwrite/major_config'
 import PostForm from '../components/PostForm.jsx/PostForm'
@@ -49,7 +49,7 @@ const EditPost = () => {
     },[slug, navigate])
 
     const loadingAnimation ={
-        animation: "spin 1s linear infinite"
+        animation: "spin 2s linear infinite"
     }
 
     if(loading){
@@ -60,7 +60,7 @@ const EditPost = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column"
-            }} ><h1><i>Loading story details...</i></h1><span style={loadingAnimation} ><FiLoader color="green" size={40}/></span></div>
+            }} ><h1 style={{color:"#e5b2a3"}} ><i>Loading story details...</i></h1><span style={loadingAnimation} ><FiLoader color="#e90e0e" size={40}/></span></div>
         )
     }
 

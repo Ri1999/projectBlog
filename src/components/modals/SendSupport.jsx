@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { useState } from 'react'
 import blogauthservice from '../../appwrite/auth';
 import { toast } from 'react-toastify';
 import { FiLoader } from 'react-icons/fi'
 import {QRCodeSVG} from "qrcode.react"
-import { FcLock } from "react-icons/fc";
+// import { FcLock } from "react-icons/fc";
+// import { FaGooglePay } from "react-icons/fa";
+// import { SiPaytm } from "react-icons/si";
 
 
-const SendSupport = ({closeUniveModal,authorId, authorName}) => {
+const SendSupport = ({authorId, authorName}) => {
 
     const [upiId, setUpiId] = useState("");
     const [loading, setLoading] = useState(false);
@@ -63,7 +65,7 @@ const SendSupport = ({closeUniveModal,authorId, authorName}) => {
                 <h4>P2P UPI Payment with 0% Platform Fees</h4>
 
                 {/* <p style={{ fontSize: "1.05rem",}} >Show your appreciation for this story.</p> */}
-                <div style={{ backgroundColor: "#3b8a46", padding: "8px 24px", borderRadius: "12px", border: "1px dashed #cbd5e1", margin: "4px 0" }}>
+                <div style={{ backgroundColor: "#3b8a46", padding: "8px 24px", borderRadius: "10px", border: "1px dashed #cbd5e1", margin: "4px 0" }}>
                         <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: "#e6ebf3", display: "block", textTransform: "uppercase" }}>Enter Amount On Your Phone</span>
                         <span style={{ fontSize: "1.8rem", fontWeight: "800", color: "#1e293b" }}>₹ Free Choice</span>
                     </div>
@@ -74,11 +76,20 @@ const SendSupport = ({closeUniveModal,authorId, authorName}) => {
                 {/* <p style={{ fontSize: "0.94rem", color: "#3b8a46" }}>Scan using Google Pay, PhonePe, or any UPI app • No Platform Fees</p> */}
                 {/* <p style={{ fontSize: "0.94rem", color: "#3b8a46" }} >Scan using Google Pay, PhonePe, or any UPI app.</p> */}
 
-                <p style={{ fontSize: "0.88rem", fontWeight: "600", color: "#3b8a46", margin: 0, lineHeight:"1.2rem", textAlign:"center" }}>
+                {/* <p style={{ fontSize: "0.88rem", fontWeight: "600", color: "#3b8a46", margin: 0, lineHeight:"1.2rem", textAlign:"center" }}>
                         {/* Scan via Google Pay, PhonePe, Paytm or any UPI app <br /> */}
-                        <span style={{ fontSize: "0.92rem", color: "#3b8a46", fontWeight: "bold" }}>Your amount goes <strong>100% directly to the author's bank account</strong>.</span>
-                        
-                    </p>
+                       
+                    {/* Google Pay, PhonePe, Paytm all accepted here    
+                    </p> */} 
+
+                    {/* <FaGooglePay size={30} /> <SiPaytm size={30} /> */}
+
+                    <div style={{ backgroundColor: "#ffffff", padding: "8px 24px", borderRadius: "6px", border: "1px dashed #000000", margin: "4px 0" }}>
+                        <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: "#000000", display: "block", textTransform: "uppercase" }}>Scan QR code and send your support</span>
+                    </div>
+                    {/* <p>Author {authorName}</p> */}
+
+
             </div>
         ):(
             <div style={{ textAlign: "center", padding: "10%", color: "#024524", lineHeight:"2rem" }} >

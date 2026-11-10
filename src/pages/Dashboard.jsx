@@ -142,8 +142,8 @@ const Dashboard = () => {
 
     if (loading || !posts) {
         return <div className="readpost-loading">
-            <h1><i>Gathering your stats & insights...</i></h1>
-            <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
+            <h1 style={{color:"#e5b2a3"}} ><i>Gathering your stats & insights...</i></h1>
+            <span className="animate-spin-custom" ><FiLoader color="#e90e0e" size={40}/></span>
         </div>
     }
 
@@ -188,7 +188,9 @@ const Dashboard = () => {
             return {title:"Flawless",icon:<AiOutlineSafety color="#00b4d8" size={28} /> ,reportMessage:"Readers trust your voice—keep the ink flowing cleanly."}
         }
         if( Count >=1 ){
-            return {title:"Report Addressed", icon:<CgDanger color="red" size={28} /> ,reportMessage:"Every drop of ink deserves a fair trial. If you believe these reports are misguided or unfair, you can challenge the stance. Once verified with proper proof, the flags will be completely wiped from your desk."}
+            return {title:"Report Addressed", icon:<CgDanger color="red" size={28} /> ,
+            reportMessage:
+            `Scroll down to check the specific issues flagged by readers. If you beleive these as incorrent or unfair, email support@charukavya.com for help.`}
         }
     }
 
@@ -297,7 +299,7 @@ const Dashboard = () => {
                 <h2>{reportData} <FiAlertTriangle color="#d90429" size={25} /></h2>
                 <div className="ink-pression-report-ui" >
                 <h3>Ink Integrity: {reportRank?.title} {reportRank?.icon}</h3>
-                <p>{reportRank?.reportMessage}</p>
+                <p style={{fontSize:"1.2rem", paddingRight:"10px"}} >{reportRank?.reportMessage}</p>
                 {reportPostData && reportPostData.length > 0 && (
         <div style={{ marginTop: "20px", textAlign: "left", width: "100%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #ffb703" }}>
             <h4 style={{ color: "#d90429", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>

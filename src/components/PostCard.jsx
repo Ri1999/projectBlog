@@ -52,8 +52,12 @@ const PostCard = ({
     <Link className="link-dom" to={`/ink-creations/${slug}`}  >
         <div className="postcard-container">
             {/* <TbPinFilled color="black" size={20} /> */}
-            {/* {checkStatus(status)} */}
-            {result? <MdPublishedWithChanges color="#386641" size={20} />:<MdUnpublished color="#a3b18a" size={20} />
+            {/* {checkStatus(status)}
+
+            color: #87301a;
+            
+            */}
+            {result? <MdPublishedWithChanges color="#f43202" size={20} />:<MdUnpublished color="#a3b18a" size={20} />
             }
             <span></span>
             <div className="postcard-content">
@@ -75,7 +79,7 @@ const PostCard = ({
             </p>
             {/* <p>test</p> */}
 
-            <h2 style={{padding:"5px", width:"70%", }} >{title}</h2>
+            <h2 style={{padding:"4px", width:"100%", }} >{title}</h2>
 
         </div>
 

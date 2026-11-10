@@ -1,6 +1,7 @@
 .feedcard-container{
     margin-left: 5px;
-    box-shadow: 0 5px 12px #000f1c;
+    /* box-shadow: 0 5px 12px #000f1c; */
+    box-shadow: 0 1px 10px #80624e;
     border-radius: 8px;
   padding: 12px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -10,12 +11,13 @@
   flex-direction: column;
   gap: 12px;
   max-width: 320px;
-  background-color: #fdf8ed;
+  background-color: #f6eae0;
 }
 .feedcard-container:hover {
   transform: translateY(2px);
-  box-shadow: 0 10px 10px #386641;
-  border-color: #283618;
+  /* box-shadow: 0 10px 10px #386641; */
+  box-shadow: 0 5px 12px #d59683;
+  border-color: #000000;
 }
 .feedcard-content{
     width: 100%;
@@ -28,7 +30,8 @@
   background-color: #EFE5D8;
   /* background-color: red; */
   /* border: 2px solid red; */
-  box-shadow: 0 1px 2px #013e2a;
+  /* box-shadow: 0 1px 2px #80624e; */
+  box-shadow: 0 1px 8px #80624e;
 }
 .feedcard-content img {
   width: 100%;
@@ -53,14 +56,15 @@
     width: 70%;
 }
 .feed-story-name{
-    color: #015101;
+    color: #1C3123;
     font-weight: 600;
     font-family: "Fondamento", cursive;
 }
 .feed-author{
     font-family: "Fondamento", cursive;
-    color: #000d00;
-    font-weight: 690;
+    color: #87301a;
+    /* font-weight: 90; */
+    font-size: 1.1rem;
    
     
 }

@@ -69,11 +69,11 @@ const Header = () => {
       active: authStatus,
     },
 
-    {
-      name:"test-support",
-      slug:"/test-support",
-      active:authStatus,
-    },
+    // {
+    //   name:"test-support",
+    //   slug:"/test-support",
+    //   active:authStatus,
+    // },
 
 
   ]

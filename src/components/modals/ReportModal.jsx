@@ -47,8 +47,8 @@ const reportSubmit = async (formData)=>{
 
   return (
     <div style={{width:"100%",marginTop:"20px", marginBottom:"20px"} } >
-        <h3 style={{textAlign:"center", }} >Report Story for Review</h3>
-        <p style={{textAlign:"center", marginBottom:"10px"}} >Help us understand what's wrong with this story</p>
+        <h3 style={{textAlign:"center", fontFamily:"Sansation, sans-serif",fontSize:"1.5rem"}} >Report Story for Review</h3>
+        <p style={{textAlign:"center", marginBottom:"10px", fontSize:"1.1rem"}} >Help us understand what's wrong with this story</p>
         <>
         <form onSubmit={handleSubmit(reportSubmit)} style={{marginTop:"30px",display:"flex", flexDirection:"column", width:"90%", alignItems:"center", justifyContent:"center", gap:"10px", margin:"auto"}} >
             <SelectComponent
@@ -73,7 +73,7 @@ const reportSubmit = async (formData)=>{
             <textarea name="" id=""
             label="reportText"
             placeholder='Explain in details...'
-            {...register("reportText",{required:"Explain in details pls",
+            {...register("reportText",{required:"Don't leave us hanging—add a few more details.",
                 validate: {
       notEmpty: (value) => 
         /\S+/.test(value) || "You cannot submit report with an empty box or just spaces"

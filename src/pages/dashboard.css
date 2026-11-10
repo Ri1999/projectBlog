@@ -144,7 +144,7 @@
     100% {transform: rotate(360deg);}
 }
 .editLoad-animation{
-    animation: spin 0.5s liner infinite;
+    animation: spin 1s liner infinite;
 }
 .dashboard-monetization{
     margin-top: 35px;
@@ -226,6 +226,7 @@
 
     font-size: 1.1rem;
 }
+
 
 @media screen and (max-width:768px) {
     .dashboard-content{

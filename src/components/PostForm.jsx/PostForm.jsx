@@ -186,13 +186,13 @@ const PostForm = ({postDataFromAppwrite}) => {
                 type="file"
                 error={errors.image?.message}
                 accept="image/png, image/jpg, image/jpeg, image/webp "
-                {...register("image",{ required: postDataFromAppwrite? false:"Story cover image is mandatory",
+                {...register("image",{ required: postDataFromAppwrite? false:"Your story is missing its visual cover. Upload an image to proceed.",
 
                     validate:{
                         lessThan2MB:(files)=>
                             !files[0] || files[0]?.size <=2* 1024*1024 ||"Max file size allowed is 2MB!",
                         acceptedFormats:(files)=>
-                            !files[0] || ["image/jpg","image/jpeg", "image/png", "image/webp"].includes(files[0]?.type) || "Only JPG, PNG,JPEG and WEBP files are allowed!"
+                            !files[0] || ["image/jpg","image/jpeg", "image/png", "image/webp"].includes(files[0]?.type) || "Mind switching the format?"
                     }
                  }
                 )}
@@ -212,7 +212,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                 {...register("status", {required: true})}
                 
                 />
-                <p>(Status| <b>active: Publish | inactive: Draft</b>)</p>
+                <p>(Status| <b>active: Publish | inactive: Save as draft</b>)</p>
                 {/* newly added */}
                 <SelectComponent
                 label="Content Rating"
@@ -239,7 +239,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                 error={errors.title?.message}
                 label="Title"
                 placeholder="Enter story title"
-                {...register("title",{ required: "Drop your story name",
+                {...register("title",{ required: "Don't leave it nameless—add a title.",
                     maxLength:{
                         value:55,
                         message:"Title cannot be longer than 55 characters"
@@ -256,8 +256,8 @@ const PostForm = ({postDataFromAppwrite}) => {
                 type="text"
                 label="The Ink Trail"
                 error={errors.slug?.message}
-                placeholder="Auto-generated-url-here"
-                {...register("slug",{ required: "URL is mandatory", })}
+                placeholder="Auto-generated-url-here (e.g., my-first-story)"
+                {...register("slug",{ required: "Every story needs a home. Please provide a URL.", })}
                 onInput={(e)=>{
                     setValue("slug", newslugTransform(e.currentTarget.value),
                     { shouldValidate: true }

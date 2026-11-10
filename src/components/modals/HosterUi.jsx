@@ -84,7 +84,7 @@ const HosterUi = () => {
         <div onClick={stopBubble} style={messageBox} >
             {/* HosterUi */}
             <h3 style={{fontFamily:"Sansation, sans-serif", fontSize:"1.5rem"}} ></h3>
-            <p style={{fontSize:"1.4rem"}} >{`${user.name}, do you want to erase these words?`}</p>
+            <p style={{fontSize:"1.4rem"}} >{`Do you want to erase these words?`}</p>
 
             <div style={{display:"flex", gap:"15px", justifyContent:"space-between", marginTop:"20px"}} >
                 <button onClick={manualClose} style={cancelButton} type="button">Nevermind</button>
@@ -97,14 +97,15 @@ const HosterUi = () => {
                     closeModal();
 
                 }}
-                style={confirmButton} type="button">Yes, erase it</button>
+                style={confirmButton} type="button">Erase Forever</button>
 
             </div>
             <p style={{
                 marginTop:"20px",
-                fontSize:"1.1rem",
+                fontSize:"1rem",
+                color: "#024524",
 
-            }} ><span><b>Warning: </b></span>Once erased, these words fades into the ether forever.</p>
+            }} >⚠️ Warning: Once deleted, this content cannot be recovered from our databases.</p>
 
         </div>
 

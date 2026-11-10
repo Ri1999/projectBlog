@@ -157,8 +157,8 @@ const ReadPost = () => {
 
     if (loading || !openPost || !LoggeduserId) {
         return <div className="readpost-loading">
-            <h1><i>Gathering the words...</i></h1>
-            <span className="animate-spin-custom" ><FiLoader color="green" size={40}/></span>
+            <h1 style={{color:"#e5b2a3"}}  ><i>Gathering the words...</i></h1>
+            <span className="animate-spin-custom" ><FiLoader color="#e90e0e" size={40}/></span>
         </div>
     }
 
@@ -349,7 +349,7 @@ const handleLike = async()=>{
                 let updateReportByArray =[...reportbyArray]
                 let updateReasonsArray;
                 if(isReported){
-                    toast.info("You have already reported this story. Our team is reviewing it!")
+                    toast.info("You’ve already reported this story. Our team is already on it.")
                     return
                 }else{
                     updateReportByArray.push(LoggeduserId)
@@ -366,7 +366,7 @@ const handleLike = async()=>{
                         reportReasons: updateReasonsArray 
                     })
                     if(response){
-                        toast.success("Story reported successfully. Our team will review it shortly!")
+                        toast.success("Thanks for keeping Charukavya safe. We'll look into this shortly.")
                     }
                 }catch(err){
                     toast.error(err.message || "Failed to submit report. Please try again later!")

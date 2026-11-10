@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 import { Query } from "appwrite"
 import PostCard from "../PostCard"
 import "./allposts.css"
-import { FcSynchronize } from "react-icons/fc";
+// import { FcSynchronize } from "react-icons/fc";
 import { useNavigate } from "react-router-dom"
 import { FiLoader } from "react-icons/fi";
 const AllPosts = () => {
@@ -102,7 +102,7 @@ const AllPosts = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column",
-            }} ><h1><i>Fetching your creations...</i></h1><span className="spinning-animation" ><FiLoader color="green" size={40}/></span></div>
+            }} ><h1 style={{color:"#e5b2a3"}} ><i>Fetching your creations...</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
         )
     }
 

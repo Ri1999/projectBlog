@@ -23,7 +23,7 @@ import PrivacyPolicy from './components/Footer/Info/PrivacyPolicy.jsx'
 import Signup from './components/Signup/Signup.jsx'
 import AuthLayout from './components/AuthLayout.jsx'
 import VerifyEmail from './components/VerifyEmail/VerifyEmail.jsx'
-import SendSupport from './components/modals/SendSupport.jsx'
+// import SendSupport from './components/modals/SendSupport.jsx'
 // test
 // import RTE from './components/RTE/RTE.jsx'
 // import PostForm from './components/PostForm.jsx/PostForm.jsx'
@@ -174,14 +174,15 @@ const route = createBrowserRouter([
         )
       },
 
-      {
-        path:"/test-support",
-        element:(
-          <AuthLayout>
-            <SendSupport/>
-          </AuthLayout>
-        )
-      },
+      // {
+      //   path:"/test-support",
+      //   element:(
+      //     <AuthLayout>
+      //       <SendSupport/>
+      //     </AuthLayout>
+      //   )
+      // },
+
       
 
 

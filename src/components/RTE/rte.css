@@ -10,7 +10,9 @@
     margin-top: 10px;
     padding: 6px;
     /* background-color: #4b5f51; */
-    background-color: #2C3E50;
+
+    /* background-color: #2C3E50; */
+    background-color: #2F3B36;
 
     color: whitesmoke;
     
@@ -23,7 +25,7 @@
     margin-bottom: 2px;
     font-family: 'Sansation', sans-serif;
     /* box-shadow: 0 12px 35px -8px #6b8292; */
-    box-shadow: 0 10px 10px #011e32;
+    box-shadow: 0 10px 10px #272827;
 }
 /* label{
     font-size: 2rem;
@@ -67,13 +69,13 @@
 }
 
 .tox .tox-tbtn:hover{
-    background-color: #D4A373 !important;
+    background-color: #da9f87 !important;
     color: #ffffff !important;
     font-weight: 700;
 }
 .tox .tox-tbtn--enabled, 
 .tox .tox-tbtn--enabled:hover {
-     background-color: #C89B3C !important;
+     background-color: #eb8763 !important;
      color: #ffffff !important; 
 }
 @media screen and (max-width:768px) {

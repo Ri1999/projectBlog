@@ -56,7 +56,7 @@ const Feed = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column",
-            }} ><h1><i>Setting up the library...</i></h1><span className="spinning-animation" ><FiLoader color="green" size={40}/></span></div>
+            }} ><h1 style={{color:"#e5b2a3"}} ><i>Setting up the library...</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
         )
     }
 
