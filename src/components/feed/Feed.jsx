@@ -9,7 +9,7 @@ import { FiLoader } from "react-icons/fi";
 import { toast } from "react-toastify"
 import { useSelector } from "react-redux"
 // import PostCard from "../PostCard"
-import { FcLibrary } from "react-icons/fc";
+// import { FcLibrary } from "react-icons/fc";
 import FeedCard from "../feedCard/FeedCard"
 import "./feed.css"
 
@@ -56,7 +56,7 @@ const Feed = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column",
-            }} ><h1 style={{color:"#e5b2a3"}} ><i>Setting up the library...</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
+            }} ><h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}} ><i>gathering the latest tales. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
         )
     }
 
@@ -92,7 +92,8 @@ const Feed = () => {
     <div className="feed-container" >
         {/* <h1 style={{fontFamily: "Fondamento, cursive", textAlign:"right"}} >The ink library</h1> */}
         <div className="search-feed-content">
-             <span><FcLibrary size={42} /></span>
+             {/* <span><FcLibrary size={42} /></span> */}
+             <h1>tales</h1>
             <form className="feed-search-bar" onSubmit={(e) => e.preventDefault()} >
                 <Input
                 // label="test"

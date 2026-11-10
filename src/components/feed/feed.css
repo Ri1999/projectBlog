@@ -33,6 +33,9 @@
 }
 .search-feed-content h1{
     justify-self: flex-start;
+    font-family: 'Fondamento', cursive;
+    color: #87301a;
+    font-size: 1.8rem;
 }
 @media screen and (max-width: 768px){
     .feed-grid-view{

@@ -172,7 +172,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
   return (
     <div className='postform-container' >
-        <h1>Ink your imagination</h1>
+        <h1>ink your imagination</h1>
         {/* testing */}
         <form onSubmit={handleSubmit(postSubmit)} className='postform-content' >
 

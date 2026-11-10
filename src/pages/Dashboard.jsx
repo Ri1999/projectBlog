@@ -142,7 +142,7 @@ const Dashboard = () => {
 
     if (loading || !posts) {
         return <div className="readpost-loading">
-            <h1 style={{color:"#e5b2a3"}} ><i>Gathering your stats & insights...</i></h1>
+            <h1 style={{color:"#e5b2a3"}} ><i>gathering your stories & reflections. . .</i></h1>
             <span className="animate-spin-custom" ><FiLoader color="#e90e0e" size={40}/></span>
         </div>
     }
@@ -200,30 +200,30 @@ const Dashboard = () => {
 
         if(Count === 0){
             // return "Scoutinker" PiPlantLight
-            return {title:"Ink Scout",icon:<PiPlantLight color="#0e740c" size={30} />,}
+            return {title:"Ink Scout",icon:<PiPlantLight color="gold" size={30} />,}
 
         }
         if(Count >=1 && Count <=4){
-            return {title:"Ink Initiate",icon:<PiFlowerTulipLight color="green" size={30} />,}
+            return {title:"Ink Initiate",icon:<PiFlowerTulipLight color="gold" size={30} />,}
         }
         if(Count >= 5 && Count <= 12){
             // return "Novinker"
-            return {title:"Ink Novice",icon:<PiFlowerLotusLight color="green" size={30} />,}
+            return {title:"Ink Novice",icon:<PiFlowerLotusLight color="gold" size={30} />,}
 
         }
         if(Count >=13 && Count <=24){
             // return "Inkeliter"
-            return {title:"Ink Artisan",icon:<PiFlowerLotusFill color="green" size={30} />,}
+            return {title:"Ink Artisan",icon:<PiFlowerLotusFill color="gold" size={30} />,}
 
         }
         if(Count >= 25 && Count <=50){
 
             // return "Vetrinker"
-            return {title:"Ink Veteran",icon:<GiLotus color="green" size={25} />,}
+            return {title:"Ink Veteran",icon:<GiLotus color="gold" size={25} />,}
         }
         if(Count >=50){
             // return "Masterinker"
-            return {title:"Ink Master",icon:<GiLotusFlower color="#e9285f" size={25} />,}
+            return {title:"Ink Master",icon:<GiLotusFlower color="gold" size={25} />,}
         }
     }
 
@@ -260,7 +260,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container" >
-        <h1>Welcome, {userData?.name}{isverified && <FcApproval/>}</h1>
+        <h1>welcome, {userData?.name}{isverified && <FcApproval/>}</h1>
         <p className="dashboard-email-display" >Email: <b>{userData?.email}</b></p>
         
         <div className="dashboard-content">
@@ -282,7 +282,7 @@ const Dashboard = () => {
                         <li><b>{data.title}</b></li>
                         <li><b>state{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
                         <li><b>{calculateWords(data.content)}</b> words spilled</li>
-                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#da9005" size={20} />/inkPath</Link></li>
+                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#a73a5c" size={20} />/inkPath</Link></li>
                         <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FcTreeStructure size={20} /></button></li>
                     </div>
                 )) }
@@ -301,7 +301,8 @@ const Dashboard = () => {
                 <h3>Ink Integrity: {reportRank?.title} {reportRank?.icon}</h3>
                 <p style={{fontSize:"1.2rem", paddingRight:"10px"}} >{reportRank?.reportMessage}</p>
                 {reportPostData && reportPostData.length > 0 && (
-        <div style={{ marginTop: "20px", textAlign: "left", width: "100%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #ffb703" }}>
+        <div style={{ marginTop: "20px", textAlign: "left", width: "97%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #edeae5",
+         }}>
             <h4 style={{ color: "#d90429", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
                 <FiAlertTriangle />Stories Review:
             </h4>
@@ -327,7 +328,7 @@ const Dashboard = () => {
 
 
         <div className="dashboard-monetization">
-            <h3 style={{textAlign:"center", fontSize:"2.1rem", color:"#012a35"}} >InkFlow Monetization</h3>
+            <h3 style={{textAlign:"center", fontSize:"2.1rem", color:"#1C3123"}} >InkFlow Monetization</h3>
             <p className="monetize-subtitle" >Turn readers into supporters. Zero platform fee, 100% yours.</p>
             <div className="monetize-content">
                 <form onSubmit={handleSubmit(handleSaveUpi)} className="monetize-form" >
@@ -356,7 +357,7 @@ const Dashboard = () => {
                     {/* <p>test</p> */}
                     <h3>Direct Peer-to-Peer Payouts <VscWorkspaceTrusted size={18} color="green" /></h3>
                     <p>We never hold or touch your money. Your UPI ID is strictly used to dynamically generate a QR code on your stories so readers can pay you directly from their bank to yours — with 0% platform fee.</p>
-                    <p className="monetize-help-support" >Got questions about monetization or setting up your UPI? Drop us a direct mail at <b>support@yourdomain.com</b></p>
+                    <p className="monetize-help-support" >Got questions about monetization or setting up your UPI? Drop us a direct mail at <b>[]</b></p>
                 </div>
             </div>
             {/* shift here */}

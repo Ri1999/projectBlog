@@ -157,7 +157,7 @@ const ReadPost = () => {
 
     if (loading || !openPost || !LoggeduserId) {
         return <div className="readpost-loading">
-            <h1 style={{color:"#e5b2a3"}}  ><i>Gathering the words...</i></h1>
+            <h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}}  ><i>gathering the words. . .</i></h1>
             <span className="animate-spin-custom" ><FiLoader color="#e90e0e" size={40}/></span>
         </div>
     }

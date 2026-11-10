@@ -60,7 +60,7 @@ const EditPost = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column"
-            }} ><h1 style={{color:"#e5b2a3"}} ><i>Loading story details...</i></h1><span style={loadingAnimation} ><FiLoader color="#e90e0e" size={40}/></span></div>
+            }} ><h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}} ><i>opening the chapter. . .</i></h1><span style={loadingAnimation} ><FiLoader color="#e90e0e" size={40}/></span></div>
         )
     }
 

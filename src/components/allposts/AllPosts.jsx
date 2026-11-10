@@ -102,7 +102,7 @@ const AllPosts = () => {
                 justifyContent:"center",
                 height:"60vh",
                 flexDirection:"column",
-            }} ><h1 style={{color:"#e5b2a3"}} ><i>Fetching your creations...</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
+            }} ><h1 style={{color:"#e5b2a3", fontFamily:"Fondamento, cursive",}} ><i>fetching your creations. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
         )
     }
 
@@ -112,7 +112,7 @@ const AllPosts = () => {
 
   return (
     <div className="story-outer-container" >
-        <h1>Ink Creations</h1>
+        <h1>my creations</h1>
         {/* grid container */}
         {posts?.length === 0 ? 
         <div style={{display:"flex", flexDirection:"column", gap:"30px", color: "#344e41"}} >
