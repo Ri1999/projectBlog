@@ -1,6 +1,6 @@
 // import React from 'react'
 import "./signup.css"
-import { FcHome } from "react-icons/fc";
+// import { FcHome } from "react-icons/fc";
 import { useNavigate } from "react-router-dom"
 // import { login as authLoginSlice } from "../../store/authSlice"
 // import { useDispatch } from "react-redux"
@@ -11,12 +11,12 @@ import { useState } from "react"
 import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub, FaApple } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaGithub,  } from "react-icons/fa";
+// import { FaLinkedin } from "react-icons/fa6";
 import {toast} from "react-toastify"
 
 // for disposable email 
-import disposableDomains from 'disposable-email-domains'; 
+// import disposableDomains from 'disposable-email-domains'; 
 import { Link } from "react-router-dom";
 
 const Signup = () => {
@@ -57,56 +57,71 @@ const Signup = () => {
         }
     }
 
-    const nameRegex = /^[a-zA-Z0-9_ -]+$/
+    const nameRegex = /^[a-zA-Z_]{3,20}$/
 
     const signupEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     // what about the tempmail services? where is that guard?
     // Blocked disposable email domains list
-    const disposableSet = new Set(disposableDomains);
+    // const disposableSet = new Set(disposableDomains);
     // also need customs array
-    const tempemail = [
-        "bitproy.com",
-        "olipii.com",
-        "ozsip.com",
-        "yzcalo.com",
-        "Inovic.com",
-        "ruutukf.com",
-        "gmeenramy.com",
-        "olipii.com",
-        "ooynib.com",
-        // 
-        "guerrillamail.com",
-  "guerrillamail.net",
-  "guerrillamail.org",
-  "guerrillamail.biz",
-  "guerrillamail.de",
-  "guerrillamail.info",
-  "guerrillamailblock.com",
-  "sharklasers.com",
-  "grr.la",
-  "pokemail.net",
-  "spam4.me",
-  // Mailinator
-  "mailinator.com",
-  // YOPmail
-  "yopmail.com",
-  "yopmail.fr",
-  "yopmail.net",
+//     const tempemail = [
+//         "bitproy.com",
+//         "olipii.com",
+//         "ozsip.com",
+//         "yzcalo.com",
+//         "Inovic.com",
+//         "ruutukf.com",
+//         "gmeenramy.com",
+//         "olipii.com",
+//         "ooynib.com",
+//         // 
+//         "guerrillamail.com",
+//   "guerrillamail.net",
+//   "guerrillamail.org",
+//   "guerrillamail.biz",
+//   "guerrillamail.de",
+//   "guerrillamail.info",
+//   "guerrillamailblock.com",
+//   "sharklasers.com",
+//   "grr.la",
+//   "pokemail.net",
+//   "spam4.me",
+//   // Mailinator
+//   "mailinator.com",
+//   // YOPmail
+//   "yopmail.com",
+//   "yopmail.fr",
+//   "yopmail.net",
 
-  // TrashMail
-  "trashmail.com",
-  "trashmail.de",
-  "trash-mail.com",
+//   // TrashMail
+//   "trashmail.com",
+//   "trashmail.de",
+//   "trash-mail.com",
 
-  // Other disposable services
-  "throwawaymail.com",
-  "getnada.com",
-  "dispostable.com",
-  "fakeinbox.com"
+//   // Other disposable services
+//   "throwawaymail.com",
+//   "getnada.com",
+//   "dispostable.com",
+//   "fakeinbox.com"
 
-    ]
+//     ]
+
+const allowedDomains = new Set([
+    "gmail.com",
+    "yahoo.com",
+    "yahoo.co.in",
+    "outlook.com",
+    "hotmail.com",
+    "live.com",
+    "icloud.com",
+    "me.com",
+    "proton.me",
+    "protonmail.com",
+    "aol.com",
+    "zoho.com"
+])
 
 
 
@@ -127,7 +142,7 @@ const Signup = () => {
 
   return (
     <div className="signup-container" >
-        <h2>Signup & Spill Ink</h2>
+        <h2>Start Writing </h2>
         <form onSubmit={handleSubmit(createNewUser)} className="signup-content" >
             
             {/* oauth methods */}
@@ -135,7 +150,7 @@ const Signup = () => {
                 {/* google */}
             <button disabled={loading} onClick={function(){
                 handleAuthSignup("google")
-            }} style={{backgroundColor:"#83acef", border:"none", padding:"4px", }} type="button"><FcGoogle  size={38} /></button>
+            }} style={{backgroundColor:"#000000", border:"none", padding:"4px", boxShadow:"0 2px 6px #838181" }} type="button"><FcGoogle  size={38} /></button>
 
             {/* github */}
             <button 
@@ -143,13 +158,13 @@ const Signup = () => {
         onClick={function(){
             handleAuthSignup("github")
         }}
-        style={{ background: "#dbe4ee", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
+        style={{ background: "#fdfdfd", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer",boxShadow:"0 2px 6px #838181" }}
     >
         <FaGithub size={32} color="#24292E" />
     </button>
 
     {/* apple id */}
-    <button 
+    {/* <button 
         type="button" 
         onClick={function(){
             handleAuthSignup("apple")
@@ -157,7 +172,7 @@ const Signup = () => {
         style={{ background: "#dbe4ee", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
     >
         <FaApple size={35} color="#000" />
-    </button>
+    </button> */}
 
     {/* linkedin */}
 
@@ -172,7 +187,7 @@ const Signup = () => {
     </button> */}
 
             </div>
-            <p style={{textAlign:"center", fontWeight:"600"}} >- Alternatively create an account via -</p>
+            <p style={{textAlign:"center", fontWeight:"600"}} >or sign up with email</p>
             {/* name */}
 
             <Input
@@ -218,8 +233,8 @@ const Signup = () => {
                         // since disposable-email-domains library have 3,000+ domains, so better uses .has() while my custom tempemail is small array so better use .includes()
 
                         const domain = email.split("@")[1]?.toLowerCase();
-                        if(disposableSet.has(domain) || tempemail.includes(domain) ){
-                            return "Disposable/Temporary emails are not allowed buddy"
+                        if(!allowedDomains.has(domain) ){
+                            return "Please use a valid and trusted email provider (e.g., Gmail, Outlook, Yahoo, Zoho)"
                         }
                         return true
                     }
@@ -239,7 +254,7 @@ const Signup = () => {
                     message:"your must be at least 8 characters"
                 },
                 pattern:{
-                    value:!passwordRegex, // i still not sure here // 
+                    value:passwordRegex, // i still not sure here // 
                     message:"Give us a masterpiece: at least 8 characters, 1 uppercase letter, 1 number, and 1 special character (@$!%*?&)"
                 }
             })}
@@ -264,7 +279,7 @@ const Signup = () => {
 
         </form>
 
-        <p className="signup-text" >Already a member? <Link to="/login" >Login</Link></p>
+        <p className="signup-text" >Already have a desk here? <Link to="/login" >Login</Link></p>
         <p className="signup-text" >By creating an account, you agree to the <Link to="/privacy-policy" >Privacy Policy</Link> and <Link to="/terms" >Terms & Conditions</Link></p>
 
         

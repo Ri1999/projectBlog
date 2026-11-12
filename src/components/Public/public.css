@@ -89,12 +89,27 @@
   padding: 32px 24px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 .grid-card:hover {
   transform: translateX(-6px);
-  box-shadow: 0 20px 20px rgb(234, 195, 152);
+  /* box-shadow: 0 20px 20px rgb(234, 195, 152); */
   cursor: pointer;
+}
+.grid-card:nth-child(1):hover{
+  box-shadow: 0 20px 20px rgb(19, 10, 0);
+  
+}
+.grid-card:nth-child(2):hover{
+  box-shadow: 0 20px 20px rgb(74, 30, 30);
+}
+.grid-card:nth-child(3):hover{
+  box-shadow: 0 20px 20px rgb(136, 101, 14);
+}
+.grid-card:nth-child(4):hover{
+  box-shadow: 0 20px 20px rgb(230, 90, 90);
 }
 
 .card-icon {
@@ -107,13 +122,30 @@
   font-family: "Fondamento", cursive;
   color: #1C3123;
   font-size: 1.4rem;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .grid-card p {
   color: #666666;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
+  /* max-width: 300px; */
+}
+.public-marketings{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  gap: 12px;
+  max-height: 300px;
+}
+.public-marketings h3{
+  min-height: 60px;
+}
+.public-marketings p{
+  /* align-self: flex-start; */
+  /* text-align: justify; */
+  text-align: left;
 }
 
 

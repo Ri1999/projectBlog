@@ -10,8 +10,8 @@ import { useState } from "react"
 import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub, FaApple } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaGithub,  } from "react-icons/fa";
+// import { FaLinkedin } from "react-icons/fa6";
 // import { FcReadingEbook } from "react-icons/fc";
 // import { FcReading } from "react-icons/fc";
 import {toast} from "react-toastify"
@@ -91,17 +91,17 @@ const Login = () => {
 
   return (
     <div className= "login-container" >
-        <h2>Login to Your Desk</h2>
+        <h2>Uncap Your Pen</h2>
         {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 
             <Input type="email"
             placeholder="Enter your email"
             error={errors.email?.message}
-            {...register("email",{required: "Email is required",
+            {...register("email",{required: "We’ll need your email to find your desk",
                 pattern:{
                     value: emailRegex,
-                    message: "Please enter a valid email address"
+                    message: "That doesn't look like a valid email address"
                 }
             })}
             
@@ -111,7 +111,7 @@ const Login = () => {
             <Input type={showPassword? "text":"password"}
             placeholder="Enter your password"
             error={errors.password?.message}
-            {...register("password", {required: "Password is required"})}
+            {...register("password", {required: "Don't forget to enter your password"})}
     
             />
 
@@ -135,12 +135,12 @@ const Login = () => {
             <button type="submit"
             disabled={loading}>{loading? "Logging In...":"Login"}</button>
 
-            <p style={{fontWeight:"600"}} >- Or choose alternative path -</p>
+            <p style={{fontWeight:"600"}} >or continue with</p>
             <div className="oauth-content" >
                 {/* google */}
             <button disabled={loading} onClick={function(){
                 handleAuthLogin("google")
-            }} style={{backgroundColor:"transparent", border:"2px solid grey", padding:"4px"  }} type="button"><FcGoogle size={35} /></button>
+            }} style={{backgroundColor:"black", border:"none", padding:"4px", boxShadow:"0 2px 6px #838181"  }} type="button"><FcGoogle size={35} /></button>
 
             {/* github */}
             <button 
@@ -148,13 +148,15 @@ const Login = () => {
         onClick={function(){
             handleAuthLogin("github")
         }}
-        style={{ background: "transparent", border: "2px solid grey", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
+        style={{ background: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", boxShadow:"0 2px 6px #838181" }}
     >
         <FaGithub size={32} color="#24292E" />
     </button>
 
     {/* apple id */}
-    <button 
+
+
+    {/* <button 
         type="button" 
         onClick={function(){
             handleAuthLogin("apple")
@@ -162,7 +164,7 @@ const Login = () => {
         style={{ background: "transparent", border: "2px solid grey", padding: "8px 14px", borderRadius: "8px", cursor: "pointer" }}
     >
         <FaApple size={35} color="#000" />
-    </button>
+    </button> */}
 
     {/* linkedin */}
 
@@ -186,8 +188,8 @@ const Login = () => {
             </div>
             
         </form>
-        <p className="signup-link-text" > Don't have an account? <Link to="/signup">Signup</Link></p>
-        <Link to="/forget-password" className="reset-password-text" >Forget Password?</Link>
+        <p className="signup-link-text" >Join Charukavya <Link to="/signup">Signup</Link></p>
+        <Link to="/forget-password" className="reset-password-text" >Forgot your password?</Link>
 
     </div>
   )

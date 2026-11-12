@@ -2,7 +2,8 @@
 import "./public.css"
 import { useNavigate } from 'react-router-dom'
 import { PenTool, BookOpen} from 'lucide-react'
-import { Sparkles, Trophy,} from 'lucide-react'
+import { Sparkles, } from 'lucide-react'
+import { FaHandHoldingHeart } from "react-icons/fa";
 
 const Public = () => {
 
@@ -14,9 +15,9 @@ const Public = () => {
       {/* upper arera  */}
       <section className="public-hero">
 
-        <h1 className="hero-heading">A Quiet Corner for Your Loudest Thoughts...</h1>
+        <h1 className="hero-heading">A Quiet Corner for Your Loudest Thoughts</h1>
         <p className="hero-subheading">
-          Read, write, and explore micro-stories.
+          Write, build communities, discover stories, and support the voices you love—with zero platform cuts.
         </p>
         <div className="hero-buttons">
           <button 
@@ -31,7 +32,7 @@ const Public = () => {
             className="btn-secondary" 
             onClick={() => navigate('/login')}
           >
-            Open Your Canvas
+            Uncap Your Pen
           </button>
         </div>
 
@@ -44,27 +45,38 @@ const Public = () => {
 
         <div className="grid-card">
           <div className="card-icon"><PenTool className="card-icon" size={32} /></div>
-          <h3>Your Quiet Canvas</h3>
-          <p>Write without noise. A quiet Ad-free canvas designed for your deepest thoughts, personal essays, and poetry.</p>
+          <div className="public-marketings" >
+
+          <h3>Where Your Best Words Happen</h3>
+          <p>Your stories deserve a sanctuary. Experience ad-free writing studio crafted for storytellers and poets who just want to create without interruptions.</p>
+
+          </div>
         </div>
 
         <div className="grid-card">
 
           <div className="card-icon"><BookOpen color="Maroon" className="card-icon" size={32} /></div>
-          <h3>Kindred Voices</h3>
-          <p>A thoughtful feed built to champion hidden voices. Share your art, reach kindred minds, and grow your reader circle naturally.</p>
+          <div className="public-marketings" >
+          <h3>Tales</h3>
+          <p >Stop scrolling through noisy timelines. Discover fresh, authentic stories across the community in a clean feed built purely for joyful reading.</p>
+          </div>
+          
         </div>
 
         <div className="grid-card">
           <div className="card-icon"><Sparkles color="DarkGoldenRod" className="card-icon" size={32} /></div>
-          <h3>Artisan Typography</h3>
-          <p>Frame your prose with vintage cover artwork, rich typography, and a warm midnight theme crafted for late-night readers.</p>
+          <div className="public-marketings" >
+          <h3>Read Your Way: Day or Night</h3>
+          <p >Immerse yourself in every story with custom font sizing, effortless day and night modes, and instant tools to react, share feedback, or keep the community safe.</p>
+          </div>
         </div>
 
         <div className="grid-card">
-          <div className="card-icon"><Trophy color="Silver" className="card-icon" size={32} /></div>
-          <h3>The Inkwell Gatherings</h3>
-          <p>Participate in our weekly community-judged writing challenges. Craft your best story and claim your spot in the <b>The Inkwell</b>.</p>
+          <div className="card-icon"><FaHandHoldingHeart color="red" className="card-icon" size={32} /></div>
+          <div className="public-marketings" >
+          <h3>For the Creators</h3>
+          <p >Empower the voices you love. Send direct financial support via UPI instantly from the story page. We take absolute zero commission—every single rupee goes straight to the <b>writer</b>.</p>
+          </div>
         </div>
 
 
