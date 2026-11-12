@@ -79,7 +79,7 @@ const Header = () => {
   ]
 
   // http://localhost:5173/your-ink/test-story-004
-  const isStoryPage = window.location.pathname.includes("/my-ink/");
+  const isStoryPage = window.location.pathname.includes("/ink-creations/");
 
   
 

@@ -3,24 +3,71 @@
 import "./info.css"
 const TermsAndConditions = () => {
 
-    const termStyle={
-        fontSize: "1.3rem", fontWeight: "600", color: "#012a35", marginBottom: "8px",
-        fontFamily:"Sansation, sans-serif",
+    // const termStyle={
+    //     fontSize: "1.3rem", fontWeight: "600", color: "#012a35", marginBottom: "8px",
+    //     fontFamily:"Sansation, sans-serif",
 
-    }
+    // }
 
-    const pStyle={
-      lineHeight:"1.7rem",
-    }
+    // const pStyle={
+    //   lineHeight:"1.7rem",
+    // }
+    const headingStyle = {
+        fontSize: "1.25rem",
+        fontWeight: "700",
+        color: "#000a0c",
+        marginTop: "26px",
+        marginBottom: "10px",
+        fontFamily: "Sansation, sans-serif",
+    };
+    const pStyle = {
+        lineHeight: "1.75rem",
+        color: "#1d3557",
+        fontSize: "1.4rem",
+        marginBottom: "12px",
+        fontFamily: "Sansation, sans-serif",
+    };
+    const listStyle = {
+        lineHeight: "1.75rem",
+        color: "#1d3557",
+        fontSize: "1.2rem",
+        paddingLeft: "20px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+        marginBottom: "16px",
+        fontFamily: "Sansation, sans-serif",
+    };
+    
 
 
   return (
     <div className='container' >
-        <h1>Terms and Conditions</h1>
-        <p>Last Updated: Oct 2026</p>
+        <div style={{ borderBottom: "1px solid #e2e8f0", paddingBottom: "18px", marginBottom: "24px" }}>
+                <span style={{
+                    display: "inline-block",
+                    backgroundColor: "#f0fdf4",
+                    color: "#16a34a",
+                    fontSize: "0.75rem",
+                    fontWeight: "700",
+                    padding: "4px 10px",
+                    borderRadius: "6px",
+                    marginBottom: "10px",
+                    letterSpacing: "0.04em",
+                    fontFamily:"Sansation, sans-serif",
+                }}>
+                    📜 PLATFORM AGREEMENT
+                </span>
+                <h1 style={{ margin: "0 0 6px 0", color: "#000203", fontSize: "1.9rem" }}>
+                    Terms and Conditions
+                </h1>
+                <p style={{ margin: 0, fontSize: "0.85rem", color: "#1d3557" }}>
+                    Last Updated: November 2026 • Effective for all Charukavya users
+                </p>
+            </div>
         <div className="content">
             <section>
-          <h2 style={termStyle} >
+          <h2 style={headingStyle}  >
             1. Acceptance of Terms
           </h2>
           <p style={pStyle} >
@@ -29,44 +76,44 @@ const TermsAndConditions = () => {
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle}  >
             2. User Accounts & Responsibilities
           </h2>
-          <p style={pStyle} >
-            To publish articles or engage with content, you may need to create an account using email or social authentication (Google, GitHub, etc.). You are responsible for maintaining the confidentiality of your credentials and for all activities under your account.
+          <p  style={pStyle}>
+            To publish stories or engage with content, you may need to create an account using email or social authentication (Google, GitHub, etc.). You are responsible for maintaining the confidentiality of your credentials and for all activities under your account.
           </p>
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle}  >
             3. Age Eligibility & Mature Content
           </h2>
-          <p  style={pStyle}>
-            Users must be at least 18 years old to create an account. Creators publishing stories with mature themes, violence, or intense horror are strictly required to tag NSFW their content appropriately using the platform's content filters. Failure to tag mature content may result in immediate posted stories removal or account suspension
+          <p style={pStyle} >
+            Users must be at least 18 years old to create an account. Creators publishing stories with mature themes, violence, or intense horror are strictly required to tag NSFW their content appropriately using the platform's content filters. Failure to tag mature content may result in immediate posted stories removal or account suspension.
           </p>
         </section>
 
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             4. Content Ownership & Copyright
           </h2>
-          <p  style={pStyle}>
+          <p style={pStyle} >
             Writers retain full ownership of the original content they publish on Charukavya. However, by publishing content, you grant us a non-exclusive license to display, distribute, and format your content on the platform.
           </p>
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             5.  Collaboration & Multi-Author Rights (Upcomming Feature)
           </h2>
-          <p  style={pStyle}>
+          <p style={pStyle}>
             When participating in 'Collab Mode,' each creator retains exclusive copyright only over the specific chapters or sections authored by them. Co-authors cannot delete, alter, or claim sole monetization rights over content generated by another user in a shared story project. Charukavya reserves the right to keep individual contributions live if one collaborator decides to delete their account.
           </p>
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             6. Peer-to-Peer Reader Support (Tipping)
           </h2>
           <p  style={pStyle}>
@@ -75,11 +122,11 @@ const TermsAndConditions = () => {
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             7. Prohibited Conduct
           </h2>
           <p  style={pStyle}>Users agree not to engage in any of the following activities:</p>
-          <ul style={termStyle}>
+          <ul style={listStyle }>
             <li>Posting plagiarized, offensive, abusive, or hate speech content.</li>
             <li>Spamming, automated bot interactions, or malicious code insertion.</li>
             <li>Attempting to breach security or disrupt backend services.</li>
@@ -87,7 +134,7 @@ const TermsAndConditions = () => {
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             8. Content Removal & Termination
           </h2>
           <p  style={pStyle}>
@@ -96,7 +143,7 @@ const TermsAndConditions = () => {
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             9. Limitation of Liability
           </h2>
           <p  style={pStyle}>
@@ -106,18 +153,18 @@ const TermsAndConditions = () => {
 
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             10. Governing Law & Jurisdiction
           </h2>
           <p  style={pStyle}>
-            These terms shall be governed by and construed in accordance with the laws of India. Any legal actions or disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in <i>District Court of Hooghly</i>, West Bengal India
+            These terms shall be governed by and construed in accordance with the laws of India. Any legal actions or disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in <b>District Court of Hooghly</b>, West Bengal India.
           </p>
         </section>
 
         {/*  <i>patraarittik1999@gmail.com</i> */}
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             11. Copyright Infringement & Takedown Procedure (Indian IT Act Compliance)
           </h2>
           <p  style={pStyle}>
@@ -125,12 +172,12 @@ const TermsAndConditions = () => {
 
           If you are a copyright owner or legal representative and believe any content on Charukavya plagiarizes or infringes your work, please reach out directly to us before taking public or legal action.
 
-          Just send a direct email with subject, link to the copied content on Charukavya, Proof of Ownership at <i>patraarittik1999@gmail.com</i>.Once we verify your proof, our dev team will remove the infringing story expeditiously within 36–48 hours and send you a confirmation email reply directly.
+          Just send a direct email with subject, link to the copied content on Charukavya, Proof of Ownership at <b>charukavya.support@gmail.com</b>. Once we verify your proof, our dev team will remove the infringing story expeditiously within <b>36-48 hours</b> and send you a confirmation email reply directly.
           </p>
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             12. Indemnification
           </h2>
           <p  style={pStyle}>
@@ -139,7 +186,7 @@ const TermsAndConditions = () => {
         </section>
 
         <section>
-          <h2 style={termStyle}>
+          <h2 style={headingStyle} >
             13. Changes to Terms
           </h2>
           <p  style={pStyle}>

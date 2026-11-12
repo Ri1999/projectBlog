@@ -20,7 +20,7 @@ const Feed = () => {
 
     const userData = useSelector((state)=> state.auth.userData)
 
-    console.log("userData: ", userData)
+    // console.log("userData: ", userData)
     
 
     const {register, handleSubmit, watch, formState: { errors, isSubmitting }} = useForm()
@@ -33,7 +33,7 @@ const Feed = () => {
             try{
                 const response = await services.allPost([Query.equal("status", "active")])
                 if(response){
-                    console.log("feed data: ", response)
+                    // console.log("feed data: ", response)
                     setFeedData(response.documents)
                 }
             }catch(err){

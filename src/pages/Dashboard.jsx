@@ -147,7 +147,7 @@ const Dashboard = () => {
         </div>
     }
 
-    console.log("docs: ", posts)
+    // console.log("docs: ", posts)
 
     const publishedCount = posts.documents?.filter(post => post.status === "active").length || 0;
 
@@ -169,7 +169,7 @@ const Dashboard = () => {
         return acc
     },[])
 
-    console.log("test report titles: ", reportPostData)
+    // console.log("test report titles: ", reportPostData)
 
     // console.log("did i get it: ", publishedCount)
 

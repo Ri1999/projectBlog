@@ -58,7 +58,7 @@ const Faqs = () => {
 
   return (
     <div className="container" >
-        <h1>You ask, We answer<FcFaq size={50} /></h1>
+        <h1 style={{fontSize:"1.8rem"}} >You ask, We answer <FcFaq size={40} /></h1>
         <div className="content">
             {faqList.map((faq, index)=> {
 
