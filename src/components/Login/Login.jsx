@@ -116,12 +116,14 @@ const Login = () => {
             />
 
             <button
+            disabled={loading}
             style={{position: "absolute", top:"35%", cursor:"pointer", backgroundColor:"transparent",height:"1px",border:"none", borderRadius:"50px",
                 transform:"translateY(-50%)",
                 display: "flex", alignItems: "center",
                 justifyContent:"flex-end",
                 width:"auto",
                 right:"5px",
+                
              }}
             onClick={()=> setShowPassword((prev)=> !prev)}
             type="button">{showPassword ? < MdRemoveRedEye color="red" /> : <IoEyeOffSharp color="green" /> }</button>

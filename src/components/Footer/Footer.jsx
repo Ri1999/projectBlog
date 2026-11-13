@@ -31,7 +31,7 @@ function Footer() {
 
           <h3 >The Studio</h3>
           <ul className="company-links" >
-            <li><Link to="/inkwall">The Inkwell</Link></li>
+            {/* <li><Link to="/inkwall">The Inkwell</Link></li> */}
             <li><Link to="/about-us">About Us</Link></li>
 
             {/* <li><a href="">Affiliate Program</a></li>

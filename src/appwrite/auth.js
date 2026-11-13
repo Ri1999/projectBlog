@@ -52,7 +52,7 @@ export class blogAuthService {
     }
 
    }catch(err){
-    console.error("createAccount: ",err)
+    console.error("createAccount: ",err.message)
     // throw err
    }
 
@@ -65,7 +65,7 @@ async signupConfirmVerification({userId, secret}){
     try{
         return await this.account.updateVerification(userId, secret);
     }catch(err){
-        console.error("signupConfirmVerification: ", err)
+        console.error("signupConfirmVerification: ", err.message)
         throw err;
     }
 }
@@ -79,8 +79,16 @@ async login({email, password}){
         const mylogin = await this.account.createEmailPasswordSession(email,password)
         return mylogin
     }catch(err){
-        console.error("login: ",err)
-        throw err
+        console.error("Login Error: ",err.message)
+        // throw err
+        if(err.code === 401 || err.type === "user_invalid_credentials"){
+            throw new globalThis.Error("Invalid email or password. Please double-check your details or create a new account.");
+        }
+        if(err.code === 429){
+            throw new globalThis.Error("Too many login attempts. Take a breather and try again in a few minutes.")
+        }
+        throw new globalThis.Error("Something went wrong while logging in. Please try again.")
+
     }
 }
 
@@ -94,7 +102,7 @@ async loginWithOAuth(provider="google"){
             `${window.location.origin}/login` // failed url
         )
     }catch(err){
-        console.error("loginWithOAuth Error: ", err)
+        console.error("loginWithOAuth Error: ", err.message)
         throw err
     }
 }
@@ -105,7 +113,7 @@ async sendEmailVerification(url){
     try{
         return await this.account.createVerification(url);
     }catch(err){
-        console.error("sendEmailVerification error: ", err);
+        console.error("sendEmailVerification error: ", err.message);
         throw err;
     }
 }
@@ -120,7 +128,7 @@ async getCurrentUser(){
         return null
 
     }catch(err){
-        console.error("getCurrentUser: ",err)
+        console.error("getCurrentUser: ",err.message)
         // throw err
         return null
     }
@@ -131,7 +139,7 @@ async logout(){
     try{
         await this.account.deleteSessions()
     }catch(err){
-        console.error("logout: ",err)
+        console.error("logout: ",err.message)
     }
 }
 
@@ -145,7 +153,7 @@ async passwordRecovery({email,url}){
         return recovery;
         
     }catch(err){
-        console.error("passwordRecovery Error: ",err)
+        console.error("passwordRecovery Error: ",err.message)
     }
     
 }
@@ -156,7 +164,7 @@ async confirmRecovery({userId, secret, password, passwordAgain}){
 
         return confirmRecovery
     }catch(err){
-        console.error("confirmRecovery: ",err)
+        console.error("confirmRecovery: ",err.message)
     }
 }
 
@@ -165,7 +173,7 @@ async updateName(name){
     try{
         return await this.account.updateName(name)
     }catch(err){
-        console.error("updateName error: ",err)
+        console.error("updateName error: ",err.message)
         throw err
     }
 }
@@ -174,7 +182,7 @@ async updateUserPhonenumber(phone, password){
     try{
         return await this.account.updatePhone(phone,password)
     }catch(err){
-        console.error("updateUserPhonenumber: ",err)
+        console.error("updateUserPhonenumber: ",err.message)
         throw err
     }
 }
@@ -183,7 +191,7 @@ async updateUserPassword(newPassword, oldPassword){
     try{
         return await this.account.updatePassword(newPassword, oldPassword)
     }catch(err){
-        console.error("updateUserPassword: ",err)
+        console.error("updateUserPassword: ",err.message)
         throw err
     }
 }
@@ -193,7 +201,7 @@ async updateUserUpi(upiId){
             const response = await this.account.updatePrefs({ upiId: upiId });
             return response;
         }catch(err){
-            console.error("updateUserUpi error: ", err);
+            console.error("updateUserUpi error: ", err.message);
             console.log("error upi") // test 
             throw err;
         }
@@ -204,7 +212,7 @@ async updateUserUpi(upiId){
             const userAccount = await this.account.get();
             return userAccount.prefs?.upiId || null;
         }catch(err){
-            console.error("getUserUpi error: ", err);
+            console.error("getUserUpi error: ", err.message);
             return null;
         }
     }

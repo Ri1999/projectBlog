@@ -90,10 +90,10 @@ const ShareFeedback = () => {
                     onClick={copyEmailId}
                     style={{
                         alignSelf:"flex-end",
-                        width:"10%"
+                        width:"40%",
+                        fontSize:"1.1rem",
                     }} 
-                    type="button">
-                        COPY
+                    type="button">COPY
                 </button>
             </div>
 

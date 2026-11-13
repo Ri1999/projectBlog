@@ -189,8 +189,8 @@ const PostForm = ({postDataFromAppwrite}) => {
                 {...register("image",{ required: postDataFromAppwrite? false:"Your story is missing its visual cover. Upload an image to proceed.",
 
                     validate:{
-                        lessThan2MB:(files)=>
-                            !files[0] || files[0]?.size <=2* 1024*1024 ||"Max file size allowed is 2MB!",
+                        lessThan1MB:(files)=>
+                            !files[0] || files[0]?.size <=1* 1024*1024 ||"Max file size allowed is 1MB!",
                         acceptedFormats:(files)=>
                             !files[0] || ["image/jpg","image/jpeg", "image/png", "image/webp"].includes(files[0]?.type) || "Mind switching the format?"
                     }
@@ -201,7 +201,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
 
                 />
-                <p>(max file size: <b>2MB</b> | supported formats: <b>jpg,png,jpeg, webp</b>)</p>
+                <p>(max file size: <b>1MB</b> | supported formats: <b>jpg,png,jpeg, webp</b>)</p>
 
                 <SelectComponent
                 label="Status"

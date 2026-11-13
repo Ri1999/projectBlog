@@ -10,38 +10,37 @@ const Faqs = () => {
     const faqList =[
 
         {
-            question:"Is Charukavya free to use?",
-            answer:"Yes, Charukavya is 100% free for readers and creators. There are no paywalls or mandatory subscriptions to read or publish stories."
-        },
-        {
-            question:"Do I own the copyright to the stories or art I publish here?",
-            answer:"Absolutely. You retain 100% ownership of your intellectual property. Charukavya is just a platform to showcase your creativity, your words and art belong entirely to you."
-        },
-        {
-            question:" Is Charukavya ad-free?",
-            answer:"Our platform provides a completely distraction-free workspace. No popup ads, no cluttered layouts. Just pure art and text."
-        },
-        {
-            question:"How do monetization work? Can I tip my favorite writer?",
-            answer:"If you love a creator's work, you can directly tip them from QRcode which is generated via single click. 100% of the tip goes directly to the creator's linked account."
-        },
-        {
-            question:"How does Charukavya ensure the stories on the platform maintain high quality?",
-            answer:"We trust our community. Our built-in Like/DisLike and Report dynamic system naturally pushes well-crafted, original stories to the top, while keeping low-effort or automated spam text hidden from the main feed."
-        },
-        {
-            question:"Will I lose my writing if my browser suddenly crashes?",
-            answer:"We are currently wordking on auto safe feature. So writing a long-form story? We recommend to save your story as draft in webapp, also keeping a backup in a notes app is always a smart writer's habit!"
-        },
-        {
-            question:"What are the size limitations for canvas or story cover images?",
-            answer:"We fully support vector formats (SVGs) along with clean JPG, PNG, JPEG and WEBP files are allowed up to 2MB. Your images are automatically optimized for crisp delivery across all screens."
-        },
-        //  doubt it work or not
-        {
-            question:"Can two creators work together on the same story line?",
-            answer:"Of course buddy, in our next upcomming feature using our integrated Collab Mode, you can invite any fellow writters to co-author chapters with you. Each author maintains secure control over their unique written sections."
-        },
+        question: "Is Charukavya free to use?",
+        answer: "Yes, Charukavya is 100% free for both readers and creators. There are no paywalls, hidden charges, or mandatory subscriptions to read or publish stories."
+    },
+    {
+        question: "Do I own the copyright to the stories or art I publish here?",
+        answer: "Absolutely. You retain 100% copyright and ownership of your intellectual property. Charukavya is simply a showcase for your creativity—your words and artwork belong entirely to you."
+    },
+    {
+        question: "Is Charukavya completely ad-free?",
+        answer: "Yes. We provide a completely distraction-free reading and writing experience—no popup ads, no banners, and no cluttered layouts. Just pure stories and art."
+    },
+    {
+        question: "How does tipping work? Does Charukavya take any cut?",
+        answer: "Charukavya takes 0% platform fees. If you love a writer's work, click 'Send Love' to generate a direct peer-to-peer UPI QR code. 100% of your contribution goes straight to the creator's personal bank account."
+    },
+    {
+        question: "How does Charukavya maintain story quality and filter spam?",
+        answer: "Our community-driven Like/Dislike and Report system naturally highlights well-crafted, original stories while keeping low-effort or automated spam hidden from the main feed."
+    },
+    {
+        question: "Will I lose my writing if my browser suddenly crashes?",
+        answer: "We are actively building an automatic cloud-save feature. Until it launches, we recommend saving your work as a draft on the platform regularly—and keeping a quick local backup while writing long-form chapters."
+    },
+    {
+        question: "What are the file formats and size limits for story cover images?",
+        answer: "We support JPG, JPEG, PNG, and WEBP files up to 1MB. Uploaded images are automatically optimized so your stories load fast across all mobile and desktop screens."
+    },
+    {
+        question: "Can two creators collaborate on the same story?",
+        answer: "Yes! With our upcoming 'Collab Mode' feature, you will be able to invite fellow writers to co-author chapters together—while each creator retains full ownership and control over their individual sections."
+    }
 
     ]
 
@@ -58,7 +57,24 @@ const Faqs = () => {
 
   return (
     <div className="container" >
-        <h1 style={{fontSize:"1.8rem"}} >You ask, We answer <FcFaq size={40} /></h1>
+        <div 
+                style={{ 
+                display: "inline-block", 
+                backgroundColor: "#fdfdfd", 
+                color: "#035e21", 
+                fontSize: "0.75rem", 
+                fontWeight: "700", 
+                padding: "20px 12px", 
+                borderRadius: "12px", 
+                marginBottom: "8px",
+                letterSpacing: "0.04em",
+                textAlign:"center",
+                fontFamily:"Sansation, sans-serif",
+            }}
+            >HELP CENTER
+            </div>
+        <h1 style={{fontSize:"1.7rem"}} >Frequently Asked Questions <FcFaq size={40} /></h1>
+        <p style={{fontSize:"1.1rem",color: "#1d3557",}} >Everything you need to know about writing, reading, and supporting creators on Charukavya.</p>
         <div className="content">
             {faqList.map((faq, index)=> {
 
