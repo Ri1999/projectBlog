@@ -37,6 +37,7 @@ import Hoster from './components/modals/Hoster.jsx'
 // import ReportModal from './components/modals/ReportModal.jsx'
 import UniveHoster from './components/modals/UniveHoster.jsx'
 import AuthorProflie from './components/author/AuthorProflie.jsx'
+import Notfound from './components/notFound/Notfound.jsx'
 const route = createBrowserRouter([
   {
     path:"/",
@@ -204,6 +205,7 @@ const route = createBrowserRouter([
           </AuthLayout>
         )
       },
+
       {
         path: "/inkStation",
         element:(
@@ -212,6 +214,17 @@ const route = createBrowserRouter([
           </AuthLayout>
         )
       },
+
+      {
+        path: "*",
+        element:(
+          // <AuthLayout authentication={true} >
+            <Notfound/>
+          // </AuthLayout>
+        )
+      },
+
+
     ]
   }
 ])

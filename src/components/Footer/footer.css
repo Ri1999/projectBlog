@@ -38,6 +38,8 @@ a:hover {
   align-items: center;
   font-size: 0.85rem;
   color: black;
+  background-color: #aec3b0;
+  /* box-shadow: 10px 1px 6px rgb(46, 1, 1); */
 
   padding: 5px;
   /* border-radius: 5px; */
@@ -51,6 +53,7 @@ a:hover {
   opacity: 0.8;
   /* background-color: #1c3123b3 */
   font-family: "Fondamento", cursive;
+  
 }
 .footer-container {
   max-width: 1600px;

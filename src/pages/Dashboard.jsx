@@ -271,7 +271,7 @@ const Dashboard = () => {
                 {posts.documents?.length === 0 ? (
                     <div className="encourage"  >
                         <h4>No ink spilled yet</h4>
-                        <p>Your writer's workspace is all set up. Draft a quick thought or publish your first piece now.</p>
+                        <p style={{textAlign:"left"}}  >Your writer's workspace is all set up. Draft a quick thought or publish your first piece now.</p>
                         <Link className="no-written" to="/spill-ink">spill Ink... <VscEditSparkle color="#da9005" size={26} /></Link>
                     </div>
                 ):(
@@ -298,7 +298,7 @@ const Dashboard = () => {
                 <h2>{likeData} <FcLike size={25} /> </h2>
                 <h2>{reportData} <FiAlertTriangle color="#d90429" size={25} /></h2>
                 <div className="ink-pression-report-ui" >
-                <h3>Ink Integrity: {reportRank?.title} {reportRank?.icon}</h3>
+                <h3 style={{fontSize:"1.5rem"}} >Ink Integrity: {reportRank?.title} {reportRank?.icon}</h3>
                 <p style={{fontSize:"1.2rem", paddingRight:"10px"}} >{reportRank?.reportMessage}</p>
                 {reportPostData && reportPostData.length > 0 && (
         <div style={{ marginTop: "20px", textAlign: "left", width: "97%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #edeae5",

@@ -70,8 +70,8 @@ const Header = () => {
     },
 
     // {
-    //   name:"test-support",
-    //   slug:"/test-support",
+    //   name:"notfound",
+    //   slug:"/test",
     //   active:authStatus,
     // },
 
