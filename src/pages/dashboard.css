@@ -206,7 +206,7 @@
 
 .monetize-save-btn{
     /* background-color: #1C3123; */
-    background-color: #3B5344;
+    background-color: #037e32;
     color: #FCF8F5;
     font-weight: 500;
     padding: 0.75rem 1.5rem;
@@ -239,7 +239,7 @@
     /* justify-self: flex-end; */
 
     font-size: 1.1rem;
-    color: #688a71;
+    color: #202a22;
 }
 .monetize-preview{
     margin-top: 20px;

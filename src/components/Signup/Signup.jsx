@@ -18,6 +18,7 @@ import {toast} from "react-toastify"
 // for disposable email 
 // import disposableDomains from 'disposable-email-domains'; 
 import { Link } from "react-router-dom";
+import logoimage from "../../images/mywebapp_favicon.png"
 
 const Signup = () => {
 
@@ -142,7 +143,12 @@ const allowedDomains = new Set([
 
   return (
     <div className="signup-container" >
-        <h2>Start Writing </h2>
+        <div style={{display:"flex", alignItems:"center",gap:"10px"}} >
+            <img width="60px" src={logoimage} alt="" />
+        <h2>Join the Community</h2>
+        </div>
+        <p style={{fontSize:"1rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#b6ad90", borderRadius:"8px", color:"#fbfbfb", fontWeight:"600"}} >Create your Charukavya account</p>
+        
         <form onSubmit={handleSubmit(createNewUser)} className="signup-content" >
             
             {/* oauth methods */}
@@ -187,7 +193,7 @@ const allowedDomains = new Set([
     </button> */}
 
             </div>
-            <p style={{textAlign:"center", fontWeight:"600"}} >or sign up with email</p>
+            <p style={{textAlign:"center", fontWeight:"600"}} >or join with email</p>
             {/* name */}
 
             <Input
@@ -274,12 +280,12 @@ const allowedDomains = new Set([
             
             </div>
             <button type="submit"
-            disabled={loading}>{loading? "Signing...":"Signup"}</button>
+            disabled={loading}>{loading? "Joining...":"Join Now"}</button>
 
 
         </form>
 
-        <p className="signup-text" >Already have a desk here? <Link to="/login" >Login</Link></p>
+        <p className="signup-text" >Already have a desk here? <Link to="/login" >Sign In</Link></p>
         <p className="signup-text" >By creating an account, you agree to the <Link to="/privacy-policy" >Privacy Policy</Link> and <Link to="/terms" >Terms & Conditions</Link></p>
 
         

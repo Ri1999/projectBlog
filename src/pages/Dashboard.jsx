@@ -357,7 +357,7 @@ const Dashboard = () => {
                     {/* <p>test</p> */}
                     <h3>Direct Peer-to-Peer Payouts <VscWorkspaceTrusted size={18} color="green" /></h3>
                     <p>We never hold or touch your money. Your UPI ID is strictly used to dynamically generate a QR code on your stories so readers can pay you directly from their bank to yours — with 0% platform fee.</p>
-                    <p className="monetize-help-support" >Got questions about monetization or setting up your UPI? Drop us a direct mail at <b>[]</b></p>
+                    <p className="monetize-help-support" >Got questions about monetization or setting up your UPI? Drop us a direct mail at <b>charukavya.support@gmail.com</b>.</p>
                 </div>
             </div>
             {/* shift here */}

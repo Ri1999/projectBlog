@@ -72,7 +72,7 @@ function Footer() {
     </div>
 
     <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Charukavya. All rights reserved | Illustration artwork licensed via Freepik.</p>
+        <p>© {new Date().getFullYear()} Charukavya. All rights reserved.</p>
         
       </div>
 

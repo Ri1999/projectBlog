@@ -22,7 +22,8 @@
 .login-container h2{
     text-align: left;
     /* font-family: 'Fondamento', cursive; */
-    font-family: 'Sansation', sans-serif;
+    /* font-family: 'Sansation', sans-serif; */
+    font-family: "Fondamento", cursive;
     font-size: 1.6rem;
     color: #1C3123;
     margin: 0;

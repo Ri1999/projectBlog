@@ -14,6 +14,7 @@ import { FaGithub,  } from "react-icons/fa";
 // import { FaLinkedin } from "react-icons/fa6";
 // import { FcReadingEbook } from "react-icons/fc";
 // import { FcReading } from "react-icons/fc";
+import logoimage from "../../images/mywebapp_favicon.png"
 import {toast} from "react-toastify"
 
 const Login = () => {
@@ -91,7 +92,11 @@ const Login = () => {
 
   return (
     <div className= "login-container" >
-        <h2>Uncap Your Pen</h2>
+        <div style={{display:"flex", alignItems:"center",gap:"5px"}} >
+            <img width="60px" src={logoimage} alt="" />
+        <h2>Sign In</h2>
+        </div>
+        <p style={{fontSize:"1rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#b6ad90", borderRadius:"8px", color:"#fbfbfb", fontWeight:"600"}} >Welcome back to Charukavya</p>
         {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 
@@ -135,7 +140,7 @@ const Login = () => {
 
 
             <button type="submit"
-            disabled={loading}>{loading? "Logging In...":"Login"}</button>
+            disabled={loading}>{loading? "Signing In...":"Sign In"}</button>
 
             <p style={{fontWeight:"600"}} >or continue with</p>
             <div className="oauth-content" >
@@ -190,7 +195,7 @@ const Login = () => {
             </div>
             
         </form>
-        <p className="signup-link-text" >Join Charukavya <Link to="/signup">Signup</Link></p>
+        <p className="signup-link-text" >New here? <Link to="/signup">Join the Community</Link></p>
         <Link to="/forget-password" className="reset-password-text" >Forgot your password?</Link>
 
     </div>

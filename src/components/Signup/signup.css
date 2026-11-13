@@ -28,7 +28,8 @@
     flex-direction: column;
 }
 .signup-container h2{
-    font-family: 'Sansation', sans-serif;
+    /* font-family: 'Sansation', sans-serif; */
+    font-family: "Fondamento", cursive;
     font-size: 1.6rem;
     color: #1C3123;
     margin: 0;

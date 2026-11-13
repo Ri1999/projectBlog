@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 // import { logout } from "../../store/authSlice"
 import "./header.css"
-import logoimage from "../../images/lavnatalia.png"
+import logoimage from "../../images/Charukavya.png"
 // import { useState } from "react"
 // import { useLocation } from "react-router-dom";
 // import { useState } from "react"
