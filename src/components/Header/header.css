@@ -39,7 +39,6 @@ header.hide-on-scroll{
 }
 
 .main-nav{
-  
     display: flex;
     align-items: center;
     padding: 5px;
@@ -81,6 +80,8 @@ header.hide-on-scroll{
         flex-direction: column;
         align-items: center;
         gap: 12px;
+        height: 52px;
+        max-height: 52px;
     }
     .nav-list {
     justify-content: center;
@@ -91,6 +92,7 @@ header.hide-on-scroll{
     .logo-pic{
         /* align-self: flex-start; */
         display: flex;
+        font-size: 1.1rem !important;
 
         align-items: center;
     }
