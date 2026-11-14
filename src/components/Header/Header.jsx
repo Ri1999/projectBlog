@@ -9,11 +9,14 @@ import logoimage from "../../images/Charukavya.png"
 // import { useState } from "react"
 // import { useLocation } from "react-router-dom";
 // import { useState } from "react"
+import { FaBarsStaggered } from "react-icons/fa6";
+import { useState } from "react";
 
 const Header = () => {
   
   // check status
   const authStatus = useSelector((state) => state.auth.status)
+  const [isOpen, setIsOpen] = useState(false);
 
   // const isReadingMode = location.pathname.includes(`/your-ink/`);
   // const [shouldHide, setShouldHide] = useState(false)
@@ -81,6 +84,10 @@ const Header = () => {
   // http://localhost:5173/your-ink/test-story-004
   const isStoryPage = window.location.pathname.includes("/ink-creations/");
 
+  const test =()=>{
+    console.log("nav button is fine")
+  }
+
   
 
   return (
@@ -89,11 +96,18 @@ const Header = () => {
         <nav className="main-nav" >
 
           <div className="logo-pic">
+
             <img width={90} src={logoimage} alt="" />
             <h2 className="brand-title" >Charukavya</h2>
+
+            <div className="nav-click-bar" >
+              <button onClick={() => setIsOpen(!isOpen)} type="button"><FaBarsStaggered size={18} /></button>
+            </div>
+
           </div>
 
-          <ul className="nav-list ">
+          <ul className={`nav-list ${isOpen ? "show-menu" : ""}`}  >
+            {/* before was className="nav-list " */}
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
@@ -101,6 +115,7 @@ const Header = () => {
                   {/* () => navigate(item.slug) */}
                   <button className="nav-button" onClick={()=>{
                     navigate(item.slug);
+                    setIsOpen(false);
                     
                   }}  >
                     {item.name}

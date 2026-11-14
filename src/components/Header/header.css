@@ -26,9 +26,16 @@ header.hide-on-scroll{
 .logo-pic{
     /* position: relative; */
  display: flex;
-  align-items: center;
+  /* align-items:self-end; */
   gap: 0px;
   cursor: pointer;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+.nav-click-bar{
+    /* align-self: flex-end; */
+    /* justify-self: flex-end; */
+    display: none;
 }
 .logo-pic h2{
     font-family: "Fondamento", cursive;
@@ -72,34 +79,104 @@ header.hide-on-scroll{
   
 }
 
+
 @media screen and (max-width: 768px){
+    header{
+        /* box-shadow: none; */
+    }
     .main-nav{
-        padding: 10px 16px;
+        /* padding: 10px 16px; */
         padding: 0;
         margin: 0;
         flex-direction: column;
         align-items: center;
         gap: 12px;
-        height: 52px;
-        max-height: 52px;
+
+
+        /* height: 60px;
+        max-height: 60px; */
+        /* height: 50px; */
+        height: auto;
+        /* max-height: 50px; */
+        max-height: none;
+
+
     }
     .nav-list {
-    justify-content: center;
+    /* justify-content: center;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 5px;
   }
+  .nav-list.show-menu {
+        display: flex !important;
+        align-items: flex-end;
+        justify-content: center;
+        padding-right: 30px;
+        /* flex-direction: row; */
+        flex-direction: column;
+        /* height: 20px; */
+        /* display: block; */
+        /* position: relative; */
+        /* width: 90vw; */
+        /* top: 10px; */
+        /* left: 270px; */
+        /* border: 1px solid red; */
+        /* width: 120px; */
+        /* height: 100px; */
+        /* background-color: green; */
+        /* box-shadow: 10px 0 10px black; */
+        /* border-radius: 6px; */
+        background-color: #F4EAE1;
+        /* box-shadow: 0 0 0 rgb(67, 57, 4); */
+        /* border-bottom: 5px solid rgb(67, 57, 4); */
+        
+        /* box-shadow: 0 1px 1px rgb(1, 52, 1); */
+
+    }
+    .nav-button{
+        /* font-size: 1rem; */
+        /* color: white; */
+    }
 
     .logo-pic{
         /* align-self: flex-start; */
-        display: flex;
+        /* display: flex; */
         font-size: 1.1rem !important;
+        position: relative;
 
         align-items: center;
+        width: 90vw;
+        height: 50px;
+    }
+    .nav-click-bar{
+        position: absolute;
+        right: 10px;
+        display: inline;
+        /* background: transparent; */
+        /* border: none; */
+    /* align-self: flex-end; */
+    /* justify-self: flex-end; */
+
+    }
+    .nav-click-bar button{
+        background: transparent;
+        border: none;
+        cursor: pointer;
     }
     .logo-pic h2{
         font-family: "Fondamento", cursive;
         /* position: relative; */
         /* left: 0px; */
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        /* align-self: flex-start; */
+    }
+    .logo-pic img{
+        /* justify-self: flex-start; */
+        width: 45px;
     }
 }
