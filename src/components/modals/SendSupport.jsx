@@ -25,7 +25,7 @@ const SendSupport = ({authorId, authorName}) => {
             setLoading(true)
             try{
                 const response = await blogauthservice.getuserUpi(authorId)
-                console.log("moni info@modal: ", response)
+                // console.log("moni info@modal: ", response)
                 if(response){
                     setUpiId(response)
                 }

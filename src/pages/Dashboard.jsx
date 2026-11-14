@@ -105,6 +105,7 @@ const Dashboard = () => {
     useEffect(()=>{
 
         const UserInsights = async()=>{
+            
             setLoading(true)
             try{
                 const response = await services.getUserPosts(LoggeduserId)
@@ -121,10 +122,12 @@ const Dashboard = () => {
                 setLoading(false)
             }
         }
+
+
         const getMyUpi = async(LoggeduserId)=>{
         try{
             const response = await blogauthservice.getuserUpi(LoggeduserId)
-            console.log("moni info: ", response)
+            // console.log("moni info: ", response)
             if(response){
                 setCurrentUpiId(response)
             }

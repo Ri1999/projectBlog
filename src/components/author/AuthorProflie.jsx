@@ -41,7 +41,7 @@ const AuthorProflie = () => {
     // console.log("author id: ", authorId, "|", "loggedid: ", loggedInUserId)
 
     const selfProfile = loggedInUserId === authorId
-    console.log("self profile: ", selfProfile)
+    // console.log("self profile: ", selfProfile)
 
     const [loading, setLoading] = useState(false)
 
@@ -52,9 +52,9 @@ const AuthorProflie = () => {
     useEffect(()=>{
 
 
-        // if(selfProfile){
-        //     navigate("/inkStation", { replace: true })
-        // }
+        if(selfProfile){
+            navigate("/inkStation", { replace: true })
+        }
 
         const meetAuthor = async()=>{
 
