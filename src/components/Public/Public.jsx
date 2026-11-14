@@ -48,7 +48,7 @@ const Public = () => {
           <div className="public-marketings" >
 
           <h3>Where Your Best Words Happen</h3>
-          <p>Your stories deserve a sanctuary. Experience ad-free writing studio crafted for storytellers and poets who just want to create without interruptions.</p>
+          <p>Experience ad-free writing studio crafted for storytellers and poets who just want to create without interruptions.</p>
 
           </div>
         </div>
