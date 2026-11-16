@@ -82,3 +82,20 @@ a:hover {
   }
     
 }
+@media Screen and (max-width: 480px){
+    .brand-logo h2{
+        font-size: 1.5rem;
+    }
+    .brand-logo p{
+        font-size: 1.1rem;
+    }
+    .company h3, .support h3, .legals h3{
+        font-size: 1.3rem;
+    }
+    .company-links, .support-links, .legal-links {
+        font-size: 0.9rem;
+    }
+    .footer-bottom p {
+        font-size: 0.6rem;
+    }
+}

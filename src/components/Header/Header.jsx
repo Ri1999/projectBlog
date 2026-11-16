@@ -84,9 +84,9 @@ const Header = () => {
   // http://localhost:5173/your-ink/test-story-004
   const isStoryPage = window.location.pathname.includes("/ink-creations/");
 
-  const test =()=>{
-    console.log("nav button is fine")
-  }
+  // const test =()=>{
+  //   console.log("nav button is fine")
+  // }
 
   
 
@@ -125,7 +125,7 @@ const Header = () => {
             )}
 
             {authStatus && (
-              <li>
+              <li className="logout-button" >
                 <LogoutButton />
               </li>
             )}
