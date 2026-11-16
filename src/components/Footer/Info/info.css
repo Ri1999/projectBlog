@@ -50,6 +50,7 @@
 p{
     font-size: 1.3rem;
     font-family: 'Sansation', sans-serif;
+    
 }
 .container button{
     width: 100%;
@@ -69,8 +70,40 @@ p{
 .container button:hover{
     background-color: black;
 }
-
-
+/* about us */
+.about-us-p{
+    color: #1d3557;
+    line-height: 1.8rem;
+}
+.dev-intro{
+    font-family: 'Sansation', sans-serif;
+    
+}
+.dev-intro h2{
+    font-size: 1rem;
+    text-align: center;
+    font-family: "Fondamento", cursive;
+}
+.dev-social-media{
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.social-media:nth-child(1){
+    color: black;
+}
+.social-media:nth-child(2){
+    color: #0A66C2;
+}
+.social-media-mail{
+    color: #1C3123;
+    text-decoration: none;
+}
 
 
 
@@ -83,5 +116,23 @@ p{
     }
     .feedback-component{
         width: 100%;
+    }
+    .about-us-heading{
+        font-size: 1.7rem;
+    }
+}
+@media screen and (max-width: 480px){
+    .about-us-heading{
+        font-size: 1.2rem;
+    }
+    .about-us-p{
+        font-size: 0.9rem;
+        text-align: justify;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        color: #1d3557;
+    }
+    .dev-intro h2{
+        font-size: 0.8rem;
     }
 }

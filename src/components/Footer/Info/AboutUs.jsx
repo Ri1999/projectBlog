@@ -2,6 +2,9 @@
 import "./info.css"
 // import { FcAbout } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { CiMail } from "react-icons/ci";
 
 const AboutUs = () => {
   return (
@@ -22,12 +25,23 @@ const AboutUs = () => {
             }}
             >OUR STORY & MISSION
             </div>
-        <h1 style={{fontSize:"1.7rem"}} >A Digital Canvas Built for Writers & Creators</h1>
+        <h1 className="about-us-heading" >A Digital Canvas Built for Writers & Creators</h1>
         <div className="content">
-            <p style={{color: "#1d3557",}} ><strong>Charukavya</strong> is an interactive story-publishing platform designed for modern storytellers, poets, and avid readers. Our mission is to provide a fast, secure, and clutter-free home where creativity flows effortlessly.</p>
-            <p style={{color: "#1d3557",}} >We started Charukavya with a simple belief: great stories deserve a peaceful stage, and writers deserve direct appreciation without platform cuts. Whether you're sharing a short poem, a serialized thriller, or co-writing in our upcoming Collab Mode, you are part of a growing community that values pure expression.</p>
+            <p className="about-us-p" ><strong>Charukavya</strong> is an interactive story-publishing platform designed for modern storytellers, poets, and avid readers. Our mission is to provide a fast, secure, and clutter-free home where creativity flows effortlessly.</p>
+            <p className="about-us-p" >We started Charukavya with a simple belief: great stories deserve a peaceful stage, and writers deserve direct appreciation without platform cuts. Whether you're sharing a short poem, a serialized thriller, or co-writing in our upcoming Collab Mode, you are part of a growing community that values pure expression.</p>
         </div>
-        <Link
+
+        <div className="dev-intro">
+            <h2>Designed & Built by Rittik Patra ⚡<Link to="mailto:patraarittik@gmail.com" className="social-media-mail" >. Hire me</Link></h2>
+            <div className="dev-social-media" >
+                <Link to="https://github.com/Ri1999" className="social-media" ><FaGithub size={25} /></Link>
+                <Link to="https://www.linkedin.com/in/rittik-patra-9835751b1" className="social-media" ><FaLinkedinIn size={25} /></Link>
+                
+            </div>
+        </div>
+
+
+        {/* <Link
                     to="/contact-us"
                     style={{
                         backgroundColor: "#ffffff",
@@ -43,7 +57,7 @@ const AboutUs = () => {
                     }}
                 >
                     Get in Touch
-                </Link>
+                </Link> */}
 
     </div>
   )
