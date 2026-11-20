@@ -138,7 +138,7 @@ input:focus {
 }
 .extra-message{
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 .login-auth-google, .login-auth-github{
     width: 2.1rem;
@@ -170,5 +170,8 @@ input:focus {
     }
     .login-container{
         padding: 5px 15px;
+    }
+    .extra-message{
+        font-size: 0.9rem;
     }
 }

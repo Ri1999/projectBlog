@@ -155,7 +155,7 @@ const Login = () => {
                 {/* google */}
             <button disabled={loading} onClick={function(){
                 handleAuthLogin("google")
-            }} style={{backgroundColor:"black", border:"none", padding:"4px", boxShadow:"0 2px 6px #838181"  }} type="button"><FcGoogle className="login-auth-google"  /></button>
+            }} style={{backgroundColor:"white", border:"none", padding:"4px", boxShadow:"0 2px 6px #b3b1b1", borderRadius:"4px"  }} type="button"><FcGoogle className="login-auth-google"  /></button>
 
             {/* github */}
             <button 
@@ -164,9 +164,9 @@ const Login = () => {
             handleAuthLogin("github")
         }}
 
-        style={{ background: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", boxShadow:"0 2px 6px #838181" }}
+        style={{ background: "white", border: "none", padding: "8px 10px", borderRadius: "4px", cursor: "pointer", boxShadow:"0 2px 6px #b3b1b1" }}
     >
-        <FaGithub className="login-auth-github" color="#24292E" />
+        <FaGithub className="login-auth-github" color="black" />
     </button>
 
     {/* apple id */}
