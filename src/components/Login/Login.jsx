@@ -96,7 +96,7 @@ const Login = () => {
             <img width="60px" src={logoimage} alt="" />
         <h2>Sign In</h2>
         </div>
-        <p style={{fontSize:"1rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#b6ad90", borderRadius:"8px", color:"#fbfbfb", fontWeight:"600"}} >Welcome back to Charukavya</p>
+        <p style={{fontSize:"0.9rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#b6ad90", borderRadius:"8px", color:"#fbfbfb", fontWeight:"600"}} >Welcome back to Charukavya</p>
         {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 
@@ -113,6 +113,7 @@ const Login = () => {
             />
 
             <div style={{ position: "relative" }} >
+                
             <Input type={showPassword? "text":"password"}
             placeholder="Enter your password"
             error={errors.password?.message}
@@ -122,13 +123,20 @@ const Login = () => {
 
             <button
             disabled={loading}
-            style={{position: "absolute", top:"35%", cursor:"pointer", backgroundColor:"transparent",height:"1px",border:"none", borderRadius:"50px",
+            // style={{position: "absolute", cursor:"pointer", backgroundColor:"transparent",height:"1px",border:"none", borderRadius:"50px",
+            //     transform:"translateY(-50%)",
+            //     display: "flex", alignItems: "center",
+            //     justifyContent:"flex-end",
+            //     width:"auto",
+            //     right:"5px",
+                
+            //  }}
+            style={{position: "absolute", top:"10%", cursor:"pointer", backgroundColor:"transparent",height:"1px",border:"none", borderRadius:"50px",
                 transform:"translateY(-50%)",
-                display: "flex", alignItems: "center",
-                justifyContent:"flex-end",
+                // display: "flex", alignItems: "center",
+                // justifyContent:"flex-end",
                 width:"auto",
                 right:"5px",
-                
              }}
             onClick={()=> setShowPassword((prev)=> !prev)}
             type="button">{showPassword ? < MdRemoveRedEye color="red" /> : <IoEyeOffSharp color="green" /> }</button>
@@ -142,12 +150,12 @@ const Login = () => {
             <button type="submit"
             disabled={loading}>{loading? "Signing In...":"Sign In"}</button>
 
-            <p style={{fontWeight:"600"}} >or continue with</p>
+            <p className="extra-message" >or continue with</p>
             <div className="oauth-content" >
                 {/* google */}
             <button disabled={loading} onClick={function(){
                 handleAuthLogin("google")
-            }} style={{backgroundColor:"black", border:"none", padding:"4px", boxShadow:"0 2px 6px #838181"  }} type="button"><FcGoogle size={35} /></button>
+            }} style={{backgroundColor:"black", border:"none", padding:"4px", boxShadow:"0 2px 6px #838181"  }} type="button"><FcGoogle className="login-auth-google"  /></button>
 
             {/* github */}
             <button 
@@ -155,9 +163,10 @@ const Login = () => {
         onClick={function(){
             handleAuthLogin("github")
         }}
+
         style={{ background: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", boxShadow:"0 2px 6px #838181" }}
     >
-        <FaGithub size={32} color="#24292E" />
+        <FaGithub className="login-auth-github" color="#24292E" />
     </button>
 
     {/* apple id */}
