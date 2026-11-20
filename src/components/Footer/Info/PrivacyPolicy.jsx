@@ -111,7 +111,7 @@ const PrivacyPolicy = () => {
                         <Link to="/contact-us" style={{ color: "#16a34a", fontWeight: "600", textDecoration: "underline" }}>
                             Contact Us
                         </Link>{" "}
-                        page or email us directly at{" "}
+                        page or you can reach us directly at{" "}
                         <strong>charukavya.support@gmail.com</strong>.
                     </p>
                 </section>
