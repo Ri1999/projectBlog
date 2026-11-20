@@ -47,12 +47,12 @@ const Header = () => {
 
 
     {
-      name: "Login",
+      name: "Sign in",
       slug: "/login", // this slug name meant to be same as router in main.jsx
       active: !authStatus,
     },
     {
-      name: "Signup",
+      name: "Sign up",
       slug: "/signup", // this slug name meant to be same as router in main.jsx
       active: !authStatus,
     },
