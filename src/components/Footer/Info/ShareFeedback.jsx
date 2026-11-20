@@ -1,7 +1,7 @@
 // import React from 'react'
 // import { useState } from 'react'
 // import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 // import { useState } from 'react';
 import { RxEnvelopeClosed } from "react-icons/rx";
 // import SelectComponent from '../../SelectComponent'
@@ -16,12 +16,12 @@ const ShareFeedback = () => {
 
     const feedbackEmail = "charukavya.support@gmail.com"
 
-    const copyEmailId = ()=>{
-        navigator.clipboard.writeText(feedbackEmail)
-        // setCopied(true)
-        toast.success("Email copied to clipboard 📋")
-        // setCopied(false)
-    }
+    // const copyEmailId = ()=>{
+    //     navigator.clipboard.writeText(feedbackEmail)
+    //     // setCopied(true)
+    //     toast.success("Email copied to clipboard 📋")
+    //     // setCopied(false)
+    // }
 
     
 
@@ -64,11 +64,11 @@ const ShareFeedback = () => {
             }}>DIRECT COMMUNITY DESK
             </div>
 
-            <h1 style={{ fontSize: "1.8rem", color: "#010612", margin: "0 0 10px 0" }}>
+            <h1 className='shareFeedback-heading' >
                 Help Us Shape Charukavya
             </h1>
             
-            <p style={{ fontSize: "1.1rem", color: "#1d3557", lineHeight: "1.6", margin: "0 0 24px 0" }}>
+            <p className='shareFeedback-p' >
                 Your insights help us build a better home for writers and readers. Report a bug, suggest a feature, or simply share your thoughts.
             </p>
 
@@ -76,7 +76,7 @@ const ShareFeedback = () => {
             <div style={{ 
                 display: "flex", 
                 alignItems: "center", 
-                justifyContent: "space-between", 
+                justifyContent: "center", 
                 // backgroundColor: "#f8fafc", 
                 // border: "1px solid #cbd5e1", 
                 borderRadius: "12px", 
@@ -85,16 +85,21 @@ const ShareFeedback = () => {
                 gap: "10px"
             }}> <span style={{
                 fontFamily:"Fondamento, cursive",
-                fontSize:"1rem"
-            }} >charukavya.support@gmail.com</span> <button 
+                fontSize:"1rem",
+                
+            }} >charukavya.support@gmail.com</span>
+            
+             {/* <button 
                     onClick={copyEmailId}
                     style={{
                         alignSelf:"flex-end",
                         width:"40%",
-                        fontSize:"1.1rem",
+                        fontSize:"0.8rem",
                     }} 
                     type="button">COPY
-                </button>
+                </button> */}
+
+
             </div>
 
             
@@ -112,7 +117,7 @@ const ShareFeedback = () => {
                     textDecoration: "none",
                     borderRadius: "10px",
                     fontWeight: "600",
-                    fontSize: "0.95rem",
+                    fontSize: "0.85rem",
                     boxSizing: "border-box",
                     marginBottom: "18px",
                     fontFamily:"Sansation, sans-serif",

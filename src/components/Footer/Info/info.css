@@ -105,6 +105,86 @@ p{
     text-decoration: none;
 }
 
+/* contact us */
+
+.contactUs-heading{
+    font-size: 1.8rem;
+    color: #0f172a;
+}
+.contactUs-p{
+    color: #1d3557;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+
+/* share feedback */
+.shareFeedback-heading{
+    font-size: 1.8rem;
+    color: #0f172a;
+}
+.shareFeedback-p{
+    color: #1d3557;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+/* faqs */
+.faqs-heading{
+   font-size: 1.8rem;
+    color: #0f172a; 
+}
+.faqs-p{
+    color: #1d3557;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+.faqs-question{
+   font-size: 1rem; 
+   color: #1d3557;
+}
+/* t&c */
+.terms-header{
+    font-size: 1.8rem;
+    color: #0f172a; 
+}
+.terms-section h2{
+    font-size: 1.4rem;
+    color: #0f172a;
+    font-family: 'Sansation', sans-serif;
+}
+.terms-section p{
+    margin-top: 10px;
+    color: #1d3557;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+.terms-section ul{
+    font-family: 'Sansation', sans-serif;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #0f172a
+}
+/* privacy */
+.privacy-heading{
+    font-size: 1.8rem;
+    color: #0f172a;
+}
+.privacy-section h2{
+    font-size: 1.4rem;
+    color: #0f172a;
+    font-family: 'Sansation', sans-serif;
+}
+.privacy-section p{
+    margin-top: 10px;
+    color: #1d3557;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+.privacy-section ul{
+    font-family: 'Sansation', sans-serif;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #0f172a
+}
 
 
 
@@ -134,5 +214,39 @@ p{
     }
     .dev-intro h2{
         font-size: 0.8rem;
+    }
+    .contactUs-heading{
+        font-size: 1.2rem;
+    }
+    .contactUs-p{
+        font-size: 0.9rem;
+        text-align: justify;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        color: #1d3557;
+    }
+    .shareFeedback-heading, .faqs-heading, .terms-header, .privacy-heading{
+        font-size: 1.2rem;
+    }
+    .shareFeedback-p, .faqs-p, .terms-section p ,.privacy-section p{
+        font-size: 0.9rem;
+        text-align: justify;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        color: #1d3557;
+    }
+    .faqs-question{
+       font-size: 0.9rem; 
+    }
+    .terms-section h2 , .privacy-section h2{
+        font-size: 1rem;
+    }
+    .terms-section ul ,.privacy-section ul{
+        font-size: 0.9rem;
+        text-align: justify;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        line-height: 1.4rem;
+        /* list-style:disc */
     }
 }

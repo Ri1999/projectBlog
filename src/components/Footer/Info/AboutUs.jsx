@@ -4,7 +4,7 @@ import "./info.css"
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { CiMail } from "react-icons/ci";
+// import { CiMail } from "react-icons/ci";
 
 const AboutUs = () => {
   return (
@@ -32,7 +32,7 @@ const AboutUs = () => {
         </div>
 
         <div className="dev-intro">
-            <h2>Designed & Built by Rittik Patra ⚡<Link to="mailto:patraarittik@gmail.com" className="social-media-mail" >. Hire me</Link></h2>
+            <h2>Designed & Built by Rittik Patra ⚡<Link to="mailto:patraarittik@gmail.com" className="social-media-mail" ><br />. Hire me</Link></h2>
             <div className="dev-social-media" >
                 <Link to="https://github.com/Ri1999" className="social-media" ><FaGithub size={25} /></Link>
                 <Link to="https://www.linkedin.com/in/rittik-patra-9835751b1" className="social-media" ><FaLinkedinIn size={25} /></Link>

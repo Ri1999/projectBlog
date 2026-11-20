@@ -1,7 +1,7 @@
 // import React from 'react'
 // import { useState } from "react"
 // import { useForm } from "react-hook-form"
-import {toast} from "react-toastify"
+// import {toast} from "react-toastify"
 // import Input from "../../Input"
 // import { Link } from "react-router-dom"
 // import { FcSurvey } from "react-icons/fc";
@@ -17,10 +17,10 @@ const ContactUs = () => {
 
     const adminEmail = "charukavya.support@gmail.com"
 
-    const copyToClip = ()=>{
-        navigator.clipboard.writeText(adminEmail)
-        toast.success("Email copied to clipboard 📋")
-    }
+    // const copyToClip = ()=>{
+    //     navigator.clipboard.writeText(adminEmail)
+    //     toast.success("Email copied to clipboard 📋")
+    // }
 
     
 
@@ -44,12 +44,14 @@ const ContactUs = () => {
             >CHARUKAVYA HELP DESK
             </div>
 
-            <h1 style={{ fontSize: "1.8rem", color: "#0f172a", margin: "0 0 10px 0" }}>
+            {/* #0f172a */}
+
+            <h1 className="contactUs-heading" >
                 Don't be a Ghost Reader
             </h1>
 
             <div className="content">
-                <p style={{ fontSize: "1.1rem", color: "#1d3557", lineHeight: "1.6", margin: "0 0 20px 0" }}>
+                <p  className="contactUs-p" >
                     Have questions, account queries, or collaboration ideas? Reach out to our team directly—we love hearing from our community.
                 </p>
 
@@ -62,7 +64,7 @@ const ContactUs = () => {
                 }}>
                     {["Account & UPI Help", "Copyright & Content", "Collaborations", "General Queries"].map((topic) => (
                         <span key={topic} style={{
-                            fontSize: "1rem",
+                            fontSize: "0.8rem",
                             backgroundColor: "#f0fdf4",
                             color: "#15803d",
                             border: "1px solid #bbf7d0",
@@ -93,6 +95,7 @@ const ContactUs = () => {
                         letterSpacing: "0.05em",
                         marginBottom: "6px",
                         fontFamily:"Sansation, sans-serif",
+                        // textAlign:"center"
                     }}>
                         Official Support Email
                     </span>
@@ -120,7 +123,9 @@ const ContactUs = () => {
 
                         <div style={{ display: "flex", gap: "8px" }}>
                             {/* Copy Button */}
-                            <button 
+
+
+                            {/* <button 
                                 onClick={copyToClip} 
                                 type="button"
                                 style={{
@@ -140,8 +145,9 @@ const ContactUs = () => {
                             >
                                 {/* {copied ? <RxCheck size={16} /> : <RxClipboardCopy size={16} color="#16a34a" />} */}
                                 {/* {copied ? "Copied" : "Copy"} */}
-                                COPY
-                            </button>
+                                
+                            {/* </button> */} 
+
 
                             {/* Quick Send Button */}
                             {/* <a 

@@ -73,8 +73,8 @@ const Faqs = () => {
             }}
             >HELP CENTER
             </div>
-        <h1 style={{fontSize:"1.7rem"}} >Frequently Asked Questions <FcFaq size={40} /></h1>
-        <p style={{fontSize:"1.1rem",color: "#1d3557",}} >Everything you need to know about writing, reading, and supporting creators on Charukavya.</p>
+        <h1 className="faqs-heading" >Frequently Asked Questions <FcFaq size={30} /></h1>
+        <p className="faqs-p" >Everything you need to know about writing, reading, and supporting creators on Charukavya.</p>
         <div className="content">
             {faqList.map((faq, index)=> {
 
@@ -111,7 +111,7 @@ const Faqs = () => {
                         
                         
                         type="button">
-                        <span>{faq.question}</span>
+                        <span className="faqs-question" >{faq.question}</span>
                         <IoChevronDownSharp 
                         style={{
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -122,7 +122,7 @@ const Faqs = () => {
                 </button>
 
                 {isOpen && (
-                <div style={{ padding: "0 20px 18px 20px", color: "#17692c", lineHeight: "1.6", fontSize: "0.95rem", fontFamily:"Sansation, sans-serif" }}>
+                <div style={{ padding: "0 20px 18px 20px", color: "#17692c", lineHeight: "1.6", fontSize: "0.9rem", fontFamily:"Sansation, sans-serif" }}>
                   {faq.answer}
                 </div>
               )}
