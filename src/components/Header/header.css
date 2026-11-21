@@ -75,8 +75,12 @@ header.hide-on-scroll{
 
 }
 .nav-button:hover {
-    color: green;
+    color: #D89B3C;
   
+}
+.nav-button.active-nav{
+    font-weight: 600;
+    color: #D89B3C;
 }
 
 
@@ -107,11 +111,13 @@ header.hide-on-scroll{
     gap: 10px;
     flex-wrap: wrap; */
         display: none;
-        width: 100%;
+        width: 95%;
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
         text-align: center;
-        padding-bottom: 5px;
+        /* padding-bottom: 5px; */
   }
   .nav-list.show-menu {
         display: flex !important;
@@ -130,7 +136,7 @@ header.hide-on-scroll{
         position: relative;
 
         align-items: center;
-        width: 90vw;
+        width: 95vw;
         height: 50px;
     }
     .nav-click-bar{
@@ -151,8 +157,8 @@ header.hide-on-scroll{
         transition: "transform 0.3s ease",
     }
     .stack-bar{
-        width: 1.1rem;
-        height: 1.1rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
     .logo-pic h2{
         font-family: "Fondamento", cursive;
@@ -178,8 +184,8 @@ header.hide-on-scroll{
         font-size: 0.9rem;
     }
     .stack-bar{
-        width: 0.9rem;
-        height: 0.9rem;
+        width: 1rem;
+        height: 1rem;
     }
     
 

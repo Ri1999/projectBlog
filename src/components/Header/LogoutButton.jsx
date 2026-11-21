@@ -4,7 +4,7 @@ import { logout } from "../../store/authSlice"
 import { useDispatch } from "react-redux"
 // import { useState } from "react"
 // import { GiPowerButton } from "react-icons/gi";
-import { SiInkdrop } from "react-icons/si";
+// import { SiInkdrop } from "react-icons/si";
 import "./logoutButton.css"
 
 const LogoutButton = () => {
@@ -60,7 +60,7 @@ const LogoutButton = () => {
     // onMouseEnter={() => setIsHovered(true)}
     //   onMouseLeave={() => setIsHovered(false)}
 
-    onClick={handleLogout} type="button">Unl<SiInkdrop size={18} color="#a3b18a" />nk</button>
+    onClick={handleLogout} type="button">Unlnk</button>
   )
 }
 

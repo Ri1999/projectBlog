@@ -9,8 +9,12 @@ import logoimage from "../../images/Charukavya.png"
 // import { useState } from "react"
 // import { useLocation } from "react-router-dom";
 // import { useState } from "react"
-import { FaBarsStaggered } from "react-icons/fa6";
+// import { FaBarsStaggered } from "react-icons/fa6";
+import { TbLayoutListFilled } from "react-icons/tb";
 import { useState } from "react";
+// import { CiGrid32 } from "react-icons/ci";
+// import { RiLayoutGridFill } from "react-icons/ri";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   
@@ -27,6 +31,7 @@ const Header = () => {
 
   
   const navigate = useNavigate()
+  const location = useLocation();
 
   const navItems = [
     {
@@ -101,7 +106,7 @@ const Header = () => {
             <h2 className="brand-title" >Charukavya</h2>
 
             <div className="nav-click-bar" >
-              <button onClick={() => setIsOpen(!isOpen)} type="button"><FaBarsStaggered className="stack-bar" /></button>
+              <button onClick={() => setIsOpen(!isOpen)} type="button"><TbLayoutListFilled className="stack-bar" /></button>
             </div>
 
           </div>
@@ -109,11 +114,21 @@ const Header = () => {
           <ul className={`nav-list ${isOpen ? "show-menu" : ""}`}  >
             {/* before was className="nav-list " */}
             {navItems.map((item) =>
+            
+
+            
               item.active ? (
+                
                 <li key={item.name}>
 
                   {/* () => navigate(item.slug) */}
-                  <button className="nav-button" onClick={()=>{
+                  <button 
+                  className={`nav-button ${
+            location.pathname === item.slug ? "active-nav" : ""
+          }`}
+                  
+                  
+                  onClick={()=>{
                     navigate(item.slug);
                     setIsOpen(false);
                     
@@ -123,6 +138,7 @@ const Header = () => {
                 </li>
               ) : null
             )}
+            
 
             {authStatus && (
               <li className="logout-button" >

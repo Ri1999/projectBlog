@@ -7,9 +7,10 @@
     cursor: pointer;
     /* font-family: "Fondamento", cursive; */
     font-family: "Sansation", sans-serif;
+    padding-right: 6px;
 }
 .logout-button:hover{
-    color: green;
+    color: #D89B3C;
 }
 @media screen and (max-width: 480px){
     .logout-button{

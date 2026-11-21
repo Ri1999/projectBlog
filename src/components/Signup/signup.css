@@ -59,6 +59,7 @@
     color: #2A3C30;
     margin: 0;
     font-family: 'Sansation', sans-serif;
+    margin-bottom: 10px;
 }
 .signup-text a{
     color: #283618;
@@ -94,6 +95,9 @@
     }
     .signup-text, .extra-singup-message{
         font-size: 0.9rem;
+    }
+    .signup-container{
+        padding: 5px 15px;
     }
 
 
