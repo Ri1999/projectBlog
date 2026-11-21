@@ -8,6 +8,7 @@
     /* font-family: "Fondamento", cursive; */
     font-family: "Sansation", sans-serif;
     padding-right: 6px;
+    padding-top: 2px;
 }
 .logout-button:hover{
     color: #D89B3C;

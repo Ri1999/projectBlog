@@ -85,9 +85,7 @@ header.hide-on-scroll{
 
 
 @media screen and (max-width: 768px){
-    header{
-        /* box-shadow: none; */
-    }
+    
     .main-nav{
         /* padding: 10px 16px; */
         padding: 0;

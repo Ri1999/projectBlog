@@ -10,6 +10,7 @@ import blogauthservice from './appwrite/auth'
 import { login, logout } from './store/authSlice';
 import { Header, Footer } from './components';
 import { Outlet } from 'react-router-dom';
+import logoimage from "./images/mywebapp_favicon.png"
 
 function App() {
 
@@ -79,8 +80,20 @@ function App() {
   (
     <>
     <div className='loading-screen flexy'>
-      <h2>Loading...</h2>
-    </div>
+      
+        <div className="loader-card">
+          <div className="embled-wrapper">
+            
+              <img src={logoimage} alt="charukavya"
+              className="loader-emblem"
+              
+              
+              />
+              <h1 className="loader-title">Charukavya</h1>
+      <p className="loader-subtitle">Curating your creative space...</p>
+            </div>
+          </div>
+        </div>
     
     </>
   )
