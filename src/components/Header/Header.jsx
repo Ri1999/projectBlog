@@ -101,7 +101,7 @@ const Header = () => {
             <h2 className="brand-title" >Charukavya</h2>
 
             <div className="nav-click-bar" >
-              <button onClick={() => setIsOpen(!isOpen)} type="button"><FaBarsStaggered size={18} /></button>
+              <button onClick={() => setIsOpen(!isOpen)} type="button"><FaBarsStaggered className="stack-bar" /></button>
             </div>
 
           </div>

@@ -147,7 +147,7 @@ const allowedDomains = new Set([
             <img width="60px" src={logoimage} alt="" />
         <h2>Join the Community</h2>
         </div>
-        <p style={{fontSize:"1rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#b6ad90", borderRadius:"8px", color:"#fbfbfb", fontWeight:"600"}} >Create your Charukavya account</p>
+        <p style={{fontSize:"0.9rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#D89B3C", borderRadius:"4px", color:"#2B334E", fontWeight:"600"}} >Create your Charukavya account</p>
         
         <form onSubmit={handleSubmit(createNewUser)} className="signup-content" >
             
@@ -156,7 +156,7 @@ const allowedDomains = new Set([
                 {/* google */}
             <button disabled={loading} onClick={function(){
                 handleAuthSignup("google")
-            }} style={{backgroundColor:"#000000", border:"none", padding:"4px", boxShadow:"0 2px 6px #838181" }} type="button"><FcGoogle  size={38} /></button>
+            }} style={{backgroundColor:"white", border:"none", padding:"4px", boxShadow:"0 2px 6px #838181" }} type="button"><FcGoogle className="google-auth-singup"  /></button>
 
             {/* github */}
             <button 
@@ -164,9 +164,9 @@ const allowedDomains = new Set([
         onClick={function(){
             handleAuthSignup("github")
         }}
-        style={{ background: "#fdfdfd", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer",boxShadow:"0 2px 6px #838181" }}
+        style={{ background: "black", border: "none", padding: "4px", borderRadius: "8px", cursor: "pointer",boxShadow:"0 2px 6px #838181" }}
     >
-        <FaGithub size={32} color="#24292E" />
+        <FaGithub className="github-auth-singup" color="whitesmoke" />
     </button>
 
     {/* apple id */}
@@ -193,7 +193,7 @@ const allowedDomains = new Set([
     </button> */}
 
             </div>
-            <p style={{textAlign:"center", fontWeight:"600"}} >or join with email</p>
+            <p className="extra-singup-message" >or join with email</p>
             {/* name */}
 
             <Input
@@ -280,6 +280,7 @@ const allowedDomains = new Set([
             
             </div>
             <button type="submit"
+            
             disabled={loading}>{loading? "Joining...":"Join Now"}</button>
 
 

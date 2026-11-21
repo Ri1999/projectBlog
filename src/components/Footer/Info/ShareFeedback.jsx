@@ -86,6 +86,13 @@ const ShareFeedback = () => {
             }}> <span style={{
                 fontFamily:"Fondamento, cursive",
                 fontSize:"1rem",
+                backgroundColor: "#ffffff",
+                    // border: "1px solid #047223",
+                    borderRadius: "14px",
+                    padding: "16px",
+                    marginBottom: "18px",
+                    width:"100%",
+                    textAlign:"center"
                 
             }} >charukavya.support@gmail.com</span>
             

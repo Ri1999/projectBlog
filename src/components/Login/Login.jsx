@@ -96,7 +96,7 @@ const Login = () => {
             <img width="60px" src={logoimage} alt="" />
         <h2>Sign In</h2>
         </div>
-        <p style={{fontSize:"0.9rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#b6ad90", borderRadius:"8px", color:"#fbfbfb", fontWeight:"600"}} >Welcome back to Charukavya</p>
+        <p style={{fontSize:"0.9rem", textAlign:"center", padding:"4px 10px", backgroundColor:"#D89B3C", borderRadius:"4px", color:"#2B334E", fontWeight:"600"}} >Welcome back to Charukavya</p>
         {/* {error && <p className="error-text" >{error}hello</p> } */}
         <form onSubmit={handleSubmit(loginHandle)} className="login-content" >
 

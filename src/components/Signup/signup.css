@@ -70,3 +70,31 @@
     flex-direction: column;
     gap: 10px;
 }
+.extra-singup-message{
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.google-auth-singup, .github-auth-singup{
+    width: 2.1rem;
+    height: 2.1rem;
+}
+@media screen and (max-width: 480px){
+    .signup-container h2{
+        font-size: 1.2rem;
+    }
+    .signup-content input::placeholder{
+        font-size: 1rem;
+    }
+    .signup-content input{
+        font-size: 1rem;
+    }
+    .signup-content button{
+        font-size: 1rem;
+    }
+    .signup-text, .extra-singup-message{
+        font-size: 0.9rem;
+    }
+
+
+}

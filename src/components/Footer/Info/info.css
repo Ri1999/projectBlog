@@ -249,4 +249,7 @@ p{
         line-height: 1.4rem;
         /* list-style:disc */
     }
+    .contactUs-extra-message{
+        text-align: center;
+    }
 }

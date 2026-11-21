@@ -78,7 +78,7 @@ const ContactUs = () => {
                     ))}
                 </div>
 
-                {/* Official Contact Card */}
+                
                 <div style={{
                     backgroundColor: "#ffffff",
                     // border: "1px solid #047223",
@@ -86,7 +86,7 @@ const ContactUs = () => {
                     padding: "16px",
                     marginBottom: "18px"
                 }}>
-                    <span style={{ 
+                    {/* <span className="contactUs-extra-message" style={{ 
                         display: "block", 
                         fontSize: "0.72rem", 
                         fontWeight: "700", 
@@ -98,12 +98,12 @@ const ContactUs = () => {
                         // textAlign:"center"
                     }}>
                         Official Support Email
-                    </span>
+                    </span> */}
 
                     <div style={{ 
                         display: "flex", 
                         alignItems: "center", 
-                        justifyContent: "space-between", 
+                        justifyContent: "center", 
                         gap: "10px",
                         flexWrap: "wrap"
                     }}>
