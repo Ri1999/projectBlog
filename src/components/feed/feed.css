@@ -49,3 +49,14 @@
         font-size: 1.09rem;
     }
 }
+@media screen and (max-width: 480px){
+    .search-feed-content h1{
+        font-size: 1.2rem;
+    }
+    .feed-search-bar input{
+        font-size: 0.5rem;
+    }
+    .feed-search-bar input::placeholder{
+        font-size: 0.8rem;
+    }
+}
