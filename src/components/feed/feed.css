@@ -37,6 +37,26 @@
     color: #87301a;
     font-size: 1.8rem;
 }
+.feed-loading, .fresh-feed{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    flex-direction: column;
+    gap: 10px;
+}
+.feed-loader{
+    width: 2.1rem;
+    height: 2.1rem;
+}
+.fresh-feed h1{
+    font-size: 1.7rem;
+    color: #344e41 ;
+    font-family: 'Fondamento', cursive;
+}
+.fresh-feed p{
+    font-family: 'Fondamento', cursive;
+}
 @media screen and (max-width: 768px){
     .feed-grid-view{
         grid-template-columns: 1fr 1fr;
@@ -54,9 +74,40 @@
         font-size: 1.2rem;
     }
     .feed-search-bar input{
-        font-size: 0.5rem;
+        font-size: 1rem;
+        padding: 8px 8px;
     }
     .feed-search-bar input::placeholder{
         font-size: 0.8rem;
+        
+    }
+    .feed-loading h1{
+        font-size: 1.2rem;
+    }
+    .feed-loader{
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    .fresh-feed h1{
+        font-size: 1rem;
+    }
+    .fresh-feed p{
+        font-size: 0.9rem;
+        align-self: flex-start;
+    }
+    .feed-container{
+        /* margin-top: 0px; */
+        padding-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 20px;
+    }
+    .feed-grid-view{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 350px){
+    .feed-grid-view{
+        grid-template-columns: 1fr;
     }
 }

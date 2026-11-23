@@ -30,13 +30,13 @@ const FeedCard = ({
 
         </div>
         <div>
-            <p style={{color:"#c1121f"}} >{like ?? 0}<FcLike  size={18} />
+            <p className='like-head' >{like ?? 0}<FcLike className='like-forfeed' />
             
             </p>
             <div className="feed-name">
                 <p className='feed-story-name' >{title || "Anonymous" }</p>
                 <p className='feed-author' >{userName || "Anonymous"}</p>
-                <p>{contentRating==="nsfw"?"18+":""}</p>
+                <p className='adult-rating' >{contentRating==="nsfw"?"18+":"u/a"}</p>
                 {/* <p>{tags}</p> */}
             </div>
         </div>

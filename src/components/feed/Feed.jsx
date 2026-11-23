@@ -50,13 +50,7 @@ const Feed = () => {
 
     if(loading|| !userData){
         return (
-            <div style={{
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                height:"60vh",
-                flexDirection:"column",
-            }} ><h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}} ><i>gathering the latest tales. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
+            <div className="feed-loading" ><h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}} ><i>gathering the latest tales. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" className="feed-loader" /></span></div>
         )
     }
 
@@ -119,17 +113,20 @@ const Feed = () => {
         <div className="display-feed-content">
             {feedData?.length === 0 ? (
         // Case 1: Database me ek bhi post nahi hai (Pioneer State)
-        <div style={{ textAlign: "center", padding: "10%", color: "#344e41", }}>
-            <h1 style={{ fontWeight: "600", fontSize: "1.4rem", marginBottom: "1rem" , fontFamily: "Fondamento, cursive",}}>
+        <div className="fresh-feed" >
+            <h1>
                 Charukavya is freshly set and ready for its very first tale. Be the pioneer writer to drop the first ink here!
             </h1>
-            <p style={{ fontSize: "1.1rem",fontFamily: "Fondamento, cursive", }}>Be the one who writes the first story. ✨</p>
+            <p>Be the one who writes the first story. ✨</p>
         </div>
     ) : filterFeedData?.length === 0 ? (
         // Case 2: Database me posts hain, par search match nahi hua
-        <p style={{ textAlign: "center", padding: "10%", color: "#344e41", fontFamily: "Fondamento, cursive", fontWeight: "600", fontSize: "1.4rem" }}>
+
+        <div style={{display:"flex", flexGrow:"1", height:"60vh", justifyContent:"center", alignItems:"center"}} >
+        <p style={{ textAlign: "center", padding: "10%", color: "#344e41", fontFamily: "Fondamento, cursive", fontWeight: "600", fontSize: "1rem" }}>
             We couldn't find any stories matching that 😞
         </p>
+        </div>
     ) : (
         // Case 3: Normal feed or search results grid
         <div className="feed-grid-view">
