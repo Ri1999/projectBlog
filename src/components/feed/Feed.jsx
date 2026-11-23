@@ -91,7 +91,7 @@ const Feed = () => {
             <form className="feed-search-bar" onSubmit={(e) => e.preventDefault()} >
                 <Input
                 // label="test"
-                placeholder="Type to search stories, authors (e.g., horror, fantasy, sfw, nsfw )"
+                placeholder="type to search stories, authors (e.g., horror, fantasy, sfw, nsfw )"
                 error={errors.feedSearch?.message}
                 {...register("feedSearch",{
                     pattern:{
@@ -122,8 +122,8 @@ const Feed = () => {
     ) : filterFeedData?.length === 0 ? (
         // Case 2: Database me posts hain, par search match nahi hua
 
-        <div style={{display:"flex", flexGrow:"1", height:"60vh", justifyContent:"center", alignItems:"center"}} >
-        <p style={{ textAlign: "center", padding: "10%", color: "#344e41", fontFamily: "Fondamento, cursive", fontWeight: "600", fontSize: "1rem" }}>
+        <div style={{display:"flex", height:"60vh", justifyContent:"", alignItems:""}} >
+        <p style={{ textAlign: "center", color: "#344e41", fontFamily: "Fondamento, cursive", fontWeight: "600", fontSize: "1rem", alignSelf:"baseline" }}>
             We couldn't find any stories matching that 😞
         </p>
         </div>
