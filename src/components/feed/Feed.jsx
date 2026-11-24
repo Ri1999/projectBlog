@@ -114,9 +114,11 @@ const Feed = () => {
             {feedData?.length === 0 ? (
         // Case 1: Database me ek bhi post nahi hai (Pioneer State)
         <div className="fresh-feed" >
+            {/* <p>test</p> */}
             <h1>
-                Charukavya is freshly set and ready for its very first tale. Be the pioneer writer to drop the first ink here!
+                Charukavya is ready for its very first tale.
             </h1>
+            <h2>Be the pioneer!</h2>
             <p>Be the one who writes the first story. ✨</p>
         </div>
     ) : filterFeedData?.length === 0 ? (

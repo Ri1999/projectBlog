@@ -96,13 +96,20 @@ const AllPosts = () => {
     
     if(loading){
         return (
-            <div style={{
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                height:"60vh",
-                flexDirection:"column",
-            }} ><h1 style={{color:"#e5b2a3", fontFamily:"Fondamento, cursive",}} ><i>fetching your creations. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" size={40}/></span></div>
+            <div
+
+            className="allpost-loading"
+            
+            // style={{
+            //     display:"flex",
+            //     alignItems:"center",
+            //     justifyContent:"center",
+            //     height:"60vh",
+            //     flexDirection:"column",
+            // }} 
+            
+            
+            ><h1 style={{color:"#e5b2a3", fontFamily:"Fondamento, cursive",}} ><i>fetching your creations. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" className="allpost-loader" /></span></div>
         )
     }
 
@@ -115,11 +122,23 @@ const AllPosts = () => {
         <h1>creations</h1>
         {/* grid container */}
         {posts?.length === 0 ? 
-        <div style={{display:"flex", flexDirection:"column", gap:"30px", color: "#344e41"}} >
+        <div 
+
+        className="fresh-all-post"
+        
+        
+        // style={{display:"flex", flexDirection:"column", gap:"30px", color: "#344e41"}}
+        
+        >
             {/* <span>✒️</span> */}
-            <h2 style={{textAlign:"center",fontFamily: "Fondamento, cursive",}} >Your Ink Creation is Empty</h2>
-            <h3 style={{textAlign:"center",fontFamily: "Fondamento, cursive",}} >You haven’t published or drafted any stories yet. Pour your thoughts onto the <span style={{color:"#b85b3c"}} >Spill Ink</span> and share your first story with us!</h3>
-            <p style={{textAlign:"center",fontFamily: "Fondamento, cursive", fontSize:"1.1rem"}} ><span>✨</span> Write Your First Story</p>
+            <h1 
+            
+            // style={{textAlign:"center",fontFamily: "Fondamento, cursive",}}
+            
+            
+            >Your Ink Creation is Empty.</h1>
+            <h2>Pour your thoughts onto the <span style={{color:"#b85b3c"}} >Spill Ink</span> and share your first story with us!</h2>
+            <p>✨ Write Your First Story</p>
 
         </div>
         :<div className="grid-container" >

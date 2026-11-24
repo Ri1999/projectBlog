@@ -40,6 +40,7 @@
 .feed-loading, .fresh-feed{
     display: flex;
     align-items: center;
+    /* width: 95vw; */
     justify-content: center;
     height: 60vh;
     flex-direction: column;
@@ -54,8 +55,15 @@
     color: #344e41 ;
     font-family: 'Fondamento', cursive;
 }
+.fresh-feed h2{
+    color: #344e41 ;
+    font-family: 'Fondamento', cursive;
+    
+}
 .fresh-feed p{
     font-family: 'Fondamento', cursive;
+    /* text-align: center; */
+    
 }
 @media screen and (max-width: 768px){
     .feed-grid-view{
@@ -90,10 +98,14 @@
     }
     .fresh-feed h1{
         font-size: 1rem;
+        align-self: center;
     }
     .fresh-feed p{
         font-size: 0.9rem;
-        align-self: flex-start;
+        align-self: center;
+    }
+    .fresh-feed h2{
+        font-size: 0.9rem;
     }
     .feed-container{
         /* margin-top: 0px; */

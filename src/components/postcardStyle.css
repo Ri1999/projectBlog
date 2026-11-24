@@ -39,7 +39,8 @@
   gap: 12px;
   max-width: 320px;
   /* background-color: #f6eae0; */
-  background-color: #edecec;
+  /* background-color: #edecec; */
+  background-color: #efeae6;
   
 }
 .postcard-container:hover {
@@ -131,7 +132,7 @@
   width: 0.8rem;
   height: 0.8rem;
 }
-.published{
+.published, .unpublished{
   width: 1rem;
   height: 1rem;
 }
