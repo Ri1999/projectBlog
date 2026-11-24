@@ -84,18 +84,24 @@ a:hover {
 }
 @media Screen and (max-width: 480px){
     .brand-logo h2{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .brand-logo p{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .company h3, .support h3, .legals h3{
-        font-size: 1.3rem;
-    }
-    .company-links, .support-links, .legal-links {
         font-size: 0.9rem;
     }
+    .company-links, .support-links, .legal-links {
+        font-size: 0.8rem;
+    }
     .footer-bottom p {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
+    }
+    .footer-container{
+        margin: 0;
+    }
+    .footer-container{
+        grid-template-columns: 2fr 1fr;
     }
 }
