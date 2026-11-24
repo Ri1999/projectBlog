@@ -112,7 +112,7 @@ const AllPosts = () => {
 
   return (
     <div className="story-outer-container" >
-        <h1>my creations</h1>
+        <h1>creations</h1>
         {/* grid container */}
         {posts?.length === 0 ? 
         <div style={{display:"flex", flexDirection:"column", gap:"30px", color: "#344e41"}} >
@@ -126,7 +126,7 @@ const AllPosts = () => {
             {posts?.map((post)=>(
                 <div key={post.$id} className="story-card-wrapper" >
                     <PostCard {...post} />
-                    <p>created: {timeOfCreation(post.$createdAt)}</p>
+                    <p className="creation-time" >created: {timeOfCreation(post.$createdAt)}</p>
                 </div>
             ))}
         </div> }

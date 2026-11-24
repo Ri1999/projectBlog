@@ -57,8 +57,7 @@ const PostCard = ({
             color: #87301a;
             
             */}
-            {result? <MdPublishedWithChanges color="#f43202" size={20} />:<MdUnpublished color="#a3b18a" size={20} />
-            }
+            <p className="publishing-status" >{result? <MdPublishedWithChanges className="published" />:<MdUnpublished className="unpublished" />}</p>
             <span></span>
             <div className="postcard-content">
 
@@ -73,13 +72,16 @@ const PostCard = ({
 
 
             </div>
+
+            <div slot="post-details" >
             {/* testing purpose off */}
-            <p style={{color:"#c1121f"}} >{like ?? 0}<FcLike  size={18} />
-            <span>{contentRating==="nsfw"?"18+":""}</span>
+            <p style={{color:"#c1121f"}} >{like ?? 0}<FcLike className="own-post-like" />
+            <span>{contentRating==="nsfw"?"18+":"u/a"}</span>
             </p>
             {/* <p>test</p> */}
 
             <h2 style={{padding:"4px", width:"100%", }} >{title}</h2>
+            </div>
 
         </div>
 
