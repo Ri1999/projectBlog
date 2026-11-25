@@ -263,13 +263,22 @@
 .dashboard-loading h1{
     font-family: 'Fondamento', cursive;
 }
-.left-side h3{
+.left-side h3, .right-side-Ink-pressions h3{
     font-size: 2.1rem;
 }
 .no-write-icon{
         width: 1.5rem;
         height: 1.5rem;
     }
+.ink-pression-report-ui h3{
+    font-size: 1.5rem;
+}   
+.display-inkfootPrint li button{
+    /* background-color: red; */
+    font-family: 'Fondamento', cursive;
+    font-size: 1.1rem;
+    font-weight: 600;
+} 
 
 @media screen and (max-width:768px) {
     .dashboard-content{
@@ -306,10 +315,10 @@
     .dashboard-container p{
         font-size: 0.9rem;
     }
-    .left-side h3{
+    .left-side h3, .right-side-Ink-pressions h3{
         font-size: 1rem;
     }
-    .left-side p{
+    .left-side p , .right-side-Ink-pressions p, .right-side-Ink-pressions h2, .ink-pression-report-ui h3{
         font-size: 0.8rem;
     }
     .encourage h4{
@@ -326,10 +335,38 @@
         padding-top: 10px;
         /* padding-left: 15px; */
         /* padding-right: 15px; */
+        padding-left: 5px;
+        padding-right: 5px;
         padding-bottom: 20px;
     }
-    .left-side{
+    .left-side, .right-side-Ink-pressions{
         border-radius: 8px;
         padding: 20px;
     }
+    .dashboard-like, .dashboard-report{
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+    .right-side-Ink-pressions{
+        padding-bottom: 0px;
+        /* height: auto; */
+    }
+    .display-inkfootPrint{
+        grid-template-columns: 1fr 1fr;
+        /* width: 10%; */
+        justify-content: space-between;
+    }
+    .display-inkfootPrint li{
+        font-size: 0.8rem;
+    }
+    .display-inkfootPrint li button{
+        /* background-color: red; */
+        font-size: 0.8rem;
+    }
+    .inksight-details{
+        height: 150px;
+    }
+    
+    
+    
 }

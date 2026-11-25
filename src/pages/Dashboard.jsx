@@ -19,6 +19,7 @@ import { Link } from "react-router-dom"
 // import { PiPathLight } from "react-icons/pi";
 // import { FcOpenedFolder } from "react-icons/fc";
 import { FcTreeStructure } from "react-icons/fc";
+import { FaRegShareFromSquare } from "react-icons/fa6";
 // import { FcCableRelease } from "react-icons/fc";
 // import { FcSerialTasks } from "react-icons/fc";
 import { GoFileSymlinkFile } from "react-icons/go";
@@ -288,8 +289,8 @@ const Dashboard = () => {
                         <li><b>{data.title}</b></li>
                         <li><b>state{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
                         <li><b>{calculateWords(data.content)}</b> words spilled</li>
-                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#a73a5c" size={20} />/inkPath</Link></li>
-                        <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FcTreeStructure size={20} /></button></li>
+                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#a73a5c" />/inkpath</Link></li>
+                        <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FaRegShareFromSquare color="#a73a5c" /></button></li>
                     </div>
                 )) }
                     </div>
@@ -299,13 +300,14 @@ const Dashboard = () => {
 
             </div>
             <div className="right-side-Ink-pressions">
-                <h3 style={{textAlign:"center", fontSize:"2.1rem"}}  >Ink-pressions</h3>
-                <p style={{fontFamily: "Fondamento, cursive"}} >You are a <b>{rank?.title}</b>{rank?.icon}</p>
-                <h2>{likeData} <FcLike size={25} /> </h2>
-                <h2>{reportData} <FiAlertTriangle color="#d90429" size={25} /></h2>
+                <h3 style={{textAlign:"center", }}  >Ink-pressions</h3>
+                <p style={{fontFamily: "Fondamento, cursive"}} >You are a <b>{rank?.title}</b></p>
+                <h2>{likeData} <FcLike className="dashboard-like" /> </h2>
+                <h2>{reportData} <FiAlertTriangle color="#d90429" className="dashboard-report" /></h2>
                 <div className="ink-pression-report-ui" >
-                <h3 style={{fontSize:"1.5rem"}} >Ink Integrity: {reportRank?.title} {reportRank?.icon}</h3>
-                <p style={{fontSize:"1.2rem", paddingRight:"10px"}} >{reportRank?.reportMessage}</p>
+                <h3 >Ink Integrity: {reportRank?.title}</h3>
+                <p style={{ paddingRight:"10px"}} >{reportRank?.reportMessage}</p>
+
                 {reportPostData && reportPostData.length > 0 && (
         <div style={{ marginTop: "20px", textAlign: "left", width: "97%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #edeae5",
          }}>
