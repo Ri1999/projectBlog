@@ -95,7 +95,7 @@
 
 }
 .dashboard-slug:hover{
-    color: #a73a5c;
+    color: #4a5759;
 }
 .display-inkfootPrint{
     display: grid;
@@ -105,9 +105,16 @@
     width: 100%;
     grid-template-columns: 1fr 1fr 0.5fr;
 
-    /* border: 1px solid red; */
+    /* border: 1px solid rgb(77, 76, 76); */
+    border-radius: 8px;
+    background-color: #c1bdb6;
+    /* box-shadow: 0 10px 10px red; */
+    margin-bottom: 5px;
     /* background-color: aliceblue; */
     padding: 4px 8px ;
+    /* box-shadow: 0 2px 1px #453530; */
+    color: #2B334E;
+
    
 }
 .display-inkfootPrint li button{
@@ -280,6 +287,7 @@
     font-weight: 600;
 } 
 
+
 @media screen and (max-width:768px) {
     .dashboard-content{
         grid-template-columns: 1fr;
@@ -357,11 +365,11 @@
         justify-content: space-between;
     }
     .display-inkfootPrint li{
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
     .display-inkfootPrint li button{
         /* background-color: red; */
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
     .inksight-details{
         height: 150px;

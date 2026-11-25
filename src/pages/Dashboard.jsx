@@ -49,6 +49,7 @@ import { VscWorkspaceTrusted } from "react-icons/vsc";
 // import { CgSpinnerTwo } from "react-icons/cg";
 // import { BiLoaderAlt } from "react-icons/bi";
 import { FaPen } from "react-icons/fa6";
+import { PiPathFill } from "react-icons/pi";
 
 const Dashboard = () => {
     const [posts, setPosts] = useState([])
@@ -273,7 +274,7 @@ const Dashboard = () => {
         <div className="dashboard-content">
             <div className="left-side">
                 <h3 style={{textAlign:"center",}} >Ink-sights</h3>
-                <p><b>{posts.total}</b> creation <SiWikibooks color="green" /></p>
+                <p><b>{posts.total}</b> {posts.total===1?"Creation":"Creations"} <SiWikibooks color="green" /></p>
 
                 {posts.documents?.length === 0 ? (
                     <div className="encourage"  >
@@ -289,8 +290,9 @@ const Dashboard = () => {
                         <li><b>{data.title}</b></li>
                         <li><b>state{data.status==="active"?<MdPublishedWithChanges color="green" />:<MdUnpublished color="#a3b18a" />}</b></li>
                         <li><b>{calculateWords(data.content)}</b> words spilled</li>
-                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><GoFileSymlinkFile color="#a73a5c" />/inkpath</Link></li>
-                        <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FaRegShareFromSquare color="#a73a5c" /></button></li>
+                        <li ><Link className="dashboard-slug" to={`/ink-creations/${data.slug}`} ><PiPathFill color="green" />/inkpath</Link></li>
+                        <li><button onClick={()=>handleShareStory(data.slug)} type="button"><FaRegShareFromSquare color="#3a3d3d" /></button></li>
+                        
                     </div>
                 )) }
                     </div>
