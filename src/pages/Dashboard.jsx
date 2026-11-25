@@ -198,7 +198,7 @@ const Dashboard = () => {
         if( Count >=1 ){
             return {title:"Report Addressed", icon:<CgDanger color="red" size={28} /> ,
             reportMessage:
-            `Scroll down to check the specific issues flagged by readers. If you beleive these as incorrent or unfair, email support@charukavya.com for help.`}
+            `Scroll down to check the specific issues flagged by readers. If you beleive these as incorrent or unfair, email us at charukavya.support@gmail.com for help.`}
         }
     }
 
@@ -311,18 +311,17 @@ const Dashboard = () => {
                 <p style={{ paddingRight:"10px"}} >{reportRank?.reportMessage}</p>
 
                 {reportPostData && reportPostData.length > 0 && (
-        <div style={{ marginTop: "20px", textAlign: "left", width: "97%", backgroundColor: "#fff", padding: "15px", borderRadius: "8px", border: "1px solid #edeae5",
-         }}>
+        <div className="for-report-details">
             <h4 style={{ color: "#d90429", marginBottom: "10px", display: "flex", alignItems: "center", gap: "6px" }}>
                 <FiAlertTriangle />Stories Review:
             </h4>
             {reportPostData.map((item, index) => {
                 // Agar multiple reports hain ek story par, toh loop chala sakte hain
                 return (
-                    <div key={index} style={{ marginBottom: "12px", borderBottom: "1px solid #eee", paddingBottom: "8px" }}>
-                        <p style={{ fontWeight: "bold", fontSize: "1rem", color: "#2b2b2b" }}>Reported Story: {item.title}.</p>
+                    <div className="reporting-details"  key={index} style={{ marginBottom: "12px", borderBottom: "1px solid #eee", paddingBottom: "8px", }}>
+                        <p style={{ fontWeight: "bold", color: "#2b2b2b" }}>Reported Story: {item.title}.</p>
                         <p
-                        style={{ fontWeight: "bold", fontSize: "1rem", color: "#2b2b2b" }}
+                        style={{ fontWeight: "bold", color: "#2b2b2b" }}
                         >{item.reasons}.</p>
                         
                     </div>

@@ -107,7 +107,7 @@
 
     /* border: 1px solid rgb(77, 76, 76); */
     border-radius: 8px;
-    background-color: #c1bdb6;
+    background-color: #dcd8d2;
     /* box-shadow: 0 10px 10px red; */
     margin-bottom: 5px;
     /* background-color: aliceblue; */
@@ -286,6 +286,19 @@
     font-size: 1.1rem;
     font-weight: 600;
 } 
+.for-report-details{
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #edeae5;
+    /* margin-bottom: 0px; */
+    /* padding-bottom: 20px; */
+
+
+}
 
 
 @media screen and (max-width:768px) {
@@ -373,6 +386,22 @@
     }
     .inksight-details{
         height: 150px;
+    }
+    .for-report-details h4{
+        font-size: 0.9rem;
+    }
+    .reporting-details p , .ink-pression-report-ui p{
+        font-size: 0.8rem;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        /* text-align: ; */
+    }
+    .for-report-details{
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .dashboard-content{
+        gap: 1px;
     }
     
     
