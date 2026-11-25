@@ -45,6 +45,9 @@ import { SiWikibooks } from "react-icons/si";
 import Input from "../components/Input"
 import { useForm } from 'react-hook-form';
 import { VscWorkspaceTrusted } from "react-icons/vsc";
+// import { CgSpinnerTwo } from "react-icons/cg";
+// import { BiLoaderAlt } from "react-icons/bi";
+import { FaPen } from "react-icons/fa6";
 
 const Dashboard = () => {
     const [posts, setPosts] = useState([])
@@ -144,9 +147,9 @@ const Dashboard = () => {
     },[LoggeduserId, userData])
 
     if (loading || !posts) {
-        return <div className="readpost-loading">
-            <h1 style={{color:"#e5b2a3"}} ><i>gathering your stories & reflections. . .</i></h1>
-            <span className="animate-spin-custom" ><FiLoader color="#e90e0e" size={40}/></span>
+        return <div className="dashboard-loading">
+            <h1 style={{color:"#e5b2a3"}} ><i>Syncing your inkStation. . .</i></h1>
+            <span className="animate-spin-custom" ><FaPen color="#344e41" className="dashboard-loader" /></span>
         </div>
     }
 
@@ -268,14 +271,14 @@ const Dashboard = () => {
         
         <div className="dashboard-content">
             <div className="left-side">
-                <h3 style={{textAlign:"center", fontSize:"2.1rem"}} >Ink-sights</h3>
+                <h3 style={{textAlign:"center",}} >Ink-sights</h3>
                 <p><b>{posts.total}</b> creation <SiWikibooks color="green" /></p>
 
                 {posts.documents?.length === 0 ? (
                     <div className="encourage"  >
                         <h4>No ink spilled yet</h4>
                         <p style={{textAlign:"left"}}  >Your writer's workspace is all set up. Draft a quick thought or publish your first piece now.</p>
-                        <Link className="no-written" to="/spill-ink">spill Ink... <VscEditSparkle color="#da9005" size={26} /></Link>
+                        <Link className="no-written" to="/spill-ink">spill Ink... <VscEditSparkle color="#da9005" className="no-write-icon" /></Link>
                     </div>
                 ):(
                     <div className="inksight-details" >

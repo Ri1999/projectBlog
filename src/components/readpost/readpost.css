@@ -1,13 +1,16 @@
 .readpost-loading{
     /* text-align: center; */
     width: 100%;
-    font-family: 'Sansation', sans-serif;
+
+    /* font-family: 'Sansation', sans-serif; */
+
     color: #2c4a36;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 78vh;
+    height: 60vh;
     justify-content: center;
+    gap: 10px;
     /* position: relative;  */
 }
 .story-header {
@@ -187,11 +190,25 @@
     border-bottom: 2px solid #1A4329;
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+  /* 0% { transform: rotate(0deg); }
+  10% { transform: rotate(360deg); } */
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12); /* 12% bada hoga */
+    opacity: 0.6;           /* Halka fade hoga */
+  }
 }
+  
+
 .animate-spin-custom {
-  animation: spin 1s linear infinite;
+  /* animation: spin 1s infinite;
+  opacity: 0 translateY(100px) */
+
+  animation: spin 1.8s ease-in-out infinite;
 }
 .delete-icon, .edit-icon{
   width: 21px;

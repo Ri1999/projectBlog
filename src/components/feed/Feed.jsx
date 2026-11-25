@@ -12,6 +12,7 @@ import { useSelector } from "react-redux"
 // import { FcLibrary } from "react-icons/fc";
 import FeedCard from "../feedCard/FeedCard"
 import "./feed.css"
+import { FaPen } from "react-icons/fa6";
 
 const Feed = () => {
 
@@ -50,7 +51,7 @@ const Feed = () => {
 
     if(loading|| !userData){
         return (
-            <div className="feed-loading" ><h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}} ><i>gathering the latest tales. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" className="feed-loader" /></span></div>
+            <div className="feed-loading" ><h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}} ><i>gathering the latest tales. . .</i></h1><span className="animate-spin-custom" ><FaPen color="#344e41" className="feed-loader" /></span></div>
         )
     }
 
