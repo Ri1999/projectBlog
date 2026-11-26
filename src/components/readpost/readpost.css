@@ -198,8 +198,8 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.12); /* 12% bada hoga */
-    opacity: 0.6;           /* Halka fade hoga */
+    transform: scale(1.12); 
+    opacity: 0.6;          
   }
 }
   

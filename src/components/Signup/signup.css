@@ -99,6 +99,9 @@
     .signup-container{
         padding: 5px 15px;
     }
+    .error-text{
+        font-size: 0.8rem;
+    }
 
 
 }

@@ -55,7 +55,7 @@
     
     border-radius: 16px;
     /* background-color: #ffffff; */
-    background-color: #efeae6;
+    background-color: #f6f4f2;
     color: #38130a;
     font-family: 'Fondamento', cursive;
    
@@ -107,13 +107,13 @@
 
     /* border: 1px solid rgb(77, 76, 76); */
     border-radius: 8px;
-    background-color: #dcd8d2;
+    background-color: #EFE5D8;
     /* box-shadow: 0 10px 10px red; */
     margin-bottom: 5px;
     /* background-color: aliceblue; */
     padding: 4px 8px ;
     /* box-shadow: 0 2px 1px #453530; */
-    color: #2B334E;
+    /* color: #0337e1; */
 
    
 }
@@ -270,7 +270,7 @@
 .dashboard-loading h1{
     font-family: 'Fondamento', cursive;
 }
-.left-side h3, .right-side-Ink-pressions h3{
+.left-side h3, .right-side-Ink-pressions h3, .dashboard-monetization h3{
     font-size: 2.1rem;
 }
 .no-write-icon{
@@ -298,6 +298,9 @@
     /* padding-bottom: 20px; */
 
 
+}
+.error-text{
+    font-size: 1rem;
 }
 
 
@@ -336,10 +339,10 @@
     .dashboard-container p{
         font-size: 0.9rem;
     }
-    .left-side h3, .right-side-Ink-pressions h3{
+    .left-side h3, .right-side-Ink-pressions h3, .dashboard-monetization h3{
         font-size: 1rem;
     }
-    .left-side p , .right-side-Ink-pressions p, .right-side-Ink-pressions h2, .ink-pression-report-ui h3{
+    .left-side p , .right-side-Ink-pressions p, .right-side-Ink-pressions h2, .ink-pression-report-ui h3, .monetize-help h3{
         font-size: 0.8rem;
     }
     .encourage h4{
@@ -360,7 +363,7 @@
         padding-right: 5px;
         padding-bottom: 20px;
     }
-    .left-side, .right-side-Ink-pressions{
+    .left-side, .right-side-Ink-pressions, .dashboard-monetization{
         border-radius: 8px;
         padding: 20px;
     }
@@ -403,6 +406,44 @@
     .dashboard-content{
         gap: 1px;
     }
+    .monetize-subtitle{
+        font-size: 0.8rem;
+        /* color: re; */
+    }
+
+    .upi-input label{
+        /* color: red; */
+        font-size: 0.8rem;
+    }
+    .upi-input input{
+        font-size: 0.9rem;
+
+    }
+    .upi-input input::placeholder{
+        font-size: 0.8rem;
+    }
+    .monetize-save-btn{
+        font-size: 0.9rem;
+    }
+    .monetize-help p, .monetize-help-support{
+        /* color: red;
+         */
+         font-size: 0.8rem;
+    }
+    .monetize-preview p{
+        font-size: 0.7rem;
+    }
+    /* better in mobile view i guess */
+    .left-side{
+        background-color: #EFE5D8;
+    }
+    .display-inkfootPrint{
+        background-color: rgb(243, 246, 243);
+    }
+    .dashboard-monetization{
+        margin-top: 17px;
+    }
+    
     
     
     

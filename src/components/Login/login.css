@@ -45,7 +45,8 @@
 .error-text{
     font-family: 'Sansation', sans-serif;
     color: red;
-    text-align: center;
+    /* text-align: left; */
+    /* align-self: flex-start; */
 }
 
 .login-content{

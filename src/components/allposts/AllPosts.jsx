@@ -10,6 +10,7 @@ import "./allposts.css"
 // import { FcSynchronize } from "react-icons/fc";
 import { useNavigate } from "react-router-dom"
 import { FiLoader } from "react-icons/fi";
+import { FaPen } from "react-icons/fa6";
 const AllPosts = () => {
 
     const [posts, setPosts] = useState([])
@@ -109,7 +110,7 @@ const AllPosts = () => {
             // }} 
             
             
-            ><h1 style={{color:"#e5b2a3", fontFamily:"Fondamento, cursive",}} ><i>fetching your creations. . .</i></h1><span className="spinning-animation" ><FiLoader color="#e90e0e" className="allpost-loader" /></span></div>
+            ><h1 style={{color:"#e5b2a3", fontFamily:"Fondamento, cursive",}} ><i>fetching your creations. . .</i></h1><span className="animate-spin-custom" ><FaPen color="#344e41" className="allpost-loader" /></span></div>
         )
     }
 

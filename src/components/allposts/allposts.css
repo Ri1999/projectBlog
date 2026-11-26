@@ -63,8 +63,8 @@
     gap: 10px;
 }
 .allpost-loader{
-  width: 2.1rem;
-    height: 2.1rem;
+  width: 1.5rem;
+    height: 1.5rem;
 }
 .fresh-all-post h1{
   font-size: 1.7rem;
@@ -111,8 +111,8 @@
     font-size: 0.8rem;
   }
   .allpost-loader{
-    width: 1.2rem;
-      height: 1.2rem;
+    width: 1rem;
+      height: 1rem;
   }
   .allpost-loading h1{
     font-size: 1.2rem;

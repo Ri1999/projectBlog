@@ -337,7 +337,7 @@ const Dashboard = () => {
 
 
         <div className="dashboard-monetization">
-            <h3 style={{textAlign:"center", fontSize:"2.1rem", color:"#1C3123"}} >InkFlow Monetization</h3>
+            <h3 style={{textAlign:"center", color:"#1C3123"}} >Inkflow Monetize</h3>
             <p className="monetize-subtitle" >Turn readers into supporters. Zero platform fee, 100% yours.</p>
             <div className="monetize-content">
                 <form onSubmit={handleSubmit(handleSaveUpi)} className="monetize-form" >
@@ -349,10 +349,10 @@ const Dashboard = () => {
                         placeholder="username@okaxis or 9876543210@ybl"
                         error={errors.upiId?.message}
                         {...register("upiId", {
-                            required:"GPay / UPI ID is required to receive reader's support directly into your account",
+                            required:"psst... you missed a spot",
                             pattern:{
                                 value: /^[\w.-]+@[\w.-]+$|^[6-9]\d{9}$/,
-                                message: "Please enter a valid payment ID (e.g., user@okaxis) or 10-digit mobile number"
+                                message: "Not quite! Try user@bank or a 10-digit number"
 
                             }
                         })}
@@ -364,7 +364,7 @@ const Dashboard = () => {
                 
                 <div className="monetize-help">
                     {/* <p>test</p> */}
-                    <h3>Direct Peer-to-Peer Payouts <VscWorkspaceTrusted size={18} color="green" /></h3>
+                    <h3>Direct Peer-to-Peer Payouts <VscWorkspaceTrusted color="green" /></h3>
                     <p>We never hold or touch your money. Your UPI ID is strictly used to dynamically generate a QR code on your stories so readers can pay you directly from their bank to yours — with 0% platform fee.</p>
                     <p className="monetize-help-support" >Got questions about monetization or setting up your UPI? Drop us a direct mail at <b>charukavya.support@gmail.com</b>.</p>
                 </div>
