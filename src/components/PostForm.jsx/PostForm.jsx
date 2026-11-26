@@ -182,7 +182,7 @@ const PostForm = ({postDataFromAppwrite}) => {
                     <h2>Ink Desk</h2>
 
                 <Input
-                className="test"
+                className="upload-test"
                 type="file"
                 error={errors.image?.message}
                 accept="image/png, image/jpg, image/jpeg, image/webp "
@@ -228,7 +228,7 @@ const PostForm = ({postDataFromAppwrite}) => {
 
 
                 
-                <button  type="submit">{postDataFromAppwrite ? "Refine Ink" : "Spill Ink"}</button>
+                <button type="submit">{postDataFromAppwrite ? "Refine Ink" : "Spill Ink"}</button>
 
                 </div>
 

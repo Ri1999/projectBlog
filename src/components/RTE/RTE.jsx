@@ -62,7 +62,7 @@ const toogleMode =()=>{
   return (
     <div className="rte-container" >
         {/* condition that if label used then render it */}
-        {label && <label style={{fontSize:"1.5rem", marginLeft:"10px", marginTop:"10px", fontWeight:"650"}} >{label}</label>}
+        {label && <label style={{ marginLeft:"10px", marginTop:"10px", fontWeight:"650"}} >{label}</label>}
         <button 
         
         style={{
@@ -96,16 +96,21 @@ const toogleMode =()=>{
             init={{
                 height:500,
                 width: '100%',
-                menubar: false,
 
                 // there are brading names on it which look aweful and Ui bad so
                 branding:false,
                 elementpath: false,
+                toolbar_mode: 'wrap',
                 statusbar: false,
                 autofocus: true,
                 resize:false,
                 toolbar_sticky: true,
                 selector: "textarea",
+                mobile:{
+                    menubar: false,
+                    toolbar_mode:"floating"
+                },
+                
 
 // TODO: later if app runs well
                 // content_language: 'en',
@@ -133,10 +138,15 @@ const toogleMode =()=>{
                 
                 
                 }
+                @media (max-width: 480px) {
+    body {
+      font-size: 0.9rem !important;
+      line-height: 1.5 !important;
+      padding: 1px 1px;
+    }
+  }
                 
 
-                
-                
                 `,
                  
             

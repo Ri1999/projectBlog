@@ -127,7 +127,7 @@
   color: black;
 
 }
-.test{
+.test, .upload-test{
     width: 50%;
     padding: 14px;
     font-family: 'Sansation', sans-serif;
@@ -149,7 +149,7 @@
 
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
-.test:hover{
+.test:hover, .upload-test:hover{
   /* background-color: #2D4434; */
   background-color: #0a0908;
   color: whitesmoke;
@@ -184,10 +184,57 @@
       text-align: center;
     }
 
-    /* .left-content{
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-    } */
-
+}
+.postform-written-area label{
+  /* color: red; */
+  font-size: 1.5rem;
+}
+@media screen and (max-width:480px){
+  .postform-container h1{
+    font-size: 1.1rem;
+  }
+  .postform-container{
+    padding-top: 10px;
+        /* padding-left: 15px; */
+        /* padding-right: 15px; */
+    /* padding-left: 15px;
+    padding-right: 15px; */
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .postform-upload-area{
+    box-shadow: none;
+    gap: 1rem;
+  }
+  .left-content h2{
+    font-size: 1rem;
+  }
+  .test, .left-content button{
+      /* width: 80%; */
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    
+  .left-content p, .right-content p{
+    font-size: 0.8rem;
+  }
+  .upload-test{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .left-content button{
+    width: 100%;
+  }
+  .right-content label, .right-content input{
+    font-size: 0.9rem;
+  }
+  .right-content input::placeholder{
+    font-size: 0.8rem;
+  }
+  .postform-written-area label{
+  /* color: red; */
+  font-size: 0.9rem;
+}
 
 }

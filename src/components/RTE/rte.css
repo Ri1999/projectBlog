@@ -78,6 +78,7 @@
      background-color: #eb8763 !important;
      color: #ffffff !important; 
 }
+
 @media screen and (max-width:768px) {
     .rte-container{
         max-width: 780px;
@@ -92,4 +93,30 @@
         width: 16%;
         border-radius: 4px;
     }
+}
+@media screen and (max-width:480px){
+    .rte-container{
+        /* max-width: 880px; */
+        width: 100%;
+    }
+    .rte-container button{
+        margin: 0;
+        width: auto;
+        border-radius: 4px;
+    }
+    .rte-container label{
+        /* font-size: 1; */
+        /* color: red; */
+        font-size: 0.9rem;
+    }
+    .tox.tox-tinymce {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .tox .tox-toolbar__group {
+    padding: 0 2px !important;
+  }
+
+    
 }
