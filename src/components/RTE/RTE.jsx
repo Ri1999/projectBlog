@@ -4,6 +4,8 @@ import { Controller } from "react-hook-form"
 import "./rte.css"
 import { useState } from "react"
 import { useRef } from "react"
+import { IoSunny } from "react-icons/io5";
+import { LuSunMoon } from "react-icons/lu";
 const RTE = ({ name = "content", control, label, defaultValue = "" }) => {
 
 // Props de diya par props aayega kisse?
@@ -66,13 +68,13 @@ const toogleMode =()=>{
         <button 
         
         style={{
-            backgroundColor:isDarkMode?"#687b86":"#101820",
-            color:isDarkMode?"whitesmoke":"whitesmoke",
+            backgroundColor:isDarkMode?"#7a7979":"#7a7979",
+            color:isDarkMode?"black":"gold",
             marginBottom:"8px",
         }}
         
         
-        onClick={toogleMode} type="button">{isDarkMode? "Midnight Ink":"Solar Flare"}</button>
+        onClick={toogleMode} type="button">{isDarkMode? <LuSunMoon/>:<IoSunny />}</button>
         <Controller
         // it need 3 primary props
         name={name}
@@ -100,10 +102,12 @@ const toogleMode =()=>{
                 // there are brading names on it which look aweful and Ui bad so
                 branding:false,
                 elementpath: false,
+                promotion: false,
                 toolbar_mode: 'wrap',
                 statusbar: false,
                 autofocus: true,
                 resize:false,
+                menubar:false,
                 toolbar_sticky: true,
                 selector: "textarea",
                 mobile:{

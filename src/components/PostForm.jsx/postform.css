@@ -236,5 +236,8 @@
   /* color: red; */
   font-size: 0.9rem;
 }
+.postform-written-area{
+  margin-top: 0px;
+}
 
 }

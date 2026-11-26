@@ -64,6 +64,7 @@
 
 .tox .tox-menubar, .tox .tox-toolbar, .tox .tox-toolbar__overflow, .tox .tox-toolbar__primary {
     background-color: whitesmoke !important;
+    /* border-radius: 100px; */
     /* color: red !important;  */
     /* border-bottom: 1px solid #1C1917 !important; */
 }
@@ -98,11 +99,18 @@
     .rte-container{
         /* max-width: 880px; */
         width: 100%;
+        border-radius: 8px;
+        /* background-color: none; */
+        box-shadow:none;
+        padding: 3px;
+        background-color: #181b1d;
     }
     .rte-container button{
         margin: 0;
+        /* min-width: 30px; */
         width: auto;
         border-radius: 4px;
+        padding: 3px 18px;
     }
     .rte-container label{
         /* font-size: 1; */
@@ -117,6 +125,7 @@
   .tox .tox-toolbar__group {
     padding: 0 2px !important;
   }
+  
 
     
 }
