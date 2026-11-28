@@ -1,0 +1,70 @@
+.upi-loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.upi-loading h1{
+    font-size: 1.5rem;
+    font-family: "Fondamento", cursive;
+    color: #e5b2a3;
+}
+.upi-loader{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.no-upi-message p{
+    font-size: 1.3rem;
+    color: #b54935;
+}
+.upi-id-message-box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    align-items: center;
+    font-family: 'Sansation', sans-serif;
+}
+.upi-id-message-box h4{
+    font-size: 1rem;
+    color: #b54935;
+}
+.amount-message, .final-support-message{
+    font-size: 0.8rem;
+}
+.amount-choice-message{
+    font-size: 1.4rem;
+}
+.final-support-message{
+    color: #b54935;
+}
+@media screen and (max-width:480px){
+    .upi-id-message-box h4{
+    font-size: 0.7rem;
+}
+.amount-message, .final-support-message{
+    font-size: 0.6rem;
+}
+.amount-choice-message{
+    font-size: 1rem;
+}
+.upi-id-message-box{
+    margin: 0px;
+    padding: 0px;
+    gap: 10px;
+}
+.the-qr-code{
+    width: 5rem;
+    height: 5rem;
+}
+.upi-loading h1{
+    font-size: 1rem;
+}
+.upi-loader{
+    width: 1rem;
+    height: 1rem;
+}
+.no-upi-message p{
+    font-size: 0.8rem;
+}
+}

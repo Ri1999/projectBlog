@@ -251,6 +251,10 @@
   .report-icon{
     color: #FBBF24;
   }
+.readpost-loader{
+  width: 1.5rem;
+  height: 1.5rem;
+}  
 
 @media screen and (max-width:768px) {
   .story-body button{
@@ -335,6 +339,13 @@
   }
   .author-cta-area{
     margin-top: 10px;
+  }
+  .readpost-loader{
+    width: 1rem;
+    height: 1rem;
+  }
+  .readpost-loading h1{
+    font-size: 1rem;
   }
   
 }

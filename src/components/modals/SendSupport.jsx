@@ -7,6 +7,9 @@ import {QRCodeSVG} from "qrcode.react"
 // import { FcLock } from "react-icons/fc";
 // import { FaGooglePay } from "react-icons/fa";
 // import { SiPaytm } from "react-icons/si";
+import "./upi.css"
+import { FaPen } from "react-icons/fa6";
+
 
 
 const SendSupport = ({authorId, authorName}) => {
@@ -44,14 +47,22 @@ const SendSupport = ({authorId, authorName}) => {
 
     if(loading){
         return (
-            <div style={{
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                // height:"60vh",
-                flexDirection:"column",
-                color: "#024524",
-            }} ><p><i>Connecting to the author's desk...</i></p><span className="spinning-animation" ><FiLoader color="green" size={40}/></span></div>
+            <div 
+
+            className='upi-loading'
+            
+            // style={{
+            //     display:"flex",
+            //     alignItems:"center",
+            //     justifyContent:"center",
+            //     // height:"60vh",
+            //     flexDirection:"column",
+            //     color: "#024524",
+            // }} 
+            
+            ><h1><i>Connecting to the author's desk. . .</i></h1><span className="animate-spin-custom" ><FaPen color="#344e41" 
+            className='upi-loader'
+            /></span></div>
         )
     }
 
@@ -59,18 +70,34 @@ const SendSupport = ({authorId, authorName}) => {
   return (
     <div  >
         {upiId? (
-            <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"20px", fontFamily:"Sansation, sans-serif", padding:"30px" }} >
+            <div 
+            
+            // style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"20px", fontFamily:"Sansation, sans-serif", padding:"30px" }}
+
+
+            className='upi-id-message-box'
+            
+            >
                 {/* <h2>Support the Author</h2> */}
 
                 <h4>P2P UPI Payment with 0% Platform Fees</h4>
 
                 {/* <p style={{ fontSize: "1.05rem",}} >Show your appreciation for this story.</p> */}
-                <div style={{ backgroundColor: "#3b8a46", padding: "8px 24px", borderRadius: "10px", border: "1px dashed #cbd5e1", margin: "4px 0" }}>
-                        <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: "#e6ebf3", display: "block", textTransform: "uppercase" }}>Enter Amount On Your Phone</span>
-                        <span style={{ fontSize: "1.8rem", fontWeight: "800", color: "#1e293b" }}>₹ Free Choice</span>
+                <div 
+                style={{ backgroundColor: "#3d6b4c", padding: "8px 20px", borderRadius: "4px", border: "1px dashed #cbd5e1", margin: "4px 0" }}
+                >
+                        <span className='amount-message'  style={{ fontWeight: "bold", color: "#e6ebf3", display: "block", textTransform: "uppercase" }}>Enter Amount On Your Phone</span>
+                        <span
+                        className='amount-choice-message'
+                        
+                        style={{ fontWeight: "800", color: "#faf8f5" }}
+                        
+                        >₹ Free Choice</span>
                     </div>
 
-                <QRCodeSVG color='green' value={upiUrl} size={160} level="H" />
+                <QRCodeSVG color='green' value={upiUrl}
+                className='the-qr-code'
+                level="H" />
                 {/* <p style={{ marginTop: "10px", fontWeight: "bold" }}>{upiId}</p> */}
 
                 {/* <p style={{ fontSize: "0.94rem", color: "#3b8a46" }}>Scan using Google Pay, PhonePe, or any UPI app • No Platform Fees</p> */}
@@ -84,15 +111,20 @@ const SendSupport = ({authorId, authorName}) => {
 
                     {/* <FaGooglePay size={30} /> <SiPaytm size={30} /> */}
 
-                    <div style={{ backgroundColor: "#ffffff", padding: "8px 24px", borderRadius: "6px", border: "1px dashed #000000", margin: "4px 0" }}>
-                        <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: "#000000", display: "block", textTransform: "uppercase" }}>Scan QR code and send your support</span>
+                    <div style={{ backgroundColor: "#ffffff", padding: "8px 24px", borderRadius: "4px", border: "1px dashed #000000", margin: "4px 0" }}>
+                        <span
+                        className='final-support-message'
+                        
+                        style={{fontWeight: "bold",display: "block", textTransform: "uppercase" }}>Scan QR code and send your support</span>
                     </div>
                     {/* <p>Author {authorName}</p> */}
 
 
             </div>
         ):(
-            <div style={{ textAlign: "center", padding: "10%", color: "#024524", lineHeight:"2rem" }} >
+            <div
+            className='no-upi-message'
+            >
                 <p>This author hasn't configured their UPI ID yet.</p>
             </div>
         )}

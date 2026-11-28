@@ -1,0 +1,51 @@
+.delete-message-box-subtext{
+    font-size: 1.4rem;
+    color: #b54935;
+    font-weight: 600;
+}
+.message-button-area{
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.deleteButton{
+    background-color: #b54935;
+    color: ivory;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Sansation', sans-serif;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+.cancelButton{
+    background-color: ivory;
+    color: #2b334e;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Sansation', sans-serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #2b334e;
+}
+.user-delete-message{
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #2b334e;
+}
+
+@media screen and (max-width:480px) {
+    .delete-message-box-subtext{
+        font-size: 0.9rem;
+    }
+    .deleteButton, .cancelButton{
+        font-size: 0.7rem;
+    }
+    .user-delete-message{
+        font-size: 0.7rem;
+    }
+}

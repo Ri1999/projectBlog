@@ -8,6 +8,7 @@ import { useSelector } from "react-redux"
 // import { useSearchParams } from "react-router-dom"
 // import services from "../../appwrite/major_config"
 // import { useState } from "react"
+import "./delete.css"
 const HosterUi = () => {
 
     const { open, triggerDelete , openModal, closeModal, manualClose } = useContext(hostStation)
@@ -36,38 +37,39 @@ const HosterUi = () => {
     }
     const messageBox={
         backgroundColor: "#f5f4f3",
-        padding: "34px",
-        borderRadius: "10px",
+        padding: "24px",
+        borderRadius: "6px",
         width: "90%",
         maxWidth: "400px",
         // boxShadow: "0 10px 25px rgba(166, 97, 97, 0.2)",
-        boxShadow: "0 5px 10px #283618",
+        // boxShadow: "0 5px 10px #283618",
+        boxShadow: "0 4px 12px #3a2702",
         textAlign: "center",
-        border:"1px solid rgb(228, 210, 112)",
+        // border:"1px solid rgb(228, 210, 112)",
     }
 
-    const cancelButton={
-        padding: "10px 16px",
-        borderRadius: "6px",
-        border: "1px solid #283618",
-        backgroundColor: "#283618",
-        cursor: "pointer",
-        fontWeight: "500",
-        color:"white",
-        fontFamily:"Sansation, sans-serif",
-        fontSize:"1rem",
-    }
-    const confirmButton={
-        padding: "8px 16px",
-        borderRadius: "6px",
-        border: "none",
-        backgroundColor: "#780000",
-        color: "#fff",
-        cursor: "pointer",
-        fontWeight: "500",
-        fontFamily:"Sansation, sans-serif",
-        fontSize:"1rem",
-    }
+    // const cancelButton={
+    //     padding: "10px 16px",
+    //     borderRadius: "6px",
+    //     border: "1px solid #283618",
+    //     backgroundColor: "#283618",
+    //     cursor: "pointer",
+    //     fontWeight: "500",
+    //     color:"white",
+    //     fontFamily:"Sansation, sans-serif",
+    //     fontSize:"1rem",
+    // }
+    // const confirmButton={
+    //     padding: "8px 16px",
+    //     borderRadius: "6px",
+    //     border: "none",
+    //     backgroundColor: "#780000",
+    //     color: "#fff",
+    //     cursor: "pointer",
+    //     fontWeight: "500",
+    //     fontFamily:"Sansation, sans-serif",
+    //     fontSize:"1rem",
+    // }
     const stopBubble =(e)=>{
         e.stopPropagation(); 
     }
@@ -81,13 +83,18 @@ const HosterUi = () => {
   return (
 
     <div onClick={closeModal} style={overlayBox} >
-        <div onClick={stopBubble} style={messageBox} >
+        <div className="delete-message-box" onClick={stopBubble} style={messageBox} >
             {/* HosterUi */}
-            <h3 style={{fontFamily:"Sansation, sans-serif", fontSize:"1.5rem"}} ></h3>
-            <p style={{fontSize:"1.4rem"}} >{`Do you want to erase these words?`}</p>
+            
+            <p className="delete-message-box-subtext" >{`Do you want to erase these words?`}</p>
 
-            <div style={{display:"flex", gap:"15px", justifyContent:"space-between", marginTop:"20px"}} >
-                <button onClick={manualClose} style={cancelButton} type="button">Nevermind</button>
+            <div
+
+            className="message-button-area"
+            
+            // style={{display:"flex", gap:"15px", justifyContent:"space-between", marginTop:"20px"}}
+            
+            >
                 <button onClick={()=>{
                     // closeModal()
                     // findMe()
@@ -97,15 +104,16 @@ const HosterUi = () => {
                     closeModal();
 
                 }}
-                style={confirmButton} type="button">Erase Forever</button>
+                className="deleteButton"
+                type="button">Erase Forever</button>
+
+                <button onClick={manualClose}
+                className="cancelButton"
+                
+                type="button">Nevermind</button>
 
             </div>
-            <p style={{
-                marginTop:"20px",
-                fontSize:"1rem",
-                color: "#024524",
-
-            }} >⚠️ Warning: Once deleted, this content cannot be recovered from our databases.</p>
+            <p className="user-delete-message" >⚠️ <b style={{color:"#b54935"}} >Warning:</b> Once deleted, this content cannot be recovered from our databases.</p>
 
         </div>
 

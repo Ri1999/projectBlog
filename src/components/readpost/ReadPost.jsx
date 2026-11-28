@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom"
 // import { FcPrevious } from "react-icons/fc";
 import { IoIosArrowBack } from "react-icons/io";
 import { ImBin } from "react-icons/im";
-import { FaPen } from "react-icons/fa6";
+// import { FaPen } from "react-icons/fa6";
 // import { VscReport } from "react-icons/vsc";
 // import { LuFlagTriangleRight } from "react-icons/lu";
 // import { IoPartlySunnyOutline } from "react-icons/io5";
@@ -47,6 +47,7 @@ import { FcDislike } from "react-icons/fc";
 // import blogauthservice from "../../appwrite/auth"
 import { Link } from "react-router-dom"
 import { FaHandHoldingHeart } from "react-icons/fa";
+import { FaPen } from "react-icons/fa6";
 // import { FcInfo } from "react-icons/fc";
 
 import { universalHostStation } from "../modals/host"
@@ -57,6 +58,7 @@ import SendSupport from "../modals/SendSupport"
 
 // import { FiCoffee } from "react-icons/fi";
 // import { TbTransactionRupee } from "react-icons/tb";
+
 const ReadPost = () => {
 
     const [font, setFontSize] = useState(17)
@@ -158,7 +160,9 @@ const ReadPost = () => {
     if (loading || !openPost || !LoggeduserId) {
         return <div className="readpost-loading">
             <h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}}  ><i>gathering the words. . .</i></h1>
-            <span className="animate-spin-custom" ><FiLoader color="#e90e0e" size={40}/></span>
+            <span className="animate-spin-custom" ><FaPen color="#344e41"
+            className="readpost-loader"
+            /></span>
         </div>
     }
 
