@@ -350,6 +350,9 @@ const handleLike = async()=>{
 
             // this will go in ReportModal.jsx as props
             reportSubmitFunction: async (formData)=>{
+                if(owner){
+                    return;
+                }
                 const reportbyArray = openPost?.reportBy ?? []
                 const isReported = reportbyArray.includes(LoggeduserId)
                 const reasonsArrayFromApi = openPost?.reportReasons ?? [];
@@ -424,7 +427,15 @@ const handleLike = async()=>{
             <p>Written by: {authorName}</p>
 
             <div className="story-banner-details" >
+
+                <div>
                 <span>{calculateReadTime(openPost.content)} <b>{statusOfStory? "Published":"Draft"}</b></span>
+                </div>
+
+
+                <div className="user-gesture-buttons" >
+
+
 
 {/* onClick={()=>deleteStory()} */}
             {owner && <button className="delete-button" onClick={()=>{
@@ -447,10 +458,11 @@ const handleLike = async()=>{
 
             {/* report  - condition is !owner*/}
 
-            <button disabled={loading} onClick={handleReport} className="report-button" type="button"><FiAlertTriangle className="report-icon" /></button>
+            {!owner &&<button disabled={loading} onClick={handleReport} className="report-button" type="button"><FiAlertTriangle className="report-icon" /></button>}
 
 
                 <button onClick={()=>backTopost()} type="button"><IoIosArrowBack className="back-arrow-icon" /></button>
+                </div>
 
             
             </div>

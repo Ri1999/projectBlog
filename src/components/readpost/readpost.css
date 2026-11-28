@@ -255,6 +255,11 @@
   width: 1.5rem;
   height: 1.5rem;
 }  
+.user-gesture-buttons{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
 
 @media screen and (max-width:768px) {
   .story-body button{
@@ -300,16 +305,16 @@
   }
   .story-banner-overlay{
     padding: 5px;
-    background: linear-gradient(to top, rgba(28, 23, 20, 0.98) 0%, rgba(28, 23, 20, 0.65) 65%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to top, rgba(28, 23, 20, 0.98) 0%, rgba(28, 23, 20, 0.65) 85%, rgba(0, 0, 0, 0) 100%);
   }
   .like-icon, .dislike-icon, .report-icon, .back-arrow-icon{
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
   }
   .delete-icon, .edit-icon{
     /* font-size: 1.5rem; */
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     /* color: ; */
   }
   
@@ -346,6 +351,13 @@
   }
   .readpost-loading h1{
     font-size: 1rem;
+  }
+  .story-banner-details{
+    flex-direction: column;
+  }
+  .user-gesture-buttons{
+    margin-top: 10px;
+    width: 100%;
   }
   
 }
