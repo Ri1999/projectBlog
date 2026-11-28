@@ -245,6 +245,12 @@
 
   padding: 0;
 }
+.like-icon{
+    color: #FB7185;
+  }
+  .report-icon{
+    color: #FBBF24;
+  }
 
 @media screen and (max-width:768px) {
   .story-body button{
@@ -263,8 +269,8 @@
   .author-cta-area{
     flex-direction: row;
     /* border: 1px solid #f1e4c9 ; */
-    border-radius: 10px;
-    padding: 4px 8px;
+    border-radius: 4px;
+    padding: 2px 5px;
     /* gap: 10px; */
   }
   .author-tip,.author-info, .author-cta-area p{
@@ -276,5 +282,59 @@
 
 
 
+  
+}
+@media screen and (max-width:480px){
+  .story-banner-overlay h1{
+    font-size: 1.1rem;
+  }
+  .story-banner-overlay p{
+    font-size: 0.8rem;
+  }
+  .story-banner-details span{
+    font-size: 0.6rem;
+  }
+  .story-banner-overlay{
+    padding: 5px;
+    background: linear-gradient(to top, rgba(28, 23, 20, 0.98) 0%, rgba(28, 23, 20, 0.65) 65%, rgba(0, 0, 0, 0) 100%);
+  }
+  .like-icon, .dislike-icon, .report-icon, .back-arrow-icon{
+    width: 14px;
+    height: 14px;
+  }
+  .delete-icon, .edit-icon{
+    /* font-size: 1.5rem; */
+    width: 12px;
+    height: 12px;
+    /* color: ; */
+  }
+  
+  .like-icon{
+    color: #FB7185;
+  }
+  .report-icon{
+    color: #FBBF24;
+  }
+  .story-body{
+    padding: 10px;
+  }
+  .story-body p{
+    font-size: 0.8rem;
+  }
+  .font-up-down button{
+    font-size: 0.7rem;
+  }
+  .story-body article{
+    font-size: 0.8rem;
+  }
+  .author-tip,.author-info, .author-cta-area p{
+    font-size: 0.7rem;
+  }
+  .author-cta-area button{
+    font-size: 0.7rem;
+  }
+  .author-cta-area{
+    margin-top: 10px;
+  }
   
 }

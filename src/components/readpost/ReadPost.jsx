@@ -59,7 +59,7 @@ import SendSupport from "../modals/SendSupport"
 // import { TbTransactionRupee } from "react-icons/tb";
 const ReadPost = () => {
 
-    const [font, setFontSize] = useState(20)
+    const [font, setFontSize] = useState(18)
 
     const increaseFont = () => setFontSize((prev) => prev + 2);
 
@@ -94,7 +94,7 @@ const ReadPost = () => {
     }
     
     const LoggeduserId = useSelector((state)=> state.auth.userData?.$id)
-    const user = useSelector((state)=> state.auth.userData)
+    // const user = useSelector((state)=> state.auth.userData)
 
     
 
@@ -450,13 +450,13 @@ const handleLike = async()=>{
     </div>
 
     <div style={{backgroundColor:theme?"#54452a80":"#F8F9FA"}} className="story-body" >
-        <p><FcLike size={18} /> {openPost?.like ?? 0} <FcDislike size={18} /> {openPost?.dislike ?? 0} 
+        <p><FcLike  /> {openPost?.like ?? 0} <FcDislike  /> {openPost?.dislike ?? 0} 
 
             <span>
             
             </span>
             <span style={{marginLeft:"7px"}} >
-            <FiAlertTriangle size={18} color="#da9005" /> {openPost?.report ?? 0}</span>
+            <FiAlertTriangle color="#da9005" /> {openPost?.report ?? 0}</span>
             {/* <span></span> */}
             {/* <Link>The Pen Behind</Link> */}
 
@@ -490,7 +490,7 @@ const handleLike = async()=>{
 
             <p><Link className="author-info" to={`/author/${openPost?.userId}`} >Behind the Ink</Link></p>
             {/* <Link className="author-info" >Loved this? </Link> */}
-            <button className="author-tip" onClick={()=>handleSendSupport()}  type="button">Send <FaHandHoldingHeart color="#ed7d7d" size={20} /></button> 
+            <button className="author-tip" onClick={()=>handleSendSupport()}  type="button">Send <FaHandHoldingHeart color="#ed7d7d" /></button> 
         </div>
 
     </div>
