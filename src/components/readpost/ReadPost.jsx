@@ -61,7 +61,10 @@ import SendSupport from "../modals/SendSupport"
 
 const ReadPost = () => {
 
-    const [font, setFontSize] = useState(17)
+    const [font, setFontSize] = useState(()=>{
+        if (typeof window === "undefined") return 20;
+        return window.innerWidth < 480 ? 13 : 20;
+    })
 
     const increaseFont = () => setFontSize((prev) => prev + 2);
 
