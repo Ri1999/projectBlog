@@ -59,7 +59,7 @@ import SendSupport from "../modals/SendSupport"
 // import { TbTransactionRupee } from "react-icons/tb";
 const ReadPost = () => {
 
-    const [font, setFontSize] = useState(18)
+    const [font, setFontSize] = useState(17)
 
     const increaseFont = () => setFontSize((prev) => prev + 2);
 
@@ -402,7 +402,10 @@ const handleLike = async()=>{
 
 
   return (
-    <div className="story-page-wrapper" >
+    <div className="story-page-wrapper"
+    style={{backgroundColor:theme?"#54452a80":"#F8F9FA"}}
+    
+    >
     {/* <img src= alt="" /> */}
     <div className="story-header" >
         <img height="100%" width="100%" src={services.getFileView(openPost.featuredImage)} alt="" /> 

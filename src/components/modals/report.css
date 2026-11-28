@@ -1,0 +1,92 @@
+.report-outer{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.report-outer h3{
+    font-family: 'Sansation', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #b54935;
+}
+.report-outer-subtext{
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #2b334e;
+}
+.report-form-outer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+.report-form-outer select {
+  font-size: 1.1rem;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: #c68346;
+  /* color: #faf8f5; */
+  color: #2b334e;
+  font-family: "Sansation", sans-serif;
+  width: 100%;
+  border: 1px solid #c68346;
+  outline: none;
+}
+.report-form-outer select option {
+  /* background-color: #1c1714; */
+  color: whitesmoke;
+}
+.report-form-outer textarea{
+    width: 100%;
+    height: 180px;
+    padding: 10px;
+    resize: none;
+    font-size: 1.2rem;
+    font-family: 'Sansation', sans-serif;
+}
+.report-form-outer button{
+    background-color: #2b334e;
+    font-size: 1.1rem;
+    padding: 4px 28px;
+    border: none;
+    color: ivory;
+    font-family: 'Sansation', sans-serif;
+    transition: 0.1s ease-in-out;
+}
+.report-form-outer button:hover{
+    cursor: pointer;
+    background-color: #b54935;
+}
+.report-error-text{
+    font-size: 1rem;
+}
+@media screen and (max-width:480px) {
+    .report-outer h3{
+        font-size: 1rem;
+    }
+    .report-outer-subtext{
+        font-size: 0.9rem;
+    }
+    .report-form-outer select{
+        font-size: 0.9rem;
+        /* width: 20%; */
+    }
+    .report-form-outer textarea{
+        font-size: 0.9rem;
+        height: 100px;
+    }
+    .report-form-outer button{
+        font-size: 0.9rem;
+    }
+    .report-error-text{
+        font-size: 0.8rem;
+    }
+    .report-outer{
+        margin: 5px;
+    }
+}

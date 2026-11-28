@@ -3,23 +3,24 @@
 import SelectComponent from "../SelectComponent"
 
 import { useForm } from 'react-hook-form'
+import "./report.css"
 
 const ReportModal = ({closeUniveModal, reportSubmitFunction }) => {
 
     const {register, handleSubmit, reset, formState:{errors} } = useForm()
     
     const REPORT_REASONS = [
-        "Plagiarized Story (Copied from author/platform)",
+        "Plagiarized Story",
         "AI-Generated Dump",
         "Copyrighted Material",
-        "Religiously Insulting, or Disrespect to Faiths",
-        "Adult Sexual Content without Warning",
+        "Religiously Insulting,",
+        // "Adult Sexual Content without Warning",
         "Self-Harm Encouragement",
         "Hate Speech in Story",
         "Targeted Bullying in Story",
         "Misleading in Story",
         "Spam, Promotional Link Dump",
-        "Violates Inksight Community Guidelines",
+        "Violates Community Guidelines",
         "Other"
 
 
@@ -46,11 +47,16 @@ const reportSubmit = async (formData)=>{
 
 
   return (
-    <div style={{width:"100%",marginTop:"20px", marginBottom:"20px"} } >
-        <h3 style={{textAlign:"center", fontFamily:"Sansation, sans-serif",fontSize:"1.5rem"}} >Report Story for Review</h3>
-        <p style={{textAlign:"center", marginBottom:"10px", fontSize:"1.1rem"}} >Help us understand what's wrong with this story</p>
+    <div className="report-outer">
+        <h3 >Report Story for Review</h3>
+        <p className="report-outer-subtext" >Help us understand what's wrong with this story</p>
         <>
-        <form onSubmit={handleSubmit(reportSubmit)} style={{marginTop:"30px",display:"flex", flexDirection:"column", width:"90%", alignItems:"center", justifyContent:"center", gap:"10px", margin:"auto"}} >
+        <form onSubmit={handleSubmit(reportSubmit)}
+        className="report-form-outer"
+        
+        // style={{marginTop:"30px",display:"flex", flexDirection:"column", width:"90%", alignItems:"center", justifyContent:"center", gap:"10px", margin:"auto"}}
+        
+        >
             <SelectComponent
             label="reportcategory"
             error={errors.reportcategory?.message}
@@ -58,45 +64,65 @@ const reportSubmit = async (formData)=>{
             {...register("reportcategory",{required:"Report Category is required",
                 
             })}
-            style={{
-                fontSize:"1.1rem",
-                borderRadius:"2px",
-                padding:"4px",
-                backgroundColor:"#283618",
-                color:"whitesmoke",
-                fontFamily: "Sansation, sans-serif",
-                width:"100%"
+
+
+            // style={{
+            //     fontSize:"1.1rem",
+            //     borderRadius:"2px",
+            //     padding:"4px",
+            //     backgroundColor:"#283618",
+            //     color:"whitesmoke",
+            //     fontFamily: "Sansation, sans-serif",
+            //     width:"100%"
                 
-            }}
+            // }}
             
             />
             <textarea name="" id=""
             label="reportText"
-            placeholder='Explain in details...'
-            {...register("reportText",{required:"Don't leave us hanging—add a few more details.",
+            placeholder='Explain in details. . .'
+            {...register("reportText",{required:"Pls explain the issue",
                 validate: {
       notEmpty: (value) => 
         /\S+/.test(value) || "You cannot submit report with an empty box or just spaces"
     }
             })}
-            style={{
-                height:"180px",
-                resize:"none",
-                // width:"800px",
-                width:"100%",
-                borderRadius:"2px",
-                padding:"10px",
-                fontSize:"1.3rem",
-            }}
+
+
+            // style={{
+            //     height:"180px",
+            //     resize:"none",
+            //     // width:"800px",
+            //     width:"100%",
+            //     borderRadius:"2px",
+            //     padding:"10px",
+            //     fontSize:"1.3rem",
+            // }}
+
+
             >
 
             </textarea>
             {errors.reportText && (
-                <p style={{ color: "red", fontSize: "1rem", marginTop: "4px" }} >{errors.reportText.message}</p>
+                <p 
+
+                // className="error"
+                className="report-error-text"
+                
+                style={{ color: "red", }}
+                
+                
+                >{errors.reportText.message}</p>
             )}
             {/* <button type="submit">Submit</button> */}
 
-            <button style={{width:"40%", padding:"10px 20px", borderRadius:"4px", border:"none", background:"transparent", backgroundColor:"#780000", color:"whitesmoke", fontSize:"1rem",fontFamily: "Sansation, sans-serif", cursor:"pointer" }} type="submit">Sumbit</button>
+            <button 
+            
+            // style={{width:"40%", padding:"10px 20px", borderRadius:"4px", border:"none", background:"transparent", backgroundColor:"#780000", color:"whitesmoke", fontSize:"1rem",fontFamily: "Sansation, sans-serif", cursor:"pointer" }} 
+            
+            
+            type="submit">Sumbit</button>
+
         </form>
         </>
         

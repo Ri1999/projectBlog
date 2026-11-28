@@ -25,13 +25,14 @@ const BaseModal = ({children}) => {
     const messageBox={
         backgroundColor: "#f5f4f3",
         padding: "24px",
-        borderRadius: "10px",
+        borderRadius: "6px",
         width: "90%",
         maxWidth: "500px",
         // boxShadow: "0 10px 25px rgba(166, 97, 97, 0.2)",
-        boxShadow: "0 5px 10px #283618",
+        // boxShadow: "0 5px 10px #283618",
+        boxShadow: "0 4px 12px #3a2702",
         textAlign: "center",
-        border:"1px solid rgb(228, 210, 112)",
+        // border:"1px solid rgb(228, 210, 112)",
     }
      const stopBubble =(e)=>{
         e.stopPropagation(); 
