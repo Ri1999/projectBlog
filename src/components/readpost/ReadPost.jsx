@@ -173,7 +173,8 @@ const ReadPost = () => {
     // console.log("works: ", owner)
     // console.log("works for fireld: ", fileID)
     // console.log("tick: ", greentick)
-    const statusOfStory = checkStatus(openPost)
+    const statusOfStory = checkStatus(openPost.status)
+    // console.log("doubt: ", statusOfStory)
     // const AuthorId =  openPost?.userId
 
     const deleteStory = async()=>{

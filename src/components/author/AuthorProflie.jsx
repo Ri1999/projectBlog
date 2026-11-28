@@ -23,6 +23,7 @@ import { GiLotusFlower } from "react-icons/gi";
 import { RiPenNibLine } from "react-icons/ri";
 import { FcLike } from "react-icons/fc";
 import { FiArrowLeftCircle } from "react-icons/fi";
+import { FaPen } from "react-icons/fa6";
 // import { GoFileSymlinkFile } from "react-icons/go";
 // import { FcTreeStructure } from "react-icons/fc";
 // import { useNavigate } from "react-router-dom"
@@ -53,7 +54,7 @@ const AuthorProflie = () => {
 
 
         if(selfProfile){
-            navigate("/inkStation", { replace: true })
+            // navigate("/inkStation", { replace: true })
         }
 
         const meetAuthor = async()=>{
@@ -80,8 +81,11 @@ const AuthorProflie = () => {
 
     if(loading || !authorPosts){
         return <div className="authprofile-loading" >
-            <h1><i>Connecting you with the author...</i></h1>
-            <span className="authprofile-spin-animate" ><FiLoader  color="green" size={40}/></span>
+            <h1 style={{color:"#e5b2a3",fontFamily:"Fondamento, cursive",}} ><i>connecting you with the author. . .</i></h1>
+            <span className="animate-spin-custom" ><FaPen  color="#344e41"
+            
+            className="author-profile-loader"
+            /></span>
         </div>
     }
     
@@ -167,12 +171,12 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
 
   return (
     <div className="author-container" >
-        <h1>{authorName} <span style={{fontSize:"1.2rem"}} >({authorRankName.title})</span></h1>
+        <h1>{authorName} <span className="author-rank-name" >({authorRankName.title})</span></h1>
         {/* <p>{publishedCount} Stories <SiWikibooks color="green" /></p> */}
         <div className="total-stats">
-            <p>Written <b>{publishedCount}</b> {publishedCount === 1 ? "Story" : "Stories"} <SiWikibooks size={28} color="green" /></p>
-            <p><b>{totalContent}</b> Words <RiPenNibLine size={28} color="#0882a4" /></p>
-            <p><b>{likeData}</b> {likeData === 1?"Like":"Likes"} <FcLike size={25}  /></p>
+            <p>Written <b>{publishedCount}</b> {publishedCount === 1 ? "Story" : "Stories"} <SiWikibooks color="green" /></p>
+            <p><b>{totalContent}</b> Words <RiPenNibLine color="#b54935" /></p>
+            <p><b>{likeData}</b> {likeData === 1?"Like":"Likes"} <FcLike  /></p>
         </div>
         {/* <hr /> */}
         <div className="author-content" >
@@ -190,7 +194,7 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
         <div key={post.$id} className="story-card">
             <h3>{post.title}</h3>
             {/* <h3>test</h3> */}
-            <li ><Link className="author-slug" to={`/ink-creations/${post.slug}`} ><RxReader color="green" size={25} />/Start Reading</Link></li>
+            <li ><Link className="author-slug" to={`/ink-creations/${post.slug}`} ><RxReader color="green" />/Start Reading</Link></li>
            
         </div>
     ))}
@@ -199,8 +203,12 @@ const authorName = authorPosts.documents?.find(post => post.userName)?.userName 
             </div>
             <div className="author-stats-panel">
                 
-                <button onClick={returnToStudy} type="button"><FiArrowLeftCircle size={28} color="#344e41" /></button>
+                <button onClick={returnToStudy} type="button"><FiArrowLeftCircle
+                className="author-profile-back-button"
+                 /></button>
+                 
             </div>
+            <p className="extra-guide" >(scroll to top)</p>
         </div>
     </div>
   )

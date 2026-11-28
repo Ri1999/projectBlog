@@ -18,7 +18,8 @@
 .author-container h1{
     text-align: center;
     font-family: 'Fondamento', cursive;
-    color: #012a35;
+    color: #2b334e;
+    /* color: red; */
 }
 .total-stats{
     display: flex;
@@ -57,7 +58,7 @@
 .author-slug{
     text-decoration: none;
     /* columns: ; */
-    color: #012a35;
+    color: #2b334e;
 }
 .author-slug:hover{
     color: #31743e;
@@ -74,7 +75,7 @@
     /* box-shadow: 1px 0 6px #023047; */
     /* padding: 10px 16px; */
     padding-top: 10px;
-    border-radius: 8px;
+    border-radius: 6px;
      font-family: 'Fondamento', cursive;
      /* overflow: auto; */
     
@@ -85,6 +86,7 @@
     font-size: 1.1rem;
     font-weight: 650;
 }
+
 .author-stats-panel{
     display: flex;
     align-items: center;
@@ -99,11 +101,12 @@
     transition: 0.2s ease-in-out;
     font-weight: 520;
     font-family: 'Sansation', sans-serif;
+    color:  #c68346;
     
     
 }
 .author-stats-panel button:hover{
-    color: #780000;
+    /* color: #780000; */
     transform: scale(1.1);
 }
 .authprofile-loading{
@@ -120,6 +123,27 @@
 .authprofile-spin-animate{
     animation: spin 2s linear infinite;
 }
+.author-profile-loader{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.author-rank-name{
+    font-size: 1.4rem;
+    color: #b54935;
+}
+.author-profile-back-button{
+    width: 2rem;
+    height: 2rem;
+}
+.story-card h3{
+    color: #b54935;
+}
+.extra-guide{
+    font-size: 1rem;
+    font-family: 'Fondamento', cursive;
+    text-align: center;
+
+}
 
 
 
@@ -134,4 +158,45 @@
         
     } */
 
+}
+@media screen and (max-width:480px){
+    .author-container h1{
+        font-size: 1.1rem;
+    }
+    .author-rank-name{
+    font-size: 0.9rem;
+    }
+    .total-stats p{
+        font-size: 0.8rem;
+    }
+    .story-card li, .story-card h3{
+        font-size: 0.8rem;
+    }
+    .author-profile-back-button{
+    width: 1rem;
+    height: 1rem;
+    }
+    .author-container{
+        margin-top: 10px;
+    }
+    .authprofile-loading h1{
+        font-size: 1.1rem;
+    }
+    .author-profile-loader{
+        width: 1rem;
+        height: 1rem;
+    }
+    .extra-guide{
+        font-size: 0.7rem;
+    }
+    .total-stats{
+        width: 100%;
+        padding: 0px;
+    }
+    .author-content{
+        /* border: 1px solid gold; */
+        /* padding: 15px; */
+        /* background-color: whitesmoke; */
+        border-radius: 4px;
+    }
 }
