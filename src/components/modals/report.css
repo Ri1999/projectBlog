@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin: 0 auto;
+    margin: auto;
 }
 .report-form-outer select {
   font-size: 1.1rem;
@@ -33,13 +33,14 @@
   /* color: #faf8f5; */
   color: #2b334e;
   font-family: "Sansation", sans-serif;
-  width: 100%;
+  width: 100vw;
   border: 1px solid #c68346;
   outline: none;
 }
 .report-form-outer select option {
   /* background-color: #1c1714; */
   color: whitesmoke;
+  /* width: 100%; */
 }
 .report-form-outer textarea{
     width: 100%;
@@ -53,6 +54,7 @@
     background-color: #2b334e;
     font-size: 1.1rem;
     padding: 4px 28px;
+    border-radius: 4px;
     border: none;
     color: ivory;
     font-family: 'Sansation', sans-serif;
@@ -67,26 +69,31 @@
 }
 @media screen and (max-width:480px) {
     .report-outer h3{
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .report-outer-subtext{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .report-form-outer select{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         /* width: 20%; */
     }
     .report-form-outer textarea{
-        font-size: 0.9rem;
-        height: 100px;
+        font-size: 0.8rem;
+        height: 120px;
     }
     .report-form-outer button{
         font-size: 0.9rem;
+        padding: 4px 28px;
     }
     .report-error-text{
         font-size: 0.8rem;
     }
     .report-outer{
-        margin: 5px;
+        /* margin: 5px; */
+        margin-top: 5px;
+        margin-bottom: 5px;
+        /* margin-left: 0px; */
     }
+    
 }

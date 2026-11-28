@@ -400,6 +400,7 @@ const handleLike = async()=>{
 
     
 
+    // Yes, exactly—when two semi-transparent colors sit on top of each other, they stack like tinted glass and create a darker shade where they overlap.
 
   return (
     <div className="story-page-wrapper"
@@ -452,7 +453,12 @@ const handleLike = async()=>{
 
     </div>
 
-    <div style={{backgroundColor:theme?"#54452a80":"#F8F9FA"}} className="story-body" >
+    <div 
+    
+    // style={{backgroundColor:theme?"#54452a80":"#F8F9FA"}} 
+    
+    
+    className="story-body" >
         <p><FcLike  /> {openPost?.like ?? 0} <FcDislike  /> {openPost?.dislike ?? 0} 
 
             <span>
